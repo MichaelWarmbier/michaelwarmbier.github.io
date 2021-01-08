@@ -7,7 +7,20 @@ body {
   top:0; right:0; left:0; bottom:0;
   width:408px;
   height:600px;
-  background-color:black;
+}
+
+#LogContainer {
+  position: absolute; margin:auto;
+  top:0; right:-848px; left:0; bottom:0;
+  width:400px;
+  height:600px;
+}
+
+#InfoContainer {
+  position: absolute; margin:auto;
+  top:0; right:0; left:-848px; bottom:0;
+  width:400px;
+  height:600px;
 }
 
 .GameSprite {
