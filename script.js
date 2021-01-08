@@ -11,7 +11,6 @@ let gameState = "MainMenu";  // MainMenu OR Gameplay
 const FPS = 60;
 
 let soundON = true;
-let musicON = true;
 let menuCursor = 1;
 
 let topLeft = [4,1];
@@ -191,8 +190,8 @@ function logic() {
  if (gameState == "MainMenu" && !isPaused) {
    if (menuCursor < 1)
     menuCursor = 1;
-   if (menuCursor > 3)
-    menuCursor = 3;
+   if (menuCursor > 2)
+    menuCursor = 2;
     spriteValues[6][7] = 43; spriteValues[8][9] = 43; spriteValues[10][9] = 43;
    if (menuCursor == 1)
     spriteValues[6][7] = 59;
@@ -204,10 +203,7 @@ function logic() {
     spriteValues[8][8] = 47; 
    else
     spriteValues[8][8] = 50;
-   if (musicON)
-    spriteValues[10][8] = 47;
-   else
-    spriteValues[10][8] = 50;
+
   }
 
   if (gameState == "Gameplay" && !isPaused) {
@@ -614,7 +610,7 @@ const defaultValues = [
   [51,43,43,43,43,43,43,43,43,43,43,51,36,51,00,00,51],
   [51,43,28,24,30,23,13,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,37,51,00,00,51],
-  [51,43,22,30,28,18,12,43,43,43,43,51,51,51,51,51,51],
+  [51,43,43,43,43,43,43,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,38,51,00,00,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,39,51,00,00,51],
