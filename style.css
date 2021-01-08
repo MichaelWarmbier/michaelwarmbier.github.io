@@ -5,8 +5,8 @@ body {
 #GameContainer {
   position: absolute; margin:auto;
   top:0; right:0; left:0; bottom:0;
-  width:272px;
-  height:400px;
+  width:408px;
+  height:600px;
   background-color:black;
 }
 
@@ -17,6 +17,11 @@ body {
   -o-background-size: cover;
   background-size: cover;
   float:left;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 25px;
+}
+
+p, pre {
+  font-family: 'Roboto Mono', monospace;
+  color:white;
 }
