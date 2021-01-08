@@ -240,6 +240,7 @@ function logic() {
 
       setTimeout(function() { 
     
+        gameState = "None";
         location.reload();
 
       }, 5000)
