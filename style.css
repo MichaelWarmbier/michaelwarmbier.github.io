@@ -5,8 +5,8 @@ body {
 #GameContainer {
   position: absolute; margin:auto;
   top:0; right:0; left:0; bottom:0;
-  width:544px;
-  height:800px;
+  width:272px;
+  height:400px;
   background-color:black;
 }
 
@@ -17,6 +17,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
   float:left;
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
 }
