@@ -4,14 +4,14 @@ body {
 
 #GameContainer {
   position: absolute; margin:auto;
-  top:0; right:0; left:0; bottom:0;
+  top:50px; right:0; left:0; 
   width:408px;
   height:600px;
 }
 
 #LogContainer {
   position: absolute; margin:auto;
-  top:0; right:-848px; left:0; bottom:0;
+  top:50px; right:-848px; left:0;
   width:400px;
   height:600px;
 }
@@ -19,7 +19,7 @@ body {
 #InfoContainer {
   font-size:14px;
   position: absolute; margin:auto;
-  top:0; right:0; left:-848px; bottom:0;
+  top:50px; right:0; left:-848px;
   width:400px;
   height:600px;
 }
