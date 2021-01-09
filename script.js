@@ -4,10 +4,10 @@ document.body.onload = menuSetup;
 
 const gameContainer = document.getElementById("GameContainer");
 const sprite = document.getElementsByClassName("GameSprite");
-let fallSound = new sound("Sounds/fall.wav");
-let blipSound = new sound("Sounds/blip.wav");
-let gameoverSound = new sound("Sounds/gameover.wav");
-
+let fallSound = new sound("Audio/fall.wav", .2);
+let blipSound = new sound("Audio/blip.wav", .1);
+let gameoverSound = new sound("Audio/gameover.wav", .6);
+let musicSound = new sound("Audio/music.wav", .6);
 
 const WIDTH = 17;
 const HEIGHT = 25;
@@ -15,6 +15,7 @@ let gameState = "MainMenu";  // MainMenu OR Gameplay
 const FPS = 60;
 
 let soundON = true;
+let musicON = true;
 let menuCursor = 1;
 
 let topLeft = [4,1];
@@ -66,13 +67,13 @@ function gameSetup() {
 
 ////////// Sound object
 
-function sound(src) {
+function sound(src, vol) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
   this.sound.setAttribute("preload", "auto");
   this.sound.setAttribute("controls", "none");
   this.sound.style.display = "none";
-  this.sound.volume = .2;
+  this.sound.volume = vol;
   document.body.appendChild(this.sound);
   this.play = function(){
     this.sound.play();
@@ -81,6 +82,13 @@ function sound(src) {
     this.sound.pause();
   }
 }
+
+setInterval( function() {
+  if (musicON)
+    musicSound.play();
+  else
+    musicSound.stop();
+}, 0)
 
 ////////// Main Routines
 
@@ -195,6 +203,8 @@ function input(event) {
             soundON = !soundON;
             if (soundON) blipSound.play();
           }
+          if (menuCursor == 3)
+            musicON = !musicON;
        break;
         case "Gameplay":
           isPaused = !isPaused;
@@ -224,8 +234,8 @@ function logic() {
  if (gameState == "MainMenu" && !isPaused) {
    if (menuCursor < 1)
     menuCursor = 1;
-   if (menuCursor > 2)
-    menuCursor = 2;
+   if (menuCursor > 3)
+    menuCursor = 3;
     spriteValues[6][7] = 43; spriteValues[8][9] = 43; spriteValues[10][9] = 43;
    if (menuCursor == 1)
     spriteValues[6][7] = 59;
@@ -237,6 +247,10 @@ function logic() {
     spriteValues[8][8] = 47;
    else
     spriteValues[8][8] = 50;
+    if (musicON)
+     spriteValues[10][8] = 47;
+    else
+     spriteValues[10][8] = 50;
 
   }
 
@@ -258,6 +272,8 @@ function logic() {
   }
 
   if (gameState == "Gameover") {
+
+    musicON = false;
 
     if (solidBlocks < 190 && solidBlocks >= 0)
       spriteValues[20 - Math.floor(solidBlocks / 10)][1 + solidBlocks % 10] = 46;
@@ -654,7 +670,7 @@ const defaultValues = [
   [51,43,43,43,43,43,43,43,43,43,43,51,36,51,00,00,51],
   [51,43,28,24,30,23,13,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,37,51,00,00,51],
-  [51,43,43,43,43,43,43,43,43,43,43,51,51,51,51,51,51],
+  [51,43,22,30,28,18,12,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,38,51,00,00,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,51,51,51,51,51],
   [51,43,43,43,43,43,43,43,43,43,43,51,39,51,00,00,51],
