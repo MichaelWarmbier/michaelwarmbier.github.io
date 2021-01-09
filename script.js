@@ -228,6 +228,11 @@ function logic() {
     if (solidBlocks < 190 && solidBlocks >= 0)
       spriteValues[20 - Math.floor(solidBlocks / 10)][1 + solidBlocks % 10] = 46;
     else if (solidBlocks >= 190) {
+
+      for (y = 2; y < 21; y++)
+        for (x = 1; x < 11; x++)
+          spriteValues[y][x] = 46;
+      
       spriteValues[9][4] = 16;
       spriteValues[9][5] = 10;
       spriteValues[9][6] = 22;
@@ -241,6 +246,7 @@ function logic() {
       setTimeout(function() { 
     
         gameState = "None";
+        
         location.reload();
 
       }, 5000)
@@ -248,7 +254,6 @@ function logic() {
     }
 
   }
-
 
   if (level > 999)
     level = 999;
