@@ -16,13 +16,13 @@ body {
 
 #TitleContainer {
   position: absolute; margin:auto;
-  top:-670px; right:0; left:0; bottom:0;
+  top:15px; right:0; left:0;
   width:400px; height:20px;
 }
 
 #VersionContainer {
   position: absolute; margin:auto;
-  top:670px; right:-650px; left:0; bottom:0;
+  top:690px; right:-650px; left:0;
   width:400px; height:20px;
   font-size:12px;
 }
