@@ -4,6 +4,10 @@ document.body.onload = menuSetup;
 
 const gameContainer = document.getElementById("GameContainer");
 const sprite = document.getElementsByClassName("GameSprite");
+let fallSound = new sound("Sounds/fall.wav");
+let blipSound = new sound("Sounds/blip.wav");
+let gameoverSound = new sound("Sounds/gameover.wav");
+
 
 const WIDTH = 17;
 const HEIGHT = 25;
@@ -15,7 +19,7 @@ let menuCursor = 1;
 
 let topLeft = [4,1];
 let fallingTetro = -1;
-let fallingSpeed = 800; 
+let fallingSpeed = 800;
 let activePause = false;
 let tetroRotation = 1;
 let solidBlocks = -1;
@@ -33,7 +37,7 @@ function menuSetup() {
     for (x = 0; x < WIDTH; x++) {
       newElem = document.createElement("div");
       newElem.className = "GameSprite";
-      gameContainer.appendChild(newElem);    
+      gameContainer.appendChild(newElem);
     }
   }
 
@@ -60,10 +64,28 @@ function gameSetup() {
 
 }
 
+////////// Sound object
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  this.sound.volume = .2;
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
 ////////// Main Routines
 
 ///// DRAW()
-setInterval( 
+setInterval(
 function draw() {
 
   for (y = 0; y < HEIGHT; y++) {
@@ -80,7 +102,7 @@ function draw() {
   }
 
   for (x = 8; x < 11; x++)
-    
+
   spriteValues[22][8] = Math.floor(level / 100);
   spriteValues[22][9] = Math.floor((level - (Math.floor(level / 100) * 100)) / 10);
   spriteValues[22][10] = level % 10;
@@ -88,12 +110,12 @@ function draw() {
   spriteValues[23][8] = Math.floor(lines / 100);
   spriteValues[23][9] = Math.floor((lines - (Math.floor(lines / 100) * 100)) / 10);
   spriteValues[23][10] = lines % 10;
-    
+
 
 }, (1000 / FPS));
 
 ///// INPUT()
-document.addEventListener("keydown", 
+document.addEventListener("keydown",
 function input(event) {
 
   if (event.defaultPrevented) {
@@ -106,6 +128,7 @@ function input(event) {
     case "s":
         switch (gameState) {
           case "MainMenu":
+            if (soundON) blipSound.play();
             menuCursor++;
           break;
           case "Gameplay":
@@ -117,9 +140,10 @@ function input(event) {
         switch (gameState) {
           case "MainMenu":
             menuCursor--;
+            if (soundON) blipSound.play();
           break;
           case "Gameplay":
-          break;  
+          break;
         }
       break;
     case "a":
@@ -154,7 +178,7 @@ function input(event) {
         }
       }
     break;
-    case "e": 
+    case "e":
       if (gameState == "Gameplay") {
         if (fallingTetro != 0 && !checkRotation("RIGHT") && !isPaused) {
           clearBoard();
@@ -165,20 +189,30 @@ function input(event) {
     case "Enter":
       switch (gameState) {
         case "MainMenu":
-          if (menuCursor == 1) 
+          if (menuCursor == 1)
             gameSetup();
-          if (menuCursor == 2)
+          if (menuCursor == 2) {
             soundON = !soundON;
-          if (menuCursor == 3)
-            musicON = !musicON;
+            if (soundON) blipSound.play();
+          }
        break;
         case "Gameplay":
           isPaused = !isPaused;
+          if (soundON) blipSound.play();
           clearBoard();
         break;
       }
+      break;
+      case " ":
+        event.preventDefault();
+        if (gameState == "Gameplay") {
+          let success = false
+          while (!success)
+            success = manualDecrement();
+        }
+      break;
     default:
-      return; 
+      return;
   }
 
 }, true)
@@ -186,7 +220,7 @@ function input(event) {
 ///// LOGIC()
 setInterval(
 function logic() {
-  
+
  if (gameState == "MainMenu" && !isPaused) {
    if (menuCursor < 1)
     menuCursor = 1;
@@ -200,7 +234,7 @@ function logic() {
    else if (menuCursor == 3)
     spriteValues[10][9] = 59;
    if (soundON)
-    spriteValues[8][8] = 47; 
+    spriteValues[8][8] = 47;
    else
     spriteValues[8][8] = 50;
 
@@ -232,7 +266,7 @@ function logic() {
       for (y = 2; y < 21; y++)
         for (x = 1; x < 11; x++)
           spriteValues[y][x] = 46;
-      
+
       spriteValues[9][4] = 16;
       spriteValues[9][5] = 10;
       spriteValues[9][6] = 22;
@@ -243,10 +277,11 @@ function logic() {
       spriteValues[10][6] = 14;
       spriteValues[10][7] = 27;
 
-      setTimeout(function() { 
-    
-        gameState = "None";
-        
+      if (soundON) gameoverSound.play();
+      gameState = "None";
+
+      setTimeout(function() {
+
         location.reload();
 
       }, 5000)
@@ -266,7 +301,7 @@ function logic() {
 
 ////////// Game Functions
 
-setInterval(function drawEnding() { 
+setInterval(function drawEnding() {
     if (gameState == "Gameover" && solidBlocks <= 190)
       solidBlocks++;
   }, 20)
@@ -328,7 +363,7 @@ function compareArrays(value) {
     for (x = 0; x < WIDTH; x++)
       if (spriteValues[y][x] == value && collisionValues[y][x] > 0)
         return true;
-      
+
   return false;
 
 }
@@ -403,6 +438,7 @@ function resetTetro() {
         collisionValues[topLeft[1] + y][topLeft[0] + x] = 46;
 
     lineClearCheck();
+    if (soundON) fallSound.play();
 
     topLeft = [4,1];
     clearBoard();
@@ -422,7 +458,7 @@ function resetTetro() {
 }
 
 function checkRotation(dir) {
-  
+
   let willCollide = false
 
   if (dir == "RIGHT") {
@@ -482,7 +518,7 @@ function lineClearCheck() {
       if (collisionValues[y][x] == 46)
         foundBlocks++
     }
-    
+
     if (foundBlocks == 10) {
       foundBlocks = 0;
       lines++;
@@ -504,7 +540,7 @@ function lineClearCheck() {
 
   for (y = 2; y < 21; y++) {
     for (x = 1; x < 11; x++) {
-      spriteValues[y][x] = collisionValues[y][x]; 
+      spriteValues[y][x] = collisionValues[y][x];
     }
   }
 
@@ -517,11 +553,13 @@ function manualDecrement() {
     resetBorder();
     topLeft[1]++;
   }
+  else
+    return true;
 
 }
 
 setInterval( function decrementTetro() {
-  
+
     if (gameState == "Gameplay" && !checkVerticalMotion() && !isPaused) {
       clearBoard();
       resetBorder();
@@ -529,14 +567,14 @@ setInterval( function decrementTetro() {
     }
 
     activePause = false;
-  
+
 }, fallingSpeed)
 
 ////////// DATA
 
 sprites = [
   /* Letters and Numbers                            */
-  "https://i.imgur.com/YzrFjO2.png", // 0 -------- 00 
+  "https://i.imgur.com/YzrFjO2.png", // 0 -------- 00
   "https://i.imgur.com/FQcOM7y.png", // 1 -------- 01
   "https://i.imgur.com/mKs2Pzt.png", // 2 -------- 02
   "https://i.imgur.com/eWK6Q0n.png", // 3 -------- 03
@@ -546,33 +584,33 @@ sprites = [
   "https://i.imgur.com/tWYH59j.png", // 7 -------- 07
   "https://i.imgur.com/aVIyTIk.png", // 8 -------- 08
   "https://i.imgur.com/9ZgUiXK.png", // 9 -------- 09
-  "https://i.imgur.com/0ZRPLqa.png", // A -------- 10 
-  "https://i.imgur.com/QPw0wh9.png", // B -------- 11 
-  "https://i.imgur.com/rHIoOGf.png", // C -------- 12 
-  "https://i.imgur.com/Fg9Pnah.png", // D -------- 13 
-  "https://i.imgur.com/ea42snT.png", // E -------- 14 
-  "https://i.imgur.com/aMnKHsG.png", // F -------- 15 
-  "https://i.imgur.com/5W69s8Z.png", // G -------- 16 
-  "https://i.imgur.com/uQCs94o.png", // H -------- 17 
-  "https://i.imgur.com/jVRk766.png", // I -------- 18 
-  "https://i.imgur.com/V7jBbBf.png", // J -------- 19 
-  "https://i.imgur.com/fip8CyL.png", // K -------- 20 
-  "https://i.imgur.com/Hi65w1y.png", // L -------- 21 
-  "https://i.imgur.com/MYuu1ZX.png", // M -------- 22 
-  "https://i.imgur.com/QmbZIN9.png", // N -------- 23 
-  "https://i.imgur.com/BOVyi7x.png", // O -------- 24 
-  "https://i.imgur.com/L2VOogh.png", // P -------- 25 
-  "https://i.imgur.com/6veg9xu.png", // Q -------- 26 
-  "https://i.imgur.com/A5rdN1a.png", // R -------- 27 
-  "https://i.imgur.com/eY69UDW.png", // S -------- 28 
-  "https://i.imgur.com/E2PtWZi.png", // T -------- 29 
-  "https://i.imgur.com/Skr0Rvx.png", // U -------- 30 
-  "https://i.imgur.com/Sxbptgs.png", // V -------- 31 
-  "https://i.imgur.com/eW1i0kh.png", // W -------- 32 
-  "https://i.imgur.com/XdCGOXJ.png", // X -------- 33 
-  "https://i.imgur.com/dQUEvgc.png", // Y -------- 34 
-  "https://i.imgur.com/Vq2AI70.png", // Z -------- 35 
-  /* Tetrominoes                                   */                      
+  "https://i.imgur.com/0ZRPLqa.png", // A -------- 10
+  "https://i.imgur.com/QPw0wh9.png", // B -------- 11
+  "https://i.imgur.com/rHIoOGf.png", // C -------- 12
+  "https://i.imgur.com/Fg9Pnah.png", // D -------- 13
+  "https://i.imgur.com/ea42snT.png", // E -------- 14
+  "https://i.imgur.com/aMnKHsG.png", // F -------- 15
+  "https://i.imgur.com/5W69s8Z.png", // G -------- 16
+  "https://i.imgur.com/uQCs94o.png", // H -------- 17
+  "https://i.imgur.com/jVRk766.png", // I -------- 18
+  "https://i.imgur.com/V7jBbBf.png", // J -------- 19
+  "https://i.imgur.com/fip8CyL.png", // K -------- 20
+  "https://i.imgur.com/Hi65w1y.png", // L -------- 21
+  "https://i.imgur.com/MYuu1ZX.png", // M -------- 22
+  "https://i.imgur.com/QmbZIN9.png", // N -------- 23
+  "https://i.imgur.com/BOVyi7x.png", // O -------- 24
+  "https://i.imgur.com/L2VOogh.png", // P -------- 25
+  "https://i.imgur.com/6veg9xu.png", // Q -------- 26
+  "https://i.imgur.com/A5rdN1a.png", // R -------- 27
+  "https://i.imgur.com/eY69UDW.png", // S -------- 28
+  "https://i.imgur.com/E2PtWZi.png", // T -------- 29
+  "https://i.imgur.com/Skr0Rvx.png", // U -------- 30
+  "https://i.imgur.com/Sxbptgs.png", // V -------- 31
+  "https://i.imgur.com/eW1i0kh.png", // W -------- 32
+  "https://i.imgur.com/XdCGOXJ.png", // X -------- 33
+  "https://i.imgur.com/dQUEvgc.png", // Y -------- 34
+  "https://i.imgur.com/Vq2AI70.png", // Z -------- 35
+  /* Tetrominoes                                   */
   "https://i.imgur.com/49Je8uT.png", // O -------- 36
   "https://i.imgur.com/nVgdz4R.png", // I -------- 37
   "https://i.imgur.com/QHcKQDM.png", // T -------- 38

@@ -11,7 +11,7 @@ body {
 
 #LogContainer {
   position: absolute; margin:auto;
-  top:200px; right:-848px; left:0;
+  top:100px; right:-848px; left:0;
   width:400px;
   height:600px;
 }
