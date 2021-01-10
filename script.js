@@ -55,6 +55,15 @@ function gameSetup() {
 
   totals = [00,00,00,00,00,00,00];
 
+  if (getCookie("music") == "true" || getCookie("music") == "error")
+    musicON = true;
+  else if (getCookie("music") == "false")
+    musicON = false;
+  if (getCookie("sound") == "true" || getCookie("sound") == "error")
+    soundON = true;
+  else if (getCookie("sound") == "false")
+    soundON = false;
+
   gameState = "Gameplay";
   fallingTetro = getRandomTetro();
   nextTetro = getRandomTetro();
