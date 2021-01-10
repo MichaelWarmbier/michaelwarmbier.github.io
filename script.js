@@ -1,5 +1,5 @@
 document.body.onload = menuSetup;
-document.cookie = "test=example";
+document.cookie = "expires=Thu, 01 Jan 2040 00:00:00 UTC";
 
 ////////// Variables
 
@@ -202,10 +202,14 @@ function input(event) {
             gameSetup();
           if (menuCursor == 2) {
             soundON = !soundON;
+            document.cookie= "sound=" + soundON;
             if (soundON) blipSound.play();
           }
-          if (menuCursor == 3)
+          if (menuCursor == 3) {
             musicON = !musicON;
+            document.cookie= "music=" + musicON;
+            if (soundON) blipSound.play();
+          }
        break;
         case "Gameplay":
           isPaused = !isPaused;
