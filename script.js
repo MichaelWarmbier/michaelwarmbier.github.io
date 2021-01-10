@@ -1,4 +1,5 @@
 document.body.onload = menuSetup;
+document.cookie = "test=example";
 
 ////////// Variables
 
