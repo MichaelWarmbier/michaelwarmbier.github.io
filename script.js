@@ -97,7 +97,7 @@ function getCookie(cname) {
 
   let cookieData;
   cookieData = document.cookie.split(';').map(cookie => cookie.split('='));
-  for (i = 0; i < cookieData.length(); i++)
+  for (i = 0; cookieData[i][0] == "expires"; i++)
     if (cookieData[i][0] == cname)
       return cookieData[i][1];
   return "error";
