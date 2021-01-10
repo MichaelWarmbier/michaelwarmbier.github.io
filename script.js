@@ -35,6 +35,15 @@ let totals = [00,00,00,00,00,00,00];
 
 function menuSetup() {
 
+  if (getCookie("music") == "true" || getCookie("music") == "error")
+    musicON = true;
+  else if (getCookie("music") == "false")
+    musicON = false;
+  if (getCookie("sound") == "true" || getCookie("sound") == "error")
+    soundON = true;
+  else if (getCookie("sound") == "false")
+    soundON = false;
+
   for (y = 0; y < HEIGHT; y++) {
     for (x = 0; x < WIDTH; x++) {
       newElem = document.createElement("div");
@@ -54,15 +63,6 @@ function gameSetup() {
   solidBlocks = -1;
 
   totals = [00,00,00,00,00,00,00];
-
-  if (getCookie("music") == "true" || getCookie("music") == "error")
-    musicON = true;
-  else if (getCookie("music") == "false")
-    musicON = false;
-  if (getCookie("sound") == "true" || getCookie("sound") == "error")
-    soundON = true;
-  else if (getCookie("sound") == "false")
-    soundON = false;
 
   gameState = "Gameplay";
   fallingTetro = getRandomTetro();
