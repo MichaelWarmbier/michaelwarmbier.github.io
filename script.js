@@ -109,6 +109,8 @@ function getCookie(cname) {
   for (i = 0; i < cookieData.length; i++)
     if (cookieData[i][0] == " " + cname)
       return cookieData[i][1];
+    if (cookieData[i][0] == cname)
+      return cookieData[i][1];
   return "error";
 
 }
