@@ -28,8 +28,10 @@ let solidBlocks = -1;
 let isPaused = false;
 let level = 001;
 let lines = 000;
-
+let difficultyFlag = false;
 let totals = [00,00,00,00,00,00,00];
+
+let decrement = setInterval(decrementTetro, fallingSpeed);
 
 ////////// Setup Functions
 
@@ -336,12 +338,37 @@ function logic() {
 
   }
 
+  if (difficultyFlag) {
+    difficultyFlag = false;
+    switch (level) {
+      case 0: fallingSpeed = 800; break;
+      case 1: fallingSpeed = 720; break;
+      case 2: fallingSpeed = 630; break;
+      case 3: fallingSpeed = 550; break;
+      case 4: fallingSpeed = 470; break;
+      case 5: fallingSpeed = 380; break;
+      case 6: fallingSpeed = 300; break;
+      case 7: fallingSpeed = 220; break;
+      case 8: fallingSpeed = 130; break;
+      case 9: fallingSpeed = 100; break;
+      case 10: case 11: case 12: fallingSpeed = 80; break;
+      case 13: case 14: case 15: fallingSpeed = 70; break;
+      case 16: case 17: case 18: fallingSpeed = 50; break;
+      default: fallingSpeed = 30;
+    }
+    clearInterval(decrement);
+    decrement = setInterval(decrementTetro, fallingSpeed);
+    console.log("Falling Speed = " + fallingSpeed + "ms");
+  }
+
   if (level > 999)
     level = 999;
   if (lines > 999)
     lines = 999;
 
-  level = Math.floor(lines / 10) + 1;
+  if (level != Math.floor(lines / 10)) {
+    level = Math.floor(lines / 10); difficultyFlag = true;
+  }
 
 }, (1000 / FPS));
 
@@ -604,7 +631,7 @@ function manualDecrement() {
 
 }
 
-setInterval( function decrementTetro() {
+function decrementTetro() {
 
     if (gameState == "Gameplay" && !checkVerticalMotion() && !isPaused) {
       clearBoard();
@@ -614,7 +641,7 @@ setInterval( function decrementTetro() {
 
     activePause = false;
 
-}, fallingSpeed)
+}
 
 ////////// DATA
 
