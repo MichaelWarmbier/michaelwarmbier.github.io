@@ -33,6 +33,14 @@ body {
   width:400px; height:600px;
 }
 
+#HighscoreContainer {
+  position: absolute; margin:auto;
+  width:200px; height:20px;
+  top:690px; right: 0; left: -200px;
+  font-wsize:12px;
+
+}
+
 .GameSprite {
   background-color:transparent;
   -webkit-background-size: cover;

@@ -4,6 +4,7 @@ document.cookie = "expires=Thu, 01 Jan 2040 00:00:00 UTC";
 ////////// Variables
 
 const gameContainer = document.getElementById("GameContainer");
+const scoreContainer = document.getElementById("HighscoreContainer");
 const sprite = document.getElementsByClassName("GameSprite");
 let fallSound = new sound("Audio/fall.wav", .2);
 let blipSound = new sound("Audio/blip.wav", .1);
@@ -37,6 +38,10 @@ let decrement = setInterval(decrementTetro, fallingSpeed);
 
 function menuSetup() {
 
+  if (getCookie("score") != "error")
+    scoreContainer.innerHTML = "<strong>Highscore:</strong> " + getCookie("score");
+  else
+    scoreContainer.innerHTML = "<strong>Highscore:</strong> " + 0;
   if (getCookie("music") == "true" || getCookie("music") == "error")
     musicON = true;
   else if (getCookie("music") == "false")
@@ -306,6 +311,7 @@ function logic() {
   if (gameState == "Gameover") {
 
     musicON = false;
+    document.cookie = "score=" + lines;
 
     if (solidBlocks < 190 && solidBlocks >= 0)
       spriteValues[20 - Math.floor(solidBlocks / 10)][1 + solidBlocks % 10] = 46;
