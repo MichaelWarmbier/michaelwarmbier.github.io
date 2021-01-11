@@ -1,47 +1,45 @@
 document.body.onload = menuSetup;
-document.cookie = "expires=Thu, 01 Jan 2040 00:00:00 UTC";
+document.cookie = "expires=Thu, 01 Jan 2090 00:00:00 UTC";
 
 ////////// Variables
 
-const gameContainer = document.getElementById("GameContainer");
-const scoreContainer = document.getElementById("HighscoreContainer");
+const gameWrap = document.getElementById("GameWrap");
+const scoreWrap = document.getElementById("HighscoreWrap");
 const sprite = document.getElementsByClassName("GameSprite");
 let fallSound = new sound("Audio/fall.wav", .2);
 let blipSound = new sound("Audio/blip.wav", .1);
 let gameoverSound = new sound("Audio/gameover.wav", .6);
 let musicSound = new sound("Audio/music.wav", .6);
 
-const WIDTH = 17;
-const HEIGHT = 25;
-let gameState = "MainMenu";  // MainMenu OR Gameplay
-const FPS = 60;
+const WIDTH = 17; const HEIGHT = 25;  // Game Dimensions
+let gameState = "MainMenu";           // MainMenu || Gameplay || Gameover || None
+const FPS = 60;                       // Frames per second
 
-let soundON = true;
-let musicON = true;
-let menuCursor = 1;
+let soundON = true;                   // Sound Flag
+let musicON = true;                   // Music Flag
+let menuCursor = 1;                   // Position of Menu Cursor
 
-let topLeft = [4,1];
-let fallingTetro = -1;
-let fallingSpeed = 800;
-let activePause = false;
-let tetroRotation = 1;
-let solidBlocks = -1;
-let isPaused = false;
-let level = 001;
-let lines = 000;
-let difficultyFlag = false;
-let totals = [00,00,00,00,00,00,00];
+let topLeft = [4,1];                  // Tetrimino drawing cursor position
+let fallingTetrimino = -1;            // Currently falling tetrimino (-1 - 6)
+let fallingSpeed = 800;               // Speed in ms that blocks will fall
+let tetriminoRotation = 1;            // Rotation of tetrimino (1 - 4)
+let solidBlocks = -1;                 // Counter for GamveOver sequence
+let isPaused = false;                 // Pause flag
+let level = 000;                      // Total levels reached
+let lines = 000;                      // Total lines cleared
+let difficultyFlag = false;           // Flag to update difficulty
+let totals = [00,00,00,00,00,00,00];  // Total of each block fallen
 
-let decrement = setInterval(decrementTetro, fallingSpeed);
+let decrement = setInterval(decrementTetrimino, fallingSpeed);
 
 ////////// Setup Functions
 
-function menuSetup() {
+function menuSetup() { // Setup that runs before page loads
 
   if (getCookie("score") != "error")
-    scoreContainer.innerHTML = "<strong>Highscore:</strong> " + getCookie("score");
+    scoreWrap.innerHTML = "<strong>Highscore:</strong> " + getCookie("score");
   else
-    scoreContainer.innerHTML = "<strong>Highscore:</strong> " + 0;
+    scoreWrap.innerHTML = "<strong>Highscore:</strong> " + 0;
   if (getCookie("music") == "true" || getCookie("music") == "error")
     musicON = true;
   else if (getCookie("music") == "false")
@@ -55,30 +53,30 @@ function menuSetup() {
     for (x = 0; x < WIDTH; x++) {
       newElem = document.createElement("div");
       newElem.className = "GameSprite";
-      gameContainer.appendChild(newElem);
+      gameWrap.appendChild(newElem);
     }
   }
 
 }
 
-function gameSetup() {
+function gameSetup() {  // Setup that runs before game begins
 
   topLeft = [4,1];
   level = 001;
   lines = 000;
-  tetroRotation = 1;
+  tetriminoRotation = 1;
   solidBlocks = -1;
 
   totals = [00,00,00,00,00,00,00];
 
   gameState = "Gameplay";
-  fallingTetro = getRandomTetro();
-  nextTetro = getRandomTetro();
+  fallingTetrimino = getRandomTetrimino();
+  nextTetrimino = getRandomTetrimino();
   clearBoard();
 
-  totals[fallingTetro]++;
-  if (totals[fallingTetro] > 99)
-    totals[fallingTetro] = 99;
+  totals[fallingTetrimino]++;
+  if (totals[fallingTetrimino] > 99)
+    totals[fallingTetrimino] = 99;
 
 }
 
@@ -109,7 +107,7 @@ setInterval( function() {
 
 ////////// Cookie Functions
 
-function getCookie(cname) {
+function getCookie(cname) { // Returns cookie data as string
 
   let cookieData;
   cookieData = document.cookie.split(';').map(cookie => cookie.split('='));
@@ -127,7 +125,7 @@ function getCookie(cname) {
 
 ///// DRAW()
 setInterval(
-function draw() {
+function draw() { // Draws background onto each tile
 
   for (y = 0; y < HEIGHT; y++) {
     for (x = 0; x < WIDTH; x++) {
@@ -157,37 +155,32 @@ function draw() {
 
 ///// INPUT()
 document.addEventListener("keydown",
-function input(event) {
+function input(event) { // Catches and handles input
 
-  if (event.defaultPrevented) {
-    return;
-  }
+  if (event.key != "F5")
+    event.preventDefault();
 
   fallingSpeed = 1;
 
   switch (event.key) {
-    case "s":
+    case "s": case "ArrowDown": ///// INPUT == 'S' || DOWN
         switch (gameState) {
           case "MainMenu":
             if (soundON) blipSound.play();
             menuCursor++;
           break;
           case "Gameplay":
-            manualDecrement();
+            decrementTetrimino();
           break;
         }
       break;
-    case "w":
-        switch (gameState) {
-          case "MainMenu":
+    case "w": case "ArrowUp": ///// INPUT == 'W' || UP
+        if (gameState == "MainMenu") {
             menuCursor--;
             if (soundON) blipSound.play();
-          break;
-          case "Gameplay":
-          break;
-        }
+          }
       break;
-    case "a":
+    case "a": case "ArrowLeft": ///// INPUT == 'A' || LEFT
         switch (gameState) {
           case "MainMenu":
           break;
@@ -199,7 +192,7 @@ function input(event) {
           break;
         }
       break;
-    case "d":
+    case "d": case "ArrowRight": ///// INPUT == 'D' || RIGHT
         switch (gameState) {
           case "MainMenu":
           break;
@@ -211,23 +204,23 @@ function input(event) {
           break;
         }
       break;
-    case "q":
+    case "q": ///// INPUT == 'Q'
       if (gameState == "Gameplay") {
-        if (fallingTetro != 0 && !checkRotation("LEFT") && !isPaused) {
+        if (fallingTetrimino != 0 && !checkRotation("LEFT") && !isPaused) {
           clearBoard();
-          tetroRotation--;
+          tetriminoRotation--;
         }
       }
     break;
-    case "e":
+    case "e": ///// INPUT == 'E'
       if (gameState == "Gameplay") {
-        if (fallingTetro != 0 && !checkRotation("RIGHT") && !isPaused) {
+        if (fallingTetrimino != 0 && !checkRotation("RIGHT") && !isPaused) {
           clearBoard();
-          tetroRotation++;
+          tetriminoRotation++;
         }
       }
     break;
-    case "Enter":
+    case "Enter": ///// INPUT == 'ENTER'
       switch (gameState) {
         case "MainMenu":
           if (menuCursor == 1)
@@ -250,12 +243,10 @@ function input(event) {
         break;
       }
       break;
-      case " ":
-        event.preventDefault();
+      case " ": ///// INPUT == 'SPACE'
         if (gameState == "Gameplay") {
           let success = false
-          while (!success)
-            success = manualDecrement();
+          while (!success) success = decrementTetrimino();
         }
       break;
     default:
@@ -266,20 +257,24 @@ function input(event) {
 
 ///// LOGIC()
 setInterval(
-function logic() {
+function logic() { // Handles logic
 
- if (gameState == "MainMenu" && !isPaused) {
+ if (gameState == "MainMenu" && !isPaused) { // MainMenu
+   /* Menu cursor bounds */
    if (menuCursor < 1)
     menuCursor = 1;
    if (menuCursor > 3)
     menuCursor = 3;
-    spriteValues[6][7] = 43; spriteValues[8][9] = 43; spriteValues[10][9] = 43;
+    /* Clear cursor sprite */
+   spriteValues[6][7] = 43; spriteValues[8][9] = 43; spriteValues[10][9] = 43;
+    /* Draw menu cursor */
    if (menuCursor == 1)
     spriteValues[6][7] = 59;
    else if (menuCursor == 2)
     spriteValues[8][9] = 59;
    else if (menuCursor == 3)
     spriteValues[10][9] = 59;
+    /* Draw sound and music toggle */
    if (soundON)
     spriteValues[8][8] = 47;
    else
@@ -291,15 +286,16 @@ function logic() {
 
   }
 
-  if (gameState == "Gameplay" && !isPaused) {
+  if (gameState == "Gameplay" && !isPaused) { // Gameplay
 
     drawNext();
-    drawTetro();
+    drawTetrimino();
     applyRotationBounds();
 
   }
 
-  if (isPaused) {
+  if (isPaused) { // Paused
+    /* Draw pause text */
     spriteValues[5][3] = 25;
     spriteValues[5][4] = 10;
     spriteValues[5][5] = 30;
@@ -308,19 +304,17 @@ function logic() {
     spriteValues[5][8] = 13;
   }
 
-  if (gameState == "Gameover") {
-
+  if (gameState == "Gameover") { // Gameover
     musicON = false;
     document.cookie = "score=" + lines;
 
+    /* Draw GameOver animation */
     if (solidBlocks < 190 && solidBlocks >= 0)
       spriteValues[20 - Math.floor(solidBlocks / 10)][1 + solidBlocks % 10] = 46;
     else if (solidBlocks >= 190) {
+    for (y = 2; y < 21; y++) for (x = 1; x < 11; x++) spriteValues[y][x] = 46;
 
-      for (y = 2; y < 21; y++)
-        for (x = 1; x < 11; x++)
-          spriteValues[y][x] = 46;
-
+      /* Draw "Game Over" */
       spriteValues[9][4] = 16;
       spriteValues[9][5] = 10;
       spriteValues[9][6] = 22;
@@ -333,17 +327,12 @@ function logic() {
 
       if (soundON) gameoverSound.play();
       gameState = "None";
-
-      setTimeout(function() {
-
-        location.reload();
-
-      }, 5000)
-
+      /* Reload page after five seconds */
+      setTimeout(function() { location.reload(); }, 5000)
     }
 
   }
-
+  /* Set difficulty through fallingSpeed */
   if (difficultyFlag) {
     difficultyFlag = false;
     switch (level) {
@@ -363,15 +352,16 @@ function logic() {
       default: fallingSpeed = 30;
     }
     clearInterval(decrement);
-    decrement = setInterval(decrementTetro, fallingSpeed);
-    console.log("Falling Speed = " + fallingSpeed + "ms");
+    decrement = setInterval(decrementTetrimino, fallingSpeed);
   }
 
+  /* Set level and line bounds */
   if (level > 999)
     level = 999;
   if (lines > 999)
     lines = 999;
 
+  /* Set level */
   if (level != Math.floor(lines / 10)) {
     level = Math.floor(lines / 10); difficultyFlag = true;
   }
@@ -380,36 +370,31 @@ function logic() {
 
 ////////// Game Functions
 
-setInterval(function drawEnding() {
-    if (gameState == "Gameover" && solidBlocks <= 190)
-      solidBlocks++;
-  }, 20)
+setInterval(function drawGameOver() { // Draws GameOver animation
+    if (gameState == "Gameover" && solidBlocks <= 190) solidBlocks++;
+}, 20)
 
-function getRandomTetro() {
+function getRandomTetrimino() { // Returns 0 - 6
 
   return Math.floor(Math.random() * Math.floor(7));
 
 }
 
-function drawNext() {
+function drawNext() { // Draws sprite based off "nextTetrimino"
 
-  if (fallingTetro >= 0)
-    spriteValues[3][13] = 36 + nextTetro;
-  else
-    spriteValues[3][13] = 56;
+  if (fallingTetrimino >= 0) spriteValues[3][13] = 36 + nextTetrimino;
+  else spriteValues[3][13] = 56;
 
 }
 
-function applyRotationBounds() {
+function applyRotationBounds() {  // Rotation bounds check
 
-  if (tetroRotation > 4)
-      tetroRotation = 1;
-    if (tetroRotation < 1)
-      tetroRotation = 4;
+  if (tetriminoRotation > 4) tetriminoRotation = 1;
+  if (tetriminoRotation < 1) tetriminoRotation = 4;
 
 }
 
-function clearBoard() {
+function clearBoard() { // Clears inner board of data
 
   for (y = 2; y < 21; y++) {
     for (x = 1; x < 11; x++) {
@@ -421,114 +406,120 @@ function clearBoard() {
 
 }
 
-function drawTetro() {
+function drawTetrimino() {   // Draws tetrimino using "TopLeft"
 
-  if (fallingTetro >= 0 && gameState != "Gameover")
+  if (fallingTetrimino >= 0 && gameState != "Gameover")
 
     for (y = 0; y < 4; y++) {
       for (x = 0; x < 4; x++) {
-
-          if (tetros[y + (fallingTetro * 4)][x + ((tetroRotation - 1) * 4)] > 0 && topLeft[1] + y > 1)
-            spriteValues[topLeft[1] + y][topLeft[0] + x] = tetros[y + (fallingTetro * 4)][x + ((tetroRotation - 1) * 4)];
-
+          if (tetriminos[y + (fallingTetrimino * 4)][x + ((tetriminoRotation - 1) * 4)] > 0 && topLeft[1] + y > 1)
+            spriteValues[topLeft[1] + y][topLeft[0] + x] = tetriminos[y + (fallingTetrimino * 4)][x + ((tetriminoRotation - 1) * 4)];
       }
    }
 
 }
 
-function compareArrays(value) {
+function compareArrays(value) { // Compares spriteValues to collisionValues
 
   for (y = 0; y < HEIGHT; y++)
     for (x = 0; x < WIDTH; x++)
       if (spriteValues[y][x] == value && collisionValues[y][x] > 0)
         return true;
-
   return false;
 
 }
 
-function resetBorder() {
+function resetBorder() {  // Resets the border around inner board
 
   for (y = 0; y < 22; y++) {
     for (x = 0; x < 13; x++) {
-      if (y == 0 || x == 0 || y == 21 || x == 11)
-        spriteValues[y][x] = 51;
-      if (x == 12)
-        spriteValues[y][x] = collisionValues[y][x]
+      if (y == 0 || x == 0 || y == 21 || x == 11) spriteValues[y][x] = 51;
+      if (x == 12) spriteValues[y][x] = collisionValues[y][x]
     }
   }
 
 }
 
-function checkHorizontalMotion(dir) {
+function checkHorizontalMotion(dir) { // Checks if player can move horizontally
 
   let willCollide = false;
 
   if (dir == "LEFT") {
     topLeft[0]--;
-    drawTetro();
-    if (compareArrays(getSpriteID()))
-      willCollide = true;
+    drawTetrimino();
+    if (compareArrays(getSpriteID())) willCollide = true;
     topLeft[0]++;
   }
 
   if (dir == "RIGHT") {
     topLeft[0]++;
-    drawTetro();
-    if (compareArrays(getSpriteID()))
-      willCollide = true;
+    drawTetrimino();
+    if (compareArrays(getSpriteID())) willCollide = true;
     topLeft[0]--;
   }
 
-  clearBoard();
-  resetBorder();
-  return willCollide;
+  clearBoard(); resetBorder(); return willCollide;
 
 }
 
-function checkVerticalMotion() {
+function checkVerticalMotion() {  // Checks if player can move vertically
 
   let willCollide = false;
 
   topLeft[1]++;
-  drawTetro();
-  if (compareArrays(getSpriteID()))
-    willCollide = true;
+  drawTetrimino();
+  if (compareArrays(getSpriteID())) willCollide = true;
   topLeft[1]--;
 
-  clearBoard();
-  resetBorder();
-
-  if (willCollide)
-    resetTetro();
-
+  clearBoard(); resetBorder();
+  if (willCollide) resetTetrimino();
   return willCollide;
 
 }
 
-function resetTetro() {
+function checkRotation(dir) { // Checks if player can rotate tetrimino
+
+  let willCollide = false
+
+  if (dir == "RIGHT") {
+    tetriminoRotation++;
+    applyRotationBounds();
+    drawTetrimino();
+    if (compareArrays(getSpriteID())) willCollide = true;
+    tetriminoRotation--;
+    applyRotationBounds();
+  }
+
+  if (dir == "LEFT") {
+    tetriminoRotation--;
+    applyRotationBounds();
+    drawTetrimino();
+    if (compareArrays(getSpriteID())) willCollide = true;
+    tetriminoRotation++;
+    applyRotationBounds();
+  }
+
+  clearBoard(); resetBorder(); return willCollide;
+
+}
+
+function resetTetrimino() { // Resets position and rotation of tetrimino
 
   if (!isPaused) {
-    drawTetro();
+    drawTetrimino();
 
     for (y = 0; y < 4; y++)
       for (x = 0; x < 4; x++)
         if (spriteValues[topLeft[1] + y][topLeft[0] + x] == getSpriteID())
         collisionValues[topLeft[1] + y][topLeft[0] + x] = 46;
 
-    lineClearCheck();
-    if (soundON) fallSound.play();
+    lineClearCheck(); if (soundON) fallSound.play();
+    topLeft = [4,1]; clearBoard();
+    fallingTetrimino = nextTetrimino;
+    nextTetrimino = getRandomTetrimino(); totals[fallingTetrimino]++;
+    if (totals[fallingTetrimino] > 99) totals[fallingTetrimino] = 99;
+    drawTetrimino();
 
-    topLeft = [4,1];
-    clearBoard();
-
-    fallingTetro = nextTetro;
-    nextTetro = getRandomTetro();
-    totals[fallingTetro]++;
-    if (totals[fallingTetro] > 99)
-      totals[fallingTetro] = 99;
-
-    drawTetro();
     if (compareArrays(getSpriteID())) {
       gameState = "Gameover";
       console.log("GAME OVER!");
@@ -536,58 +527,20 @@ function resetTetro() {
   }
 }
 
-function checkRotation(dir) {
-
-  let willCollide = false
-
-  if (dir == "RIGHT") {
-    tetroRotation++;
-    applyRotationBounds();
-    drawTetro();
-    if (compareArrays(getSpriteID()))
-      willCollide = true;
-    tetroRotation--;
-    applyRotationBounds();
-  }
-
-  if (dir == "LEFT") {
-    tetroRotation--;
-    applyRotationBounds();
-    drawTetro();
-    if (compareArrays(getSpriteID()))
-      willCollide = true;
-    tetroRotation++;
-    applyRotationBounds();
-  }
-
-  clearBoard();
-  resetBorder();
-  return willCollide;
-
-}
-
-function getSpriteID() {
-  switch (fallingTetro) {
-    case 0:
-      return 52;
-    case 1:
-      return 45;
-    case 2:
-      return 49;
-    case 3:
-      return 48;
-    case 4:
-      return 44;
-    case 5:
-      return 47;
-    case 6:
-      return 50;
-    default:
-      return 43;
+function getSpriteID() {  // Returns intended value for tetrimino colors
+  switch (fallingTetrimino) {
+    case 0: return 52;
+    case 1: return 45;
+    case 2: return 49;
+    case 3: return 48;
+    case 4: return 44;
+    case 5: return 47;
+    case 6: return 50;
+    default: return 43;
   }
 }
 
-function lineClearCheck() {
+function lineClearCheck() { // Checks if and clears line if possible.
 
 
   for (y = 2; y < 21; y++) {
@@ -599,53 +552,34 @@ function lineClearCheck() {
     }
 
     if (foundBlocks == 10) {
-      foundBlocks = 0;
-      lines++;
+      foundBlocks = 0; lines++;
 
       for (x = 1; x < 11; x++)
         collisionValues[y][x] = 0;
 
       for (i = y; i > 1; i--)
         for (j = 1; j < 11; j++) {
-          if (i != 2)
-            collisionValues[i][j] = collisionValues[i - 1][j];
-          else
-            collisionValues[i][j] = 0;
+          if (i != 2) collisionValues[i][j] = collisionValues[i - 1][j];
+          else collisionValues[i][j] = 0;
         }
 
     }
 
   }
 
-  for (y = 2; y < 21; y++) {
-    for (x = 1; x < 11; x++) {
+  for (y = 2; y < 21; y++)
+    for (x = 1; x < 11; x++)
       spriteValues[y][x] = collisionValues[y][x];
-    }
-  }
 
 }
 
-function manualDecrement() {
-
-  if (!checkVerticalMotion()) {
-    clearBoard();
-    resetBorder();
-    topLeft[1]++;
-  }
-  else
-    return true;
-
-}
-
-function decrementTetro() {
+function decrementTetrimino() { // Decrements tetrimino by one
 
     if (gameState == "Gameplay" && !checkVerticalMotion() && !isPaused) {
-      clearBoard();
-      resetBorder();
-      topLeft[1]++;
+      clearBoard(); resetBorder(); topLeft[1]++;
     }
-
-    activePause = false;
+    else return true;
+    return false;
 
 }
 
@@ -689,7 +623,7 @@ sprites = [
   "https://i.imgur.com/XdCGOXJ.png", // X -------- 33
   "https://i.imgur.com/dQUEvgc.png", // Y -------- 34
   "https://i.imgur.com/Vq2AI70.png", // Z -------- 35
-  /* Tetrominoes                                   */
+  /* Tetriminoes                                   */
   "https://i.imgur.com/49Je8uT.png", // O -------- 36
   "https://i.imgur.com/nVgdz4R.png", // I -------- 37
   "https://i.imgur.com/QHcKQDM.png", // T -------- 38
@@ -780,7 +714,7 @@ collisionValues = [
   [51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51]
 ];
 
-const tetros = [
+const tetriminos = [
   [00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00],
   [00,52,52,00,  00,52,52,00,  00,52,52,00,  00,52,52,00],
   [00,52,52,00,  00,52,52,00,  00,52,52,00,  00,52,52,00],
