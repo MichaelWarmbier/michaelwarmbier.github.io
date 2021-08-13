@@ -2,6 +2,17 @@ body {
   background-image: url('https://i.imgur.com/gReQoLf.png');
 }
 
+.buyme-button {
+  height: 20px; font-family: 'Dancing Script', cursive;
+  background-color: #25b092; text-align: center; padding: 5px;
+  border-radius: 4px; text-underline-position: none; font-size: 12px;
+  font-weight: bold;
+}
+
+.buyme-button img { transform:translateY(5px); margin-left: 5px; }
+
+.embeded a, .embeded:link, .embeded:visited, .embeded:hover { color: white; text-decoration: none; }
+
 #GameWrap {
   position: absolute; margin:auto;
   top:50px; right:0; left:0;
@@ -29,7 +40,7 @@ body {
 
 #ControlsWrap {
   position: absolute; margin:auto;
-  top:175px; right:-848px; left:0;
+  top:60px; right:-848px; left:0;
   width:400px; height:600px;
 }
 
