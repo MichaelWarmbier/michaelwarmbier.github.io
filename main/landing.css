@@ -43,12 +43,13 @@ html, body {  background-color: RGB(12,12,12) !important; }
 
 #bottom_content {
   margin-top: -10px;
-  width: 100vw; 
+  width: 100%;
   background-color: RGB(12,12,12);
   opacity: .8;
   float: left;
   font-size: 45px;
   padding-bottom: 150px;
+  padding-right: 20px;
   animation: fade-in 500ms ease-in forwards;
 }
 
