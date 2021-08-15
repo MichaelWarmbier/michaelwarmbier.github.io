@@ -8,7 +8,7 @@ body, html {
   overflow: auto;
   overflow-x: hidden;
   min-width: 1500px;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 }
 
 header {
@@ -50,3 +50,13 @@ a { color: white; text-decoration: none; }
 header p:first-child { margin-left: 0; }
 a:hover { color: #de993e !important; }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

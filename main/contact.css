@@ -5,6 +5,7 @@ section {
   text-align: center;
   float: left;
   margin-left: -80px;
+  animation: fade-in 500ms ease-in forwards;
 }
 
 section div { width:50%; height: 100%; }
