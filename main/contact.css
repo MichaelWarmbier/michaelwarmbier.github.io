@@ -4,6 +4,7 @@ section {
   color:white;
   text-align: center;
   float: left;
+  margin-left: -80px;
 }
 
 section div { width:50%; height: 100%; }
