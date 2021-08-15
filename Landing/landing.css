@@ -1,0 +1,79 @@
+#top_content { 
+  width: 100%; height: 350px;
+  background-color: RGB(15,15,15);
+  overflow: hidden; 
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: inset 2px 2px 70px black;
+}
+
+#top_content h1 {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1em; width: max-content;
+  color: white;
+  font-size: 60px;
+  font-family: 'Source Code Pro', monospace;
+  top: 50px;
+  padding-bottom: 2px;
+}
+
+#top_content p {
+  height: 30px;
+  top: 130px;
+  font-size: 23px;
+  color: gray;
+  animation: appear 1500ms ease 3500ms forwards;
+  opacity: 0;
+  max-width: 600px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  text-shadow: 3px 3px black;
+}
+
+#top_content p, #top_content h1 {
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  width: max-content;
+  font-weight: bold;
+}
+
+#bottom_content {
+  margin-top: -10px;
+  width: 100vw; height: 800px;
+  background-color: RGB(12,12,12);
+  opacity: .8;
+  float: left;
+}
+
+#top_content h1::before, #top_content h1::after {
+  content: '';
+  top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute;
+}
+
+#top_content h1::before { 
+  background-color: RGB(15,15,15);
+  animation: typeffect 2s steps(16) 1s forwards;
+}
+
+#top_content h1::after {
+  animation: typeffect 2s steps(16) 1s forwards,
+             blink 500ms steps(3) infinite;
+  width: .125em;
+}
+
+@keyframes typeffect {
+  to { left: 100%; }
+}
+@keyframes blink { 
+   0% { background-color: white; opacity: 0; }
+   49% { background-color: white; opacity: 0; }
+   50% { background-color: white; opacity: 1; }
+   100% { background-color: white; opacity: 1; }
+}
+
+@keyframes appear {
+  to { opacity: 1; }
+}
