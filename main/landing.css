@@ -41,11 +41,21 @@
 
 #bottom_content {
   margin-top: -10px;
-  width: 100vw; height: 800px;
+  width: 100vw; 
   background-color: RGB(12,12,12);
   opacity: .8;
   float: left;
+  font-size: 45px;
+  padding-bottom: 150px;
 }
+
+#bottom_content p {
+  color: white;
+  font-family: 'Roboto';
+  text-align: center;
+}
+
+#bottom_content span { color: #de993e; font-weight: bold; }
 
 #top_content h1::before, #top_content h1::after {
   content: '';

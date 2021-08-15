@@ -14,10 +14,9 @@
   <body>
 
     <header>
-      <p style="color:#de993e"><a href="landing.html">Home</a></p>
+      <p><a href="landing.html" style="color:#de993e">Home</a></p>
       <p>About</p>
       <p><a href="work.html">Work</a></p>
-      <p>Resume</p>
       <p>Contact</p>
     </header>
     
@@ -30,7 +29,20 @@
     </section>
     
     <section id="bottom_content">
+      <br><br>
+      <p>Need a website? <span>I do commissions ➤</span></p> 
+      <p>Looking to hire me? <span>Contact me ➤</span></p>
+      <p>Need to see my work? <span>Check it out here ➤</span></p>
     </section>
 
+    <footer>© 2021 All Rights Reserved</footer>
+
+    <script>
+      window.onload = (event) => {
+        if (screen.width <= 800 || (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)))
+          document.location = "m.landing.html";
+      }
+    </script>
+    
   </body>
 </html>
