@@ -3,7 +3,7 @@
 
 body, html {
   margin: 0; padding: 0;
-  width: 100vw;
+  width: 100%; height: 100%;
   background-color: RGB(15,15,15);
   overflow: auto;
   overflow-x: hidden;
@@ -12,22 +12,22 @@ body, html {
 }
 
 header {
-  width: 100%; height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100vw; height: 10vh;
   background-color: black;
-  padding-top: 20px;
-  text-align: center;
+  float: left;
+  font-size:3.5vh;
 }
 
 header p {
   width: content-width;
-  display: inline-block;
-  font-size: 25px;
-  color: white;
+  color: rgb(216, 114, 114);
   font-family: 'Roboto', sans-serif;
-  text-align: center;
-  margin-left: 75px;  margin-top: 10px;
   font-weight: bold;
-  letter-spacing: 2px;
+  margin: .5em;
+  letter-spacing: .1vw;
   user-select: none;
 }
 
@@ -36,13 +36,14 @@ header p:nth-child(2) {
 }
 
 footer {
-  width: 100%; height: 50px;
+  width: 100vw; height: 3vh;
   position: fixed; bottom: 0;
   float: left; background-color: RGB(18,18,18);
   color: #adadad; font-family: 'Roboto';
-  padding-top: 25px;
-  font-size: 20px;
-  padding-left: 50px;
+  padding-top: 2.5vh;
+  padding-bottom: 2vh;
+  font-size: 2.5vh;
+  padding-left: 5vh;
   font-weight: bold;
 }
 

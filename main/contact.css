@@ -1,34 +1,33 @@
 section {
-  width: 100%;
+  width: 100vw;
   font-family: 'Roboto';
   color:white;
   text-align: center;
   float: left;
-  margin-left: -80px;
   animation: fade-in 500ms ease-in forwards;
+  margin-left: -4vw;
 }
 
-section div { width:50%; height: 100%; }
+section div { width:50vw; height: 80vh; }
 #left { float: left; }
 #right { float: right; }
 
 section h1 {
-  font-size: 45px;
-  letter-spacing: 2px;
-  padding-top: 50px;
-  text-shadow: 3px 3px black;
+  font-size: 2.5vw;
+  letter-spacing: .1vw;
+  padding-top: 3vw;
+  text-shadow: .2vw .2vw black;
 }
 
 section p {
-  font-size: 25px;
-  letter-spacing: 1px;
+  font-size: 1.8vw;
+  letter-spacing: .1vw;
   text-align: center;
-  text-shadow: 2px 2px black;
+  text-shadow: .2vw .2vw black;
 }
 
 section span { color: #de993e; }
 
 section img {
-  width:80px; height: 80px;
-  margin: 20px;
+  width:10vh; height: 10vh;
 }
