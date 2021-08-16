@@ -30,4 +30,5 @@ section span { color: #de993e; }
 
 section img {
   width:10vh; height: 10vh;
+  margin-left: 1vw;
 }
