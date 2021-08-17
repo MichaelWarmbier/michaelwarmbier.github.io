@@ -1,11 +1,16 @@
-html, body {  background-color: RGB(12,12,12) !important; }
+body, html { 
+  background-color: RGB(12,12,12); 
+  padding-bottom: 8vh;
+}
 
 #top_content { 
-  width: 100%; height: 32vh;
+  width: 100%; height: 36vh;
+  display: flex;
+  align-content: center;
   background-color: RGB(15,15,15);
   overflow: hidden; 
-  float: left;
   position: relative;
+  
 }
 
 #shadow_wrap {
@@ -16,12 +21,11 @@ html, body {  background-color: RGB(12,12,12) !important; }
 }
 
 #top_content h1 {
-  margin-top: -2vh !important;
   position: absolute;
   height: 1em; width: max-content;
   color: white;
-  font-size: 6.5vh;
-  font-family: 'Source Code Pro', monospace;
+  font-size: 5vh;
+  font-family: 'Roboto Mono', monospace;  
   top: 5vh;
   padding: .5vh;
 }
@@ -39,7 +43,6 @@ html, body {  background-color: RGB(12,12,12) !important; }
 }
 
 #top_content p, #top_content h1 {
-  position: absolute;
   left: 0; right: 0;
   margin: auto;
   width: max-content;
@@ -47,23 +50,27 @@ html, body {  background-color: RGB(12,12,12) !important; }
 }
 
 #bottom_content {
-  padding-top: 3vh;
+  padding-top: 1.5vw;
   width: 100vw;
-  height: max-content;
+  height: 40vh;
   background-color: RGB(12,12,12);
   opacity: .8;
   float: left;
-  font-size: 2vw;
+  font-size: 4vh;
+  font-family: 'Roboto';
   animation: fade-in 500ms ease-in forwards;
 }
 
 #bottom_content p {
   color: white;
-  font-family: 'Roboto';
   text-align: center;
 }
 
-#bottom_content span { color: #de993e; font-weight: bold; }
+#bottom_content span { 
+  color: #de993e; 
+  font-weight: bold;
+  display: block; 
+}
 
 #top_content h1::before, #top_content h1::after {
   content: '';
