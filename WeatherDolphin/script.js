@@ -164,7 +164,9 @@ var storedData = [
 
 async function initialize(long, lat) { // Initializes data objects
 
-  receivedData = await pullData('https://api.openweathermap.org/data/2.5/onecall?lat=' + (lat).toFixed(5) + '&lon=' + long.toFixed(5) + '&exclude=hourly,minutely&appid=270a656651f64bb2de710a5bba3df6c7&units=imperial');
+  let link = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + (lat).toFixed(5) + '&lon=' + long.toFixed(5) + '&exclude=hourly,minutely&appid=12379bc0732db02869709dfd89ef6db2&units=imperial';
+
+  receivedData = await pullData(link);
 
   try {
   for (i = 0; i <= 7; i++) {
@@ -193,7 +195,7 @@ async function initialize(long, lat) { // Initializes data objects
   }
   }
   catch(e) {
-    throw "err";
+    throw e + '\n' +link;
   }
 
   initializeWeatherCards(storedData);
@@ -253,16 +255,24 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(Map);
 
 // Store longitude and latitude on click event
-function mapClick(e) {
+async function mapClick(e) {
 
   Map.removeLayer(marker)
 
   activeLat = e.latlng.lat;
   activeLong = e.latlng.lng;
 
-  initialize(activeLong, activeLat);
-
+  try {
+    await initialize(activeLong, activeLat);
+  }
+  catch (e) {
+    document.getElementById('map').style.border = '2px solid red';
+    location.reload();
+    return;
+  }
+  document.getElementById('map').style.border = '';
   marker = L.marker([activeLat.toFixed(5), activeLong.toFixed(5)]).addTo(Map);
+  window.location.hash = "#weather_container";
 
 }
 
@@ -271,6 +281,13 @@ Map.on('click', mapClick);
 /////* Other */////
 
 // Run initialize() on window load
-window.onload = function() { return initialize(activeLong, activeLat); };
+window.onload = async function() { 
+  try {
+    await initialize(activeLong, activeLat); 
+  }
+  catch(e) {
+    console.log(e);
+  }
+};
 
 
