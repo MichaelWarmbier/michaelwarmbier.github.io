@@ -198,10 +198,6 @@ async function initialize(long, lat) { // Initializes data objects
 
   initializeWeatherCards(storedData);
 
-  console.log('Longitude: ' + long + '\nLatitude: ' + lat + '\n')
-  await console.log(storedData);
-  console.log('\n\n');
-
 }
 
 async function pullData(link) { // Grabs data from API

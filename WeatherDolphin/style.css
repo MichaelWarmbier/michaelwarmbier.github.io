@@ -1,5 +1,9 @@
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body, html {
   margin: 0;
   margin-bottom: 5vh;
@@ -63,7 +67,6 @@ h2 {
 #map {
   width: 80vw;
   height: 60vh;
-  border: 1px solid black;
   border-radius: 8px;
   z-index: 1 !important;
 }
@@ -77,14 +80,20 @@ h2 {
 }
 
 #weather_container .day {
+  transition-duration: 200ms;
+  transition-timing-function: ease;
   width: 10vw;
   min-height: 20vw;
   max-height: max-content;
   border-radius: 8px;
-  box-shadow: .15vw .15vw 4px black;
+  box-shadow: .2vw .2vw 6px black;
   text-align: center;
   padding-bottom: 1vh;
   padding-top: 1vh;
+}
+
+.day:hover {
+  transform: translateY(-1.8vh);
 }
 
 .day p {
