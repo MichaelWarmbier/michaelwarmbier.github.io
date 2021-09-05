@@ -31,7 +31,7 @@ section {
 }
 
 .article_wrap p {
-    font-size: 2vw;
+    font-size: 2vmax;
 }
 
 .article_wrap a {

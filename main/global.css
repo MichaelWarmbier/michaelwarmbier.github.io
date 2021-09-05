@@ -14,7 +14,7 @@ header {
   width: 100vw; height: 10vh;
   background-color: black;
   float: left;
-  font-size: 3.2vh;
+  font-size: 3.2vmin;
 }
 
 header p {
@@ -40,8 +40,8 @@ footer {
   float: left; background-color: RGB(18,18,18);
   color: #adadad; font-family: 'Roboto';
   padding-top: 2.5vh;
-  padding-bottom: 2vh;
-  font-size: 2.5vh;
+  padding-bottom: 2vmin;
+  font-size: 2.5vmin;
 
   font-weight: bold;
 }
