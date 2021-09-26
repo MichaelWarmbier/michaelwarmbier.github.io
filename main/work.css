@@ -61,3 +61,14 @@ section {
   transform:translateY(.2vh);
 }
 
+@media only screen and (max-width: 800px) {
+
+  .article_wrap h1 {
+    font-size: 4.5vw;
+  }
+  
+  .article_wrap a {
+    font-size: 4.5vw;
+  }
+
+}
