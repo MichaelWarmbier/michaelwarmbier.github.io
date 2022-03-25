@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Smite Stats Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Web-based SMITE stats calculator and god builder.">
+    <meta name="keywords" content="SMITE, JavaScript, Hi-Rez">
+    <meta name="author" content="Michael Warmbier">
+    <link rel="shortcut icon" type="image/png" href="assets/site/favicon.png" />
+    <meta name='viewport' content='width=device-width'>
+
+    <!-- Mobile Redirect -->
+    <script>
+      if (screen.width <= 950) {
+      window.location.replace('m.index.html');
+   }
+    </script>
+
+  </head>
+  <body>
+    
+    <!-- Main Content -->
+    
+    <div id="content">
+
+      <!-- Header -->
+
+      <div id="nav">Smite<img src="assets/site/bolt.png">Stats</div>
+      <div id="patch">
+        V1.0 (Smite V9.3)
+        <div id="news_button" onclick="newsToggle()">News</div>
+      </div>
+
+      <!-- Left-side content -->
+
+      <div id="left_side_content">
+        <div class="god_hud">
+          <div class="god_hud_level">1</div>
+          <div class="god_hud_name">None</div>
+        </div>
+        <div class="options">
+          <div class="level_toggle" onclick='activeSide = 0; levelToggle()'>Level</div>
+          <div class="buff_toggle" onclick='activeSide = 0; buffToggle()'>Buff</div>
+        </div>
+        <div class="active_god" onclick="godSelectionToggle(); activeSide = 0;">?</div>
+        <div class="item_selection">
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 0;">+</div>
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 1;">+</div>
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 2;">+</div>
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 3;">+</div>
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 4;">+</div>
+          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 5;">+</div>
+        </div>
+        <div class="stats_display">
+          <div class="stat">
+            <img src='assets/stats/speed.png' class="stat_icon">
+            <span class="stat_label">Speed: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/basic_attack.png' class="stat_icon">
+            <span class="stat_label">Basic Damage: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/attack_speed.png' class="stat_icon">
+            <span class="stat_label">Attack Speed: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_protections.png' class="stat_icon">
+            <span class="stat_label">Physical Protections: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_power.png' class="stat_icon">
+            <span class="stat_label">Power: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_protections.png' class="stat_icon">
+            <span class="stat_label">Magical Protections: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/health.png' class="stat_icon">
+            <span class="stat_label">Health: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_armour.png' class="stat_icon">
+            <span class="stat_label">Armour Reduction: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mana.png' class="stat_icon">
+            <span class="stat_label">Mana: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crit.png' class="stat_icon">
+            <span class="stat_label">Critical Strike Chance: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/hp5.png' class="stat_icon">
+            <span class="stat_label">HP5: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Physical Penetration: </span><span class="stat_value">0</span> + <span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mp5.png' class="stat_icon">
+            <span class="stat_label">MP5: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/cooldown.png' class="stat_icon">
+            <span class="stat_label">Cooldown Reduction: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crowd_control.png' class="stat_icon">
+            <span class="stat_label">Crowd Control Reduction: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_lifesteal.png' class="stat_icon">
+            <span class="stat_label">Lifesteal: </span><span class="stat_value">0</span>%
+          </div>
+        </div>
+      </div>
+
+      <!-- Right-side content -->
+
+      <div id="right_side_content">
+        <div class="god_hud">
+          <div class="god_hud_level">1</div>
+          <div class="god_hud_name">None</div>
+        </div>
+        <div class="options">
+          <div class="level_toggle" onclick='activeSide = 1; levelToggle()'>Level</div>
+          <div class="buff_toggle" onclick='activeSide = 1; buffToggle()'>Buff</div>
+        </div>
+        <div class="active_god" onclick="godSelectionToggle(); activeSide = 1;">?</div>
+        <div class="item_selection">
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 0;">+</div>
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 1;">+</div>
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 2;">+</div>
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 3;">+</div>
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 4;">+</div>
+          <div class="item" onclick="activeSide = 1; itemSelectionToggle(); activeItem = 5;">+</div>
+        </div>
+        <div class="stats_display">
+          <div class="stat">
+            <img src='assets/stats/speed.png' class="stat_icon">
+            <span class="stat_label">Speed: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/basic_attack.png' class="stat_icon">
+            <span class="stat_label">Basic Damage: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/attack_speed.png' class="stat_icon">
+            <span class="stat_label">Attack Speed: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_protections.png' class="stat_icon">
+            <span class="stat_label">Physical Protections: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_power.png' class="stat_icon">
+            <span class="stat_label">Power: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_protections.png' class="stat_icon">
+            <span class="stat_label">Magical Protections: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/health.png' class="stat_icon">
+            <span class="stat_label">Health: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_armour.png' class="stat_icon">
+            <span class="stat_label">Armour Reduction: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mana.png' class="stat_icon">
+            <span class="stat_label">Mana: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crit.png' class="stat_icon">
+            <span class="stat_label">Critical Strike Chance: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/hp5.png' class="stat_icon">
+            <span class="stat_label">HP5: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Penetration: </span><span class="stat_value">0</span> + <span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mp5.png' class="stat_icon">
+            <span class="stat_label">MP5: </span><span class="stat_value">0</span>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/cooldown.png' class="stat_icon">
+            <span class="stat_label">Cooldown Reduction: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crowd_control.png' class="stat_icon">
+            <span class="stat_label">Crowd Control Reduction: </span><span class="stat_value">0</span>%
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_lifesteal.png' class="stat_icon">
+            <span class="stat_label">Lifesteal: </span><span class="stat_value">0</span>%
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Option Displays -->
+
+    <div id="level_selection">
+      <div onclick="setLevel(1)">1</div>
+      <div onclick="setLevel(2)">2</div>
+      <div onclick="setLevel(3)">3</div>
+      <div onclick="setLevel(4)">4</div>
+      <div onclick="setLevel(5)">5</div>
+      <div onclick="setLevel(6)">6</div>
+      <div onclick="setLevel(7)">7</div>
+      <div onclick="setLevel(8)">8</div>
+      <div onclick="setLevel(9)">9</div>
+      <div onclick="setLevel(10)">10</div>
+      <div onclick="setLevel(11)">11</div>
+      <div onclick="setLevel(12)">12</div>
+      <div onclick="setLevel(13)">13</div>
+      <div onclick="setLevel(14)">14</div>
+      <div onclick="setLevel(15)">15</div>
+      <div onclick="setLevel(16)">16</div>
+      <div onclick="setLevel(17)">17</div>
+      <div onclick="setLevel(18)">18</div>
+      <div onclick="setLevel(19)">19</div>
+      <div onclick="setLevel(20)">20</div>
+    </div>
+
+    <div id="buff_selection">
+      <div onclick="setBuff('none')">None</div>
+      <div onclick="setBuff('fire')">Fire</div>
+      <div onclick="setBuff('e_fire')">E. Fire</div>
+    </div>
+
+    <!-- News -->
+
+    <div id="news">
+      <h1>Recent News & Information</h1>
+      <h2>Website Released!</h2>
+      <p>
+        This site is now open to the public. A bunch of changes weren't included in the first patch, but are planned to be included in the future. These changes include:<br><br>
+      - More passive effects and the ability to toggle them<br>
+      - Stacks on items<br>
+      - A way to view ability information<br>
+      - Visual improvements<br><br>
+      Have suggestions? Email me at business@smitebuildmaker.com and I'll see what I can do!
+      </p>
+      <h2>Want to support me? Donate!</h2>
+      <p>
+        Donations help me live and let me keep working on websites like this.
+        If you wish to donate, you can <a href="https://www.paypal.com/donate/?hosted_button_id=PL5XBNMDZXNPW">do it here.</a>
+      </p>
+      <h2>FAQ</h2>
+      <p>
+        <strong>Question:</strong> Is this website open source?<br>
+        <strong>Answer:</strong> No. Suggestions are appreciated though, and I'm interested in working with contributers in the future. <br><br>
+        <strong>Question:</strong> There's a bug with the website! How can I contact you?<br>
+        <strong>Answer:</strong> You can contact me at business@smitebuildmaker.com. Keep in mind that you can also view the website console via inspect element at any time to see what's going on.<br><br>
+        <strong>Question:</strong> The numbers are different than the in-game builder, what gives?<br>
+        <strong>Answer:</strong> The in game builder may round slightly different or not include certain passives (which will be clearly shown in a future update). Still, if you feel there is an issue, contact me and I'll get on it right away.<br><br>
+      </p>
+    </div>
+
+    <!-- Selection Displays -->
+
+    <div id="filter_backdrop" onclick="backdropToggle()"></div>
+
+    <div id="god_filter_box">
+      <div id="god_filter">
+        <div class="god_filter_elem" id="f_search_gods" onclick="searchDisplayToggle()"></div>
+        <div class="god_filter_elem" id="f_reset_gods" onclick="activeGodFilter = null; initializeGods()"></div>
+        <div class="god_filter_elem" id="f_mage" onclick="activeGodFilter = 'Mage'; initializeGods();">Mage</div>
+        <div class="god_filter_elem" id="f_hunter" onclick="activeGodFilter = 'Hunter'; initializeGods();">Hunter</div>
+        <div class="god_filter_elem" id="f_warrior" onclick="activeGodFilter = 'Warrior'; initializeGods();">Warrior</div>
+        <div class="god_filter_elem" id="f_assassin" onclick="activeGodFilter = 'Assassin'; initializeGods();">Assassin</div>
+        <div class="god_filter_elem" id="f_guardian" onclick="activeGodFilter = 'Guardian'; initializeGods();">Guardian</div>
+      </div>
+      <span id="god_filter_span"></span>
+      <!-- Generated Elements of Class god_filter_child -->
+    </div>
+    <div id="god_details_display">
+      <span id="god_display_title">Choose your God</span>
+      <span id="god_display_subtitle"></span><br>
+      <div id="god_display_art">?</div>
+      <div id="god_display_details">
+        <span id="god_display_pan"></span><br>
+        <span id="god_display_role"></span>
+      </div>
+      <div id="god_display_select" onclick="appendGod(hoveredGod); godSelectionToggle();">Select God</div>
+    </div>
+
+    <div id="item_filter_box">
+      <div id="item_filter">
+        <div class="item_filter_elem" id="f_search_items" onclick="searchDisplayToggle()"></div>
+        <div class="item_filter_elem" id="f_reset_items" onclick="activeItemFilter = null; initializeItems()"></div>
+        <div class="item_filter_elem" id="f_tier1" onclick="activeItemFilter = 'Tier 1'; initializeItems();">Tier I</div>
+        <div class="item_filter_elem" id="f_tier2" onclick="activeItemFilter = 'Tier 2'; initializeItems();">Tier II</div>
+        <div class="item_filter_elem" id="f_tier3" onclick="activeItemFilter = 'Tier 3'; initializeItems();">Tier III</div>
+        <div class="item_filter_elem" id="f_tier4" onclick="activeItemFilter = 'Tier 4'; initializeItems();">Tier IV</div>
+        <div class="item_filter_elem" id="f_small_starter" onclick="activeItemFilter = 's_start'; initializeItems();">T1 Starter</div>
+        <div class="item_filter_elem" id="f_big_starter" onclick="activeItemFilter = 'b_start'; initializeItems();">T2 Starter</div>
+      </div>
+      <span id="item_filter_span"></span>
+      <!-- Generated Elements of Class item_filter_child -->
+    </div>
+    <div id="item_details_display">
+      <span id="item_display_title">Select an Item</span>
+      <div id="item_display_icon"></div>
+      <span id="item_display_stats"></span>
+      <span id="item_display_desc"></span>
+      <div id="item_display_select" onclick="appendItem(hoveredItem); itemSelectionToggle();">Add Item</div>
+    </div>
+
+    <!-- Search -->
+
+    <div id="search">
+      <input id="search_input" type="text"></input>
+    </div>
+
+    <!-- External JSON Game Data -->
+    <script src="SmiteData.json"></script>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    
+  </body>
+</html>
