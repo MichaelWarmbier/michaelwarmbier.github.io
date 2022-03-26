@@ -1,4 +1,5 @@
 @font-face { font-family: Penumbra; src: url('fonts/PFSR.otf'); }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 #warning {
   width: 100vw;
@@ -73,14 +74,17 @@ html, body {
   background-color: #10254a;
   border: inset .16vw #b5a672;
   z-index: 60;
-  font-family: Penumbra, sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 1.5vw;
   y-overflow: scroll;
   user-select: text;
   display: none;
 }
 
-#news h1 { color: #b5a672; font-size: 6.5vw; text-align: center; }
+#news h1 { 
+  color: #b5a672; font-size: 6.5vw; text-align: center;
+  font-family: Penumbra, sans-serif;
+}
 #news h2 { color: white; font-size: 4vw; text-decoration: underline; }
 #news p { color: white; font-size: 2.5vw; }
 #news a { color: #b5a672; }
