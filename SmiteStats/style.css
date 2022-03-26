@@ -279,7 +279,7 @@ html, body {
   background-color: black;
   opacity: .8;
   overflow: hidden;
-  z-index: 0;
+  z-index: 2;
 }
 
 #god_filter_box,
@@ -302,7 +302,7 @@ html, body {
   align-content: flex-start;
   justify-content: center;
   user-select: none;
-  z-index: 2;
+  z-index: 3;
   color: white;
   font-family: sans-serif;
   font-size: 3vw;
@@ -335,6 +335,7 @@ html, body {
   color: white;
   box-shadow: inset .3vw .3vw 2.5vw black;
   text-shadow: .2vw .2vw black;
+  z-index: 5;
 }
 
 #item_display_title {
@@ -703,4 +704,5 @@ footer {
   font-family: Penumbra, sans-serif;
   bottom: 0vw;
   text-align: center;
+  z-index: 0;
 }
