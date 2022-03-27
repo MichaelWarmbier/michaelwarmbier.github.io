@@ -36,6 +36,7 @@ html, body {
   margin: .5vw;
   right: 0; top: 0;
   font-family: Penumbra, sans-serif;
+  z-indedx: 2;
 }
 
 #news_button {

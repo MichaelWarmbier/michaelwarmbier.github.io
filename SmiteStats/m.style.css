@@ -51,7 +51,7 @@ html, body {
   margin: .5vw;
   right: 0; top: 0;
   font-family: Penumbra, sans-serif;
-  z-index: 30;
+  z-index: 2;
 }
 
 #news_button {
@@ -312,6 +312,7 @@ html, body {
   background-color: RGB(29, 41, 56);
   border: inset .22vw #b5a672;
   color: white;
+  transform: translateY(-12vw);
   box-shadow: inset .3vw .3vw 2.5vw black;
   text-shadow: .2vw .2vw black;
   z-index: 20;
