@@ -694,16 +694,14 @@ html, body {
 }
 
 footer {
-  width: 80vw;
+  width: 20vw;
   padding: .5vw;
   color: #133875;
   font-size: .5vw;
   display: block;
   position: absolute;
   margin: auto;
-  left: 0; right: 0;
   font-family: Penumbra, sans-serif;
-  bottom: 0vw;
-  text-align: center;
+  top: 0; left: 0; 
   z-index: 0;
 }

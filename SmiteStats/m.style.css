@@ -76,7 +76,8 @@ html, body {
   z-index: 60;
   font-family: "Roboto", sans-serif;
   padding: 1.5vw;
-  y-overflow: scroll;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   user-select: text;
   display: none;
 }
@@ -678,15 +679,13 @@ html, body {
 }
 
 footer {
-  width: 80vw;
+  width: 20vw;
   padding: .5vw;
   color: #133875;
-  font-size: 2vw;
+  font-size: 1.1vw;
   display: block;
   position: absolute;
   margin: auto;
-  left: 0; right: 0;
+  top: 0; left: 0;
   font-family: Penumbra, sans-serif;
-  bottom: 0vw;
-  text-align: center;
 }
