@@ -22,8 +22,8 @@
 
       <div id="nav">Smite<img src="assets/site/bolt.png">Stats</div>
       <div id="patch">
-        V1.0.1 (Smite V9.3)
-        <div id="news_button" onclick="newsToggle()">News</div>
+        V1.2 (Smite V9.3)
+        <div id="info_button" onclick="infoToggle()">Info</div>
       </div>
 
       <!-- Left-side content -->
@@ -146,36 +146,61 @@
       <div onclick="setBuff('e_fire')">E. Fire</div>
     </div>
 
-    <!-- News -->
+    <!-- Info -->
 
-    <div id="news">
-      <h1>Recent News & Information</h1>
-      <h2>Website Released!</h2>
-      <p>
-        This site is now open to the public. A bunch of changes weren't included in the first patch, but are planned to be included in the future. These changes include:<br><br>
-      - More passive effects and the ability to toggle them<br>
-      - Stacks on items<br>
-      - A way to view ability information<br>
-      - Visual improvements<br><br>
-      Have suggestions? Email me at business@smitebuildmaker.com and I'll see what I can do!
-      </p>
-      <h2>Want to support me? Donate!</h2>
-      <p>
+    <div id="info">
+      
+      <div id="news_button" onclick="infoDisplayIndex = 1; infoDisplayToggle();">News</div>
+      <div id="about_button" onclick="infoDisplayIndex = 0; infoDisplayToggle();">About</div>
+    
+      <div id="news">
+        <h1>Recent News</h1>
+        <h2>Some Visual Changes [4/6/22] V1.2</h2>
+        <p>
+          This minor update changes the following:
+          - "Fire Giant Buffs" are now larger and thus more visible on the God card.
+          - God pantheons and roles now display with their respective icons.
+          - "News" tab replaced with "Info" tab, displays news and site information separately.
+
+          Major updates to come.
+        </p>
+        <h2>Website Released! [3/25/22] V1 - V1.0.1</h2>
+        <p>
+          SmiteStats is now available to the public! Not every update I wanted to release with is here, but they're coming. Including, but not limited to:<br><br>
+          - Health Based Passives: Ability to Set Current Health & Mana<br>
+          - Basic Attack Damage Comparisons<br>
+          - Ability Info<br>
+          - Stacks<br>
+          - More buffs!<br><br>
+          
+          Have suggestions? Email me at business@smitebuildmaker.com and I'll see what I can do!
+        </p>
+      </div>
+      <div id="about">
+        <h1>About SmiteStats</h1>
+        <h2>What is SmiteStats?</h2>
+        <p>
+          SmiteStats is a personal fan-made project related to the video game SMITE that acts as a simulation of the in-game "god builder" with added features. It's design 
+          philosophy includes a single, downloadable webpage that's easy to access and cross-platform.
+        </p>
+        <h2>Want to support me? Donate!</h2>
+        <p>
         Donations help me live and let me keep working on websites like this.
         If you wish to donate, you can <a href="https://www.paypal.com/donate/?hosted_button_id=PL5XBNMDZXNPW">do it here.</a><br><br>
         You can also follow me on Twitter <a href="https://twitter.com/MichaelWarmbier">@MichaelWarmbier</a>
-      </p>
-      <h2>FAQ</h2>
-      <p>
-        <strong>Q:</strong> Is this website open source?<br>
-        <strong>A:</strong> No. Suggestions are appreciated though, and I'm interested in working with contributers in the future. <br><br>
-        <strong>Q:</strong> There's a bug with the website! How can I contact you?<br>
-        <strong>A:</strong> You can contact me at business@smitebuildmaker.com. Keep in mind that you can also view the website console via inspect element at any time to see what's going on.<br><br>
-        <strong>Q:</strong> The numbers are different than the in-game builder, what gives?<br>
-        <strong>A:</strong> The in game builder may round slightly different or not include certain passives (which will be clearly shown in a future update). Still, if you feel there is an issue, contact me and I'll get on it right away.<br><br>
-        <strong>Q:</strong> Does this site work on PC too?<br>
-        <strong>A:</strong> Yes!<br><br>
-      </p>
+        </p>
+        <h2>FAQ</h2>
+        <p>
+          <strong>Q:</strong> Is this website open source?<br>
+          <strong>A:</strong> No. Suggestions are appreciated though, and I'm interested in working with contributers in the future. <br><br>
+          <strong>Q:</strong> There's a bug with the website! How can I contact you?<br>
+          <strong>A:</strong> You can contact me at business@smitebuildmaker.com. Keep in mind that you can also view the website console via inspect element at any time to see what's going on.<br><br>
+          <strong>Q:</strong> The numbers are different than the in-game builder, what gives?<br>
+          <strong>A:</strong> The in-game builder may round slightly different or not include certain passives (which will be clearly shown in a future update). Still, if you feel there is a significant issue, contact me and I'll get on it right away.<br><br>
+          <strong>Q:</strong> Does this site work on both mobile and PC?<br>
+          <strong>A:</strong> Yes!<br><br>
+        </p>
+      </div>
     </div>
 
     <!-- Selection Displays -->

@@ -1,5 +1,6 @@
 @font-face { font-family: Penumbra; src: url('fonts/PFSR.otf'); }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 html, body {
   margin: 0; padding: 0;
@@ -39,7 +40,7 @@ html, body {
   z-indedx: 2;
 }
 
-#news_button {
+#info_button {
   height: 1em; width: 5vw;
   background-color: #10254a;
   border: inset .16vw #b5a672;
@@ -50,9 +51,9 @@ html, body {
   padding: .5vw;
 }
 
-#news_button:hover { opacity: .8; }
+#info_button:hover { opacity: .8; }
 
-#news {
+#info {
   position: absolute;
   top: 4vw; left: 8.5vw;
   width: 80vw; height: 80vh;
@@ -66,14 +67,50 @@ html, body {
   display: none;
 }
 
-#news h1 { 
+#info h1 { 
   color: #b5a672; font-size: 4.3vw; text-align: center;
   font-family: Penumbra, sans-serif;
+  text-decoration: underline;
+  background-color: #0c1d3b;
 }
-#news h2 { color: white; font-size: 2.5vw; text-decoration: underline; }
-#news p { color: white; font-size: 1.3vw; }
-#news a { color: #b5a672; }
-#news strong { text-decoration: underline; }
+#info h2 { color: white; font-size: 2.5vw; text-decoration: underline; }
+#info p { color: white; font-size: 1.3vw; }
+#info a { color: #b5a672; }
+#info strong { text-decoration: underline; }
+
+#info #news { display: block; }
+#info #about { display: none; }
+
+#news_button,
+#about_button {
+  position: absolute;
+  margin: auto;
+  left: 0; right: 0;
+  top: 0;
+  width: 10vw; height: 2.5vw;
+  background-color: RGB(29, 41, 56);
+  border: inset .16vw #b5a672;  
+  text-align: center;
+  color: white;
+  font-family: 'Penumbra', sans-serif;
+  line-height: 2.5vw;
+}
+
+#news_button:hover,
+#about_button:hover {
+  background-color: #17212e;
+}
+
+#news_button { 
+  transform: translateX(-5vw); 
+  border-right: none !important;
+  border-bottom-left-radius: .2vw;
+}
+#about_button { 
+  transform: translateX(5vw); 
+  border-left: none !important; 
+  border-bottom-right-radius: .2vw;
+}
 
 #nav img {
   height: 4vw; width: 3vw;
@@ -408,6 +445,11 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#god_display_details img {
+  transform: translateY(.175em);
+  width: 1em; height: 1em;
+}
+
 #item_display_stats {
   height: 3.5vw;
   margin: .8vw;
@@ -588,7 +630,7 @@ html, body {
 
 #search input:focus { border: 1px inset #b5a672; }
 
-/* Buff Toggles */
+/* Level & Buff Toggles */
 
 .options {
   position: absolute;
@@ -644,6 +686,7 @@ html, body {
   display: none;
   flex-direction: row;
   justify-content: space-around;
+  border-radius: .4vw;
 }
 
 #level_selection div {
@@ -662,8 +705,8 @@ html, body {
 
 #buff_selection {
   position: absolute;
-  top: 15vw; left: 39vw;
-  width: 22vw; height: 6vw;
+  top: 15vw; left: 34.5vw;
+  width: 30vw; height: 9vw;
   background-color: #10254a;
   border: inset .16vw #b5a672;
   z-index: 60;
@@ -672,10 +715,12 @@ html, body {
   display: none;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: .4vw;
 }
 
 #buff_selection div {
-  width: 6vw; height: 3vw;
+  width: 8vw; height: 3vw;
   background-color: RGB(29, 41, 56);
   text-shadow: .15vw .15vw black;
   color: #ababab;
