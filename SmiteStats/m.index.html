@@ -11,6 +11,11 @@
     <link rel="shortcut icon" type="image/png" href="assets/site/favicon.png" />
     <meta name='viewport' content='width=device-width'>
 
+    <!-- Mobile Redirect -->
+    <script>
+      if (screen.width > 950) { window.location.replace('index.html' +   window.location.search); }
+    </script>
+
   </head>
   <body>
     
@@ -22,7 +27,7 @@
 
       <div id="nav">Smite<img src="assets/site/bolt.png">Stats</div>
       <div id="patch">
-        V1.2.3 (Smite V9.4)
+        V2 (Smite V9.4)
         <div id="info_button" onclick="infoToggle()">Info</div>
       </div>
 
@@ -34,11 +39,20 @@
         </div>
 
       <div id="left_side_content">
+        <div class="active_god_buff"></div>
         <div class="god_hud">
           <div class="god_hud_level">1</div>
           <div class="god_hud_name">None</div>
         </div>
-        <div class="active_god" onclick="godSelectionToggle(); activeSide = 0;">?</div> 
+        <div class="active_god" onclick="godSelectionToggle(); activeSide = 0;">?</div>
+        <div class="item_numbers">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+        </div>
         <div class="item_selection">
           <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 0;">+</div>
           <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 1;">+</div>
@@ -50,70 +64,142 @@
         <div class="stats_display">
           <div class="stat">
             <img src='assets/stats/speed.png' class="stat_icon">
-            <span class="stat_label">Speed: </span><span class="stat_value">0</span>
+            <span class="stat_label">Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">1000</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/basic_attack.png' class="stat_icon">
-            <span class="stat_label">Basic Damage: </span><span class="stat_value">0</span>
+            <span class="stat_label">Basic Damage: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">10000</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/attack_speed.png' class="stat_icon">
-            <span class="stat_label">Attack Speed: </span><span class="stat_value">0</span>
+            <span class="stat_label">Attack Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">2.5</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/p_protections.png' class="stat_icon">
-            <span class="stat_label">Physical Protections: </span><span class="stat_value">0</span>
+            <span class="stat_label">Physical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/p_power.png' class="stat_icon">
-            <span class="stat_label">Power: </span><span class="stat_value">0</span>
+            <span class="stat_label">Power: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">3000</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/m_protections.png' class="stat_icon">
-            <span class="stat_label">Magical Protections: </span><span class="stat_value">0</span>
+            <span class="stat_label">Magical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/health.png' class="stat_icon">
-            <span class="stat_label">Health: </span><span class="stat_value">0</span>
+            <span class="stat_label">Health: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">5500</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/m_armour.png' class="stat_icon">
-            <span class="stat_label">Armour Reduction: </span><span class="stat_value">0</span>
+            <span class="stat_label">Armour Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/mana.png' class="stat_icon">
-            <span class="stat_label">Mana: </span><span class="stat_value">0</span>
+            <span class="stat_label">Mana: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">4000</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/crit.png' class="stat_icon">
-            <span class="stat_label">Critical Strike Chance: </span><span class="stat_value">0</span>%
+            <span class="stat_label">Critical Strike Chance: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/hp5.png' class="stat_icon">
-            <span class="stat_label">HP5: </span><span class="stat_value">0</span>
+            <span class="stat_label">HP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/p_armour.png' class="stat_icon">
-            <span class="stat_label">Penetration: </span><span class="stat_value">0</span> + <span class="stat_value">0</span>%
+            <span class="stat_label">Penetration: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="plus">&nbsp+&nbsp</span>
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">50 + 40%</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/mp5.png' class="stat_icon">
-            <span class="stat_label">MP5: </span><span class="stat_value">0</span>
+            <span class="stat_label">MP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/cooldown.png' class="stat_icon">
-            <span class="stat_label">Cooldown Reduction: </span><span class="stat_value">0</span>%
+            <span class="stat_label">Cooldown Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/crowd_control.png' class="stat_icon">
-            <span class="stat_label">Crowd Control Reduction: </span><span class="stat_value">0</span>%
+            <span class="stat_label">Crowd Control Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
           </div>
           <div class="stat">
             <img src='assets/stats/p_lifesteal.png' class="stat_icon">
-            <span class="stat_label">Lifesteal: </span><span class="stat_value">0</span>%
+            <span class="stat_label">Lifesteal: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
           </div>
         </div>
       </div>
+
+    <!-- Global Options -->
+
+    <div id="build_order_toggle" onclick="toggleBuildNumbers()"></div>
+    <div id="link_copy" onclick='generateLink()'></div>
+    <div id="link_copy_notif">Link Copied!</div>
 
     <!-- Option Displays -->
 
@@ -141,9 +227,24 @@
     </div>
 
     <div id="buff_selection">
-      <div onclick="setBuff('none')">None</div>
-      <div onclick="setBuff('fire')">Fire</div>
-      <div onclick="setBuff('e_fire')">E. Fire</div>
+      <div class="buff_title">Fire Giant Buffs</div>
+        <div class="buff_elem" onclick="setFireBuff('none')">None</div>
+        <div class="buff_elem" onclick="setFireBuff('fire')">Fire</div>
+        <div class="buff_elem" onclick="setFireBuff('e_fire')">E. Fire</div>
+      <div class="buff_title">Normal Buffs</div>
+        <div class="buff_elem" onclick="setBuff('none')">None</div>
+        <div class="buff_elem" onclick="setBuff('health')">Health</div>
+        <div class="buff_elem" onclick="setBuff('speed')">Speed</div>
+        <div class="buff_elem" onclick="setBuff('power')">Power</div>
+        <div class="buff_elem" onclick="setBuff('mana')">Mana</div>
+        <div class="buff_elem" onclick="setBuff('void')">Void</div>
+      <div class="buff_title">Enhanced Buffs</div>
+        <div class="buff_elem" onclick="setBuff('none')">None</div>
+        <div class="buff_elem" onclick="setBuff('e_health')">Health</div>
+        <div class="buff_elem" onclick="setBuff('e_speed')">Speed</div>
+        <div class="buff_elem" onclick="setBuff('e_power')">Power</div>
+        <div class="buff_elem" onclick="setBuff('e_mana')">Mana</div>
+        <div class="buff_elem" onclick="setBuff('e_void')">Void</div>
     </div>
 
     <!-- Info -->
@@ -155,12 +256,28 @@
     
       <div id="news">
         <h1>Recent News</h1>
+        <h2>Massive Feature Update [4/21/22] V.2</h2>
+        <p>
+          This major update adds and changes the following:<br><br>
+          - Added visible stat cap gradient bars.<br>
+          - Removed HP5 and MP5 consideration<br>
+          - Added 'Console Window' which can be opened by using the ~ key.<br>
+          - Fixed a bug with the delete item option not working as intended.<br>
+          - Fixed issues with 'Glyph' items.<br>
+          - Added all buffs, buffs use their Conquest statistics in calculation.<br>
+          - Added build number toggle<br>
+          - Added link sharing<br><br>
+
+          Some things to note:<br><br>
+          - Item passives and some god passives are still not here yet, so items like Transendence and Pendulum of Ages' mana conversion will have to wait until a future update. These passives <em>will</em> be toggle-able.<br>
+          - Buff descriptions can be read by hovering over their icon on the God card.<br>
+        </p>
         <h2>Some Visual Changes [4/6/22] V1.2</h2>
         <p>
-          This minor update changes the following:
-          - "Fire Giant Buffs" are now larger and thus more visible on the God card.
-          - God pantheons and roles now display with their respective icons.
-          - "News" tab replaced with "Info" tab, displays news and site information separately.
+          This minor update changes the following:<br><br>
+          - "Fire Giant Buffs" are now larger and thus more visible on the God card.<br>
+          - God pantheons and roles now display with their respective icons.<br>
+          - "News" tab replaced with "Info" tab, displays news and site information separately.<br>
 
           Major updates to come.
         </p>
