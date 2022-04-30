@@ -356,8 +356,7 @@ html, body {
 #god_filter_box,
 #item_filter_box {
   position: absolute; margin: auto;
-  margin-top: 5vh;
-  top: 0; right: 0;
+  top: 2vw; right: 0;
   left: -30vw;
   width: 50vw;
   height: 80vh;
@@ -396,9 +395,8 @@ html, body {
 #god_details_display {
   display: none;
   position: absolute; margin: auto;
-  margin-top: 10vh;
-  top: 0; right: 5vw;
-  height: 80vh;
+  top: 11vw; right: 5vw;
+  height: 72vh;
   width: 30vw;
   border-radius: .7vw;
   background-color: RGB(29, 41, 56);
@@ -472,7 +470,7 @@ html, body {
   display: block;
   text-align: center;
   width: 100%;
-  font-size: 2.4vw;
+  font-size: 2vw;
   margin-top: 1vw;
   margin-bottom: -3vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -510,13 +508,13 @@ html, body {
 #god_display_select {
   position: absolute;
   margin: auto;
-  left: 0; right: 0; bottom: 3vw;
+  left: 0; right: 0; bottom: 2vw;
   border-radius: .7vw;
-  width: 20vw; height: 5vw;
+  width: 15vw; height: 3.75vw;
   font-family: Penumbra, sans-serif;
   text-align: center;
-  font-size: 2.5vw;
-  line-height: 5vw;
+  font-size: 2.1vw;
+  line-height: 4vw;
   background-color: #18222e;
   border: inset .22vw #b5a672;
   box-shadow: .3vw .3vw 2.5vw black;
@@ -632,8 +630,8 @@ html, body {
 
 #search {
   position: absolute; margin: auto;
-  top: -30vh; right: 0; left: 0; bottom: 0;
-  width: 40vw;
+  top: 1.5vw; right: 5vw; 
+  width: 30vw;
   height: 7.5vw;
   border-radius: .7vw;
   background-color: RGB(29, 41, 56);
@@ -672,7 +670,6 @@ html, body {
 }
 
 .options div {
-  height: 2vw; width: 5vw;
   position: absolute; margin: auto;
   background-color: RGB(5,14,29);
   border: inset .15vw #b5a672;
@@ -689,14 +686,28 @@ html, body {
 
 .level_toggle {
   left: -2.5vw; 
+  height: 2vw; width: 5vw;
   border-right: none !important;
   border-bottom-right-radius: 0 !important;
 }
 .buff_toggle {
   left: 2.5vw; 
+  height: 2vw; width: 5vw;
   border-left: none !important;
   border-bottom-left-radius: 0 !important;
 }
+
+.random_toggle {
+  left: -3.75vw; right: 0; margin: auto;
+  top: 2.15vw;
+  width: 3vw; height: 3vw;
+  background-color: RGB(5,14,29);
+  border: inset .15vw #b5a672;
+  background-image: url('assets/site/random.png');
+  background-size: cover;
+}
+
+/* <div class="random_toggle" onclick='activeSide = 0; randomize()'></div> */
 
 #left_side_content .options { left: 5vw; }
 #right_side_content .options { right: 0vw; }

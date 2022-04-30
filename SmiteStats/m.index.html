@@ -27,7 +27,7 @@
 
       <div id="nav">Smite<img src="assets/site/bolt.png">Stats</div>
       <div id="patch">
-        V2 (Smite V9.4)
+        V2.1 (Smite V9.4)
         <div id="info_button" onclick="infoToggle()">Info</div>
       </div>
 
@@ -54,12 +54,12 @@
           <span>6</span>
         </div>
         <div class="item_selection">
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 0;">+</div>
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 1;">+</div>
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 2;">+</div>
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 3;">+</div>
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 4;">+</div>
-          <div class="item" onclick="activeSide = 0; itemSelectionToggle(); activeItem = 5;">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 0; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 1; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 2; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 3; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 4; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 5; itemSelectionToggle();">+</div>
         </div>
         <div class="stats_display">
           <div class="stat">
@@ -119,11 +119,11 @@
             </div>
           </div>
           <div class="stat">
-            <img src='assets/stats/m_armour.png' class="stat_icon">
-            <span class="stat_label">Armour Reduction: </span>
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Penetration: </span>
             <div class="stat_numbers">
-              <span class="stat_value">0</span>%
-              <span class="stat_cap">100%</span>
+              <span class="stat_value">0</span>
+              <span class="stat_cap">50</span>
             </div>
           </div>
           <div class="stat">
@@ -135,11 +135,11 @@
             </div>
           </div>
           <div class="stat">
-            <img src='assets/stats/crit.png' class="stat_icon">
-            <span class="stat_label">Critical Strike Chance: </span>
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Percent Penetration: </span>
             <div class="stat_numbers">
               <span class="stat_value">0</span>%
-              <span class="stat_cap">100%</span>
+              <span class="stat_cap">40%</span>
             </div>
           </div>
           <div class="stat">
@@ -151,13 +151,11 @@
             </div>
           </div>
           <div class="stat">
-            <img src='assets/stats/p_armour.png' class="stat_icon">
-            <span class="stat_label">Penetration: </span>
+            <img src='assets/stats/crit.png' class="stat_icon">
+            <span class="stat_label">Critical Strike Chance: </span>
             <div class="stat_numbers">
-              <span class="stat_value">0</span>
-              <span class="plus">&nbsp+&nbsp</span>
               <span class="stat_value">0</span>%
-              <span class="stat_cap">50 + 40%</span>
+              <span class="stat_cap">100%</span>
             </div>
           </div>
           <div class="stat">
