@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Smite Stats Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Web-based SMITE stats calculator and god builder.">
+    <meta name="keywords" content="SMITE, JavaScript, Hi-Rez">
+    <meta name="author" content="Michael Warmbier">
+    <link rel="shortcut icon" type="image/png" href="assets/site/favicon.png" />
+    <meta name='viewport' content='width=device-width'>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6692240282530561"
+     crossorigin="anonymous"></script>
+    
+    <!-- Mobile Redirect -->
+    <script>
+      if (screen.width <= 950) { window.location.replace('m.index.html' + window.location.search); }
+    </script>
+
+    <!-- Hotjar Tracking Code -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2957097,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+  </head>
+  <body>
+    
+    <!-- Main Content -->
+    
+    <div id="content">
+
+      <!-- Header -->
+
+      <div id="nav">Smite<img src="assets/site/bolt.png">Stats</div>
+      <div id="patch">
+        V2.1.2 (Smite V9.5)
+        <div id="info_button" onclick="infoToggle()">Info</div>
+      </div>
+
+      <!-- Left-side content -->
+
+      <div id="left_side_content">
+        <div class="active_god_buff"></div>
+        <div class="god_hud">
+          <div class="god_hud_level">1</div>
+          <div class="god_hud_name">None</div>
+        </div>
+        <div class="options">
+          <div class="level_toggle" onclick='activeSide = 0; levelToggle()'>Level</div>
+          <div class="buff_toggle" onclick='activeSide = 0; buffToggle()'>Buff</div>
+          <div class="random_toggle" onclick='activeSide = 0; randomize()'></div>
+        </div>
+        <div class="active_god" onclick="godSelectionToggle(); activeSide = 0;">?</div>
+        <div class="item_numbers">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+        </div>
+        <div class="item_selection">
+          <div class="item" onclick="activeSide = 0; activeItem = 0; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 1; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 2; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 3; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 4; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 0; activeItem = 5; itemSelectionToggle();">+</div>
+        </div>
+        <div class="stats_display">
+          
+          <div class="stat">
+            <img src='assets/stats/speed.png' class="stat_icon">
+            <span class="stat_label">Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">1000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/basic_attack.png' class="stat_icon">
+            <span class="stat_label">Basic Damage: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">3000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/attack_speed.png' class="stat_icon">
+            <span class="stat_label">Attack Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">2.5</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_protections.png' class="stat_icon">
+            <span class="stat_label">Physical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_power.png' class="stat_icon">
+            <span class="stat_label">Power: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">2500</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_protections.png' class="stat_icon">
+            <span class="stat_label">Magical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/health.png' class="stat_icon">
+            <span class="stat_label">Health: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">5500</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Penetration: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">50</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mana.png' class="stat_icon">
+            <span class="stat_label">Mana: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">4000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Percent Penetration: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/hp5.png' class="stat_icon">
+            <span class="stat_label">HP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crit.png' class="stat_icon">
+            <span class="stat_label">Critical Strike Chance: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mp5.png' class="stat_icon">
+            <span class="stat_label">MP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/cooldown.png' class="stat_icon">
+            <span class="stat_label">Cooldown Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crowd_control.png' class="stat_icon">
+            <span class="stat_label">Crowd Control Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_lifesteal.png' class="stat_icon">
+            <span class="stat_label">Lifesteal: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right-side content -->
+
+      <div id="right_side_content">
+        <div class="active_god_buff"></div>
+        <div class="god_hud">
+          <div class="god_hud_level">1</div>
+          <div class="god_hud_name">None</div>
+        </div>
+        <div class="options">
+          <div class="level_toggle" onclick='activeSide = 1; levelToggle()'>Level</div>
+          <div class="buff_toggle" onclick='activeSide = 1; buffToggle()'>Buff</div>
+          <div class="random_toggle" onclick='activeSide = 1; randomize()'></div>
+        </div>
+        <div class="active_god" onclick="godSelectionToggle(); activeSide = 1;">?</div>
+        <div class="item_numbers">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+        </div>
+        <div class="item_selection">
+          <div class="item" onclick="activeSide = 1; activeItem = 0; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 1; activeItem = 1; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 1; activeItem = 2; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 1; activeItem = 3; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 1; activeItem = 4; itemSelectionToggle();">+</div>
+          <div class="item" onclick="activeSide = 1; activeItem = 5; itemSelectionToggle();">+</div>
+        </div>
+        <div class="stats_display">
+
+        <div class="stat">
+            <img src='assets/stats/speed.png' class="stat_icon">
+            <span class="stat_label">Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">1000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/basic_attack.png' class="stat_icon">
+            <span class="stat_label">Basic Damage: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">3000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/attack_speed.png' class="stat_icon">
+            <span class="stat_label">Attack Speed: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">2.5</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_protections.png' class="stat_icon">
+            <span class="stat_label">Physical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_power.png' class="stat_icon">
+            <span class="stat_label">Power: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">2500</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/m_protections.png' class="stat_icon">
+            <span class="stat_label">Magical Protections: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">325</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/health.png' class="stat_icon">
+            <span class="stat_label">Health: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">5500</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Penetration: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">50</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mana.png' class="stat_icon">
+            <span class="stat_label">Mana: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">4000</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_armour.png' class="stat_icon">
+            <span class="stat_label">Percent Penetration: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/hp5.png' class="stat_icon">
+            <span class="stat_label">HP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crit.png' class="stat_icon">
+            <span class="stat_label">Critical Strike Chance: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/mp5.png' class="stat_icon">
+            <span class="stat_label">MP5: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>
+              <span class="stat_cap">100</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/cooldown.png' class="stat_icon">
+            <span class="stat_label">Cooldown Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/crowd_control.png' class="stat_icon">
+            <span class="stat_label">Crowd Control Reduction: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">40%</span>
+            </div>
+          </div>
+          <div class="stat">
+            <img src='assets/stats/p_lifesteal.png' class="stat_icon">
+            <span class="stat_label">Lifesteal: </span>
+            <div class="stat_numbers">
+              <span class="stat_value">0</span>%
+              <span class="stat_cap">100%</span>
+            </div>
+          </div>
+          
+        </div>
+
+    </div>
+
+    <!-- Global Options -->
+
+    <div id="build_order_toggle" onclick="toggleBuildNumbers()"></div>
+    <div id="link_copy" onclick="generateLink()"></div>
+    <div id="link_copy_notif">Share Link Copied!</div>
+
+    <!-- Option Displays -->
+
+    <div id="level_selection">
+      <div onclick="setLevel(1)">1</div>
+      <div onclick="setLevel(2)">2</div>
+      <div onclick="setLevel(3)">3</div>
+      <div onclick="setLevel(4)">4</div>
+      <div onclick="setLevel(5)">5</div>
+      <div onclick="setLevel(6)">6</div>
+      <div onclick="setLevel(7)">7</div>
+      <div onclick="setLevel(8)">8</div>
+      <div onclick="setLevel(9)">9</div>
+      <div onclick="setLevel(10)">10</div>
+      <div onclick="setLevel(11)">11</div>
+      <div onclick="setLevel(12)">12</div>
+      <div onclick="setLevel(13)">13</div>
+      <div onclick="setLevel(14)">14</div>
+      <div onclick="setLevel(15)">15</div>
+      <div onclick="setLevel(16)">16</div>
+      <div onclick="setLevel(17)">17</div>
+      <div onclick="setLevel(18)">18</div>
+      <div onclick="setLevel(19)">19</div>
+      <div onclick="setLevel(20)">20</div>
+    </div>
+
+    <div id="buff_selection">
+      <div class="buff_title">Fire Giant Buffs</div>
+        <div class="buff_elem" onclick="setFireBuff('none')">None</div>
+        <div class="buff_elem" onclick="setFireBuff('fire')">Fire</div>
+        <div class="buff_elem" onclick="setFireBuff('e_fire')">E. Fire</div>
+      <div class="buff_title">Normal Buffs</div>
+        <div class="buff_elem" onclick="setBuff('none')">None</div>
+        <div class="buff_elem" onclick="setBuff('health')">Health</div>
+        <div class="buff_elem" onclick="setBuff('speed')">Speed</div>
+        <div class="buff_elem" onclick="setBuff('power')">Power</div>
+        <div class="buff_elem" onclick="setBuff('mana')">Mana</div>
+        <div class="buff_elem" onclick="setBuff('void')">Void</div>
+      <div class="buff_title">Enhanced Buffs</div>
+        <div class="buff_elem" onclick="setBuff('none')">None</div>
+        <div class="buff_elem" onclick="setBuff('e_health')">Health</div>
+        <div class="buff_elem" onclick="setBuff('e_speed')">Speed</div>
+        <div class="buff_elem" onclick="setBuff('e_power')">Power</div>
+        <div class="buff_elem" onclick="setBuff('e_mana')">Mana</div>
+        <div class="buff_elem" onclick="setBuff('e_void')">Void</div>
+    </div>
+
+    <!-- Info -->
+
+    <div id="info">
+      
+      <div id="news_button" onclick="infoDisplayIndex = 1; infoDisplayToggle();">News</div>
+      <div id="about_button" onclick="infoDisplayIndex = 0; infoDisplayToggle();">About</div>
+    
+      <div id="news">
+        <h1>Recent News</h1>
+        <h2>Patch 9.5 Balance Update [5/22/22] V2.1.2</h2>
+        <p>
+          Admittedly this update arrived later than I initially intended. The only things that 
+          were changed were the health numbers and normal changes included in V9.5 of SMITE. 
+          But I also wanted to make a point to mention that additions for the site will be halted 
+          for a brief time while I focus on revamping the UI. Currently, the site is 
+          functional on all relevant browsers, but with visual glitches that are likely to get
+          worse in the future. To rememdy this, I'm hoping to switch over to React.js. Please 
+          be patient while these changes take place. This will NOT affect SMITE updates and I 
+          will continue to try to add every patch as soon as possible.
+        </p>
+        <h2>Quality of Life Update [4/30/22] V2.1</h2>
+        <p>
+          This update adds the following QOL features:</br></br>
+          - Seperate 'Penetration' and 'Percent Penetration' into two different stat bars.</br>
+          - Removed 'Armour Reduction' stat, still internally exists.</br>
+          - Shortened links for link sharing.</br>
+          - Added better search (mostly affects PC).</br>
+          - Item info now persists to make checking an items information, again, easier.</br></br>
+        As well as the following feature:</br></br>
+          - Added 'Randomizer' button (PC exclusive).</br></br>
+        I'm aware of the clear decline in quality on the mobile page of this website, a future update is planned to address that by being dedicated to revamping the mobile version.
+        </p>
+        <h2>Massive Feature Update [4/21/22] V2</h2>
+        <p>
+          This major update adds and changes the following:<br><br>
+          - Added visible stat cap gradient bars.<br>
+          - Removed HP5 and MP5 consideration<br>
+          - Added 'Console Window' which can be opened by using the ~ key.<br>
+          - Fixed a bug with the delete item option not working as intended.<br>
+          - Fixed issues with 'Glyph' items.<br>
+          - Added all buffs, buffs use their Conquest statistics in calculation.<br>
+          - Added build number toggle.<br>
+          - Added link sharing.<br><br>
+
+          Some things to note:<br><br>
+          - Item passives and some god passives are still not here yet, so items like Transendence and Pendulum of Ages' mana conversion will have to wait until a future update. These passives <em>will</em> be toggle-able.<br>
+          - Buff descriptions can be read by hovering over their icon on the God card.<br>
+        </p>
+        <h2>Some Visual Changes [4/6/22] V1.2</h2>
+        <p>
+          This minor update changes the following:<br><br>
+          - "Fire Giant Buffs" are now larger and thus more visible on the God card.<br>
+          - God pantheons and roles now display with their respective icons.<br>
+          - "News" tab replaced with "Info" tab, displays news and site information separately.<br>
+
+          Major updates to come.
+        </p>
+        <h2>Website Released! [3/25/22] V1 - V1.0.1</h2>
+        <p>
+          SmiteStats is now available to the public! Not every update I wanted to release with is here, but they're coming. Including, but not limited to:<br><br>
+          - Health Based Passives: Ability to Set Current Health & Mana<br>
+          - Basic Attack Damage Comparisons<br>
+          - Ability Info<br>
+          - Stacks<br>
+          - More buffs!<br><br>
+          
+          Have suggestions? Email me at business@smitebuildmaker.com and I'll see what I can do!
+        </p>
+      </div>
+      <div id="about">
+        <h1>About SmiteStats</h1>
+        <h2>What is SmiteStats?</h2>
+        <p>
+          SmiteStats is a personal fan-made project related to the video game SMITE that acts as a simulation of the in-game "god builder" with added features. It's design 
+          philosophy includes a single, downloadable webpage that's easy to access and cross-platform.
+        </p>
+        <h2>Want to support me? Donate!</h2>
+        <p>
+        Donations help me live and let me keep working on websites like this.
+        If you wish to donate, you can <a href="https://www.paypal.com/donate/?hosted_button_id=PL5XBNMDZXNPW">do it here.</a><br><br>
+        You can also follow me on Twitter <a href="https://twitter.com/MichaelWarmbier">@MichaelWarmbier</a>
+        </p>
+        <h2>FAQ</h2>
+        <p>
+          <strong>Q:</strong> Is this website open source?<br>
+          <strong>A:</strong> No. Suggestions are appreciated though, and I'm interested in working with contributers in the future. <br><br>
+          <strong>Q:</strong> There's a bug with the website! How can I contact you?<br>
+          <strong>A:</strong> You can contact me at business@smitebuildmaker.com. Keep in mind that you can also view the website console via inspect element at any time to see what's going on.<br><br>
+          <strong>Q:</strong> The numbers are different than the in-game builder, what gives?<br>
+          <strong>A:</strong> The in-game builder may round slightly different or not include certain passives (which will be clearly shown in a future update). Still, if you feel there is a significant issue, contact me and I'll get on it right away.<br><br>
+          <strong>Q:</strong> Does this site work on both mobile and PC?<br>
+          <strong>A:</strong> Yes!<br><br>
+          <strong>Q:</strong> The website was updated without patch notes, why?<br>
+          <strong>A:</strong> The format for the patch follows the following format: Major_Update.Minor_Update.Patch_Update. Patch updates and some bug fixes are not included in the patch notes.<br><br>
+        </p>
+      </div>
+    </div>
+
+    <!-- Selection Displays -->
+
+    <div id="filter_backdrop" onclick="backdropToggle()"></div>
+
+    <div id="god_filter_box">
+      <div id="god_filter">
+        <div class="god_filter_elem" id="f_reset_gods" onclick="activeGodFilter = null; initializeGods()"></div>
+        <div class="god_filter_elem" id="f_mage" onclick="activeGodFilter = 'Mage'; initializeGods();">Mage</div>
+        <div class="god_filter_elem" id="f_hunter" onclick="activeGodFilter = 'Hunter'; initializeGods();">Hunter</div>
+        <div class="god_filter_elem" id="f_warrior" onclick="activeGodFilter = 'Warrior'; initializeGods();">Warrior</div>
+        <div class="god_filter_elem" id="f_assassin" onclick="activeGodFilter = 'Assassin'; initializeGods();">Assassin</div>
+        <div class="god_filter_elem" id="f_guardian" onclick="activeGodFilter = 'Guardian'; initializeGods();">Guardian</div>
+      </div>
+      <span id="god_filter_span"></span>
+      <!-- Generated Elements of Class god_filter_child -->
+    </div>
+    <div id="god_details_display">
+      <span id="god_display_title">Choose your God</span>
+      <span id="god_display_subtitle"></span><br>
+      <div id="god_display_art">?</div>
+      <div id="god_display_details">
+        <span id="god_display_pan"></span><br>
+        <span id="god_display_role"></span>
+      </div>
+      <div id="god_display_select" onclick="appendGod(hoveredGod); godSelectionToggle();">Select God</div>
+    </div>
+
+    <div id="item_filter_box">
+      <div id="item_filter">
+        <div class="item_filter_elem" id="f_search_items" onclick="searchDisplayToggle()"></div>
+        <div class="item_filter_elem" id="f_reset_items" onclick="activeItemFilter = null; initializeItems()"></div>
+        <div class="item_filter_elem" id="f_tier1" onclick="activeItemFilter = 'Tier 1'; initializeItems();">Tier I</div>
+        <div class="item_filter_elem" id="f_tier2" onclick="activeItemFilter = 'Tier 2'; initializeItems();">Tier II</div>
+        <div class="item_filter_elem" id="f_tier3" onclick="activeItemFilter = 'Tier 3'; initializeItems();">Tier III</div>
+        <div class="item_filter_elem" id="f_tier4" onclick="activeItemFilter = 'Tier 4'; initializeItems();">Tier IV</div>
+        <div class="item_filter_elem" id="f_small_starter" onclick="activeItemFilter = 's_start'; initializeItems();">T1 Starter</div>
+        <div class="item_filter_elem" id="f_big_starter" onclick="activeItemFilter = 'b_start'; initializeItems();">T2 Starter</div>
+      </div>
+      <span id="item_filter_span"></span>
+      <!-- Generated Elements of Class item_filter_child -->
+    </div>
+    <div id="item_details_display">
+      <span id="item_display_title">Select an Item</span>
+      <div id="item_display_icon"></div>
+      <span id="item_display_stats"></span>
+      <span id="item_display_desc"></span>
+      <div id="item_display_select" onclick="appendItem(hoveredItem); itemSelectionToggle();">Add Item</div>
+    </div>
+
+    <!-- Search -->
+
+    <div id="search">
+      <input id="search_input" type="text"></input>
+    </div>
+
+    <footer>SMITE™ is a trademark owned by Hi-Rez Studios. All characters, graphics and information belong to them. Website was designed and developed by Michael Warmbier.</footer>
+
+    <!-- Console Window -->
+    <div id="console">
+      <div id="console_content"></div>
+      <div id="border">
+        <span onclick='toggleConsole()'>SmiteStats Console</span>
+      <div>
+      <input type="range" min="20" max="100" value="70" onmouseup='consoleSlider(this)' id="console_range">
+    </div>
+
+    <!-- External JSON Game Data -->
+    <script src="SmiteData.json"></script>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    
+  </body>
+</html>
