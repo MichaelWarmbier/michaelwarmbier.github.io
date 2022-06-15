@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@100;300&display=swap');
 
+/*///// Global /////*/
+
+:root {
+  --orange: #de993e;
+}
+
 body, html {
   margin: 0; padding: 0;
   width: 100vw; height: 100%;
@@ -7,6 +13,8 @@ body, html {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
+/*///// Navigation /////*/
 
 header {
   display: flex;
@@ -27,25 +35,15 @@ header p {
   user-select: none;
 }
 
-.footer {
-  height: 3vw;
-  background-color: #0a0a0a;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1vw;
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 1.5vw;
-  padding-left: 3vw;
-}
+/*///// Site Title /////*/
 
 strong {
- color: #de993e;
+ color: var(--orange);
 }
 
 header a { color: white; text-decoration: none; }
 header p:first-child { margin-left: 0; }
-header a:hover { color: #de993e !important; }
+header a:hover { color: var(--orange) !important; }
 
 #top_content { 
   width: 100vw; height: 20vw;
@@ -118,6 +116,8 @@ header a:hover { color: #de993e !important; }
   text-shadow: .3vh .3vh black;
 }
 
+/*///// About Me /////*/
+
 #about_me #top {
   display: flex;
   justify-content: center;
@@ -165,24 +165,50 @@ header a:hover { color: #de993e !important; }
   margin-top: 2vw;
   margin-bottom: 2vw;
   text-align: center;
-
 }
 
-#about_me #bottom img {
-  width: 4vw; height: 4vw;
-  margin: .25vw;
-}
-
-#about_me #bottom div {
+#about_me #bottom #my_languages,
+#about_me #bottom #my_tools {
   width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+
+#about_me #bottom .am_img {
+  background-size: cover;
+  width: 4vw; height: 4vw;
+  margin-left: .5vw;
+  margin-right: .5vw;
+}
+
+.am_img .am_img_desc {
+  display: block; 
+  color: var(--orange);
+  font-family: 'Roboto', sans-serif;
+  font-size: .8vw;
+  font-weight: bold;
+  text-align: center;
+  transform: translateY(4.5vw);
+  transition-duration: .5s;
+  opacity: 0;
+}
+
+.am_img:hover .am_img_desc,
+.am_img:active .am_img_desc {
+  opacity: 1;
+}
+
+#about_me #bottom #my_experience {
+  color: white;
+  font-family: 'Robot', sans-serif;
+  font-size: 1.7vw;
+  color: var(--orange);
   text-align: center;
 }
 
-#bottom_content span { 
-  color: #de993e; 
-  font-weight: bold;
-  display: block; 
-}
+/*///// Work /////*/
 
 #work {
   width: 80vw;
@@ -213,7 +239,7 @@ header a:hover { color: #de993e !important; }
   width: 30vw; height: 16.875w;
   margin-top: 2.5vw;
   border-radius: 8px;
-  border: 2px inset #de993e;
+  border: 2px inset var(--orange);
 }
 
 #work .project .ico {
@@ -234,10 +260,12 @@ header a:hover { color: #de993e !important; }
 .project_info a {
   text-decoration: none;
   font-size: 1.2vw;
-  color: #de993e;
+  color: var(--orange);
   font-weight: bold
 }
 .project_info a:hover { color: white; }
+
+/*///// Contact /////*/
 
 #contact {
   width: 100vw;
@@ -260,59 +288,76 @@ header a:hover { color: #de993e !important; }
 }
 
 #contact .contact_ico:hover {
-  border-bottom: solid .1vw #de993e;
+  border-bottom: solid .1vw var(--orange);
   box-shadow: .0vh .4vh black;
 }
 
 #contact h1 { font-size: 2.6vw; }
 #contact h2 { font-size: 1.4vw; margin-top: 4vw; }
-#contact strong { color: #de993e;}
+#contact strong { color: var(--orange);}
 #contact a { text-decoration: none; }
 
+/*///// Footer /////*/
 
-/* Keyframes */
-
-@keyframes typeffect {
-  to { left: 100%; }
-}
-@keyframes blink { 
-   0% { background-color: white; opacity: 0; }
-   49% { background-color: white; opacity: 0; }
-   50% { background-color: white; opacity: 1; }
-   100% { background-color: white; opacity: 1; }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.footer {
+  height: 3vw;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1vw;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 1.5vw;
+  padding-left: 3vw;
 }
 
-@keyframes appear {
-  to { opacity: 1; }
-}
-
-/* Media Queries */
+/*///// Mobile Media Query /////*/
 
 @media only screen and (max-width: 800px) {
 
+  /* Navigation */
+
   header p { font-size: 3vh; }
+
+  /* Site Title */
 
   #top_content { height: 25vw; }
   #top_content p { font-size: 3vw; }
   #top_content h1 { font-size: 7vw; }
 
+  /* About Me */
+
   #about_me #top { flex-direction: column; margin-top: 3vw; }
   #about_me #top img { width: 50vw; height: 50vw; }
 
   #about_me #top p { font-size: 5vw; width: 80vw; }
-  #about_me #bottom p { font-size: 4vw; }
-  #about_me #bottom img { width: 8.5vw; height: 8.5vw; }
+  #about_me #bottom p { font-size: 5.5vw; }
+  
+  #about_me #bottom .am_img { 
+    width: 8.5vw; 
+    height: 8.5vw;
+    margin-bottom: 4.5vw;
+  }
+
+  .am_img .am_img_desc {
+    font-size: 1.9vw;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: none !important;
+    transform: translateY(9.7vw);
+  }
+  
+  #about_me #bottom #my_languages,
+  #about_me #bottom #my_tools {
+    width: 80vw;
+    flex-wrap: wrap;
+  }
+
+  #about_me #bottom #my_experience {
+    font-size: 3vw;
+  }
+
+  /* Work */
 
   #work .project { 
     display: flex; 
@@ -354,11 +399,48 @@ header a:hover { color: #de993e !important; }
     margin: auto; 
     width: max-width; 
   }
+
+  /* Contact */
+
+  #contact { margin-top: 28vw; }
+  #contact .contact_ico { width: 16vw; height: 16vw; }
+  #contact h1 { font-size: 7vw; }
+  #contact h2 { font-size: 5vw; }
+
+  /* Footer */
   
-  #contact .contact_ico { width: 8vw; height: 8vw; }
-  #contact h1 { font-size: 5vw; }
-  #contact h2 { font-size: 3.5vw; }
+  .footer { 
+    height: 6vw; 
+    font-size: 3vw; 
+    padding-top: 3vw; 
+    margin-top: 30vw;
+  }
   
-  .footer { height: 6vw; font-size: 3vw; padding-top: 3vw; }
-  
+}
+
+/*///// Keyframes /////*/
+
+@keyframes typeffect {
+  to { left: 100%; }
+}
+@keyframes blink { 
+   0% { background-color: white; opacity: 0; }
+   49% { background-color: white; opacity: 0; }
+   50% { background-color: white; opacity: 1; }
+   100% { background-color: white; opacity: 1; }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  to { opacity: 1; }
 }
