@@ -15,6 +15,14 @@ Site = [{
   "Tools": ["node.png", "repl.png", "json.png"]
 },
 {
+  "Title": "SmiteHelper",
+  "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
+  "PreviewURL": "Assets/Previews/smitestats_bot.gif",
+  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
+  "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
+  "Tools": ["node.png", "repl.png", "json.png", "discord.png"]
+},
+{
   "Title": "JsTetris",
   "Description": "A web-based from-scratch version of <em>Tetris</em> programmed entirely in JavaScript; port of my C++ version.",
   "PreviewURL": "Assets/Previews/jstetris.gif",
@@ -61,12 +69,4 @@ Site = [{
   "Link_Titles": ["Link to 'Pacman' Repository", "Link to 'Tetris' Repository", "Link to 'Minesweeper' Repository", "Link to 'FNAF' Repository"],
   "Links": ["https://github.com/MichaelWarmbier/Console-Pacman", "https://github.com/MichaelWarmbier/Console-Tetris", "https://github.com/MichaelWarmbier/Console-Minesweeper", "https://github.com/MichaelWarmbier/Console-Five-Nights-at-Freddy-s"],
   "Tools": ["C++.png", "vs.png"]
-},   
-{
-  "Title": "Smite Discord Bot",
-  "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
-  "PreviewURL": "Assets/Previews/smitestats_bot.gif",
-  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
-  "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
-  "Tools": ["node.png", "repl.png", "json.png", "discord.png"]
 }]
