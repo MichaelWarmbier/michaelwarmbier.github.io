@@ -4,12 +4,16 @@
 
 :root {
   --orange: #de993e;
+  --blue: #212cc2;
+  --BG-Black: #0f0f0f;
+  --Site-Font: 'Roboto', sans-serif;
+  --Title-Font: 'Roboto Mono', monospace; 
 }
 
 body, html {
   margin: 0; padding: 0;
   width: 100vw; height: 100%;
-  background-color: #0f0f0f;
+  background-color: var(--BG-Black);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -21,14 +25,14 @@ header {
   justify-content: center;
   align-items: center; 
   width: 100vw; height: 10vh;
-  background-color: #0f0f0f;
+  background-color: var(--BG-Black);
   float: left;
   font-size: 3.2vmin;
 }
 
 header p {
   width: content-width;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   font-weight: bold;
   margin: .5em;
   letter-spacing: .1vw;
@@ -49,7 +53,7 @@ header a:hover { color: var(--orange) !important; }
   width: 100vw; height: 20vw;
   display: flex;
   align-content: center;
-  background-color: #0f0f0f;
+  background-color: var(--BG-Black);
   overflow: hidden; 
   position: relative;
 }
@@ -66,7 +70,7 @@ header a:hover { color: var(--orange) !important; }
   height: 1em; width: max-content;
   color: white;
   font-size: 4vw;
-  font-family: 'Roboto Mono', monospace;  
+  font-family: var(--Title-Font); 
   top: 4.5vw;
   padding: .5vw;
 }
@@ -79,7 +83,7 @@ header a:hover { color: var(--orange) !important; }
   opacity: 0;
   text-align: center;
   width: 10vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   text-shadow: .3vh .3vh black;
   transform: translateY(3.5vw);
 }
@@ -98,7 +102,7 @@ header a:hover { color: var(--orange) !important; }
 }
 
 #top_content h1::before { 
-  background-color: #0f0f0f;
+  background-color: var(--BG-Black);
   animation: typeffect 2s steps(16) 1s forwards;
 }
 
@@ -109,7 +113,7 @@ header a:hover { color: var(--orange) !important; }
 }
 
 #bottom_content {
-  background-color: #0f0f0f;
+  background-color: var(--BG-Black);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,7 +142,7 @@ header a:hover { color: var(--orange) !important; }
 }
 
 #about_me p {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   color: white;
   text-align: center;
 }
@@ -166,6 +170,13 @@ header a:hover { color: var(--orange) !important; }
   margin-bottom: 2vw;
   text-align: center;
 }
+#about_me #bottom h1 {
+  font-size: 2vw;
+  text-align: center;
+  width: 100vw;
+  color: var(--orange);
+  font-family: var(--Site-Font);
+}
 
 #about_me #bottom #my_languages,
 #about_me #bottom #my_tools {
@@ -181,12 +192,15 @@ header a:hover { color: var(--orange) !important; }
   width: 4vw; height: 4vw;
   margin-left: .5vw;
   margin-right: .5vw;
+  border: solid .2vw var(--BG-Black);
+  border-radius: .6vw;
+  transition: .5s;
 }
 
 .am_img .am_img_desc {
   display: block; 
   color: var(--orange);
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   font-size: .8vw;
   font-weight: bold;
   text-align: center;
@@ -202,7 +216,7 @@ header a:hover { color: var(--orange) !important; }
 
 #about_me #bottom #my_experience {
   color: white;
-  font-family: 'Robot', sans-serif;
+  font-family: var(--Site-Font);
   font-size: 1.7vw;
   color: var(--orange);
   text-align: center;
@@ -216,7 +230,7 @@ header a:hover { color: var(--orange) !important; }
   justify-content: center;
   flex-direction: column;
   text-shadow: .4vh .4vh black;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   color: white;
   margin: auto;
   margin-top: 10vw;
@@ -244,7 +258,8 @@ header a:hover { color: var(--orange) !important; }
 
 #work .project .ico {
   height: 2.3vw; width: 2.3vw;
-  margin-left: .2vw;
+  margin-left: .5vw;
+  transform: translateY(1vw);
 }
 
 #work .project .project_info {
@@ -254,9 +269,8 @@ header a:hover { color: var(--orange) !important; }
   padding-right: 2vw;
 }
 
-.project_info h1 { font-size: 2.3vw; margin-bottom: .5em; }
+.project_info h1 { font-size: 2.3vw; }
 .project_info p { font-size: 1.2vw; }
-.project_info strong { color: #14660e; }
 .project_info a {
   text-decoration: none;
   font-size: 1.2vw;
@@ -273,7 +287,7 @@ header a:hover { color: var(--orange) !important; }
   margin-top: 6vw;
   padding-top: 6vw;
   margin-bottom: 8vw;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   text-shadow: .4vh .4vh black;
   color: white;
 }
@@ -303,7 +317,7 @@ header a:hover { color: var(--orange) !important; }
   height: 3vw;
   background-color: #0a0a0a;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--Site-Font);
   font-size: 1vw;
   display: flex;
   justify-content: flex-start;
@@ -337,6 +351,10 @@ header a:hover { color: var(--orange) !important; }
     width: 8.5vw; 
     height: 8.5vw;
     margin-bottom: 4.5vw;
+  }
+  
+  #about_me #bottom h1 {
+    font-size: 6vw;
   }
 
   .am_img .am_img_desc {
@@ -378,6 +396,7 @@ header a:hover { color: var(--orange) !important; }
 
   #work .project .ico {
     width: 7vw; height: 7vw;
+    transform: translateY(2vw);
   }
 
   #work .project .preview { 

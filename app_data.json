@@ -1,0 +1,72 @@
+Site = [{
+  "Title": "SmiteBuildMaker",
+  "Description": "Web-based app for players of the video game <em>Smite</em>, calculating item and character information and displaying them in a simple and easy to share format with tons of customizability; all hosted on Replit.",
+  "PreviewURL": "Assets/Previews/smitebuildmaker.gif",
+  "Link_Titles": ["Link to Website"],
+  "Links": ["http://smitebuildmaker.com"],
+  "Tools": ["html.png", "css.png", "js.png", "repl.png", "json.png"]
+},
+{
+  "Title": "Smite API Application",
+  "Description": "JavaScript application for the <em>Smite</em> API allowing non-experiences users access to its endpoints using a command-line interface.",
+  "PreviewURL": "Assets/Previews/smiteapi.gif",
+  "Link_Titles": ["Link to Application", "Link to Repository", "Link to NPM Page"],
+  "Links": ["https://replit.com/@Kirbout/Smite-API-Application", "https://github.com/MichaelWarmbier/Smite-API-Application", "https://www.npmjs.com/package/smite_api_app"],
+  "Tools": ["node.png", "repl.png", "json.png"]
+},
+{
+  "Title": "JsTetris",
+  "Description": "A web-based from-scratch version of <em>Tetris</em> programmed entirely in JavaScript; port of my C++ version.",
+  "PreviewURL": "Assets/Previews/jstetris.gif",
+  "Link_Titles": ["Link to Website", "Link to Repository"],
+  "Links": ["https://michaelwarmbier.github.io/jsTetris/", "https://github.com/MichaelWarmbier/jsTetris"],
+  "Tools": ["html.png", "css.png", "js.png", "atom.png"]
+},
+{
+  "Title": "LineWork",
+  "Description": "Class project designed through collaboration and programmed in C++; returns information related to comparisons between a set of four lines.",
+  "PreviewURL": "Assets/Previews/linework.gif",
+  "Link_Titles": ["Link to Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/LineWork"],
+  "Tools": ["C++.png", "vs.png"]
+},
+{
+  "Title": "Pacman in GameMaker",
+  "Description": "A web-based from-scratch version of <em>Pacman</em> programmed using Game Maker 2 and the Game Maker Language.",
+  "PreviewURL": "Assets/Previews/pacmangml.gif",
+  "Link_Titles": ["Link to Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/Pacman_GML"],
+  "Tools": ["gamemaker.png", "atom.png"]
+},
+{
+  "Title": "Discord Weather Bot",
+  "Description": "Bot application which retrieves weather information from the OpenWeatherMap API and returns it in an organized format to users through <em>Discord</em>.",
+  "PreviewURL": "Assets/Previews/weatherbot.gif",
+  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
+  "Links": ["https://github.com/MichaelWarmbier/Discord-Weather-Bot", "https://discord.com/api/oauth2/authorize?client_id=863074810980073472&permissions=68608&scope=bot"],
+  "Tools": ["python.png", "repl.png", "json.png", "discord.png"]
+},
+{
+  "Title": "Weather Dolphin",
+  "Description": "Project made in a small group for Hack-A-Thon event. Made in under two days using the Leaflet.js library. Translates coordinates to information to be used by the OpenWeatherMap API, then presents that data to user.",
+  "PreviewURL": "Assets/Previews/weatherdolphin.gif",
+  "Link_Titles": ["Link to Website", "Link to Repository"],
+  "Links": ["https://michaelwarmbier.github.io/WeatherDolphin/", "https://github.com/MichaelWarmbier/WeatherDolphin"],
+  "Tools": ["html.png", "css.png", "js.png", "json.png", "repl.png"]
+},
+{
+  "Title": "Console Game Library",
+  "Description": "My first set of projects; various games redesigned in C++ with nothing but standard and Windows libraries.<br>Included: <em>Pacman, Tetris, Minesweeper and Five Night's at Freddy's</em>.",
+  "PreviewURL": "Assets/Previews/conglom.png",
+  "Link_Titles": ["Link to 'Pacman' Repository", "Link to 'Tetris' Repository", "Link to 'Minesweeper' Repository", "Link to 'FNAF' Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/Console-Pacman", "https://github.com/MichaelWarmbier/Console-Tetris", "https://github.com/MichaelWarmbier/Console-Minesweeper", "https://github.com/MichaelWarmbier/Console-Five-Nights-at-Freddy-s"],
+  "Tools": ["C++.png", "vs.png"]
+},   
+{
+  "Title": "Smite Discord Bot",
+  "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
+  "PreviewURL": "Assets/Previews/smitestats_bot.gif",
+  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
+  "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
+  "Tools": ["node.png", "repl.png", "json.png", "discord.png"]
+}]
