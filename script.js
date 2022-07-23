@@ -28,7 +28,7 @@ function initializeProjects() {
     preview.classList.add('preview');
 
     project.innerHTML = '<div class="project_info"><h1></h1><p></p><div class="links"></div></div>';
-    project.getElementsByTagName('h1')[0].innerHTML = Site[i].Title + '</br>'; 
+    project.getElementsByTagName('h1')[0].innerHTML = Site[i].Title + '<br><span>' + Site[i].Year + '</span></br>'; 
     project.getElementsByTagName('p')[0].innerHTML = Site[i].Description;
     for (let j = 0; j < Site[i].Links.length; j++) {
       let link = document.createElement('a');

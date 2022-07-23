@@ -5,6 +5,7 @@
 :root {
   --orange: #de993e;
   --blue: #212cc2;
+  --gray: #2945ab;
   --BG-Black: #0f0f0f;
   --Site-Font: 'Roboto', sans-serif;
   --Title-Font: 'Roboto Mono', monospace; 
@@ -272,6 +273,7 @@ header a:hover { color: var(--orange) !important; }
 }
 
 .project_info h1 { font-size: 2.3vw; }
+.project_info h1 span { font-size: 1.65vw; color: var(--gray); }
 .project_info p { font-size: 1.2vw; }
 .project_info a {
   text-decoration: none;
@@ -411,7 +413,10 @@ header a:hover { color: var(--orange) !important; }
 
   .project_info h1 { 
     font-size: 7vw; 
-    margin-bottom: .5em;
+  }
+  
+  .project_info h1 span { 
+    font-size: 5.5vw; 
   }
   
   .project_info p { font-size: 5vw; text-align: left; }
