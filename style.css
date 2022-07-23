@@ -186,6 +186,8 @@ header a:hover { color: var(--orange) !important; }
   justify-content: center;
   margin-bottom: 2vw;
 }
+#my_languages .am_img { cursor: pointer; }
+#my_tools .am_img { cursor: help; }
 
 #about_me #bottom .am_img {
   background-size: cover;
