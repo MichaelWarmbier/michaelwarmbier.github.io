@@ -180,7 +180,8 @@ header a:hover { color: var(--orange) !important; }
 }
 
 #about_me #bottom #my_languages,
-#about_me #bottom #my_tools {
+#about_me #bottom #my_tools,
+#about_me #bottom #my_subjects {
   width: 100vw;
   display: flex;
   align-items: center;
@@ -188,10 +189,12 @@ header a:hover { color: var(--orange) !important; }
   margin-bottom: 2vw;
 }
 #my_languages .am_img { cursor: pointer; }
-#my_tools .am_img { cursor: help; }
+#my_tools .am_img,
+#my_subjects .am_img { cursor: help; }
 
 #about_me #bottom .am_img {
   background-size: cover;
+  background-repeat: no-repeat;
   width: 4vw; height: 4vw;
   margin-left: .5vw;
   margin-right: .5vw;
@@ -199,6 +202,8 @@ header a:hover { color: var(--orange) !important; }
   border-radius: .6vw;
   transition: .5s;
 }
+
+.large { width: 6vw !important; height: 6vw !important; }
 
 .am_img .am_img_desc {
   display: block; 
@@ -211,6 +216,8 @@ header a:hover { color: var(--orange) !important; }
   transition-duration: .5s;
   opacity: 0;
 }
+
+.large .am_img_desc { transform: translateY(6.5vw) !important; }
 
 .am_img:hover .am_img_desc,
 .am_img:active .am_img_desc {
