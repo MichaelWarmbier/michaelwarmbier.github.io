@@ -187,6 +187,7 @@ header a:hover { color: var(--orange) !important; }
   align-items: center;
   justify-content: center;
   margin-bottom: 2vw;
+  flex-wrap: wrap;
 }
 #my_languages .am_img { cursor: pointer; }
 #my_tools .am_img,
@@ -359,9 +360,14 @@ header a:hover { color: var(--orange) !important; }
   #about_me #bottom p { font-size: 5.5vw; }
   
   #about_me #bottom .am_img { 
-    width: 8.5vw; 
-    height: 8.5vw;
+    height: 8.5vw; 
+    width: 8.5vw;
     margin-bottom: 4.5vw;
+  }
+
+  #about_me #bottom .large {
+    height: 12.5vw !important;
+    width: 12.5vw !important;
   }
   
   #about_me #bottom h1 {
@@ -375,11 +381,14 @@ header a:hover { color: var(--orange) !important; }
     text-shadow: none !important;
     transform: translateY(9.7vw);
   }
+
+  .large .am_img_desc {
+    transform: translateY(13.7vw) !important;
+  }
   
   #about_me #bottom #my_languages,
   #about_me #bottom #my_tools {
     width: 80vw;
-    flex-wrap: wrap;
   }
 
   #about_me #bottom #my_experience {

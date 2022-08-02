@@ -5,7 +5,7 @@ Site = [{
   "PreviewURL": "Assets/Previews/smitebuildmaker.gif",
   "Link_Titles": ["Link to Website"],
   "Links": ["http://smitebuildmaker.com"],
-  "Tools": ["html.png", "css.png", "js.png", "repl.png", "json.png"]
+  "Tools": ["html.png", "css.png", "js.png", "repl.png", "json_yaml_xml.png"]
 },
 {
   "Title": "Smite API Application",
@@ -14,7 +14,7 @@ Site = [{
   "PreviewURL": "Assets/Previews/smiteapi.gif",
   "Link_Titles": ["Link to Application", "Link to Repository", "Link to NPM Page"],
   "Links": ["https://replit.com/@Kirbout/Smite-API-Application", "https://github.com/MichaelWarmbier/Smite-API-Application", "https://www.npmjs.com/package/smite_api_app"],
-  "Tools": ["node.png", "repl.png", "json.png"]
+  "Tools": ["node.png", "repl.png", "json_yaml_xml.png"]
 },
 {
   "Title": "SmiteHelper",
@@ -23,7 +23,7 @@ Site = [{
   "PreviewURL": "Assets/Previews/smitestats_bot.gif",
   "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
   "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
-  "Tools": ["node.png", "repl.png", "json.png", "discord.png"]
+  "Tools": ["node.png", "repl.png", "json_yaml_xml.png", "discord.png"]
 },
 {
   "Title": "JsTetris",
@@ -59,7 +59,7 @@ Site = [{
   "PreviewURL": "Assets/Previews/weatherbot.gif",
   "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
   "Links": ["https://github.com/MichaelWarmbier/Discord-Weather-Bot", "https://discord.com/api/oauth2/authorize?client_id=863074810980073472&permissions=68608&scope=bot"],
-  "Tools": ["python.png", "repl.png", "json.png", "discord.png"]
+  "Tools": ["python.png", "repl.png", "json_yaml_xml.png", "discord.png"]
 },
 {
   "Title": "Weather Dolphin",
@@ -68,7 +68,7 @@ Site = [{
   "PreviewURL": "Assets/Previews/weatherdolphin.gif",
   "Link_Titles": ["Link to Website", "Link to Repository"],
   "Links": ["https://michaelwarmbier.github.io/WeatherDolphin/", "https://github.com/MichaelWarmbier/WeatherDolphin"],
-  "Tools": ["html.png", "css.png", "js.png", "json.png", "repl.png"]
+  "Tools": ["html.png", "css.png", "js.png", "json_yaml_xml.png", "repl.png"]
 },
 {
   "Title": "Console Game Library",
