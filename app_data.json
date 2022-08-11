@@ -19,11 +19,20 @@ Site = [{
 {
   "Title": "SmiteHelper",
   "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
-  "Year": "2022 - ongoing",
+  "Year": "2022",
   "PreviewURL": "Assets/Previews/smitestats_bot.gif",
   "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
   "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
   "Tools": ["node.png", "repl.png", "json_yaml_xml.png", "discord.png"]
+},
+{
+  "Title": "PyScrabbler",
+  "Description": "A Python package for retrieving a list of valid words and their point-values in <em>Scrabble™</em> given a set of letters.",
+  "Year": "2022 - ongoing",
+  "PreviewURL": "Assets/Previews/pyscrabbler.gif",
+  "Link_Titles": ["Link to Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/PyScrabbler"],
+  "Tools": ["python.png", "repl.png"]
 },
 {
   "Title": "JsTetris",
