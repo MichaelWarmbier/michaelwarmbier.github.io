@@ -30,8 +30,8 @@ Site = [{
   "Description": "A Python package for retrieving a list of valid words and their point-values in <em>Scrabble™</em> given a set of letters.",
   "Year": "2022 - ongoing",
   "PreviewURL": "Assets/Previews/pyscrabbler.gif",
-  "Link_Titles": ["Link to Repository"],
-  "Links": ["https://github.com/MichaelWarmbier/PyScrabbler"],
+  "Link_Titles": ["Link to Repository", "Link to PyPi Page"],
+  "Links": ["https://github.com/MichaelWarmbier/PyScrabbler", "https://pypi.org/project/pyscrabbler/"],
   "Tools": ["python.png", "repl.png"]
 },
 {
