@@ -199,9 +199,9 @@ header a:hover { color: var(--orange) !important; }
   width: 4vw; height: 4vw;
   margin-left: .5vw;
   margin-right: .5vw;
-  border: solid .2vw var(--BG-Black);
   border-radius: .6vw;
   transition: .5s;
+  box-shadow: 0;
 }
 
 .large { width: 6vw !important; height: 6vw !important; }
