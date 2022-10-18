@@ -30,8 +30,8 @@ Site = [{
   "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
   "Year": "2022",
   "PreviewURL": "Assets/Previews/smitestats_bot.gif",
-  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
-  "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot", "https://discord.com/api/oauth2/authorize?client_id=952419748963033119&permissions=19456&scope=bot"],
+  "Link_Titles": ["Link to Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/Discord-SmiteStats-Bot"],
   "Tools": ["node.png", "repl.png", "json_yaml_xml.png", "discord.png"]
 },
 {
@@ -75,8 +75,8 @@ Site = [{
   "Year": "2021",
   "Description": "Bot application which retrieves weather information from the OpenWeatherMap API and returns it in an organized format to users through <em>Discord</em>.",
   "PreviewURL": "Assets/Previews/weatherbot.gif",
-  "Link_Titles": ["Link to Repository", "Link to Bot Invite"],
-  "Links": ["https://github.com/MichaelWarmbier/Discord-Weather-Bot", "https://discord.com/api/oauth2/authorize?client_id=863074810980073472&permissions=68608&scope=bot"],
+  "Link_Titles": ["Link to Repository"],
+  "Links": ["https://github.com/MichaelWarmbier/Discord-Weather-Bot"],
   "Tools": ["python.png", "repl.png", "json_yaml_xml.png", "discord.png"]
 },
 {
