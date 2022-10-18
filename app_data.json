@@ -63,8 +63,8 @@ Site = [{
 },
 {
   "Title": "Pacman in GameMaker",
-  "Year": "2020 - ongoing",
-  "Description": "A web-based from-scratch version of <em>Pacman</em> programmed using Game Maker 2 and the Game Maker Language.",
+  "Year": "2020",
+  "Description": "<em>Pacman</em> simualted in Game Maker from scratch using the Game Maker Language. Meant to simulate and display AI and collision behavior.",
   "PreviewURL": "Assets/Previews/pacmangml.gif",
   "Link_Titles": ["Link to Repository"],
   "Links": ["https://github.com/MichaelWarmbier/Pacman_GML"],
