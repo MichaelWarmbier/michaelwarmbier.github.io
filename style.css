@@ -291,6 +291,40 @@ header a:hover { color: var(--orange) !important; }
 }
 .project_info a:hover { color: white; }
 
+/*///// Writing /////*/
+
+#writing {
+  width: 100vw;
+  height: max-content;
+  padding: 2vw 0 2vw 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--Site-Font);
+  text-align: center;
+  margin-top: 10vw;
+}
+
+#writing iframe { margin-top: 2vw; }
+
+#writing h1 {
+  font-size: 2.6vw; 
+  display: block;
+}
+
+#writing h2 { font-size: 1.5vw; }
+
+#writing span {
+  font-size: 1.7vw;
+  color: var(--orange);
+}
+
+.written_work {
+  height: 30vw;
+  width: 25vw;
+}
+
 /*///// Contact /////*/
 
 #contact {
@@ -426,21 +460,23 @@ header a:hover { color: var(--orange) !important; }
   }
 
   #work .project .project_info { width: 70vw; margin: auto; }
-
-  .project_info h1 { 
-    font-size: 7vw; 
-  }
-  
-  .project_info h1 span { 
-    font-size: 5.5vw; 
-  }
-  
+  .project_info h1 { font-size: 7vw; }  
+  .project_info h1 span { font-size: 5.5vw; }  
   .project_info p { font-size: 5vw; text-align: left; }
   .project_info a { font-size: 4.2vw; }
   .links {
     margin: auto; 
     width: max-width; 
   }
+
+  /* Writing */
+
+  #writing h1 { font-size: 7vw; }
+  #writing span { font-size: 5vw; display: block; width: 100%; }
+  #writing h2 { font-size: 4vw; }
+
+  .written_work { width: 100%; height: 60vw; }
+  .written_work iframe { width: 30vw; }
 
   /* Contact */
 

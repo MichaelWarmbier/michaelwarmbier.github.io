@@ -27,7 +27,7 @@ Site = [{
 },
 {
   "Title": "SmiteHelper",
-  "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website.",
+  "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website. Does not currently work with Discord bot updates.",
   "Year": "2022",
   "PreviewURL": "Assets/Previews/smitestats_bot.gif",
   "Link_Titles": ["Link to Repository"],
@@ -73,7 +73,7 @@ Site = [{
 {
   "Title": "Discord Weather Bot",
   "Year": "2021",
-  "Description": "Bot application which retrieves weather information from the OpenWeatherMap API and returns it in an organized format to users through <em>Discord</em>.",
+  "Description": "Bot application which retrieves weather information from the OpenWeatherMap API and returns it in an organized format to users through <em>Discord</em>. Does not currently work with Discord bot updates.",
   "PreviewURL": "Assets/Previews/weatherbot.gif",
   "Link_Titles": ["Link to Repository"],
   "Links": ["https://github.com/MichaelWarmbier/Discord-Weather-Bot"],
