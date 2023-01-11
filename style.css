@@ -304,6 +304,7 @@ header a:hover { color: var(--orange) !important; }
   font-family: var(--Site-Font);
   text-align: center;
   margin-top: 10vw;
+  color: white;
 }
 
 #writing iframe { margin-top: 2vw; }
