@@ -4,7 +4,7 @@ window.onload = function() { initialize(); }
 
 let languageFilters = [];
 let highlightValue = 
-  ".3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)"
+  ".3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)";
 
 ////// Site Methods //////
 
