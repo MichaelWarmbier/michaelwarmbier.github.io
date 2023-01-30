@@ -1,81 +1,89 @@
-window.onload = function() { initializeProjects(); }
+window.onload = function() { initialize(); }
 
-var toolFilters = [];
+////// Site Data //////
 
-function initializeProjects() {
-  let work = document.getElementById('work');
+let languageFilters = [];
+let highlightValue = 
+  ".3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)"
+
+////// Site Methods //////
+
+// Initialization Methods
+
+
+
+function filterSelect(elem) { // ON: Select Project Filter
   work.innerHTML = '';
-  let visibleIndex = 0;
-
-  for (let i = 0; i < Site.length; i++) {
-
-    visibleIndex++;
-
-    let clearToShow = 0;
-    if (toolFilters.length != 0) {
-      for (let j = 0; j < Site[i].Tools.length; j++)
-      for (let k = 0; k < toolFilters.length; k++)
-        if (Site[i].Tools[j] == toolFilters[k]) clearToShow++;
-    } else {clearToShow = -1; }
-
-    if (clearToShow != -1 && clearToShow != toolFilters.length) { visibleIndex--; continue; }
-    
-    let project = document.createElement('div');
-    project.classList.add('project');
-    work.appendChild(project);
-
-    let preview = document.createElement('img');
-    preview.classList.add('preview');
-
-    project.innerHTML = '<div class="project_info"><h1></h1><p></p><div class="links"></div></div>';
-    project.getElementsByTagName('h1')[0].innerHTML = Site[i].Title + '<br><span>' + Site[i].Year + '</span></br>'; 
-    project.getElementsByTagName('p')[0].innerHTML = Site[i].Description;
-    for (let j = 0; j < Site[i].Links.length; j++) {
-      let link = document.createElement('a');
-      project.getElementsByClassName('links')[0].append(link);
-      link.href = Site[i].Links[j];
-      link.innerHTML = '[ ' + Site[i].Link_Titles[j] + ' ]<br>';
-    }
-    for (let j = 0; j < Site[i].Tools.length; j++) {
-      let tool = document.createElement('img');
-      tool.classList.add('ico');
-      project.getElementsByTagName('h1')[0].append(tool);
-      tool.src = 'Assets/Tools/' + Site[i].Tools[j];
-    }
-
-    switch (visibleIndex % 2) {
-      case 0:
-        project.classList.add('left');
-        project.prepend(preview);
-      break;
-      case 1:
-        project.classList.add('right');
-        project.append(preview);
-      break;
-    }
-
-    preview.src = Site[i].PreviewURL;
-    
-  }
-}
-
-function removeCSS(style) {
-  return style.replace('url(\"Assets/Tools/', '').replace('\")', '');
-}
-
-function filterSelect(elem) {
-  switch (elem.style.boxShadow == '.3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)') {
-    case true:
-      for (let i = 0; i < toolFilters.length; i++) 
-        if (toolFilters[i] == removeCSS(elem.style.backgroundImage))
-          toolFilters.splice(i, 1);
+  writing.innerHTML = '';
+  
+  if (elem.style.boxShadow == highlightValue) {
+    for (let index = 0; index < languageFilters.length; index++) 
+        if (languageFilters[index] == removeCSS(elem.style.backgroundImage))
+          languageFilters.splice(index, 1);
       elem.style.boxShadow = 'none';
-      
-    break;
-    case false:
-      toolFilters.push(removeCSS(elem.style.backgroundImage));
-      elem.style.boxShadow ='.3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)';
-    break;
   }
-  initializeProjects();
+    
+  else {
+      languageFilters.push(removeCSS(elem.style.backgroundImage));
+      elem.style.boxShadow = highlightValue;
+  }
+  
+  initialize();
+}
+
+function initialize() { // Initialize SiteData
+
+  let flexDirections = ["left", "right"];
+  let direction = 1;
+
+  for (let index = 0; index < Writing.length; index++)
+    createWritingElement(Writing[index], index);
+
+  let listOfProjects = []
+  
+  for (let index = 0; index < Projects.length; index++)
+      if ((Projects[index].Tools).some(value => languageFilters.includes(value)))
+        listOfProjects.push(Projects[index]);
+
+  if (!listOfProjects.length) listOfProjects = Projects;
+  if (languageFilters.length == 1 && languageFilters[0] == "asm.png")
+    listOfProjects = [];
+
+  for (let index = 0; index < listOfProjects.length; index++) {
+    createProjectElement(listOfProjects[index], flexDirections[direction], index);
+    direction = + !direction;
+  }
+  
+}
+
+// Utility Methods
+
+function removeCSS(style) { return style.replace("url(\"Assets/Tools/", '').replace("\")", ''); }
+
+function createProjectElement(obj, side, index) {
+  work.innerHTML += "<div class='project " + side + "'><div class='project_info'></div></div>";
+  let content = work.getElementsByClassName('project_info')[index];
+
+  content.innerHTML += "<h1>" + obj.Title + "<br><span>" + obj.Year + "</span><br>";
+  for (let index = 0; index < obj.Tools.length; index++) 
+    content.innerHTML += "<img class='ico' src='Assets/Tools/" + obj.Tools[index] + "'></h1>";
+  content.innerHTML += "<p>" + obj.Description + "</p>";
+  content.innerHTML += "<div class='links'>"
+  for (let index = 0; index < obj.Links.length; index++)
+    content.innerHTML += "<a href='" + obj.Links[index] + "'>" + obj.Link_Titles[index] + "<br></a>";
+  content.innerHTML += "</div>";
+
+  if (side == "left")
+    content.insertAdjacentHTML('beforebegin', "<img class='preview' src='" + obj.PreviewURL + "'>");
+  else content.insertAdjacentHTML('afterend', "<img class='preview' src='" + obj.PreviewURL + "'>");
+}
+
+function createWritingElement(obj, index) {
+  writing.innerHTML += "<div class='writing_project'></div>";
+  let content = writing.getElementsByClassName('writing_project')[index];
+
+  content.innerHTML += "<h1>" + obj.Title + "</h1>";
+  content.innerHTML += "<h2>" + obj.Date + "</h2>";
+  content.innerHTML += "<p>" + obj.Description + "</p>";
+  content.innerHTML += "<a href='" + obj.Link + "'>[ Link to Document ]</a>";
 }

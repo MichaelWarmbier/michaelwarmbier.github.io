@@ -283,6 +283,7 @@ header a:hover { color: var(--orange) !important; }
 .project_info h1 { font-size: 2.3vw; }
 .project_info h1 span { font-size: 1.65vw; color: var(--gray); }
 .project_info p { font-size: 1.2vw; }
+
 .project_info a {
   text-decoration: none;
   font-size: 1.2vw;
@@ -298,32 +299,44 @@ header a:hover { color: var(--orange) !important; }
   height: max-content;
   padding: 2vw 0 2vw 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
   font-family: var(--Site-Font);
   text-align: center;
   margin-top: 10vw;
   color: white;
+  flex-wrap: wrap;
 }
 
-#writing iframe { margin-top: 2vw; }
-
-#writing h1 {
-  font-size: 2.6vw; 
-  display: block;
+#writing h3 { 
+  width: 100%;
+  font-size: 2.6vw;
+  font-weight: bold;
 }
 
-#writing h2 { font-size: 1.5vw; }
-
-#writing span {
-  font-size: 1.7vw;
-  color: var(--orange);
-}
-
-.written_work {
+.writing_project {
   height: 30vw;
   width: 25vw;
+}
+
+.writing_project h1 { 
+  font-size: 2vw;
+  font-style: italic;
+  transform: translateY(1vw);
+}
+
+.writing_project h2 { 
+  font-size: 1.65vw;
+  color: var(--gray);
+}
+
+.writing_project p  { font-size: 1.5vw; }
+
+.writing_project a {
+  text-decoration: none;
+  font-size: 1.4vw;
+  color: var(--orange);
+  font-weight: bold
 }
 
 /*///// Contact /////*/
@@ -472,12 +485,23 @@ header a:hover { color: var(--orange) !important; }
 
   /* Writing */
 
-  #writing h1 { font-size: 7vw; }
-  #writing span { font-size: 5vw; display: block; width: 100%; }
-  #writing h2 { font-size: 4vw; }
+  #writing { 
+    flex-direction: column;
+    height: 200vh;
+  }
 
-  .written_work { width: 100%; height: 60vw; }
-  .written_work iframe { width: 30vw; }
+  #writing h3 { font-size: 12vw; }
+
+  .writing_project { 
+    align-self: center;
+    width: 80%;
+    height: 40vh;
+  }
+  
+  .writing_project h1 { font-size: 6vw; }
+  .writing_project h2 { font-size: 5vw; }
+  .writing_project p { font-size: 4.5vw; }
+  .writing_project a { font-size: 4.2vw; }
 
   /* Contact */
 
