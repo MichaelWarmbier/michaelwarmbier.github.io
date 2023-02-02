@@ -4,7 +4,7 @@ window.onload = function() { initialize(); }
 
 let languageFilters = [];
 let highlightValue = 
-  ".3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)"
+  ".3vw .3vw .4vw var(--blue), -.3vw .3vw .4vw var(--blue), .3vw -.3vw .4vw var(--blue), -.3vw -.3vw .4vw var(--blue)";
 
 ////// Site Methods //////
 
@@ -70,7 +70,7 @@ function createProjectElement(obj, side, index) {
   content.innerHTML += "<p>" + obj.Description + "</p>";
   content.innerHTML += "<div class='links'>"
   for (let index = 0; index < obj.Links.length; index++)
-    content.innerHTML += "<a href='" + obj.Links[index] + "'>" + obj.Link_Titles[index] + "<br></a>";
+    content.innerHTML += "<a href='" + obj.Links[index] + "'>[ " + obj.Link_Titles[index] + " ]<br></a>";
   content.innerHTML += "</div>";
 
   if (side == "left")
