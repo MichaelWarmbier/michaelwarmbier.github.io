@@ -76,7 +76,7 @@ Projects = [{
 {
   "Title": "PyScrabbler",
   "Description": "A Python package for retrieving a list of valid words and their point-values in <em>Scrabble™</em> given a set of letters.",
-  "Year": "2022 - ongoing",
+  "Year": "2022",
   "PreviewURL": "Assets/Previews/pyscrabbler.gif",
   "Link_Titles": [
     "Link to Repository", 
