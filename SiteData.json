@@ -143,17 +143,16 @@ Projects = [{
   ]
 },
 {
-  "Title": "Grayscale Image Processing",
-  "Year": "2023 - ongoing",
-  "Description": "Image processing application programmed alongside my university course. Focuses on grayscale images.",
+  "Title": "Image Processing",
+  "Year": "2023",
+  "Description": "Image processing library and assignments programmed alongside my university course.",
   "PreviewURL": "Assets/Previews/grayscale.gif",
   "Link_Titles": [
     "Link to Repository", 
     "Link to Application"
   ],
   "Links": [
-    "https://github.com/MichaelWarmbier/Grayscale-Image-Processing",
-    "https://replit.com/@Kirbout/Grayscale-Image-Processing",
+    "https://github.com/MichaelWarmbier/CSC-475---Image-Processing",
   ],
   "Tools": [
     "python.png", 
