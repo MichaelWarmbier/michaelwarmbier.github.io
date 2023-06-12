@@ -1,7 +1,7 @@
 Projects = [{
   "Title": "SmiteBuildMaker",
   "Description": "Web-based app for players of the video game <em>Smite</em>, calculating item and character information and displaying them in a simple and easy to share format with tons of customizability; all hosted on Replit.",
-  "Year": "2022 - ongoing",
+  "Year": "March 2022 - ongoing",
   "PreviewURL": "Assets/Previews/smitebuildmaker.gif",
   "Link_Titles": ["Link to Website"],
   "Links": [
@@ -16,9 +16,23 @@ Projects = [{
   ]
 },
 {
+  "Title": "Blood Cell Image Classification",
+  "Description": "Fully documented project designed to classify images of red and white blood cells in order to detect white blood cell objects within blood sample photos. Created for 2023 Image Processing course at the College of Staten Island",
+  "Year": "February 2023 - May 2023",
+  "PreviewURL": "Assets/Previews/ImageProcess.gif",
+  "Link_Titles": ["Link to Repository"],
+  "Links": [
+    "https://github.com/MichaelWarmbier/Blood-Cell-Classification"
+  ],
+  "Tools": [
+    "python.png",
+    "vs_code.png",
+  ]
+},
+{
   "Title": "Chance_For_Rain",
   "Description": "A fan-made, web-based application, this time a 'cheat sheet', or reference for users to quickly (both in terms of access and computation speed) view and inform themselves on elements for the game <em>Risk of Rain 2.</em>",
-  "Year": "2022 - ongoing",
+  "Year": "October 2022",
   "PreviewURL": "Assets/Previews/chance_for_rain.gif",
   "Link_Titles": [
     "Link to Website"
@@ -37,7 +51,7 @@ Projects = [{
 {
   "Title": "Smite API Application",
   "Description": "JavaScript application for the <em>Smite</em> API allowing non-experiences users access to its endpoints using a command-line interface.",
-  "Year": "2021",
+  "Year": "September 2021",
   "PreviewURL": "Assets/Previews/smiteapi.gif",
   "Link_Titles": [
     "Link to Application", 
@@ -58,7 +72,7 @@ Projects = [{
 {
   "Title": "SmiteHelper",
   "Description": "Discord bot which retrieves item and character information from <em>Smite</em> and provides them in an organized and informative format for the user. Links users to the SmiteStat website. Does not currently work with Discord bot updates.",
-  "Year": "2022",
+  "Year": "August 2022",
   "PreviewURL": "Assets/Previews/smitestats_bot.gif",
   "Link_Titles": [
     "Link to Repository"
