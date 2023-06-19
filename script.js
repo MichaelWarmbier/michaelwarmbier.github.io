@@ -12,7 +12,7 @@ let highlightValue =
 
 
 
-function filterSelect(elem) { // ON: Select Project Filter
+function filterSelect(elem) { 
   work.innerHTML = '';
   writing.innerHTML = '';
   
@@ -31,7 +31,7 @@ function filterSelect(elem) { // ON: Select Project Filter
   initialize();
 }
 
-function initialize() { // Initialize SiteData
+function initialize() { 
 
   let flexDirections = ["left", "right"];
   let direction = 1;

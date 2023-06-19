@@ -18,17 +18,19 @@ body, html {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
 /*///// Navigation /////*/
 
 header {
   display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center; 
   width: 100vw; height: 10vh;
   background-color: var(--BG-Black);
   float: left;
   font-size: 3.2vmin;
+  z-index: 100;
+  border-bottom: .1vw inset var(--orange);
 }
 
 header p {
@@ -51,6 +53,7 @@ header p:first-child { margin-left: 0; }
 header a:hover { color: var(--orange) !important; }
 
 #top_content { 
+  margin-top: 10vh;
   width: 100vw; height: 20vw;
   display: flex;
   align-content: center;
@@ -245,6 +248,7 @@ header a:hover { color: var(--orange) !important; }
   color: white;
   margin: auto;
   margin-top: 10vw;
+  padding-top: 5vw;
 }
 
 #work .project { margin-top: 3vw; }
@@ -339,12 +343,56 @@ header a:hover { color: var(--orange) !important; }
   font-weight: bold
 }
 
+/*///// Resume /////*/
+
+#resume {
+  width: 100vw;
+  height: max-content;
+  padding: 2vw 0 2vw 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  font-family: var(--Site-Font);
+  text-align: center;
+  margin-top: 10vw;
+  color: white;
+  flex-wrap: wrap;
+  padding-top: 10vw;
+}
+
+#resume h3 { 
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+#resume h2 {
+  font-size: 2.6vw;
+  color: var(--gray);
+}
+
+#resume a {
+  text-decoration: none;
+  font-size: 1.8vw;
+  color: var(--orange);
+  font-weight: bold
+}
+
+#resume a:hover {
+  text-decoration: underline;
+}
+
+#resume span {
+  font-size: 1.2vw;
+  display: inline-block;
+  transform: translateY(-.6vw);
+}
+
 /*///// Contact /////*/
 
 #contact {
   width: 100vw;
   text-align: center;
-  margin-top: 6vw;
+  margin-top: 12vw;
   padding-top: 6vw;
   margin-bottom: 8vw;
   font-family: var(--Site-Font);
@@ -391,7 +439,7 @@ header a:hover { color: var(--orange) !important; }
 
   /* Navigation */
 
-  header p { font-size: 3vh; }
+  header p { font-size: 130%; }
 
   /* Site Title */
 
@@ -444,6 +492,8 @@ header a:hover { color: var(--orange) !important; }
   }
 
   /* Work */
+
+  #work { padding-top: 20vw; }
 
   #work .project { 
     display: flex; 
@@ -505,10 +555,22 @@ header a:hover { color: var(--orange) !important; }
 
   /* Contact */
 
-  #contact { margin-top: 28vw; }
+  #contact { margin-top: 60vw; }
   #contact .contact_ico { width: 16vw; height: 16vw; }
   #contact h1 { font-size: 7vw; }
   #contact h2 { font-size: 5vw; }
+
+  /* Resume */
+
+  #resume { padding-top: 60vw; }
+  #resume h3 { font-size: 9vw; }
+  #resume h2 { font-size: 7.8vw; }
+  #resume a { font-size: 5.4vw; }
+  #resume span { 
+    font-size: 3.6vw;
+    transform: translateY(-1.8vw);
+  }
+  
 
   /* Footer */
   
