@@ -31,7 +31,7 @@ Projects = [{
 },
 {
   "Title": "Chance_For_Rain",
-  "Description": "A fan-made, web-based application, this time a 'cheat sheet', or reference for users to quickly (both in terms of access and computation speed) view and inform themselves on elements for the game <em>Risk of Rain 2.</em>",
+  "Description": "A fan-made, web-based cheat sheet for users to quickly and easily view information regarding elements and items in the game <em>Risk of Rain 2.</em>",
   "Year": "October 2022",
   "PreviewURL": "Assets/Previews/chance_for_rain.gif",
   "Link_Titles": [
