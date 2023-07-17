@@ -46,7 +46,7 @@ function initialize() {
         listOfProjects.push(Projects[index]);
 
   if (!listOfProjects.length) listOfProjects = Projects;
-  if (languageFilters.length == 1 && (languageFilters[0] == "asm.png" || languageFilters[0] == "ts.png"))
+  if (languageFilters.length == 1 && languageFilters[0] == "asm.png")
     listOfProjects = [];
 
   for (let index = 0; index < listOfProjects.length; index++) {
