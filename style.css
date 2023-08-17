@@ -184,7 +184,8 @@ header a:hover { color: var(--orange) !important; }
 
 #about_me #bottom #my_languages,
 #about_me #bottom #my_tools,
-#about_me #bottom #my_subjects {
+#about_me #bottom #my_subjects,
+#about_me #bottom #my_libs {
   width: 100vw;
   display: flex;
   align-items: center;
@@ -194,7 +195,9 @@ header a:hover { color: var(--orange) !important; }
 }
 #my_languages .am_img { cursor: pointer; }
 #my_tools .am_img,
-#my_subjects .am_img { cursor: help; }
+#my_subjects .am_img,
+#my_libs .am_img { cursor: help; }
+
 
 #about_me #bottom .am_img {
   background-size: cover;
@@ -453,7 +456,7 @@ header a:hover { color: var(--orange) !important; }
   #about_me #top img { width: 50vw; height: 50vw; }
 
   #about_me #top p { font-size: 5vw; width: 80vw; }
-  #about_me #bottom p { font-size: 5.5vw; }
+  #about_me #bottom p { font-size: 5.5vw; width: 90vw; }
   
   #about_me #bottom .am_img { 
     height: 8.5vw; 

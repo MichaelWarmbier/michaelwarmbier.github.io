@@ -9,7 +9,22 @@ Projects = [{
   ],
   "Tools": [
     "ts.png",
-    "js.png", 
+    "node.png", 
+    "json_yaml_xml.png",
+    "vs_code.png"
+  ]
+},
+{
+  "Title": "Drawio Text Extractor",
+  "Description": "Node tool that for extracting text elements quickly and efficiently from mass amounts of <i>Draw.io</i> documents.",
+  "Year": "August 2023",
+  "PreviewURL": "Assets/Previews/drawioextractor.gif",
+  "Link_Titles": ["Link to Repository"],
+  "Links": [
+    "https://github.com/MichaelWarmbier/Drawio-Text-Extractor"
+  ],
+  "Tools": [
+    "node.png", 
     "json_yaml_xml.png",
     "vs_code.png"
   ]
