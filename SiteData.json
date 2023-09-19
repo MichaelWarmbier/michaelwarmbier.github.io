@@ -30,6 +30,24 @@ Projects = [{
   ]
 },
 {
+  "Title": "DeepDive",
+  "Description": "Node.js application powered by Electron.js and Express.js designed as a parody of LeetCode. Made for the 2023 Shellhacks Hackathon in Miami, Florida.",
+  "Year": "September 2023",
+  "PreviewURL": "Assets/Previews/Shellhacks.jpg",
+  "Link_Titles": ["Link to Repository"],
+  "Links": [
+    "https://github.com/MichaelWarmbier/Shellhacks"
+  ],
+  "Tools": [
+    "node.png", 
+    "json_yaml_xml.png",
+    "vs_code.png",
+    "html.png",
+    "css.png",
+    "js.png"
+  ]
+},
+{
   "Title": "SmiteBuildMaker",
   "Description": "Web-based app for players of the video game <em>Smite</em>, calculating item and character information and displaying them in a simple and easy to share format with tons of customizability; all hosted on Replit.",
   "Year": "March 2022 - ongoing",
