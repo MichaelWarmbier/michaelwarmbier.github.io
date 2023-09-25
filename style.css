@@ -185,7 +185,8 @@ header a:hover { color: var(--orange) !important; }
 #about_me #bottom #my_languages,
 #about_me #bottom #my_tools,
 #about_me #bottom #my_subjects,
-#about_me #bottom #my_libs {
+#about_me #bottom #my_libs,
+#about_me #bottom #my_orgs {
   width: 100vw;
   display: flex;
   align-items: center;
@@ -196,6 +197,7 @@ header a:hover { color: var(--orange) !important; }
 #my_languages .am_img { cursor: pointer; }
 #my_tools .am_img,
 #my_subjects .am_img,
+#my_orgs .am_img,
 #my_libs .am_img { cursor: help; }
 
 
