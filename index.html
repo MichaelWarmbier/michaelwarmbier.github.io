@@ -12,241 +12,92 @@
   </head>
   <body>
 
-    <!-- Header -->
+    <!-- Header & Navigation -->
 
     <header>
-      <p><a href="#about_me">About</p>
-      <p><a href="#work">Work</a></p>
-      <p><a href="#resume">Resume</a></p>
-      <p><a href="#contact">Contact</a></p>
+      <p><a href="#t">About</p>
+      <p><a href="#t">Work</a></p>
+      <p><a href="#t">Resume</a></p>
+      <p><a href="#t">Contact</a></p>
     </header>
     
-    <section id="top_content">
+    <section id="HeaderVisual">
       <h1>Michael Warmbier</h1>
        <p>
-        <br><br>Programmer; Computer Science & Mathematics<br>B.A. Candidate<br><br>
+        <br><br>Programmer; Designer; Writer; Aspiring Software Engineer<br>Computer Science & Mathematics B.A. Candidate<br><br>
         </p>
-      <div id=shadow_wrap></div>
+      <div id="ShadowWrap"></div>
     </section>
+
     
-    <section id="bottom_content">  
+    <content>
+      <img src="./Assets/headshot.jpg" id="Headshot">
 
-    <!-- About Me -->
-      
-      <section id="about_me">
-        <div id="top">
-          <img src='Assets/headshot.jpg'>
-          <p>A <strong>Computer Science & Mathematics</strong> student actively studying <strong>programming, software engineering, web development, game development</strong> and more.</p>
+      <!-- Experience -->
+      <section id="Experience">
+        <div id="CurrHover"></div>
+        <div id="Languages" class="ExpLabel">
+          <h2 class="ExpTitle">Languages</h2>
+          <div class="EffWrap"><img src="./Assets/Languages/C++.png" alt="C++"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/js.png" alt="JavaScript"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/html.png" alt="Hypertext Markup Language"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/css.png" alt="Cascading Style Sheets"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/markdown.png" alt="Markdown"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/json_yaml_xml.png" alt="Object/Model Notation"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/python.png" alt="Python"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/ts.png" alt="TypeScript"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/asm.png" alt="Assembly"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/sql.png" alt="Structured Query Language"></div>
+          <div class="EffWrap"><img src="./Assets/Languages/php.png" alt="PHP: Hypertext Preprocessor"></div>
         </div>
-        <div id="bottom">
-
-          <h1>Select a language to filter the projects!</h1><br><br>
-          
-          <p>I've written in the following languages:</p>
-          <div id="my_languages">
-            
-            <div class="am_img" style="background-image: url('Assets/Tools/C++.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">C++</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/asm.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">Assembly</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/node.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">Node</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/ts.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">TypeScript</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/js.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">JavaScript</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/html.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">HTML</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/css.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">CSS</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/python.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">Python</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/gamemaker.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">Game Maker Language</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/json_yaml_xml.png');" onclick="filterSelect(this)">
-              <span class="am_img_desc">JSON<br>XML<br>YAML</span>
-            </div>         
-          </div>
-          
-          <p>I'm experienced with the following tools:</p>
-          <div id="my_tools">          
-            <div class="am_img" style="background-image: url('Assets/Tools/git.png');">
-              <span class="am_img_desc">Git</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/github.png');">
-              <span class="am_img_desc">Github</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/markdown.png');">
-              <span class="am_img_desc">Markdown</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/drawio.png');">
-              <span class="am_img_desc">Diagrams</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/repl.png');">
-              <span class="am_img_desc">Replit</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/atom.png');" >
-              <span class="am_img_desc">Atom</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/vs_code.png');">
-              <span class="am_img_desc">VS Code</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/vs.png');">
-              <span class="am_img_desc">Visual Studio</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/gamemaker.png');">
-              <span class="am_img_desc">Game Maker 2</span>
-            </div>       
-            <div class="am_img" style="background-image: url('Assets/Tools/gsuite.png');">
-              <span class="am_img_desc">Google Suite</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/moffice.png');">
-              <span class="am_img_desc">Microsoft Office</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/codepen.png');">
-              <span class="am_img_desc">Codepen</span>
-            </div>
-          </div>
-            
-          <p>I've worked with the following significant libraries:</p>
-          <div id="my_libs">
-            <div class="am_img" style="background-image: url('Assets/Tools/pillow.png');">
-              <span class="am_img_desc">PIL</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/opencv.png');">
-              <span class="am_img_desc">OpenCV</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/discord.png');">
-              <span class="am_img_desc">Discord.js</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/leaflet.png');">
-              <span class="am_img_desc">Leaflet.js</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/blessed.png');">
-              <span class="am_img_desc">Blessed</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/flask.png');">
-              <span class="am_img_desc">Flask</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/react.png');">
-              <span class="am_img_desc">React</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/electron.png');">
-              <span class="am_img_desc">Electron.js</span>
-            </div>
-            <div class="am_img" style="background-image: url('Assets/Tools/expressjs.png');">
-              <span class="am_img_desc">Express.js</span>
-            </div>
-          </div>
-
-          <p>I am well-versed in the following subjects:</p>
-          <div id="my_subjects">
-            
-            <div class="am_img large" style="background-image: url('Assets/Subjects/general_programming.png');">
-              <span class="am_img_desc">General Programming</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/engineering.png');">
-              <span class="am_img_desc">Software Engineering</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/web_dev.png');">
-              <span class="am_img_desc">Full-stack Web Development</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/game_dev.png');">
-              <span class="am_img_desc">Game Development</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/software.png');">
-              <span class="am_img_desc">Computer Software</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/hardware.png');">
-              <span class="am_img_desc">Computer Hardware</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/data_structures.png');">
-              <span class="am_img_desc">Data Structures</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/image_processing.png');">
-              <span class="am_img_desc">Image Processing</span>
-            </div>
-            <br>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/calculus.png');">
-              <span class="am_img_desc">Calculus</span>
-            </div>
-            <div class="am_img large" style="background-image: url('Assets/Subjects/trig.png');">
-              <span class="am_img_desc">Trigonometry</span>
-            </div>
-            
-          </div>
-          <p>I am part of/formerly part of the following organizations:</p>
-          <div id="my_orgs">
-            
-            <div class="am_img large" style="background-image: url('https://cdn.discordapp.com/attachments/750048206187921408/1155201577859174481/raccoon.png');">
-              <span class="am_img_desc">Siphon Games</span>
-            </div>
-            <div class="am_img large" style="background-image: url('https://cdn.discordapp.com/attachments/1122983390589747301/1155661563815014450/hap.png');">
-              <span class="am_img_desc">Hack-a-Project CSI</span>
-            </div>
-            <div class="am_img large" style="background-image: url('https://cdn.discordapp.com/attachments/1123424742259572776/1156304555554906112/CSI-CSC_Logo_Clear.png?ex=65147c09&is=65132a89&hm=be7197658ad986829bd1b65b4c415ae8239f68d50a9f100e6c6b1aee3d542be5&');">
-              <span class="am_img_desc">Computer Science Club CSI</span>
-            </div>
-            <div class="am_img large" style="background-image: url('https://cdn.discordapp.com/attachments/1123424742259572776/1156305275075182602/image.png?ex=65147cb4&is=65132b34&hm=5840cad7d033a7b999147b6539e77c14346257175b0b29c3a48d7381f55a9e42&');">
-              <span class="am_img_desc">Kōhī</span>
-            </div>
-            
-          </div>
-          <p>I"m always look for more opportunities to gain experience and create new things!</p>
+        <div id="Libraries" class="ExpLabel">
+          <h2 class="ExpTitle">Popular Packages/Libraries</h2>
+          <div class="EffWrap"><img src="./Assets/Libraries/blessed.png" alt="Blessed.js"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/electron.png" alt="Electron.js"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/expressjs.png" alt="Express.js" style="border-radius: 100%;"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/flask.png" alt="Flask.py"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/leaflet.png" alt="Leaflet.js"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/opencv.png" alt="OpenCV2.py"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/pillow.png" alt="Pillow.py"></div>
+          <div class="EffWrap"><img src="./Assets/Libraries/react.png" alt="React.js"></div>
         </div>
-      </section>
-
-      <!-- Work -->
-      <section id="work"></section>
-      
-      <!-- Writing -->
-      <section id="writing">
-        <h3>Writing Projects</h3>
-      </section>
-
-      <section id="resume">
-        <h3>Résumé</h3>
-        <h2>Last Updated: July 3rd, 2023</h2>
-        <a href="/Assets/MichaelWarmbierResume.pdf" download>Download Resume<span>⤴</span></a>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <h1>You can find me on any of these:</h1>
-        <div id="contact_cont">
-          <a href="https://replit.com/@Kirbout" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/repl.png' >
-          </a> <!-- Repl -->
-          <a href="https://github.com/MichaelWarmbier" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/github.png' >
-          </a> <!-- Github --> 
-          <a href="https://www.youtube.com/channel/UC1HP88o4kwLze82F2KDPoVw" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/youtube.png' >
-          </a> <!-- YouTube --> 
-          <a href="https://twitter.com/MichaelWarmbier" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/twitter.png' >
-          </a> <!-- Twitter -->
-          <a href="https://discord.com/users/238850951996375041" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/discord.png' >
-          </a> <!-- Discord -->
-          <a href="https://www.linkedin.com/in/michaelwarmbier/" target="_blank">
-            <img class="contact_ico" src='Assets/Tools/linkedin.png' >
-          </a> <!-- LinkedIn -->
+        <div id="Tools" class="ExpLabel">
+          <h2 class="ExpTitle">Tools & Applications</h2>
+          <div class="EffWrap"><img src="./Assets/Tools/atom.png" alt="Atom"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/vs_code.png" alt="Visual Studio Code"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/vs.png" alt="Visual Studio"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/repl.png" alt="Repl.it"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/node.png" alt="Node.js" style="border-radius: 100%;"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/moffice.png" alt="Microsoft Office Suite"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/gsuite.png" alt="Google Product Suite"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/github.png" alt="Github"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/git.png" alt="Git Version Control System"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/gamemaker.png" alt="Game Maker 2"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/drawio.png" alt="Draw.io"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/discord.png" alt="Discord.js"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/codepen.png" alt="Codepen.io"></div>
+          <div class="EffWrap"><img src="./Assets/Tools/unreal.png" alt="Unreal Engine 5"></div>
         </div>
-        <h2><strong>Business Email:</strong> business@michaelwarmbier.com</h2>
+        <div id="Subjects" class="ExpLabel">
+          <h2 class="ExpTitle">Disciplines</h2>
+          <div class="EffWrap"><img src="./Assets/Subjects/calculus.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/data_structures.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/engineering.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/software.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/game_dev.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/general_programming.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/hardware.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/image_processing.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/trig.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/web_dev.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/linear.png" alt="PHP"></div>
+          <div class="EffWrap"><img src="./Assets/Subjects/proofs.png" alt="PHP"></div>
+        </div>
+        <div id="Organizations" class="ExpLabel"></div>
       </section>
-    </section>
+    </content>  
 
-    <section class="footer">Michael Warmbier© 2018 - 2023 All Rights Reserved</section>
+    <section id="Footer">Michael Warmbier© 2018 - 2023 All Rights Reserved</section>
 
     <script src="SiteData.json"></script>
     <script src="script.js"></script>
