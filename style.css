@@ -7,6 +7,8 @@
   --Blue: #212cc2;
   --Gray: #474747;
   --BG-Black: #0f0f0f;
+  --BG-Gray: #212121;
+  --Content-Gray: #303030;
   --Site-Font: 'Roboto', sans-serif;
   --Title-Font: 'Roboto Mono', monospace; 
 }
@@ -187,6 +189,103 @@ header a:hover { color: var(--Orange) !important; }
 
 #Experience .EffWrap:hover img { filter: grayscale(0%); }
 
+/*///// Work /////*/
+
+#Previewer {
+  width: 70vw; height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+  overflow: hidden;
+  border-radius: .4vw;
+  color: white;
+  font-family: var(--Site-Font);
+  text-shadow: .3vw .3vw black;
+}
+
+#PreviewSelect {
+  width: 100%; height: 10vh;
+  background-color: var(--BG-Gray);
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+} #PreviewSelect h2 { font-size: 3vw; }
+
+#ProjectSelect {
+  height: 10vh; width: 100%;
+  background-color: var(--BG-Gray);
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+} #ProjectSelect h2 { font-size: 2vw; }
+
+#PreviewContent {
+  width: 60%;
+  height: 50vh;
+  background-color: var(--Content-Gray);
+  box-shadow: inset .2vw .3vw .5vw black;
+  position: relative;
+}
+
+#PreviewTools {
+  position: absolute;
+  bottom: 3vh; right: 0;
+  width: 40%;
+  height: 6vh;
+  border-radius: .3vw 0 0 .3vw;
+  background-color: var(--BG-Gray);
+  box-shadow: .3vw .3vw .5vw black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: .3s right;
+}
+
+#PreviewTools img { 
+  height: 3vh; width: 3vh;
+  margin: auto;
+}
+
+#PreviewDescription {
+  background-color: #212121;
+  width: 36%; height: 47vh;
+  padding: 3vh 2% 0 2%;
+}
+
+#DescriptionContent {
+  width: 100%; height: 70%;
+  font-size: 1.25vw;
+  text-align: center;
+}
+
+#DescriptionLinks {
+  width: 100%; height: 30%;
+  text-align: center;
+  color: var(--Orange);
+} 
+
+#DescriptionLinks a { 
+  color: var(--Orange);
+  text-decoration: none;
+  font-size: 1.20vw;
+} #DescriptionLinks a:hover { color: white; }
+
+.Left, .Right {
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+  color: var(--Orange);
+  font-size: 3vw;
+  text-shadow: .2vw .2vw black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Left:hover, .Right:hover { background-color: #363636 }
+
 /*///// Footer /////*/
 
 #Footer {
@@ -199,6 +298,7 @@ header a:hover { color: var(--Orange) !important; }
   justify-content: flex-start;
   padding-top: 1.5vw;
   padding-left: 3vw;
+  margin-top: 15vh;
 }
 
 /*///// Mobile Media Query /////*/
