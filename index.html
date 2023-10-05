@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Michael Warmbier">
     <meta name="viewport" content="width=device-width">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
   </head>
   <body>
@@ -28,7 +29,6 @@
         </p>
       <div id="ShadowWrap"></div>
     </section>
-
     
     <content>
       <img src="./Assets/headshot.jpg" id="Headshot">
@@ -105,11 +105,13 @@
         </div>
       </section>
 
+      <span class="Heading">Pr<span class="HeadingBroke">oj</span>ect Previewer</span>
+
       <section id="Previewer">
         <div id="PreviewSelect">
-          <div class="Left" onclick="updateDisplay(-1, 1)"><</div>
+          <div class="Left" onclick="indexes[0] = 0; updateDisplay(-1, 1);"><</div>
           <h2>Software/Programs</h2>
-          <div class="Right" onclick="updateDisplay(1, 1)">></div>
+          <div class="Right" onclick="indexes[0] = 0; updateDisplay(1, 1);">></div>
         </div>
         <div id="ProjectSelect">
           <div class="Left" onclick="updateDisplay(-1, 0)"><</div>
@@ -122,11 +124,26 @@
         </div>
         <div id="PreviewContent">
           <div id="PreviewTools"></div>
+          <iframe id="PreviewPDF" src=""></iframe>
         </div>
       </section>
-    </content>  
+    </content> 
 
-    <section id="Embeds"></section>
+    <span class="Heading">Commission Sheet & Résumé</span>
+    
+    <!-- Commission Sheet & Resume -->
+    <section id="Hiring">
+      <iframe id="Resume" src="./Assets/MichaelWarmbier Resume.pdf"></iframe>
+      <div id="Flyer"></div>
+    </section>
+
+    <span class="Heading">Github Statistics</span>
+
+    <!-- Embed -->
+    <section id="Embed">
+      <div class="CanvasCont"><canvas id="GithubChart1"></canvas></div>
+      <div class="CanvasCont"><canvas id="GithubChart2"></canvas></div>
+    </section>
 
     <section id="Footer">Michael Warmbier© 2018 - 2023 All Rights Reserved</section>
 
