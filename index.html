@@ -16,10 +16,11 @@
     <!-- Header & Navigation -->
 
     <header>
-      <p><a href="#t">About</p>
-      <p><a href="#t">Work</a></p>
-      <p><a href="#t">Resume</a></p>
-      <p><a href="#t">Contact</a></p>
+      <p><a href="#AboutHeader">About</p>
+      <p><a href="#ProjectHeader">Work</a></p>
+      <p><a href="#HiringHeader">Hiring</a></p>
+      <p><a href="#EmbedHeader">Stats</a></p>
+      <p><a href="#Contact">Contact</a></p>
     </header>
     
     <section id="HeaderVisual">
@@ -32,6 +33,15 @@
     
     <content>
       <img src="./Assets/headshot.jpg" id="Headshot">
+
+      <span class="Heading" id="AboutHeader">About Michael Warmbier</span>
+      <p>
+        I am currently an enrolled, full-time student studying <span>Computer Science</span> and <span>Mathematics</span> at my University.
+        In my free time I also <span>write</span> about several topics, usually <span>Philosophy</span> or Computer Science, practice basic <span>Engineering</span> aswell as
+        <span>teach</span> others about subjects I'm interested in. I actively utilize <span>Software Engineering</span> principles in 
+        my work and enjoy creating flow charts and other visual diagrams, as well as <span>documenting</span> projects and 
+        <span>Hacking</span> software code. I have <span>managed</span> and collaborated on several projects!
+      </p>
 
       <!-- Experience -->
       <section id="Experience">
@@ -105,7 +115,7 @@
         </div>
       </section>
 
-      <span class="Heading">Pr<span class="HeadingBroke">oj</span>ect Previewer</span>
+      <span class="Heading" id="ProjectHeader">Project Previewer</span>
 
       <section id="Previewer">
         <div id="PreviewSelect">
@@ -129,21 +139,36 @@
       </section>
     </content> 
 
-    <span class="Heading">Commission Sheet & Résumé</span>
+    <span class="Heading" id="HiringHeader">Commission Sheet & Résumé</span>
     
     <!-- Commission Sheet & Resume -->
     <section id="Hiring">
-      <iframe id="Resume" src="./Assets/MichaelWarmbier Resume.pdf"></iframe>
       <div id="Flyer"></div>
+      <div id="Resume">
+        <h3>Résumé</h3><br>
+        <span><a target="_blank" href="./Assets/MichaelWarmbier Resume.pdf">Download</a></span>
+        <span id="Arrow">⤴</span>
+      </div>
     </section>
 
-    <span class="Heading">Github Statistics</span>
+    <span class="Heading" id="EmbedHeader">Github Statistics</span>
 
     <!-- Embed -->
     <section id="Embed">
       <div class="CanvasCont"><canvas id="GithubChart1"></canvas></div>
       <div class="CanvasCont"><canvas id="GithubChart2"></canvas></div>
     </section>
+
+    <span class="Heading" id="ContactHeader">Contact & Social</span>
+
+    <!-- Contact -->
+    <section id="Contact">
+      <img class="ContactIcon" src="./Assets/Contacts/discord.png">
+      <img class="ContactIcon" src="./Assets/Contacts/github.png">
+      <img class="ContactIcon" src="./Assets/Contacts/linkedin.png">
+      <img class="ContactIcon" src="./Assets/Contacts/twitter.png">
+    </section>
+    <h2 id="Email"><span>Email: </span>Business@michaelwarmbier.com</h2>
 
     <section id="Footer">Michael Warmbier© 2018 - 2023 All Rights Reserved</section>
 

@@ -109,7 +109,7 @@ SiteData = {
     "Title": "Console Game Library",
     "Year": "2018 - 2019",
     "Ongoing": false,
-    "Description": "A collection of my first set of projects: various games recreated in C++ output <em>only</em> through the Windows API and command prompt.",
+    "Description": "A collection of my first set of projects: various games recreated in C++ output only through the Windows API and command prompt.",
     "PreviewURL": "Assets/Previews/conglom.png",
     "Link_Titles": [
       "Link to 'Pacman' Repository", 

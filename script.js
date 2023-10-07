@@ -27,9 +27,7 @@ window.onload = () => {
   }
 
   updateDisplay(0, true); updateDisplay(0, false);
-  const iframes = document.querySelectorAll('iframe');
-  iframes[0].src = '';
-  iframes[1].src = './Assets/MichaelWarmbier Resume.pdf';
+  document.querySelectorAll('iframe')[0].src = '';
 }
 
 // Chart.js

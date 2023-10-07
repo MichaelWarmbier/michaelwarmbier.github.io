@@ -30,7 +30,7 @@ body, html {
   text-align: center;
   width: 100%;
   display: block;
-  margin: 10vh 0 10vh 0;
+  margin: 15vh 0 10vh 0;
   text-shadow: .1vw .1vw .3vw var(--Neon), -.1vw -.1vw .3vw var(--Neon);
   animation-name: glow;
   animation-duration: 1s;
@@ -141,6 +141,24 @@ header a:hover { color: var(--Orange) !important; }
   transform: translateY(-3vw);
 }
 
+/*///// About Me /////*/
+
+#AboutHeader { padding-top: 15vh; }
+
+Content P {
+  color: white;
+  text-shadow: .2vw .2vw .5vw black;
+  font-size: 1.3vw;
+  font-family: var(--Title-Font);
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+Content P Span { color: var(--Orange); }
+
 /*///// Experience /////*/
 
 #Experience {
@@ -150,6 +168,7 @@ header a:hover { color: var(--Orange) !important; }
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: -2vw;
+  padding-top: 5vh;
 }
 
 #Experience #CurrHover {
@@ -187,7 +206,7 @@ header a:hover { color: var(--Orange) !important; }
   text-align: center;
   color: var(--Gray);
   transition: .3s color;
-  text-shadow: .2vw .2vw black;
+  text-shadow: .2vw .2vw .5vw black;
 }
 
 #Experience .ExpLabel:hover .ExpTitle { color: white; }
@@ -209,6 +228,8 @@ header a:hover { color: var(--Orange) !important; }
 
 /*///// Work /////*/
 
+#ProjectHeader { padding-top: 15vh; }
+
 #Previewer {
   width: 70vw; height: 70vh;
   display: flex;
@@ -220,7 +241,8 @@ header a:hover { color: var(--Orange) !important; }
   border-radius: .4vw;
   color: white;
   font-family: var(--Site-Font);
-  text-shadow: .3vw .3vw black;
+  text-shadow: .3vw .3vw .5vw black;
+  transform: translateY(-5vh);
 }
 
 #PreviewSelect {
@@ -303,7 +325,7 @@ header a:hover { color: var(--Orange) !important; }
   cursor: pointer;
   color: var(--Orange);
   font-size: 3vw;
-  text-shadow: .2vw .2vw black;
+  text-shadow: .2vw .2vw .5vw black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,15 +336,18 @@ header a:hover { color: var(--Orange) !important; }
 
 /*///// Flyer /////*/
 
+#HiringHeader { padding-top: 15vh; }
+
 #Hiring {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  transform: translateY(-5vh);
 }
 
 #Flyer {
-  height: 77vh; width: 59.5vh;
+  height: 99vh; width: 76.5vh;
   background: URL('flyer.jpg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -330,11 +355,41 @@ header a:hover { color: var(--Orange) !important; }
 }
 
 #Resume {
-  width: 59.5vh; height: 77vh;
-  border: none; outline: none;
+  width: 59.5vh;
+  height: max-content;
+  text-shadow: .2vw .2vw .5vw black;
+  text-align: center;
+}
+
+#Resume h3 {
+  color: white;
+  font-size: 5vw;
+  font-family: var(--Site-Font);
+  text-align: center;
+}
+
+#Resume span {
+  color: var(--Orange);
+  font-size: 3vw;
+  font-family: var(--Site-Font);
+  text-align: center;
+}
+
+#Resume #Arrow { 
+  transition: transform .3s; 
+  display: inline-block; 
+}
+
+#Resume span:hover ~ #Arrow { transform: scale(1.5) translateY(-1vh); }
+
+#Resume a {
+  text-decoration: none;
+  color: var(--Orange);
 }
 
 /*///// Embed /////*/
+
+#EmbedHeader { padding-top: 15vh; }
 
 #Embed {
   width: 80vw; height: 40vw;
@@ -343,6 +398,42 @@ header a:hover { color: var(--Orange) !important; }
 }
 
 #Embed .CanvasCont { height: 100%; width: 50%; }
+
+/*///// Contact /////*/
+
+#Contact {
+  width: 100%; height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#Contact .ContactIcon {
+  height: 7vw; width: 7vw;
+  cursor: pointer;
+  border: .4vh solid transparent;
+  padding-bottom: .4vh;
+  transition: border-bottom .3s;
+}
+
+#Contact .ContactIcon:hover {
+  border-bottom: solid .4vh var(--Orange);
+}
+
+#Email {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 3vw;
+  color: white;
+  font-family: var(--Fancy-Font);
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+#Email span { color: var(--Orange); }
 
 /*///// Footer /////*/
 
@@ -363,26 +454,97 @@ header a:hover { color: var(--Orange) !important; }
 
 @media only screen and (max-width: 800px) {
 
+  /* Global */
+
+  .Heading { font-size: 5vh !important;}
+
+  /* About Me */
+
+  Content P { font-size: 2vh; text-align: center; }
+  #AboutHeader { font-size: 5.5vh !important; }
+
   /* Header & Navigation */
 
-  header p { font-size: 130%; }
+  Header P { font-size: 130%; }
 
-  #top_content { height: 25vw; }
-  #top_content p { font-size: 3vw; }
-  #top_content h1 { font-size: 7vw; }
+  #HeaderVisual { height: 25vw; }
+  #HeaderVisual P { font-size: 3vw; }
+  #HeaderVisual H1 { font-size: 7vw; }
 
   #Headshot { height: 20vh; width: 20vh; }
 
-  /*///// Experience /////*/
+  /* Experience */
 
+  #Experience { padding-top: 7vh; }
+  #CurrHover { font-size: 3vh !important; height: 4vh !important; }
+  .ExpLabel { width: 80% !important; }
+  .EffWrap { height: 6vh !important; width: 6vh !important; }
+  .ExpTitle { font-size: 3vh !important; }
+
+  /* Previewer */
+
+  #ProjectHeader { padding-top: 15vh; }
+  #Previewer { width: 90vw; height: 75vh; transform: translateY(-15vh); }
+  #Previewer h2 { font-size: 3vh !important; text-align: center; }
+  .Right, .Left { font-size: 6vh !important; width: 20%; }
+  #PreviewDescription { width: 100%; height: 30vh; }
+  #PreviewContent { width: 100%; height: 30vh; }
+  #PreviewTools { border-radius: .3vh 0 0 .3vh; width: 60%; bottom: 10vh; }
+  #DescriptionLinks { height: 55%; width: 100%; }
+
+  #DescriptionContent { 
+    height: 43%; width: 100%; 
+    font-size: 1.7vh !important; 
+    padding: 1%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #DescriptionLinks a { 
+    display: inline-block; 
+    font-size: 1.7vh !important;  
+    width: 100%;
+  }
+
+  /* Hiring */
+
+  #HiringHeader { padding-top: 15vh; }
+  #Hiring { flex-direction: column;  }
+  #Flyer { height: 99vw; width: 76.5vw;  }
+  #Resume { padding-top: 5vh !important; }
+  #Resume h3 { font-size: 4.5vh !important; }
+  #Resume span { font-size: 3vh !important; }
+
+  /* Embed */
+
+  #Embed { 
+    flex-direction: column; 
+    height: 40vh; 
+    padding-top: 15vh;
+    transform: translateY(-17vh);
+  }
+
+  .CanvasCont { width: 100% !important; height: auto !important; }
+
+  /* Contact */
+
+  #ContactHeader { padding-top: 25vh; transform: translateY(-10vh); }
+  #Contact { margin-top: -5vh; transform: translateY(-10vh); }
+  .ContactIcon { height: 7vh !important; width: 7vh !important; }
+  #Email { font-size: 3vh !important; transform: translateY(-10vh); }
+  #Email Span { display: block; }
 
   /* Footer */
   
-  .footer { 
+  #Footer { 
     height: 6vw; 
-    font-size: 3vw; 
-    padding-top: 3vw; 
-    margin-top: 30vw;
+    font-size: 2vh !important;  
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw;
   }
   
 }
