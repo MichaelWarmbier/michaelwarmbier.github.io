@@ -168,6 +168,7 @@ header a:hover { color: var(--Orange) !important; }
   padding-top: 4vh;
   word-break: break-word;
   padding: 4vh 10% 0 10%;
+  color: white;
 }
 
 #Blog #BlogNav H2 {
