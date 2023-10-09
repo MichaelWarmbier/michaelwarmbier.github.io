@@ -36,6 +36,28 @@ SiteData = {
     ]
   },
   {
+    "Title": "Smite API Application",
+    "Description": "API wrapper interface for accessing and retrieving data from the official Smite Web API.",
+    "Year": "September 2021",
+    "Ongoing": false,
+    "PreviewURL": "Assets/Previews/smiteapi.gif",
+    "Link_Titles": [
+      "Link to Application", 
+      "Link to Repository", 
+      "Link to NPM Page"
+    ],
+    "Links": [
+      "https://replit.com/@Kirbout/Smite-API-Application", 
+      "https://github.com/MichaelWarmbier/Smite-API-Application", 
+      "https://www.npmjs.com/package/smite_api_app"
+    ],
+    "Tools": [
+      "Assets/Tools/node.png", 
+      "Assets/Tools/repl.png",
+      "Assets/Languages/json_yaml_xml.png"
+    ]
+  },
+  {
     "Title": "Blood Cell Image Classification",
     "Description": "SVM-powered application which utilizes an algorithm to classify red and white blood cells and isolate the latter from an image.",
     "Year": "February 2023 - May 2023",
@@ -192,23 +214,7 @@ SiteData = {
     },
   ],
 
-  "Utilities": [
-    {
-      "Title": "Drawio Text Extractor",
-      "Description": "Utility for extracting raw text from Draw.io files along with some degree of preferences for efficiency",
-      "Year": "August 2023",
-      "Ongoing": false,
-      "PreviewURL": "Assets/Previews/drawioextractor.gif",
-      "Link_Titles": ["Link to Repository"],
-      "Links": [
-        "https://github.com/MichaelWarmbier/Drawio-Text-Extractor"
-      ],
-      "Tools": [
-        "Assets/Tools/node.png", 
-        "Assets/Languages/json_yaml_xml.png",
-        "Assets/Tools/vs_code.png"
-      ]
-    },
+  "Scripts": [
     {
       "Title": "PyScrabbler",
       "Description": "A Python package that returns a set of dictionary valid words given an input of letters.",
@@ -228,27 +234,21 @@ SiteData = {
       ]
     },
     {
-      "Title": "Smite API Application",
-      "Description": "API wrapper interface for accessing and retrieving data from the official Smite Web API.",
-      "Year": "September 2021",
+      "Title": "Drawio Text Extractor",
+      "Description": "Utility for extracting raw text from Draw.io files along with some degree of preferences for efficiency",
+      "Year": "August 2023",
       "Ongoing": false,
-      "PreviewURL": "Assets/Previews/smiteapi.gif",
-      "Link_Titles": [
-        "Link to Application", 
-        "Link to Repository", 
-        "Link to NPM Page"
-      ],
+      "PreviewURL": "Assets/Previews/drawioextractor.gif",
+      "Link_Titles": ["Link to Repository"],
       "Links": [
-        "https://replit.com/@Kirbout/Smite-API-Application", 
-        "https://github.com/MichaelWarmbier/Smite-API-Application", 
-        "https://www.npmjs.com/package/smite_api_app"
+        "https://github.com/MichaelWarmbier/Drawio-Text-Extractor"
       ],
       "Tools": [
         "Assets/Tools/node.png", 
-        "Assets/Tools/repl.png",
-        "Assets/Languages/json_yaml_xml.png"
+        "Assets/Languages/json_yaml_xml.png",
+        "Assets/Tools/vs_code.png"
       ]
-    },
+    }
   ],
 
   "Bots": [
