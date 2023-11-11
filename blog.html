@@ -30,7 +30,9 @@
         <div id="BlogNav">
             <h2>Articles</h2>
         </div>
-        <div id="BlogContent"></div>
+        <div id="BlogContent">
+          <iframe id="Frame" src="https://e.notionhero.io/e1/p/d990e11-5b49e0c01fc566c9aedc2790089a5e7" frameborder="0" allowfullscreen></iframe>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -42,11 +44,11 @@
     <script>
         // Data
         const BLOGNAV = document.querySelector('#BlogNav');
-        const BLOGCONT = document.querySelector('#BlogContent');
+        const BLOGCONT = document.querySelector('#BlogContent iframe');
 
         // Main
         for (let elem of BlogData) {
-            const isLabel = !elem.Content;
+            const isLabel = !elem.Link;
             const newArticle = document.createElement('H1');
             BLOGNAV.appendChild(newArticle);
             newArticle.id = elem.Title.replace(' ', '_');
@@ -61,13 +63,11 @@
             } 
         }
 
-        BLOGCONT.innerHTML = BlogData[0].Content;
-
         // Event Methods
 
         function displayArticle(elem) { 
             for (let article of BlogData) if (article.Title === elem.id.replace(/_/g, ' '))
-                BLOGCONT.innerHTML = article.Content;
+                BLOGCONT.src = article.Link;
         }
     
     </script>
