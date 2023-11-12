@@ -570,12 +570,6 @@ Content P Span { color: var(--Orange); }
   
   #Blog #BlogNav { width: 30vw; }
   
-  #Blog #BlogContent {
-    width: calc(69.9vw - 5%); 
-    height: calc(100% - 2vh);
-    padding: 2vh 5% 0 5%;
-  }
-  
   #Blog #BlogNav H2 { font-size: 3vh; }
 
   #Blog .NavElem,
@@ -586,17 +580,6 @@ Content P Span { color: var(--Orange); }
     width: 90%;
   } 
 
-  #BlogContent H2,
-  #BlogContent H3,
-  #BlogContent H4,
-  #BlogContent H5 { font-size: 2vh !important; }
-  
-  #BlogContent P, #BlogContent Article { font-size: 1.5vh; }
-  #BlogContent Pre { font-size: 1.5vh; padding: .2vh; border-radius: .3vh; }
-  #BlogContent Blockquote { border-left: .5vh solid gray; }
-  #Blog #BlogContent H1 { font-size: 2.5vh; }
-  #Blog #BlogContent H2 { font-size: 1.4vw; }
-  #Blog #BlogContent P { font-size: 1.5vh; }
 
   /* Experience */
 
