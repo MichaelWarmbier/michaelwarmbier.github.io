@@ -1,5 +1,7 @@
 /*//// Data ////*/
 
+English = { ...ENGLISH_Items, ...ENGLISH_Gods };
+
 const MenuFlags = SiteData.Flags
 let touchValue = 0;
 
