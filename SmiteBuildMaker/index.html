@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" Content-Type="text/html; charset=utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Roboto&family=Roboto+Mono&family=Rubik+Burned&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="LoadingScreen">Loading SmiteBuildMaker</div>
+        <!-- Header and Navigation -->
+        <div id="Header">
+            <div id="HeaderBody"></div>
+            <span class="title">Smite Build Maker</span>
+            <span class="subtitle">V5.0.0 [Smite V10.9]</span>
+            <div id="Nav">
+                <div id="About" class="button" onclick="displayMenu(document.querySelector('#AboutMenu'))">?</div>
+                <div id="News" class="button" onclick="displayMenu(document.querySelector('#NewsMenu'))">!</div>
+                <div id="Alert" class="button" onclick="displayMenu(document.querySelector('#AlertMenu'))">🕭</div>
+                <div id="File" class="button" onclick="displayMenu(document.querySelector('#FileMenu'))">🖿</div>
+                <div id="Lang" class="button" onclick="displayMenu(document.querySelector('#LangMenu'))">⛿</div>
+                <div id="Lookup" class="button" onclick="displayMenu(document.querySelector('#LookupMenu'))" style="line-height:0;">✱</div>
+            </div>
+            <!-- Global Option Menu -->
+            <div id="GlobalOptions">
+                <span class="title">Global Options ⛭</span>
+                <div class="content">
+                    <span><p onclick="toggleBuildNumbers();">Toggle Build Numbering&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<p class="c"></p></p></span>
+                    <span><p onclick="toggleGOption(1)">Non-Conquest Changes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="c"></p></p></span>
+                    <section>
+                        <div class="button" id="LoadButton" onclick="loadData()">Load Local Save</div>
+                        <div class="button" id="SaveButton" onclick="saveData()">Save to Local Storage</div>
+                        <div class="button" id="ShareButton" onclick="generateShareLink()">Create Share Link</div>
+                    </section>
+                </div>
+                <div class="mask"></div>
+                <div class="tab" onclick="toggleGlobalOptions()">⛭</div>
+            </div>
+        </div>
+        <!-- Menus -->
+        <div id="MenuBackdrop" onclick="displayMenu(null, 1);"></div>
+        <div id="AboutMenu" class="menu"><span class="header">About Smite Build Maker</span></div>
+        <div id="NewsMenu" class="menu"><span class="header">Recent News</span></div>
+        <div id="AlertMenu" class="menu"><span class="header">Site Announcements</span></div>
+        <div id="FileMenu" class="list_menu">
+            <span class="header">Select a File</span>
+            <span class="option" onclick="toggleSaveFile(1)">1</span>
+            <span class="option" onclick="toggleSaveFile(2)">2</span>
+            <span class="option" onclick="toggleSaveFile(3)">3</span>
+            <span class="option" onclick="toggleSaveFile(4)">4</span>
+            <span class="option" onclick="toggleSaveFile(5)">5</span>
+        </div>
+        <div id="LangMenu" class="list_menu">
+            <span class="header">Select a Language</span>
+            <span class="option">English</span>
+            <span class="option">German/Deutsch</span>
+            <span class="option">Polish/Polski</span>
+            <span class="option">Spanish/Española Latinoamericana</span>
+        </div>
+        <div id="LookupMenu">
+            <span>Search Player's Recent Games</span>
+            <input placeholder="Enter a player name">
+            <div id="LookupWrap"></div>
+            <div class="loading">
+                <div class="dot" style="animation-delay: .2s"></div>
+                <div class="dot" style="animation-delay: .4s"></div>
+                <div class="dot" style="animation-delay: .6s"></div>
+            </div>
+        </div>
+        <div id="InfoMenu" class="menu">
+            <div id="PassiveButton"></div>
+            <div id="GodCard"></div>
+            <div class="item_cont">
+                <div class="item_disp"></div>
+                <div class="item_disp"></div>
+                <div class="item_disp"></div>
+                <div class="item_disp"></div>
+                <div class="item_disp"></div>
+                <div class="item_disp"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+                <div class="item_price">0  <img src="Assets/Icons/Gold.png"></div>
+            </div>
+            <div id="GodInfo">
+                <span id="GodName">God Name</span><br>
+                <span id="GodTitle">"God Title"</span><br>
+                <span id="GodPantheon"><img src=""> Pantheon</span><br>
+                <span id="GodLevel">Level: 1</span><br>
+                <span id="GodBuffs">No Buffs Selected</span><br>
+                <span id="BuildPrice">0 <img src="Assets/Icons/Gold.png"></span>
+            </div>
+            <div id="GodStats">
+                <span class="title">Statistics</span><br><br><br>
+                <span class="stat">
+                    <img src="Assets/Icons/speed.png"><span class="stat_name">Speed: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">1000</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/p_power.png"><span class="stat_name">Power: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">2500</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/attack_speed.png"><span class="stat_name">Attack Speed: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">2.5</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/basic_attack.png"><span class="stat_name">B. Attack Damage: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">3000</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/health.png"><span class="stat_name">Health: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">4000</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/mana.png"><span class="stat_name">Mana: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">4000</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/hp5.png"><span class="stat_name">HP5: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">100</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/mp5.png"><span class="stat_name">MP5: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">100</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/crowd_control.png"><span class="stat_name">CCR: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0%</span><span class="stat_cap">40%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/damage_red.png"><span class="stat_name">Damage Reduction: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0%</span><span class="stat_cap">100%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/p_protections.png"><span class="stat_name">P. Protections: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">325</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/m_protections.png"><span class="stat_name">M. Protections </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">325</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/p_armour.png"><span class="stat_name">Penetration: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">50</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/p_armour.png"><span class="stat_name">% Penetration: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0%</span><span class="stat_cap">40%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/crit.png"><span class="stat_name">Crit. Chance: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0%</span><span class="stat_cap">100%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/cooldown.png"><span class="stat_name">CDR: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">40%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/p_lifesteal.png"><span class="stat_name">Lifesteal: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0%</span><span class="stat_cap">100%</span>
+                    </div>
+                </span>
+                <span class="stat">
+                    <img src="Assets/Icons/ehp.png"><span class="stat_name">Eff. Health: </span>
+                    <div class="stat_bar">
+                        <span class="stat_amount">0</span><span class="stat_cap">10000</span>
+                    </div>
+                </span>
+            </div>
+            <div id="PassiveDisplay"><span>🛈</span></div>
+        </div>
+        <div id="OptionsMenu" class="menu">
+            <span class="header"></span>
+            <div id="OptionsList">
+                <span class="title">Options ⛭</span>
+                <div id="OptionsLevel">Level:  
+                    <input oninput="updateLevelSlider()" type="range" min="1" max="20" value="1" class="slider" id="LevelSlider">
+                    <span id="LevelValue">1</span>
+                </div>
+                <div id="OptionsBuffs">
+                    <span class="label">Buffs: </span>
+                    <div id="RegularBuffs" class="item_cont">
+                        <div id="PowerBuff" onclick="updateBuffs('Power_Buff', 'Regular', '#ba463c')" class="buff" style="background-image: URL('Assets/Icons/Power_Buff.png')"></div>
+                        <div id="SpeedBuff" onclick="updateBuffs('Speed_Buff', 'Regular', '#d1e346')" class="buff" style="background-image: URL('Assets/Icons/Speed_Buff.png')"></div>
+                        <div id="HealthBuff" onclick="updateBuffs('Health_Buff', 'Regular', '#1bc440')" class="buff" style="background-image: URL('Assets/Icons/Health_Buff.png')"></div>
+                        <div id="ManaBuff" onclick="updateBuffs('Mana_Buff', 'Regular', '#2a3ba3')" class="buff" style="background-image: URL('Assets/Icons/Mana_Buff.png')"></div>
+                        <div id="VoidBuff" onclick="updateBuffs('Void_Buff', 'Regular', '#8225a1')"class="buff" style="background-image: URL('Assets/Icons/Void_Buff.png')"></div>
+                        <div id="AttackSBuff" onclick="updateBuffs('Attack_Speed_Buff', 'Regular', '#9c48b8')" class="buff" style="background-image: URL('Assets/Icons/AttackSpeed_Buff.png')"></div>
+                    </div>
+                    <div id="MetallicBuffs" class="item_cont">
+                        <div id="GoldBuff" onclick="updateBuffs('Gold_Buff', 'Metallic', '#c2cf5f')" class="buff" style="background-image: URL('Assets/Icons/Gold_Buff.png')"></div>
+                        <div id="SilverBuff" onclick="updateBuffs('Silver_Buff','Metallic', '#9d9e93')"class="buff" style="background-image: URL('Assets/Icons/Silver_Buff.png')"></div>
+                    </div>
+                    <div id="FireBuff" class="item_cont">
+                        <div id="FireBuff" onclick="updateBuffs('Fire_Giant', 'Large', '#cc275e')"class="buff" style="background-image: URL('Assets/Icons/Fire_Giant.png')"></div>
+                        <div id="SlashBuff" onclick="updateBuffs('Slash_Buff', 'Large', '#701fc2')" class="buff" style="background-image: URL('Assets/Icons/Slash_Buff.png')"></div>
+                        <div id="JoustBuff" onclick="updateBuffs('Joust_Buff', 'Large', '#17873a')" class="buff" style="background-image: URL('Assets/Icons/Joust_Buff.png')"></div>
+                    </div>
+                    <div id="PotionBuff" class="item_cont">
+                        <div id="PowerPotBuff" onclick="updateBuffs('Power_Potion', 'Potion', '#de4f12')" class="buff" style="background-image: URL('Assets/Icons/Power_Potion.png')"></div>
+                    </div>
+                    <div id="ElixirBuff" class="item_cont">
+                        <div id="PowerEBuff" onclick="updateBuffs('Power_Elixir', 'Elixir', '#f2400a')" class="buff" style="background-image: URL('Assets/Icons/Power_Elixir.png')"></div>
+                        <div id="DefenseEBuff" onclick="updateBuffs('Defense_Elixir', 'Elixir', '#13389e')" class="buff" style="background-image: URL('Assets/Icons/Defense_Elixir.png')"></div>
+                    </div>
+                    <div id="NoBuff" class="item_cont">
+                        <div id="NoBuff" onclick="updateBuffs()" class="buff" style="background-image: URL('Assets/Icons/Reset.png')"></div>
+                    </div>
+                    <div id="BuffValue">No Buff Selected</div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div id="RandomList">
+                <span class="title">Randomize ⚄</span>
+                <div class="button" onclick="randomGod(); randomItems()">Randomize Everything</div>
+                <div class="button" onclick="randomGod()">Randomize God</div>
+                <div class="button" onclick="randomItems();">Randomize Items</div>
+            </div>
+        </div>
+        <div id="GodMenu" class="menu">
+            <div id="GodFilters">
+                <span class="label">Filters</span>
+                <select name="filters" onchange="updateFilters()">
+                    <option value="Role" selected>Roles</option>
+                    <option value="Pantheon" selected>Pantheons</option>
+                    <option value="Range" selected>Range</option>
+                    <option value="Type" selected>Damage Type</option>
+                </select>
+                <div id="GodFilterNames">
+                    <button onclick="setFilter('Guardian')">Guardian</button>
+                    <button onclick="setFilter('Hunter')">Hunter</button>
+                    <button onclick="setFilter('Assassin')">Assassin</button>
+                    <button onclick="setFilter('Warrior')">Warrior</button>
+                    <button onclick="setFilter('Mage')">Mage</button>
+                </div>
+                <button class="reset_filter" onclick="setFilter(null)">Reset Filter</button>
+            </div>
+            <div id="GodSearch">
+                <input type="text" placeholder="Search For a God.." oninput="updateSearch()"></input>
+            </div>
+            <div id="GodList"></div>
+            <div id="GodDetails">
+                <span class="title">God Name</span>
+                <span class="subtitle">God Title</span>
+                <span class="label"><div class="pantheon_ico"></div>God Pantheon</span>
+                <div class="ico"></div>
+                <span class="type">Ranged Magical</span>
+                <span class="desc">Double-Tap to Select!</span>
+            </div>
+        </div>
+        <div id="ItemMenu" class="menu">
+            <div id="ItemFilters">
+                <span class="label">Filters</span>
+                <div id="ItemFilterNames">
+                    <button onclick="setFilter('Starter')">Starter</button>
+                    <button onclick="setFilter('Recipe')">Recipe</button>
+                    <button onclick="setFilter('Power')">Power</button>
+                    <button onclick="setFilter('Attack Speed')">Attack Speed</button>
+                    <button onclick="setFilter('Lifesteal')">Lifesteal</button>
+                    <button onclick="setFilter('Penetration')">Penetration</button>
+                    <button onclick="setFilter('Crit Chance')">Crit Chance</button>
+                    <button onclick="setFilter('Physical')">Physical Prots.</button>
+                    <button onclick="setFilter('Magical')">Magical Prots.</button>
+                    <button onclick="setFilter('Health')">Health</button>
+                    <button onclick="setFilter('HP5')">HP5</button>
+                    <button onclick="setFilter('CCR')">CCR</button>
+                    <button onclick="setFilter('Aura')">Aura</button>
+                    <button onclick="setFilter('Movement')">Movement</button>
+                    <button onclick="setFilter('Cooldown')">Cooldown</button>
+                    <button onclick="setFilter('Mana')">Mana</button>
+                    <button onclick="setFilter('MP5')">Guardian</button>
+                </div>
+                <button class="reset_filter" onclick="setFilter(null)">Reset Filter</button>
+            </div>
+            <div id="ItemSearch">
+                <input type="text" placeholder="Search For an item.." oninput="updateSearch()"></input>
+            </div>
+            <div id="ItemList"></div>
+            <div id="ItemTierFilter">
+                <div class="tier_filter" onclick="setTier(1); initializeItems();">Tier I</div>
+                <div class="tier_filter" onclick="setTier(2); initializeItems();">Tier II</div>
+                <div class="tier_filter" onclick="setTier(3); initializeItems();" style="color: var(--DarkGold)">Tier III</div>
+                <div class="tier_filter" onclick="setTier(4); initializeItems();">Tier IV</div>
+            </div>
+            <div id="ItemDetails">
+                <span class="title">Item Name</span>
+                <span class="subtitle">Item Description</span>
+                <span class="subtitle statlist">Item Values</span>
+                <span class="label">Price</span>
+                <span class="type">Other Price</span>
+                <span class="desc">Double-Tap to Select!</span>
+            </div>
+        </div>
+        
+        <!-- App -->
+        <div id="App">
+            <div id="SwipeNotif">Swipe<span>>>></span></div>
+            <div id="ExtraInfo"><span>🛈</span></div>
+            <div id="Warning"></div>
+            <!-- Left Chaos Side -->
+            <div id="Chaos" class="team">
+                <div class="player" style="top: calc(20% * 0)">
+                    <div class="preferences" onclick="displayOptions(1, 'Chaos')">⛭</div>
+                    <div class="information" onclick="displayInfo(1, 'Chaos')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(1, 'Chaos')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 1, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 1, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 1, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 1, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 1, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 1, 'Chaos')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 1)">
+                    <div class="preferences" onclick="displayOptions(2, 'Chaos')">⛭</div>
+                    <div class="information" onclick="displayInfo(2, 'Chaos')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(2, 'Chaos')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 2, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 2, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 2, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 2, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 2, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 2, 'Chaos')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 2)">
+                    <div class="preferences" onclick="displayOptions(3, 'Chaos')">⛭</div>
+                    <div class="information" onclick="displayInfo(3, 'Chaos')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(3, 'Chaos')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 3, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 3, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 3, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 3, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 3, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 3, 'Chaos')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 3)">
+                    <div class="preferences" onclick="displayOptions(4, 'Chaos')">⛭</div>
+                    <div class="information" onclick="displayInfo(4, 'Chaos')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(4, 'Chaos')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 4, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 4, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 4, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 4, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 4, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 4, 'Chaos')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 4)">
+                    <div class="preferences" onclick="displayOptions(5, 'Chaos')">⛭</div>
+                    <div class="information" onclick="displayInfo(5, 'Chaos')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(5, 'Chaos')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 5, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 5, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 5, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 5, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 5, 'Chaos')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 5, 'Chaos')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <div id="Order" class="team">
+                <div class="player" style="top: calc(20% * 0)">
+                    <div class="preferences" onclick="displayOptions(6, 'Order')">⛭</div>
+                    <div class="information" onclick="displayInfo(6, 'Order')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(1, 'Order')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 1, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 1, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 1, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 1, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 1, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 1, 'Order')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 1)">
+                    <div class="preferences" onclick="displayOptions(7, 'Order')">⛭</div>
+                    <div class="information" onclick="displayInfo(7, 'Order')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(2, 'Order')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 2, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 2, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 2, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 2, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 2, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 2, 'Order')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 2)">
+                    <div class="preferences" onclick="displayOptions(8, 'Order')">⛭</div>
+                    <div class="information" onclick="displayInfo(8, 'Order')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(3, 'Order')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 3, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 3, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 3, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 3, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 3, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 3, 'Order')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 3)">
+                    <div class="preferences" onclick="displayOptions(9, 'Order')">⛭</div>
+                    <div class="information" onclick="displayInfo(9, 'Order')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(4, 'Order')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 4, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 4, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 4, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 4, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 4, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 4, 'Order')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+                <div class="player" style="top: calc(20% * 4)">
+                    <div class="preferences" onclick="displayOptions(10, 'Order')">⛭</div>
+                    <div class="information" onclick="displayInfo(10, 'Order')">🛈</div>
+                    <div class="icon" onclick="openGodMenu(5, 'Order')">?</div>
+                    <div class="item_cont">
+                        <div class="item" onclick="openItemMenu(1, 5, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(2, 5, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(3, 5, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(4, 5, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(5, 5, 'Order')">+</div>
+                        <div class="item" onclick="openItemMenu(6, 5, 'Order')">+</div>
+                    </div>
+                    <div class="bar">
+                        <div class="health" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                        <div class="mana" onmousedown="updateHealthMana(this, event)" onmouseup="clearHMUpdate()" onmouseout="clearHMUpdate()">100%&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Quick Change Menu -->
+            <div id="QuickChange">
+                <div class="left" onclick="changeMenu('-')">←</div>
+                <div class="right" onclick="changeMenu('+')">→</div>
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div id="Terminal">
+            > <input placeholder="Start Typing..">
+        </div>
+
+        <!-- Language Data -->
+        <script src="Data/Languages/English.json"></script>
+
+        <!-- JSON Storage -->
+        <script src="Data/SiteData.json"></script>
+        <script src="Data/About.json"></script>
+        <script src="Data/News.json"></script>
+
+        <!-- Scripts -->
+        <script src="Scripts/DataManip.js"></script>
+        <script src="Scripts/Display.js"></script>
+        <script src="Scripts/Terminal.js"></script>
+        <script src="Scripts/ExtraFeatures.js"></script>
+        <script src="Scripts/Stats.js"></script>
+    </body>
+</html>
