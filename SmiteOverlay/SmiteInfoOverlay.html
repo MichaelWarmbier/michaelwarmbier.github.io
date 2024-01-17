@@ -4,18 +4,12 @@
         <script src="Gods.json"></script>
         <script src="Items.json"></script>
         <script>
-            const ROLES = [
-                'https://static.wikia.nocookie.net/smite_gamepedia/images/3/30/NewUI_Role_Carry.png/revision/latest/scale-to-width-down/120?cb=20181006034722',
-                'https://static.wikia.nocookie.net/smite_gamepedia/images/8/85/NewUI_Role_Jungle.png/revision/latest/scale-to-width-down/120?cb=20181006034733',
-                'https://static.wikia.nocookie.net/smite_gamepedia/images/5/52/NewUI_Role_Mid.png/revision/latest/scale-to-width-down/120?cb=20181006034739',
-                'https://static.wikia.nocookie.net/smite_gamepedia/images/f/ff/NewUI_Role_Solo.png/revision/latest/scale-to-width-down/120?cb=20181006034745',
-                'https://static.wikia.nocookie.net/smite_gamepedia/images/9/96/NewUI_Role_Support.png/revision/latest/scale-to-width-down/120?cb=20181006034750'
-            ];
             (async () => {
+                const PARAMS = new URLSearchParams(window.location.search);
                 const SERVER = 'https://server-08-kirbout.replit.app';
                 let Req = await fetch(`${SERVER}/requestsession`);
                 let Data = await Req.text();
-                Req = await fetch(`${SERVER}/requestmatchhistory?ID=${Data}&USER=MrKirbout`);
+                Req = await fetch(`${SERVER}/requestmatchhistory?ID=${Data}&USER=${PARAMS.get('ID')}`);
                 Data = await Req.json();
                 console.log(Data[0]);
                 for (God of ENGLISH_Gods.Gods) if (God.Id === Data[0].GodId) GOD.src = God.Icon;
@@ -26,11 +20,11 @@
                         if (item.Id === Data[0]['ItemId' + (itemIndex + 1).toString()]) 
                             document.querySelectorAll('.item')[itemIndex].src = item.URL;
                 switch (Data[0].Role) {
-                    case 'Carry': ROLE.src = ROLES[0]; break;
-                    case 'Jungle': ROLE.src = ROLES[1]; break;
-                    case 'Mid': ROLE.src = ROLES[2]; break;
-                    case 'Solo': ROLE.src = ROLES[3]; break;
-                    case 'Support': ROLE.src = ROLES[4]; break;
+                    case 'Carry': ROLE.src = 'Carry.png'; break;
+                    case 'Jungle': ROLE.src = 'Jungle.png'; break;
+                    case 'Mid': ROLE.src = 'Mid.png'; break;
+                    case 'Solo': ROLE.src = 'Solo.png'; break;
+                    case 'Support': ROLE.src = 'Support.png'; break;
                 }
             })();
 
