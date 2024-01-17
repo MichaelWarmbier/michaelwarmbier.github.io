@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Gods.json"></script>
+        <script src="Items.json"></script>
+        <script>
+            const ROLES = [
+                'https://static.wikia.nocookie.net/smite_gamepedia/images/3/30/NewUI_Role_Carry.png/revision/latest/scale-to-width-down/120?cb=20181006034722',
+                'https://static.wikia.nocookie.net/smite_gamepedia/images/8/85/NewUI_Role_Jungle.png/revision/latest/scale-to-width-down/120?cb=20181006034733',
+                'https://static.wikia.nocookie.net/smite_gamepedia/images/5/52/NewUI_Role_Mid.png/revision/latest/scale-to-width-down/120?cb=20181006034739',
+                'https://static.wikia.nocookie.net/smite_gamepedia/images/f/ff/NewUI_Role_Solo.png/revision/latest/scale-to-width-down/120?cb=20181006034745',
+                'https://static.wikia.nocookie.net/smite_gamepedia/images/9/96/NewUI_Role_Support.png/revision/latest/scale-to-width-down/120?cb=20181006034750'
+            ];
+            (async () => {
+                const SERVER = 'https://server-08-kirbout.replit.app';
+                let Req = await fetch(`${SERVER}/requestsession`);
+                let Data = await Req.text();
+                Req = await fetch(`${SERVER}/requestmatchhistory?ID=${Data}&USER=MrKirbout`);
+                Data = await Req.json();
+                console.log(Data[0]);
+                for (God of ENGLISH_Gods.Gods) if (God.Id === Data[0].GodId) GOD.src = God.Icon;
+                KDA.innerHTML = `${Data[0].Kills}/${Data[0].Deaths}/${Data[0].Assists}`;
+                Status.innerHTML = Data[0].Win_Status == 'Win' ? '<span style="color:#83d486">WIN</span>' : '<span style="color:#bf7777">LOSS</span>';
+                for (let itemIndex = 0; itemIndex < 6; itemIndex++)
+                    for (item of ENGLISH_Items.Items)
+                        if (item.Id === Data[0]['ItemId' + (itemIndex + 1).toString()]) 
+                            document.querySelectorAll('.item')[itemIndex].src = item.URL;
+                switch (Data[0].Role) {
+                    case 'Carry': ROLE.src = ROLES[0]; break;
+                    case 'Jungle': ROLE.src = ROLES[1]; break;
+                    case 'Mid': ROLE.src = ROLES[2]; break;
+                    case 'Solo': ROLE.src = ROLES[3]; break;
+                    case 'Support': ROLE.src = ROLES[4]; break;
+                }
+            })();
+
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+            #Content {
+                height: 100px;
+                width: 850px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 70px 0 70px;
+                font-family: 'Jockey One', sans-serif;
+                font-size: 40px;
+                background-color: #454545;
+                color: white;
+                border-radius: 6px;
+            }
+
+            #Content img { height: 75px; width: 75px; border-radius: 8px; }
+
+            #ITEMS {
+                height: 70px; width: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            #ITEMS .item {
+                margin: 5px;
+                height: 50px; width: 50px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="Content">
+            <img id="ROLE" src="">
+            <img id="GOD" src="" style="margin-left: 20px">
+            <div id="ITEMS" style="margin-left: 20px">
+                <img class="item" src="">
+                <img class="item" src="">
+                <img class="item" src="">
+                <img class="item" src="">
+                <img class="item" src="">
+                <img class="item" src="">
+            </div>
+            <div id="KDA" style="margin-left: 20px"></div>
+            <div id="Status" style="margin-left: 20px"></div>
+        </div>
+
+    </body>
+</html>
