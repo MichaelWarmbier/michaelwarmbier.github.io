@@ -40,13 +40,28 @@
                 height: 50px; width: 50px;
             }
 
+            #Relics img {
+                height: 40px; width: 40px;
+            }
+
+            #Relics {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
         </style>
     </head>
     <body>
         <div id="Content">
             <img id="ROLE" src="https://static.wikia.nocookie.net/smite_gamepedia/images/0/0b/NewUI_Class_Unknown.png/revision/latest/scale-to-width-down/120?cb=20180903051842" style="border: none !important;">
             <img id="GOD" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401" style="margin-left: 20px">
-            <div id="ITEMS" style="margin-left: 20px">
+            <div id="Relics" style="margin-left: 10px">
+                <img src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
+                <img src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
+            </div>
+            <div id="ITEMS" style="margin-left: 10px">
                 <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
                 <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
                 <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
@@ -69,13 +84,23 @@
                 let Data = await Req.text();
                 Req = await fetch(`${SERVER}/requestmatchhistory?ID=${Data}&USER=${PARAMS.get('ID')}`);
                 Data = await Req.json();
-                for (God of ENGLISH_Gods.Gods) if (God.Id === Data[0].GodId) GOD.src = God.Icon;
+
+                console.log(Data[0]);
+
+                for (God of ENGLISH_Gods) if (God.id == Data[0].GodId) GOD.src = God.godIcon_URL;
                 KDA.innerHTML = `${Data[0].Kills}/${Data[0].Deaths}/${Data[0].Assists}`;
                 Status.innerHTML = Data[0].Win_Status == 'Win' ? '<span style="color:#83d486">WIN</span>' : '<span style="color:#bf7777">LOSS</span>';
+
                 for (let itemIndex = 0; itemIndex < 6; itemIndex++)
-                    for (item of ENGLISH_Items.Items)
-                        if (item.Id === Data[0]['ItemId' + (itemIndex + 1).toString()]) 
-                            document.querySelectorAll('.item')[itemIndex].src = item.URL;
+                    for (item of ENGLISH_Items)
+                        if (item.ItemId == Data[0]['ItemId' + (itemIndex + 1).toString()]) 
+                            document.querySelectorAll('.item')[itemIndex].src = item.itemIcon_URL;
+
+                for (let itemIndex = 0; itemIndex < 2; itemIndex++)
+                    for (item of ENGLISH_Items)
+                        if (item.ItemId == Data[0]['ActiveId' + (itemIndex + 1).toString()]) 
+                            document.querySelectorAll('#Relics img')[itemIndex].src = item.itemIcon_URL;
+
                 switch (Data[0].Role) {
                     case 'Carry': ROLE.src = 'Carry.png'; break;
                     case 'Jungle': ROLE.src = 'Jungle.png'; break;
