@@ -87,19 +87,20 @@
 
                 console.log(Data[0]);
 
-                for (God of ENGLISH_Gods) if (God.id == Data[0].GodId) GOD.src = God.godIcon_URL;
+                for (God of ENGLISH_Gods) 
+                if (God.id == Data[0].GodId) { 
+                    GOD.src = God.godIcon_URL; break
+                    break;
+                } else GOD.src = 'https://static.wikia.nocookie.net/smite_gamepedia/images/0/0b/NewUI_Class_Unknown.png/revision/latest/scale-to-width-down/120?cb=20180903051842';
                 KDA.innerHTML = `${Data[0].Kills}/${Data[0].Deaths}/${Data[0].Assists}`;
                 Status.innerHTML = Data[0].Win_Status == 'Win' ? '<span style="color:#83d486">WIN</span>' : '<span style="color:#bf7777">LOSS</span>';
 
                 for (let itemIndex = 0; itemIndex < 6; itemIndex++)
                     for (item of ENGLISH_Items)
-                        if (item.DeviceName == Data[0]['Item_' + (itemIndex + 1).toString()]) 
+                        if (item.DeviceName == Data[0]['Item_' + (itemIndex + 1).toString()]) {
                             document.querySelectorAll('.item')[itemIndex].src = item.itemIcon_URL;
-
-                for (let itemIndex = 0; itemIndex < 2; itemIndex++)
-                    for (item of ENGLISH_Items)
-                        if (item.ItemId == Data[0]['ActiveId' + (itemIndex + 1).toString()]) 
-                            document.querySelectorAll('#Relics img')[itemIndex].src = item.itemIcon_URL;
+                            break;
+                        } else document.querySelectorAll('.item')[itemIndex].src = 'https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401'
 
                 switch (Data[0].Role) {
                     case 'Carry': ROLE.src = 'Carry.png'; break;
@@ -108,6 +109,13 @@
                     case 'Solo': ROLE.src = 'Solo.png'; break;
                     case 'Support': ROLE.src = 'Support.png'; break;
                 }
+
+                /*
+                for (let itemIndex = 0; itemIndex < 2; itemIndex++)
+                    for (item of ENGLISH_Items)
+                        if (item.ItemId == Data[0]['ActiveId' + (itemIndex + 1).toString()]) 
+                            document.querySelectorAll('#Relics img')[itemIndex].src = item.itemIcon_URL;
+                */
             })();
 
         </script>
