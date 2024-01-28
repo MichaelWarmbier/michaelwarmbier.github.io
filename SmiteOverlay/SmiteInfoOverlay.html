@@ -93,7 +93,7 @@
 
                 for (let itemIndex = 0; itemIndex < 6; itemIndex++)
                     for (item of ENGLISH_Items)
-                        if (item.ItemId == Data[0]['ItemId' + (itemIndex + 1).toString()]) 
+                        if (item.DeviceName == Data[0]['Item_' + (itemIndex + 1).toString()]) 
                             document.querySelectorAll('.item')[itemIndex].src = item.itemIcon_URL;
 
                 for (let itemIndex = 0; itemIndex < 2; itemIndex++)
