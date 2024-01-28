@@ -55,19 +55,19 @@
     </head>
     <body>
         <div id="Content">
-            <img id="ROLE" src="https://static.wikia.nocookie.net/smite_gamepedia/images/0/0b/NewUI_Class_Unknown.png/revision/latest/scale-to-width-down/120?cb=20180903051842" style="border: none !important;">
-            <img id="GOD" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401" style="margin-left: 20px">
-            <!--<div id="Relics" style="margin-left: 10px">
-                <img src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-            </div>-->
+            <img id="ROLE" src="NoneOther.png" style="border: none !important;">
+            <img id="GOD" src="NoneOther.png" style="margin-left: 20px">
+            <div id="Relics" style="margin-left: 10px">
+                <img src="NoneItem.png">
+                <img src="NoneItem.png">
+            </div>
             <div id="ITEMS" style="margin-left: 10px">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
-                <img class="item" src="https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401">
+                <img class="item" src="NoneItem.png">
+                <img class="item" src="NoneItem.png">
+                <img class="item" src="NoneItem.png">
+                <img class="item" src="NoneItem.png">
+                <img class="item" src="NoneItem.png">
+                <img class="item" src="NoneItem.png">
             </div>
             <div id="KDA" style="margin-left: 20px"></div>
             <div id="Status" style="margin-left: 20px"></div>
@@ -88,19 +88,14 @@
                 console.log(Data[0]);
 
                 for (God of ENGLISH_Gods) 
-                if (God.id == Data[0].GodId) { 
-                    GOD.src = God.godIcon_URL; break
-                    break;
-                } else GOD.src = 'https://static.wikia.nocookie.net/smite_gamepedia/images/0/0b/NewUI_Class_Unknown.png/revision/latest/scale-to-width-down/120?cb=20180903051842';
+                if (God.id == Data[0].GodId) GOD.src = God.godIcon_URL; 
                 KDA.innerHTML = `${Data[0].Kills}/${Data[0].Deaths}/${Data[0].Assists}`;
                 Status.innerHTML = Data[0].Win_Status == 'Win' ? '<span style="color:#83d486">WIN</span>' : '<span style="color:#bf7777">LOSS</span>';
 
                 for (let itemIndex = 0; itemIndex < 6; itemIndex++)
                     for (item of ENGLISH_Items)
-                        if (item.DeviceName == Data[0]['Item_' + (itemIndex + 1).toString()]) {
+                        if (item.DeviceName == Data[0]['Item_' + (itemIndex + 1).toString()]) 
                             document.querySelectorAll('.item')[itemIndex].src = item.itemIcon_URL;
-                            break;
-                        } else document.querySelectorAll('.item')[itemIndex].src = 'https://static.wikia.nocookie.net/smite_gamepedia/images/b/b1/Prestige_Border_0.png/revision/latest/scale-to-width-down/120?cb=20171009154401'
 
                 switch (Data[0].Role) {
                     case 'Carry': ROLE.src = 'Carry.png'; break;
@@ -110,12 +105,10 @@
                     case 'Support': ROLE.src = 'Support.png'; break;
                 }
 
-                /*
                 for (let itemIndex = 0; itemIndex < 2; itemIndex++)
                     for (item of ENGLISH_Items)
-                        if (item.ItemId == Data[0]['ActiveId' + (itemIndex + 1).toString()]) 
+                        if (item.DeviceName == Data[0]['Active_' + (itemIndex + 1).toString()]) 
                             document.querySelectorAll('#Relics img')[itemIndex].src = item.itemIcon_URL;
-                */
             })();
 
         </script>
