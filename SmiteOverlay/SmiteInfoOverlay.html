@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="Gods.json"></script>
-        <script src="Items.json"></script>
+        <script src="Data/Gods.json"></script>
+        <script src="Data/Items.json"></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
 
@@ -40,11 +40,11 @@
                 height: 50px; width: 50px;
             }
 
-            #Relics img {
+            #ACTIVES img {
                 height: 40px; width: 40px;
             }
 
-            #Relics {
+            #ACTIVES {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -55,19 +55,19 @@
     </head>
     <body>
         <div id="Content">
-            <img id="ROLE" src="NoneOther.png" style="border: none !important;">
-            <img id="GOD" src="NoneOther.png" style="margin-left: 20px">
-            <div id="Relics" style="margin-left: 10px">
-                <img src="NoneItem.png">
-                <img src="NoneItem.png">
+            <img id="ROLE" src="Assets/NoneOther.png" style="border: none !important;">
+            <img id="GOD" src="Assets/NoneOther.png" style="margin-left: 20px">
+            <div id="ACTIVES" style="margin-left: 10px">
+                <img src="Assets/NoneItem.png">
+                <img src="Assets/NoneItem.png">
             </div>
             <div id="ITEMS" style="margin-left: 10px">
-                <img class="item" src="NoneItem.png">
-                <img class="item" src="NoneItem.png">
-                <img class="item" src="NoneItem.png">
-                <img class="item" src="NoneItem.png">
-                <img class="item" src="NoneItem.png">
-                <img class="item" src="NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
+                <img class="item" src="Assets/NoneItem.png">
             </div>
             <div id="KDA" style="margin-left: 20px"></div>
             <div id="Status" style="margin-left: 20px"></div>
@@ -76,9 +76,6 @@
             (async () => {
                 const PARAMS = new URLSearchParams(window.location.search);
                 const SERVER = 'https://server-08-kirbout.replit.app';
-                
-                if (PARAMS.get('BG') === null) Content.style.backgroundColor = '#131e57';
-                else Content.style.backgroundColor = '#' + PARAMS.get('BG');
 
                 let Req = await fetch(`${SERVER}/requestsession`);
                 let Data = await Req.text();
@@ -98,17 +95,17 @@
                             document.querySelectorAll('.item')[itemIndex].src = item.itemIcon_URL;
 
                 switch (Data[0].Role) {
-                    case 'Carry': ROLE.src = 'Carry.png'; break;
-                    case 'Jungle': ROLE.src = 'Jungle.png'; break;
-                    case 'Mid': ROLE.src = 'Mid.png'; break;
-                    case 'Solo': ROLE.src = 'Solo.png'; break;
-                    case 'Support': ROLE.src = 'Support.png'; break;
+                    case 'Carry': ROLE.src = 'Assets/Carry.png'; break;
+                    case 'Jungle': ROLE.src = 'Assets/Jungle.png'; break;
+                    case 'Mid': ROLE.src = 'Assets/Mid.png'; break;
+                    case 'Solo': ROLE.src = 'Assets/Solo.png'; break;
+                    case 'Support': ROLE.src = 'Assets/Support.png'; break;
                 }
 
                 for (let itemIndex = 0; itemIndex < 2; itemIndex++)
                     for (item of ENGLISH_Items)
                         if (item.DeviceName == Data[0]['Active_' + (itemIndex + 1).toString()]) 
-                            document.querySelectorAll('#Relics img')[itemIndex].src = item.itemIcon_URL;
+                            document.querySelectorAll('#ACTIVES img')[itemIndex].src = item.itemIcon_URL;
             })();
 
         </script>
