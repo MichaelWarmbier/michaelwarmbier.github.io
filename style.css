@@ -129,6 +129,8 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 } 
 
 #Footer {
+    position: absolute;
+    bottom: 0;
     height: 2.5vh; width: 100vw;
     background-color: black;
     border-top: var(--GBorder);
