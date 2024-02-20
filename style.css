@@ -40,7 +40,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 }
 
 .d_image {
-    -webkit-filter: blur(3px);
+    -webkit-filter: blur(2px);
     height: calc(1080px / 6); width: calc(1920px / 6);
     position: absolute;
     pointer-events: none;
@@ -181,7 +181,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 
 @keyframes image_scroll {
     0% { transform: translate(0vw); opacity: 0; }
-    40% { opacity: .8; }
-    60% { opacity: .8; }
+    40% { opacity: .9; }
+    60% { opacity: .9; }
     100% { transform: translate(-80vw); opacity: 0; }
 }
