@@ -21,10 +21,10 @@
 Body { margin: 0; background-color: black; overflow: hidden; }
 
 #ExternalNav a, #ExternalNav a:visited, #ExternalNav a:focus { text-decoration: none; color: var(--DarkOrange); }
-#ExternalNav  a:hover { color: var(--Orange); }
+#ExternalNav  a:hover { color: RGBA(255, 255, 255, .8); }
 
 #InternalNav a, #InternalNav a:visited, #InternalNav a:focus { text-decoration: none; color: RGBA(255, 255, 255, .8); }
-#InternalNav a:hover { cursor: pointer; }
+#InternalNav a:hover { cursor: pointer; color: RGBA(150, 150, 150, .8); }
 
 #Showcase {
     height: calc(40vh - var(--GBorderSize)); width: 100vw;
@@ -138,11 +138,10 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 
 #InternalNav Span {
     display: inline-block;
-    background-color: var(--DarkOrange);
     padding: .3vw;
     border-radius: .6vw;
     text-shadow: .1vw .1vw black;
-} #InternalNav Span:hover { background-color: var(--Orange); cursor: pointer; }
+}
 
 #Footer {
     height: 3vh; width: 100vw;
