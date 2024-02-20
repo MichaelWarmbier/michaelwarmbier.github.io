@@ -23,14 +23,8 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 #ExternalNav a, #ExternalNav a:visited, #ExternalNav a:focus { text-decoration: none; color: var(--DarkOrange); }
 #ExternalNav  a:hover { color: var(--Orange); }
 
-#Footer a, #Footer a:visited, #Footer a:focus { text-decoration: none; color: RGBA(150, 150, 150, .5); }
-#Footer a:hover { color: RGBA(150, 150, 150, .8); cursor: pointer; }
-
-#Header {
-    height: 5vh; width: 100vw;
-    background-color: black;
-    border-bottom: var(--GBorder);
-}
+#InternalNav a, #InternalNav a:visited, #InternalNav a:focus { text-decoration: none; color: RGBA(150, 150, 150, .5); }
+#InternalNav a:hover { color: RGBA(150, 150, 150, .8); cursor: pointer; }
 
 #Showcase {
     height: calc(40vh - var(--GBorderSize)); width: 100vw;
@@ -128,17 +122,21 @@ Body { margin: 0; background-color: black; overflow: hidden; }
     margin-left: -2vw;
 } 
 
-#Footer {
-    position: absolute;
-    bottom: 0;
+#InternalNav {
     height: 2.5vh; width: 100vw;
     background-color: black;
-    border-top: var(--GBorder);
+    border-bottom: var(--GBorder);
     font-family: 'Roboto', sans-serif;
     font-size: 1vw;
     text-align: center;
     padding: 1.5vh 0 1vh 0;
 } 
+
+#Footer {
+    height: 5vh; width: 100vw;
+    background-color: black;
+    border-top: var(--GBorder);
+}
 
 /*/// General Mobile Styles ///*/
 
@@ -152,7 +150,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
     #ExternalNav Span { font-size: 4vw; }
     #Content { height: calc(47vh - var(--GBorderSize)); }
     #ExternalNav { top: 17vh; right: 3vw; height: 40%; width: 30vw; }
-    #Footer { font-size: 3.5vw; padding: 1.5vw 5vw 1.5vw 5vw; width: 90vw; height: 8vh; }
+    #InternalNav { font-size: 3.5vw; padding: 1.5vw 5vw 1.5vw 5vw; width: 90vw; height: 8vh; }
 }
 
 
