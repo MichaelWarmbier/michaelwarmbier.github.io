@@ -5031,6 +5031,42 @@ ENGLISH_Items =
             "Effect": ""
         },
         {
+            "Name": "Void Doumaru",
+            "Id": 7791,
+            "Stats": [
+                {
+                    "StatName": "Magical Protection",
+                    "Value": "+60"
+                },
+                {
+                    "StatName": "Health",
+                    "Value": "+150"
+                },
+                {
+                    "StatName": "MP5",
+                    "Value": "+35"
+                },
+                {
+                    "StatName": "Crowd Control Reduction",
+                    "Value": "+20%"
+                }
+            ],
+            "Description": "AURA - Enemy gods within 55 units have their Magical Protection reduced by 10%.",
+            "Ratatoskr": false,
+            "isGlyph": false,
+            "Tier": 3,
+            "DamageType": "Neutral",
+            "RestrictedRoles": "no restrictions",
+            "Starter": false,
+            "URL": "https://webcdn.hirezstudios.com/smite/item-icons/void-doumaru.jpg",
+            "Gold": 2300,
+            "SelfGold": 1050,
+            "Filters": [
+                "Magical"
+            ],
+            "Effect": "AURA - Enemy gods within 55 units have their Magical Protection reduced by 10%."
+        },
+        {
             "Name": "Genji's Guard",
             "Id": 12678,
             "Stats": [
