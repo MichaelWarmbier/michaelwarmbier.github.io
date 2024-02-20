@@ -154,6 +154,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
     :root { --GBorderSize: .4vw; }
     #Title { font-size: 8vw; }
     #Subtitle { font-size: 3vw; }
+    .d_image { height: calc(1080px / 5); width: calc(1920px / 5); }
     #Icon { left: 0; right: 0; top: -25vh; height: 28vw; width: 28vw; }
     #Desc { font-size: 4vw; left: 10vw; top: 12vh; text-align: center;  }
     #ExternalNav Span { font-size: 5vw; }
