@@ -23,7 +23,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 #ExternalNav a, #ExternalNav a:visited, #ExternalNav a:focus { text-decoration: none; color: var(--DarkOrange); }
 #ExternalNav  a:hover { color: var(--Orange); }
 
-#InternalNav a, #InternalNav a:visited, #InternalNav a:focus { text-decoration: none; color: RGBA(150, 150, 150, .5); }
+#InternalNav a, #InternalNav a:visited, #InternalNav a:focus { text-decoration: none; color: RGBA(255, 255, 255, .8); }
 #InternalNav a:hover { color: RGBA(150, 150, 150, .8); cursor: pointer; }
 
 #Showcase {
