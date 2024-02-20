@@ -150,7 +150,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     :root { --GBorderSize: .4vw; }
     #Title { font-size: 8vw; }
     #Subtitle { font-size: 3vw; }
