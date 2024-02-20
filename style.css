@@ -152,7 +152,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
     #ExternalNav Span { font-size: 4vw; }
     #Content { height: calc(47vh - var(--GBorderSize)); }
     #ExternalNav { top: 17vh; right: 3vw; height: 40%; width: 30vw; }
-    #Footer { font-size: 3.5vw; padding: 2.5vh 5vw 0 5vw; width: 90vw; height: 8vh; }
+    #Footer { font-size: 3.5vw; padding: 1.5vw 5vw 1.5vw 5vw; width: 90vw; height: 8vh; }
 }
 
 
