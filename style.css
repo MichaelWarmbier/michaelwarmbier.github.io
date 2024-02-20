@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*/// Variables ///*/
+
+:root {
+    /* Colors */
+    --SecondaryBlack: #0F0F0F;
+    --Orange: #DE993E;
+    --DarkOrange: #875e29;
+    --AltWhite: #A3A3A3;
+
+    /* Dimensions*/
+    --GBorderSize: .2vh;
+
+    /* Styles */
+    --GBorder: var(--GBorderSize) var(--Orange) inset;
+}
+
+/*/// Primary Styles ///*/
+
+Body { margin: 0; background-color: black; }
+
+#ExternalNav a, #ExternalNav a:visited, #ExternalNav a:focus { text-decoration: none; color: var(--DarkOrange); }
+#ExternalNav  a:hover { color: var(--Orange); }
+
+#Footer a, #Footer a:visited, #Footer a:focus { text-decoration: none; color: RGBA(150, 150, 150, .5); }
+#Footer a:hover { color: RGBA(150, 150, 150, .8); cursor: pointer; }
+
+#Header {
+    height: 5vh; width: 100vw;
+    background-color: black;
+    border-bottom: var(--GBorder);
+}
+
+#Showcase {
+    height: calc(40vh - var(--GBorderSize)); width: 100vw;
+    background-color: var(--SecondaryBlack);
+    box-shadow: 0 0 5vw inset black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.d_image {
+    -webkit-filter: blur(3px);
+    height: calc(1080px / 6); width: calc(1920px / 6);
+    position: absolute;
+    pointer-events: none;
+    animation-name: image_scroll;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    z-index: 0;
+    left: 80vw;
+}
+
+#Title {
+    background: transparent;
+    outline: none; border: none;
+    display: inline-block;
+    position: relative;
+    font-size: 4vw;
+    font-family: 'Roboto Mono', sans-serif;
+    color: white;
+    z-index: 2;
+    text-shadow: .2vw .2vw black;
+    text-align: center;
+    pointer-events: none;
+}
+
+#Subtitle {
+    display: inline-block;
+    position: relative;
+    font-size: 1.5vw;
+    font-family: 'Roboto', sans-serif;
+    color: var(--AltWhite);
+    z-index: 2;
+    text-shadow: .1vw .1vw black;
+}
+
+#Content {
+    height: calc(50vh - var(--GBorderSize)); width: 100vw;
+    background-color: var(--SecondaryBlack);
+    position: relative;
+}
+
+#Icon {
+    background-image: URL('Headshot.jpg');
+    background-size: contain;
+    border-radius: 100%;
+    position: absolute; margin: auto;
+    top: 0; bottom: 0; left: 10vw;
+    left: 7vw;
+    height: 15vw; width: 15vw;
+    box-shadow: 0 0 .8vw .3vw RGBA(255, 255, 255, .3)
+}
+
+#Desc {
+    position: absolute; margin: auto;
+    top: 0; bottom: 0; left: 25vw;
+    height: 8vw; width: 50%;
+    font-size: 1.7vw;
+    font-family: 'Nova Square', cursive;
+    color: var(--AltWhite);
+    text-shadow: .2vw .2vw black;
+} #Desc Span { color: var(--Orange); }
+
+#ExternalNav {
+    height: 70%; width: 12vw;
+    position: absolute; right: 5vw;
+    margin: auto;
+    top: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 2vw;
+    color: white;
+    text-shadow: .2vw -.2vw black;
+    font-family: 'Roboto', sans-serif;
+} #ExternalNav Span { transition-duration: 100ms; }
+
+#ExternalNav Span:hover {
+    cursor: pointer;
+    margin-left: -2vw;
+} 
+
+#Footer {
+    height: 2.5vh; width: 100vw;
+    background-color: black;
+    border-top: var(--GBorder);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1vw;
+    text-align: center;
+    padding: 1.5vh 0 1vh 0;
+} 
+
+/*/// General Mobile Styles ///*/
+
+@media (max-width: 1000px) {
+    #Title { font-size: 6vw; }
+    #Subtitle { font-size: 2vw; }
+    #Desc { font-size: 3vw; transform: translateY(-5vh); }
+    #ExternalNav Span { font-size: 3vw; }
+    #ExternalNav { right: 3vw; height: 60%; width: 20vw; }
+    #Footer { font-size: 2vw; }
+}
+
+/*/// Keyframes ///*/
+
+@keyframes image_scroll {
+    0% { transform: translate(0vw); opacity: 0; }
+    40% { opacity: .8; }
+    60% { opacity: .8; }
+    100% { transform: translate(-80vw); opacity: 0; }
+}

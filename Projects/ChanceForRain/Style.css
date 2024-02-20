@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300;400&family=Roboto:wght@400;700&family=Silkscreen&display=swap');
+@import url("SpriteSheetData.css");
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+@font-face {
+  font-family: 'Risk';
+  src: url('/Font/Risk.ttf') format('truetype');
+}
+
+:root {
+  /* Colors */
+  --Gray: #363636;
+  --Dark-Gray: #242323;
+  --Yellow: #FDFDB5;
+  --Purple: #8B4DFF;
+  --Alt-Purple: #895bab;
+  --Green: #54c75d;
+  --Red: #d4616d;
+  --Blue: #5364ad;
+  /* Fonts */
+  --Brand-Font: 'Risk';
+  --Site-Font: 'Silkscreen', cursive;
+}
+
+/*// Help Page ///*/
+
+#help_page h1, #help_page p, #help_page  a  { 
+  text-align: center;
+  text-shadow: .1vw .1vw black;
+}
+
+#help_page h1 {
+  font-family: var(--Site-Font);
+  font-size: 2.5vw;
+  text-decoration: underline;
+  color: var(--Alt-Purple);
+}
+
+#help_page p {
+  width: 90%;
+  margin: auto;
+  font-family: var(--Brand-Font);
+  color: white;
+  font-size: 1.5vw;
+}
+
+#help_page a {
+  color: var(--Yellow);
+  text-decoration: none;
+}
+
+#help_page ul {
+  list-style: none;
+  font-size: 1.5vw;
+  color: white;
+  font-family: var(--Brand-Font);
+  text-shadow: .1vw .1vw black;
+}
+
+#help_page .question { 
+  font-size: 1.8vw;
+  color: var(--Blue);
+}
+
+#help_page span { font-family: none; }
+
+/*/// Text Highlights ///*/
+
+.good { color: var(--Green); }
+.bad { color: var(--Red); }
+.important { color: var(--Blue); }
+
+/*/// Application ///*/
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  background: url('Assets/Site_Images/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#header {
+  width: 100%;
+  height: 8vw;
+  background-color: var(--Gray);
+}
+
+#site_title {
+  font-family: var(--Site-Font);
+  height: 100%;
+  width: 30%;
+  transform: translate(2vw, 1vw);
+  text-shadow: .2vw .2vw black;
+}
+
+#site_title h1 { 
+  font-size: 2.6vw; 
+  margin: 0; 
+  text-align: left; 
+  color: white;
+}
+
+#site_title h2 { 
+  font-size: 1.25vw; 
+  margin: 0; 
+  text-align: right;
+  color: var(--Yellow);
+}
+
+#filters {
+  width: 60%;
+  height: 100%;
+  transform: translate(36vw, -8vw);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#filters .filter_button {
+  width: 15vw;
+  height: 4vw;
+  border-radius: .8vw;
+  background-color: var(--Dark-Gray);
+  box-shadow: .2vw .2vw black;
+  border: solid 1vw var(--Dark-Gray);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+#filters #filter_sotv { box-shadow: 0 0 .4vw var(--Purple); }
+#filter_default { background: url('Assets/Logos/default.png'); }
+#filter_sotv { background: url('Assets/Logos/sotv.png'); }
+
+#filter_query {
+  height: 2vw;
+  width: 14vw;
+  padding: 0 1vw 0 1vw;
+  background-color: #2b2a2a;
+  border-radius: .4vw !important;
+  border-top: solid .2vw var(--Dark-Gray);
+  border-left: solid .2vw var(--Dark-Gray);
+}
+
+#filter_query input {
+  height: 100%;
+  width: 11vw;
+  background-color: transparent;
+  font-size: 1.6vw;
+  color: white;
+  font-family: var(--Brand-Font);
+  outline: none;
+  border: none;
+  float: left;
+}
+input:focus { outline: none; }
+
+#search_image {
+  height: 2vw;
+  width: 2vw;
+  display: block;
+  float: right;
+  background: url('Assets/Site_Images/Search.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#information {
+  float: left;
+  background-color: var(--Gray);
+  height: calc(100vh - 9vw);
+  width: 18vw;
+  color: white;
+  font-family: var(--Brand-Font);
+  font-weight: 300;
+  padding: 1vw 1vw 0 1vw;
+  text-align: center;
+  text-shadow: .1vw .1vw black;
+  position: relative;
+  z-index: 2;
+  overflow-y: scroll;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  line-height: 2vh;
+}
+
+#information::-webkit-scrollbar {
+  display: none;
+}
+
+#information span { font-size-adjust: none; }
+
+#information #title { 
+  font-size: 2.1vw;
+  line-height: 2.2vw;
+}
+
+#information #subtitle { 
+  font-size: 1vw; color:  gray;
+}
+
+#information #description { 
+  font-size: .8vw;
+}
+
+#information .detail { 
+  display: block;
+  font-size: .9vw;
+  color: var(--Yellow);
+  width: 100%;
+  text-align: left;
+  margin-top: -1vw;
+}
+
+#information table {
+  text-align: center;
+  width: 100%;
+}
+
+.table_header {
+  font-weight: bold;
+}
+
+td {
+  padding: 0 .5vw 0 .5vw;
+  background-color: var(--Dark-Gray);
+}
+
+#arrow_display { display: none; }
+
+#menu {
+  float: right;
+  height: calc(100vh - 18vw);
+  width: 76vw;
+  padding: 2vw;
+  box-shadow: .2vw .2vw 1vw black inset;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+#menu::-webkit-scrollbar {
+  display: none;
+}
+
+#menu h1 {
+  font-size: 1.9vw;
+  font-family: var(--Brand-Font);
+  width: 98%;
+  color: white;
+  padding-bottom: .5vw;
+  border-bottom: solid .2vw white;
+  text-shadow: .15vw .15vw black;
+  box-shadow: 0vw .15vw black;
+  user-select: none;
+}
+
+.item {
+  display: block;
+  height: 64px;
+  width: 64px;
+  background-size: 64px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: .35vw;
+  padding: .15vw;
+  cursor: pointer;
+  border: .2vw solid transparent;
+  transition-duration: .2s;
+}
+
+.item:hover {
+  border-bottom: .2vw solid white;
+}
+
+#footer {
+  height: 6vw;
+  width: 80vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--Dark-Gray);
+  z-index: 0;
+  text-align: center;
+  color: var(--Gray);
+  font-family: var(--Site-Font);
+}
+#footer h1 { font-size: 1.5vw; }
+#footer h2 { font-size: 1vw; transform: translateY(-1vw); }
+#footer a { text-decoration: none; color: var(--Yellow); }
+#footer a:hover { text-decoration: underline; }
+
+@media only screen and (max-width: 900px) {
+
+  /*// Help Page //*/
+  
+  #help_page h1 { font-size: 5vw; }
+  #help_page p { font-size: 3vw; } 
+  #help_page ul { font-size: 3vw; transform: translateX(-5vw); }
+  #help_page .question { font-size: 3.6vw; }
+  
+  /*// Application //*/
+
+  #header { height: 16vw; }
+  #site_title h1 { font-size: 5.2vw; }
+  #site_title h2 { font-size: 2.5vw; }
+  
+  #filters { 
+    width: 40%;
+    transform: translate(57.5vw, -16vw);
+    flex-wrap: wrap;
+  }
+
+  #filter_default { margin-left: 5vw; }
+  
+  #filter_query { 
+    height: 3vw; 
+    border-radius: .8vw;
+    padding: 1vw;
+    width: 100%;
+  }
+
+  #filter_query input { 
+    width: 90%;
+    font-size: 3.2vw;
+  }
+
+  #search_image {
+    transform: translateY(.5vw);
+  }
+
+  #arrow_display {
+    display: block;
+    position: absolute;
+    top: 16vw;
+    text-align: center;
+    width: calc(100% - 2vw);
+    padding: 1vw 1vw 0 1vw;
+    font-size: 32px;
+    height: .5vw;
+    color: white;
+    line-height: 30%;
+    opacity: .4;
+    z-index: 2;
+  }
+
+  #menu { 
+    height: 68px;
+    float: left;    
+    width: 100%;
+    box-shadow: none;
+    padding: 0 2vw 0 2vw;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    margin-top: 3vw;
+    position: relative;
+    z-index: 4;
+  }
+
+  .item { flex-shrink: 0; }
+
+  #menu h1 { display: none; }
+
+  #information { 
+    position: absolute;
+    bottom: 13vw;
+    width: calc(100% - 2vw);
+    height: calc(100% - 36vw - 64px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #information #title {
+    margin-top: 3vw;
+    height: max-content;
+    padding: 1vw 0 1vw 0;
+    width: 100%;
+    font-size: 5vw;
+    line-height: 4vw !important;
+  }
+
+  #information #subtitle {
+    height: max-content;
+    padding: 4vw 0 4vw 0;
+    width: 100%;
+    font-size: 4vw;
+  }
+
+  #information #description {
+    height: max-content;
+    width: calc(50% - 4vw);
+    padding: 0 2vw 0 2vw;
+    font-size: 4vw;
+    line-height: 3vw;
+    transform: translateY(.5vw);
+  }
+
+  #information #detail_wrap {
+    height: max-content;
+    width: 50%;
+  }
+
+  #information .detail {
+    height: max-content;
+    width: 100%;
+    transform: translateY(1vw);
+    text-align: center;
+    font-size: 2.8vw;
+    line-height: 1.5vw;
+  }
+
+  #information table {
+    display: block;
+    transform: translateY(-6.5vw);
+    max-height: 30%;
+    width: 50%;
+    font-size: 2.8vw;
+    line-height: 2vw;
+    margin-left: 55%;
+  }
+
+  #information td {
+    width: 50%;
+  }
+
+  #footer { width: 100%; height: 13vw; padding: 0; }
+  #footer h1 { font-size: 2.3vw; transform: translateY(-.5vw); }
+  #footer h2 { font-size: 1.9vw; transform: translateY(-1.5vw); }
+  
+}

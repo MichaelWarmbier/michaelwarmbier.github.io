@@ -1,0 +1,796 @@
+/* Status Effects */
+.bg-AffixBlue { 
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -10px; 
+}
+.bg-AffixEarth { 
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -10px; 
+}
+.bg-AffixHaunted {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -94px;
+}
+.bg-AffixLunar {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -94px;
+}
+.bg-AffixPoison {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -10px;
+}
+.bg-AffixRed {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -94px;
+}
+.bg-AffixVoid {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -178px;
+}
+.bg-AffixWhite {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -178px;
+}
+.bg-ArmorBoost {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -178px;
+}
+.bg-AttackSpeedOnCrit {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -10px;
+}
+.bg-BanditSkull {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -94px;
+}
+.bg-BearVoidReady {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -178px;
+}
+.bg-BeetleJuice {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -262px;
+}
+.bg-Bleeding {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -262px;
+}
+.bg-Blight {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -262px;
+}
+.bg-ClayGoo {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -262px;
+}
+.bg-Cloak {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -10px;
+}
+.bg-CloakSpeed {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -94px;
+}
+.bg-WhipBoost {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -178px;
+}
+.bg-Cripple {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -262px;
+}
+.bg-CrocoRegen {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -346px;
+}
+.bg-DeathMark {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -346px;
+}
+.bg-ElementalRingsReady {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -346px;
+}
+.bg-ElementalRingVoidReady {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -346px;
+}
+.bg-ElephantArmorBoost {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -346px;
+}
+.bg-Energized {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -10px;
+}
+.bg-Entangle {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -94px;
+}
+.bg-Fracture {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -178px;
+}
+.bg-Fruiting {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -262px;
+}
+.bg-FullCrit {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -346px;
+}
+.bg-HealingDisabled {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -430px;
+}
+.bg-Helfire {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -430px;
+}
+.bg-HiddenInvincibility {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -430px;
+}
+.bg-Hurt {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -430px;
+}
+.bg-Immune {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -430px;
+}
+.bg-ImmuneToDebuff {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -430px;
+}
+.bg-KillMoveSpeed {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -10px;
+}
+.bg-LaserTurbineKillCharge {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -94px;
+}
+.bg-LifeSteal {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -178px;
+}
+.bg-LunarDetonator {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -262px;
+}
+.bg-LunarySecondaryRoot {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -346px;
+}
+.bg-MedkitHeal {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -430px;
+}
+.bg-MercExpose {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -514px;
+}
+.bg-MushroomVoidActive {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -514px;
+}
+.bg-NoCooldowns {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -514px;
+}
+.bg-Nullified {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -514px;
+}
+.bg-NullifyStack {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -514px;
+}
+.bg-OnFire {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -514px;
+}
+.bg-OutOfCombatArmor {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -514px;
+}
+.bg-Overheat {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -10px;
+}
+.bg-PermanentCurse {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -94px;
+}
+.bg-PermanentDebuff {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -178px;
+}
+.bg-Poisoned {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -262px;
+}
+.bg-PowerBuff {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -346px;
+}
+.bg-PrimarySkillShuriken {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -430px;
+}
+.bg-PulverizeBuildup {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -514px;
+}
+.bg-Pulverized {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -10px -598px;
+}
+.bg-Slow50 {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -94px -598px;
+}
+.bg-Slow60 {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -178px -598px;
+}
+.bg-Slow80 {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -262px -598px;
+}
+.bg-Sprint {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -346px -598px;
+}
+.bg-StrongerBurn {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -430px -598px;
+}
+.bg-SuperBleeding {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -514px -598px;
+}
+.bg-TeamWarCry {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -598px -598px;
+}
+.bg-TeslaField {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -10px;
+}
+.bg-TonicBuff {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -94px;
+}
+.bg-VoidFog {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -178px;
+}
+.bg-VoidFogStrong {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -262px;
+}
+.bg-VoidSurvivorCorruption {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -346px;
+}
+.bg-Warbanner {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -430px;
+}
+.bg-Weak {
+ background: url('Assets/SpriteSheets/StatusEffects_SS.png') -682px -514px;
+}
+/* Drones */
+.bg-1_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -10px -10px;
+}
+.bg-2_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -94px -10px;
+}
+.bg-3_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -10px -94px;
+}
+.bg-4_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -94px -94px;
+}
+.bg-5_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -178px -10px;
+}
+.bg-6_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -178px -94px;
+}
+.bg-7_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -10px -178px;
+}
+.bg-8_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -94px -178px;
+}
+.bg-9_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -178px -178px;
+}
+.bg-10_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -262px -10px;
+}
+.bg-11_Drone {
+    background: url('Assets/SpriteSheets/Drones_SS.png') -262px -94px;
+}
+/* Shrines */
+.bg-1_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -10px -10px;
+}
+.bg-2_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -94px -10px;
+}
+.bg-3_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -10px -94px;
+}
+.bg-4_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -94px -94px;
+}
+.bg-5_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -178px -10px;
+}
+.bg-6_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -178px -94px;
+}
+.bg-7_Shrine {
+    background: url('Assets/SpriteSheets/Shrines_SS.png') -10px -178px;
+}
+/* Items */
+.bg-1_Boss {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -10px;
+}
+.bg-1_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -10px;
+}
+.bg-1_Elite {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -94px;
+}
+.bg-1_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -94px;
+}
+.bg-1_Legendary {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -10px;
+}
+.bg-1_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -94px;
+}
+.bg-1_Lunar_Equipment {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -178px;
+}
+.bg-1_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -178px;
+}
+.bg-1_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -178px;
+}
+.bg-2_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -10px;
+}
+.bg-2_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -94px;
+}
+.bg-2_Elite { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -178px;
+}
+.bg-2_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -262px;
+}
+.bg-2_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -262px;
+}
+.bg-2_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -262px;
+}
+.bg-2_Lunar_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -262px;
+}
+.bg-2_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -10px;
+}
+.bg-2_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -94px;
+}
+.bg-3_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -178px;
+}
+.bg-3_Common { 
+   background: url('Assets/SpriteSheets/Items_SS.png') -346px -262px;
+}
+.bg-3_Elite {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -346px;
+}
+.bg-3_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -346px;
+}
+.bg-3_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -346px;
+}
+.bg-3_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -346px;
+}
+.bg-3_Lunar_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -346px;
+}
+.bg-3_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -10px;
+}
+.bg-3_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -94px;
+}
+.bg-4_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -178px;
+}
+.bg-4_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -262px;
+}
+.bg-4_Elite { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -346px;
+}
+.bg-4_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -430px;
+}
+.bg-4_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -430px;
+}
+.bg-4_Lunar {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -430px;
+}
+.bg-4_Lunar_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -430px;
+}
+.bg-4_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -430px;
+}
+.bg-4_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -430px;
+}
+.bg-5_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -10px;
+}
+.bg-5_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -94px;
+}
+.bg-5_Elite {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -178px;
+}
+.bg-5_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -262px;
+}
+.bg-5_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -346px;
+}
+.bg-5_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -430px;
+}
+.bg-5_Uncommon {   
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -514px;
+}
+.bg-5_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -514px;
+}
+.bg-6_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -514px;
+}
+.bg-6_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -514px;
+}
+.bg-6_Elite {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -514px;
+}
+.bg-6_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -514px;
+}
+.bg-6_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -514px;
+}
+.bg-6_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -10px;
+}
+.bg-6_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -94px;
+}
+.bg-6_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -178px;
+}
+.bg-7_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -262px;
+}
+.bg-7_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -346px;
+}
+.bg-7_Elite {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -430px;
+}
+.bg-7_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -514px;
+}
+.bg-7_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -598px;
+}
+.bg-7_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -598px;
+}
+.bg-7_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -598px;
+}
+.bg-7_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -598px;
+}
+.bg-8_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -598px;
+}
+.bg-8_Common {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -598px;
+}
+.bg-8_Equipment {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -598px;
+}
+.bg-8_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -598px;
+}
+.bg-8_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -10px;
+}
+.bg-8_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -94px;
+}
+.bg-8_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -178px;
+}
+.bg-9_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -262px;
+}
+.bg-9_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -346px;
+}
+.bg-9_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -430px;
+}
+.bg-9_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -514px;
+}
+.bg-9_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -598px;
+}
+.bg-9_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -682px;
+}
+.bg-9_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -682px;
+}
+.bg-10_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -682px;
+}
+.bg-10_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -682px;
+}
+.bg-10_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -682px;
+}
+.bg-10_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -682px;
+}
+.bg-10_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -682px;
+}
+.bg-10_Uncommon {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -682px;
+}
+.bg-10_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -682px;
+}
+.bg-11_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -10px;
+}
+.bg-11_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -94px;
+}
+.bg-11_Equipment {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -178px;
+}
+.bg-11_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -262px;
+}
+.bg-11_Lunar {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -346px;
+}
+.bg-11_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -430px;
+}
+.bg-11_Void { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -514px;
+}
+.bg-12_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -598px;
+}
+.bg-12_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -682px;
+}
+.bg-12_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -766px;
+}
+.bg-12_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -766px;
+}
+.bg-12_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -766px;
+}
+.bg-12_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -766px;
+}
+.bg-12_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -766px;
+}
+.bg-13_Boss { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -766px;
+}
+.bg-13_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -766px;
+}
+.bg-13_Equipment {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -766px;
+}
+.bg-13_Legendary {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -766px;
+}
+.bg-13_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -766px;
+}
+.bg-13_Uncommon {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -10px;
+}
+.bg-13_Void {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -94px;
+}
+.bg-14_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -178px;
+}
+.bg-14_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -262px;
+}
+.bg-14_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -346px;
+}
+.bg-14_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -430px;
+}
+.bg-14_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -514px;
+}
+.bg-14_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -598px;
+}
+.bg-14_Void {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -682px;
+}
+.bg-15_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -766px;
+}
+.bg-15_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -850px;
+}
+.bg-15_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -850px;
+}
+.bg-15_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -850px;
+}
+.bg-15_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -850px;
+}
+.bg-15_Uncommon {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -850px;
+}
+.bg-16_Boss {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -850px;
+}
+.bg-16_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -850px;
+}
+.bg-16_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -850px;
+}
+.bg-16_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -850px;
+}
+.bg-16_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -850px;
+}
+.bg-16_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -850px;
+}
+.bg-17_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -10px;
+}
+.bg-17_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -94px;
+}
+.bg-17_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -178px;
+}
+.bg-17_Lunar { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -262px;
+}
+.bg-17_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -346px;
+}
+.bg-18_Common {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -430px;
+}
+.bg-18_Equipment {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -514px;
+}
+.bg-18_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -598px;
+}
+.bg-18_Lunar {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -682px;
+}
+.bg-18_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -766px;
+}
+.bg-19_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -850px;
+}
+.bg-19_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -934px;
+}
+.bg-19_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -934px;
+}
+.bg-19_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -934px;
+}
+.bg-20_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -934px;
+}
+.bg-20_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -934px;
+}
+.bg-20_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -934px;
+}
+.bg-20_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -934px;
+}
+.bg-21_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -934px;
+}
+.bg-21_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -934px;
+}
+.bg-21_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -934px;
+}
+.bg-21_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -934px;
+}
+.bg-22_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -934px;
+}
+.bg-22_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -10px;
+}
+.bg-22_Legendary {   
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -94px;
+}
+.bg-22_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -178px;
+}
+.bg-23_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -262px;
+}
+.bg-23_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -346px;
+}
+.bg-23_Legendary { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -430px;
+}
+.bg-23_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -514px;
+}
+.bg-24_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -598px;
+}
+.bg-24_Equipment { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -682px;
+}
+.bg-24_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -766px;
+}
+.bg-24_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -850px;
+}
+.bg-25_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -934px;
+}
+.bg-25_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -10px -1018px;
+}
+.bg-25_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -94px -1018px;
+}
+.bg-25_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -178px -1018px;
+}
+.bg-26_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -262px -1018px;
+}
+.bg-26_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -346px -1018px;
+}
+.bg-26_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -430px -1018px;
+}
+.bg-26_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -514px -1018px;
+}
+.bg-27_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -598px -1018px;
+}
+.bg-27_Equipment {
+  background: url('Assets/SpriteSheets/Items_SS.png') -682px -1018px;
+}
+.bg-27_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -766px -1018px;
+}
+.bg-27_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -850px -1018px;
+}
+.bg-28_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -934px -1018px;
+}
+.bg-28_Legendary {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1018px -1018px;
+}
+.bg-28_Uncommon {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -10px;
+}
+.bg-29_Common {
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -94px;
+}
+.bg-29_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -178px;
+}
+.bg-30_Common { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -262px;
+}
+.bg-30_Uncommon {  
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -346px;
+}
+.bg-31_Uncommon { 
+  background: url('Assets/SpriteSheets/Items_SS.png') -1102px -430px;
+}
