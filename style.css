@@ -140,7 +140,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 
 /*/// General Mobile Styles ///*/
 
-@media (orientation: portrait) and (max-width: 800px) {
+@media (orientation: portrait) {
     :root { --GBorderSize: .4vw; }
     #Title { font-size: 8vw; }
     #Subtitle { font-size: 3vw; }
