@@ -18,7 +18,7 @@
 
 /*/// Primary Styles ///*/
 
-Body { margin: 0; background-color: black; }
+Body { margin: 0; background-color: black; overflow: hidden; }
 
 #ExternalNav a, #ExternalNav a:visited, #ExternalNav a:focus { text-decoration: none; color: var(--DarkOrange); }
 #ExternalNav  a:hover { color: var(--Orange); }
@@ -147,6 +147,19 @@ Body { margin: 0; background-color: black; }
     #ExternalNav Span { font-size: 3vw; }
     #ExternalNav { right: 3vw; height: 60%; width: 20vw; }
     #Footer { font-size: 2vw; }
+}
+
+
+@media (max-width: 600px) {
+    :root { --GBorderSize: .4vw; }
+    #Title { font-size: 8vw; }
+    #Subtitle { font-size: 3vw; }
+    #Icon { left: 0; right: 0; top: -25vh; height: 28vw; width: 28vw; }
+    #Desc { font-size: 4vw; left: 10vw; top: 12vh; text-align: center;  }
+    #ExternalNav Span { font-size: 5vw; }
+    #Content { height: calc(47vh - var(--GBorderSize)); }
+    #ExternalNav { top: 17vh; right: 3vw; height: 40%; width: 30vw; }
+    #Footer { font-size: 3.5vw; padding: 2.5vw 5vw 0 5vw; width: 90vw; height: 8vh; }
 }
 
 /*/// Keyframes ///*/
