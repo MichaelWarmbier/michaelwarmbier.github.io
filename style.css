@@ -24,7 +24,7 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 #ExternalNav  a:hover { color: var(--Orange); }
 
 #InternalNav a, #InternalNav a:visited, #InternalNav a:focus { text-decoration: none; color: RGBA(255, 255, 255, .8); }
-#InternalNav a:hover { color: RGBA(150, 150, 150, .8); cursor: pointer; }
+#InternalNav a:hover { cursor: pointer; }
 
 #Showcase {
     height: calc(40vh - var(--GBorderSize)); width: 100vw;
@@ -123,17 +123,29 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 } 
 
 #InternalNav {
-    height: 2.5vh; width: 100vw;
+    height: 7vh; width: 60vw;
     background-color: black;
     border-bottom: var(--GBorder);
     font-family: 'Roboto', sans-serif;
     font-size: 1vw;
     text-align: center;
-    padding: 1.5vh 0 1vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20vw 0 20vw;
 } 
 
+#InternalNav Span {
+    display: inline-block;
+    background-color: var(--DarkOrange);
+    padding: .3vw;
+    border-radius: .6vw;
+    text-shadow: .1vw .1vw black;
+} #InternalNav Span:hover { background-color: var(--Orange); cursor: pointer; }
+
 #Footer {
-    height: 5vh; width: 100vw;
+    height: 3vh; width: 100vw;
     background-color: black;
     border-top: var(--GBorder);
 }
@@ -150,7 +162,19 @@ Body { margin: 0; background-color: black; overflow: hidden; }
     #ExternalNav Span { font-size: 4vw; }
     #Content { height: calc(47vh - var(--GBorderSize)); }
     #ExternalNav { top: 17vh; right: 3vw; height: 40%; width: 30vw; }
-    #InternalNav { font-size: 2.5vh; padding: 3vh 5vw 0 5vw; width: 90vw; height: 8vh; }
+    #InternalNav { 
+        font-size: 2.5vh; 
+        height: 11vh; 
+        width: 90vw; 
+        padding: 0 5vw 0 5vw; 
+        justify-content: center;
+    }
+    #InternalNav Span {
+        text-shadow: .3vw .3vw black !important;
+        border-radius: .9vw !important;
+        padding: .5vw;
+    }
+    #Footer { height: 2vh; }
 }
 
 
