@@ -140,26 +140,17 @@ Body { margin: 0; background-color: black; overflow: hidden; }
 
 /*/// General Mobile Styles ///*/
 
-@media (orientation: portrait) {
+@media (orientation: portrait) and (max-width: 800px) {
     :root { --GBorderSize: .4vw; }
     #Title { font-size: 8vw; }
     #Subtitle { font-size: 3vw; }
     .d_image { height: calc(1080px / 5); width: calc(1920px / 5); }
-    #Icon { left: 0; right: 0; top: -25vh; height: 28vw; width: 28vw; }
-    #Desc { font-size: 4vw; left: 10vw; top: 12vh; text-align: center;  }
-    #ExternalNav Span { font-size: 5vw; }
+    #Icon { left: 0; right: 0; top: -35vh; height: 28vw; width: 28vw; }
+    #Desc { font-size: 3vw; left: 10vw; top: 8vh; text-align: center;  }
+    #ExternalNav Span { font-size: 4vw; }
     #Content { height: calc(47vh - var(--GBorderSize)); }
     #ExternalNav { top: 17vh; right: 3vw; height: 40%; width: 30vw; }
     #Footer { font-size: 3.5vw; padding: 2.5vh 5vw 0 5vw; width: 90vw; height: 8vh; }
-}
-
-@media (max-width: 1000px) {
-    #Title { font-size: 6vw; }
-    #Subtitle { font-size: 2vw; }
-    #Desc { font-size: 3vw; transform: translateY(-5vh); }
-    #ExternalNav Span { font-size: 3vw; }
-    #ExternalNav { right: 3vw; height: 60%; width: 20vw; }
-    #Footer { font-size: 2vw; }
 }
 
 
