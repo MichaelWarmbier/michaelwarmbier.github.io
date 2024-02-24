@@ -474,14 +474,14 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Power",
-                    "Value": "+35"
+                    "Value": "+40"
                 },
                 {
                     "StatName": "Physical Penetration",
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASSIVE - Your first ability cast gains 20% Physical Penetration. This can only occur once every 6 seconds.",
+            "Description": "PASSIVE - Your first ability cast gains 20% Physical Penetration. This can only occur once every 5 seconds.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -495,7 +495,7 @@ ENGLISH_Items =
                 "Power",
                 "Penetration"
             ],
-            "Effect": "PASSIVE - Your first ability cast gains 20% Physical Penetration. This can only occur once every 6 seconds."
+            "Effect": "PASSIVE - Your first ability cast gains 20% Physical Penetration. This can only occur once every 5 seconds."
         },
         {
             "Name": "Jotunn's Wrath",
@@ -1140,7 +1140,7 @@ ENGLISH_Items =
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASSIVE - Your Critical Hits provide you with 10% Physical Penetration and increase your Attack Speed by 10% for 4s.",
+            "Description": "PASSIVE - Your Critical Hits provide you with 10% Physical Penetration for 4s.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -1156,7 +1156,7 @@ ENGLISH_Items =
                 "Penetration",
                 "Crit Chance"
             ],
-            "Effect": "PASSIVE - Your Critical Hits provide you with 10% Physical Penetration and increase your Attack Speed by 10% for 4s."
+            "Effect": "PASSIVE - Your Critical Hits provide you with 10% Physical Penetration for 4s."
         },
         {
             "Name": "Bladed Boomerang",
@@ -1261,7 +1261,7 @@ ENGLISH_Items =
                     "Value": "+30%"
                 }
             ],
-            "Description": "PASSIVE - Critical Strike bonus damage dealt is increased by 25%. <n>GLYPH - Your Critical Strike Chance is multiplied by 1.25. For each 5% Critical Strike Chance you go over 100% Critical Strike Chance, you gain 5 Physical Power.",
+            "Description": "PASSIVE - Critical Strike bonus damage dealt is increased by 25%. <n>GLYPH - Your Critical Strike Chance is multiplied by 1.2. For each 5% Critical Strike Chance you go over 100% Critical Strike Chance, you gain 5 Physical Power.",
             "Ratatoskr": false,
             "isGlyph": true,
             "Tier": 4,
@@ -1274,7 +1274,7 @@ ENGLISH_Items =
             "Filters": [
                 "Power"
             ],
-            "Effect": "PASSIVE - Critical Strike bonus damage dealt is increased by 25%. <n>GLYPH - Your Critical Strike Chance is multiplied by 1.25. For each 5% Critical Strike Chance you go over 100% Critical Strike Chance, you gain 5 Physical Power."
+            "Effect": "PASSIVE - Critical Strike bonus damage dealt is increased by 25%. <n>GLYPH - Your Critical Strike Chance is multiplied by 1.2. For each 5% Critical Strike Chance you go over 100% Critical Strike Chance, you gain 5 Physical Power."
         },
         {
             "Name": "Ancient Blade",
@@ -1626,7 +1626,7 @@ ENGLISH_Items =
                 },
                 {
                     "StatName": "Health",
-                    "Value": "+250"
+                    "Value": "+300"
                 },
                 {
                     "StatName": "Mana",
@@ -1641,8 +1641,8 @@ ENGLISH_Items =
             "RestrictedRoles": "no restrictions",
             "Starter": false,
             "URL": "https://webcdn.hirezstudios.com/smite/item-icons/blackthorn-hammer.jpg",
-            "Gold": 2350,
-            "SelfGold": 1000,
+            "Gold": 2200,
+            "SelfGold": 850,
             "Filters": [
                 "Power"
             ],
@@ -4687,11 +4687,11 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Protection",
-                    "Value": "+25"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Magical Protection",
-                    "Value": "+25"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Health",
@@ -6142,14 +6142,14 @@ ENGLISH_Items =
                 },
                 {
                     "StatName": "Health",
-                    "Value": "+75"
+                    "Value": "+150"
                 },
                 {
                     "StatName": "Attack Speed",
                     "Value": "+30%"
                 }
             ],
-            "Description": "PASSIVE - When an enemy dies within 80 units of you gain 1 stack of Temper that provides 3.5% increased Basic Attack Damage for 10s. This can stack up to 10 times. If an enemy god dies near you immediately gain 10 stacks.",
+            "Description": "PASSIVE - When an enemy dies within 80 units of you gain 1 stack of Temper that provides 7% increased Basic Attack Damage for 10s. This can stack up to 5 times. If an enemy god dies near you immediately gain 5 stacks.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,
@@ -6162,7 +6162,7 @@ ENGLISH_Items =
             "Filters": [
                 "Starter"
             ],
-            "Effect": "PASSIVE - When an enemy dies within 80 units of you gain 1 stack of Temper that provides 3.5% increased Basic Attack Damage for 10s. This can stack up to 10 times. If an enemy god dies near you immediately gain 10 stacks."
+            "Effect": "PASSIVE - When an enemy dies within 80 units of you gain 1 stack of Temper that provides 7% increased Basic Attack Damage for 10s. This can stack up to 5 times. If an enemy god dies near you immediately gain 5 stacks."
         },
         {
             "Name": "Gilded Arrow",
@@ -6270,7 +6270,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Power",
-                    "Value": "+20"
+                    "Value": "+15"
                 },
                 {
                     "StatName": "Magical Power",
@@ -6656,11 +6656,11 @@ ENGLISH_Items =
                 },
                 {
                     "StatName": "Physical Protection",
-                    "Value": "+40"
+                    "Value": "+35"
                 },
                 {
                     "StatName": "Magical Protections",
-                    "Value": "+40"
+                    "Value": "+35"
                 },
                 {
                     "StatName": "Cooldown Reduction",
@@ -7016,7 +7016,7 @@ ENGLISH_Items =
                     "Value": "+10"
                 }
             ],
-            "Description": "PASSIVE - Every second you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 2 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20.",
+            "Description": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 1 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 1,
@@ -7030,7 +7030,7 @@ ENGLISH_Items =
                 "Starter",
                 "Power"
             ],
-            "Effect": "PASSIVE - Every second you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 2 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20."
+            "Effect": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 1 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20."
         },
         {
             "Name": "Archmage's Gem",
@@ -7049,7 +7049,7 @@ ENGLISH_Items =
                     "Value": "+25"
                 }
             ],
-            "Description": "PASSIVE - Every 1s you gain a stack of Demise, causing your next damaging ability that hits an enemy god deals an additional 1.5% of your Magical Power in damage and remove all stacks. This effect stacks up to 20 times.",
+            "Description": "PASSIVE - Every 0.5s you gain a stack of Demise, causing your next damaging ability that hits an enemy god deals an additional 1.5% of your Magical Power in damage and remove all stacks. This effect stacks up to 20 times.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,
@@ -7063,7 +7063,7 @@ ENGLISH_Items =
                 "Starter",
                 "Power"
             ],
-            "Effect": "PASSIVE - Every 1s you gain a stack of Demise, causing your next damaging ability that hits an enemy god deals an additional 1.5% of your Magical Power in damage and remove all stacks. This effect stacks up to 20 times."
+            "Effect": "PASSIVE - Every 0.5s you gain a stack of Demise, causing your next damaging ability that hits an enemy god deals an additional 1.5% of your Magical Power in damage and remove all stacks. This effect stacks up to 20 times."
         },
         {
             "Name": "Gem of Focus",
@@ -8016,7 +8016,7 @@ ENGLISH_Items =
                     "Value": "+15%"
                 }
             ],
-            "Description": "PASSIVE - Lifestealing off of enemy gods heals yourself and nearby allies within 40 units of you by 33% of that healing.",
+            "Description": "PASSIVE - Lifestealing off of enemy gods heals yourself and nearby allies within 40 units of you by 75% of that healing.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -8031,7 +8031,7 @@ ENGLISH_Items =
                 "Health",
                 "Mana"
             ],
-            "Effect": "PASSIVE - Lifestealing off of enemy gods heals yourself and nearby allies within 40 units of you by 33% of that healing."
+            "Effect": "PASSIVE - Lifestealing off of enemy gods heals yourself and nearby allies within 40 units of you by 75% of that healing."
         },
         {
             "Name": "Blessed Scepter",

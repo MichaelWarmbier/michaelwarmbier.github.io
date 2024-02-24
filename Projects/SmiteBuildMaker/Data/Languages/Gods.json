@@ -1,4 +1,5 @@
-ENGLISH_Gods = {
+ENGLISH_Gods = 
+{
     "Gods": [
         {
             "Name": "Achilles",
@@ -626,7 +627,7 @@ ENGLISH_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 30,
             "PhysProtPL": 3.6,
-            "Passive": "Enemies that hard Crowd Control Bake Kujira are Cursed. If an enemy is already Cursed, the duration is refreshed and the Curse increases in strength. Bake Kujira converts Protections from Items and Abilities into Basic Attack damage and converts Attack Speed into reduced Basic Attack movement penalty. Attack Speed and Item Passives do not benefit his Basic Attacks.",
+            "Passive": "Enemies that hard Crowd Control Bake Kujira are Cursed. If an enemy is already Cursed, the duration is refreshed and increases in strength. Bake Kujira converts Protections from Items and Abilities into Basic Attack damage and converts Attack Speed into Haste. Attack Speed and Item Passives do not benefit his Basic Attacks.",
             "Range": "Melee",
             "PassiveName": "Curse of the Ghost Whale"
         },
@@ -1076,7 +1077,7 @@ ENGLISH_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 16.8,
             "PhysProtPL": 3.3,
-            "Passive": "Cliodhna can walk into walls once every 13s. While inside a wall she can move freely and use some of her abilities. Every 0.4s she loses 0.12% of her health, stacking in intensity up to 40 times. She cannot enter a wall while below 25% Health or crippled. For 5s after exiting she gains 10% Physical Ability Lifesteal.",
+            "Passive": "Cliodhna can walk into walls once every 13s. While inside a wall she can move freely and use some of her abilities. Every 0.4s she loses 0.12% of her health, stacking in intensity up to 40 times. She cannot enter a wall while below 25% Health or crippled. For 5s after exiting she gains 15% Physical Ability Lifesteal.",
             "Range": "Melee",
             "PassiveName": "Phantasmal"
         },
@@ -1754,8 +1755,8 @@ ENGLISH_Gods = {
             "Speed": 370,
             "AttackSpeed": 1,
             "AttackSpeedPL": 0.012,
-            "Health": 679,
-            "HealthPL": 88,
+            "Health": 683,
+            "HealthPL": 100,
             "HP5": 6,
             "HP5PL": 0.8,
             "Mana": 230,
@@ -2306,7 +2307,7 @@ ENGLISH_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 22.4,
             "PhysProtPL": 3.3,
-            "Passive": "Martichoras gains up to 100 stacks of Ferocity for hitting Basics, Abilities, and earning kills or assists. Once maxed, he loses all Ferocity and gains an Attack Speed buff that increases in duration by Basic Attacking gods. He also gains a permanent Monstrosity stack of 0.5% Physical Lifesteal and 0.5% Physical Ability Lifesteal.",
+            "Passive": "Martichoras gains up to 100 stacks of Ferocity for hitting Basics, Abilities, and earning kills or assists. Once maxed, he loses all Ferocity and gains an Attack Speed buff that increases in duration by Basic Attacking gods. He also gains a permanent Monstrosity stack of 0.75% Physical Lifesteal and 0.75% Physical Ability Lifesteal.",
             "Range": "Ranged",
             "PassiveName": "Monstrosity"
         },
@@ -2671,6 +2672,36 @@ ENGLISH_Gods = {
             "PassiveName": "Strength of Wood"
         },
         {
+            "Name": "Nut",
+            "Id": 4318,
+            "Title": "Goddess of the Sky",
+            "Role": "Hunter",
+            "Type": "Physical",
+            "Pantheon": "Egyptian",
+            "CardArt": "https://webcdn.hirezstudios.com/smite/god-cards/nut.jpg",
+            "Icon": "https://webcdn.hirezstudios.com/smite/god-icons/nut.jpg",
+            "Power": 35,
+            "PowerPL": 2.7,
+            "Speed": 370,
+            "AttackSpeed": 1,
+            "AttackSpeedPL": 0.017,
+            "Health": 672,
+            "HealthPL": 80,
+            "HP5": 7,
+            "HP5PL": 0.71,
+            "Mana": 230,
+            "ManaPL": 37,
+            "MP5": 4.5,
+            "MP5PL": 0.4,
+            "MagProt": 30,
+            "MagProtPL": 1.6,
+            "PhysProt": 18.2,
+            "PhysProtPL": 3.1,
+            "Passive": "When Nut hits an enemy god with a damaging ability, she gains a stacking Attack Speed buff for 5s. Nut may gain multiple stacks from a single ability.",
+            "Range": "Ranged",
+            "PassiveName": "Flux"
+        },
+        {
             "Name": "Odin",
             "Id": 1669,
             "Title": "The Allfather",
@@ -2696,7 +2727,7 @@ ENGLISH_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 22.4,
             "PhysProtPL": 3.2,
-            "Passive": "Odin is empowered as he escorts fallen warriors to Valhalla. Whenever any god dies on the battleground, Odin gains a bonus to Movement Speed and Power. This effect can stack up to 5 times.",
+            "Passive": "Odin is empowered as he escorts fallen warriors to Valhalla. Whenever any god dies on the battleground, Odin gains a bonus to Movement Speed and Power. This effect can stack up to 4 times.",
             "Range": "Melee",
             "PassiveName": "Path to Valhalla"
         },
@@ -3852,8 +3883,8 @@ ENGLISH_Gods = {
             "Power": 165,
             "PowerPL": 7.5,
             "Speed": 360,
-            "AttackSpeed": 0.86,
-            "AttackSpeedPL": 0.009,
+            "AttackSpeed": 0.95,
+            "AttackSpeedPL": 0.01,
             "Health": 630,
             "HealthPL": 89,
             "HP5": 6,
