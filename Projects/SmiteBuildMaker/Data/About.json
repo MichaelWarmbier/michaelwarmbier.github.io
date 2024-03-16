@@ -8,6 +8,10 @@ AboutContent =
     "Content": "Join the <a href='https://discord.gg/nEBXeQWzPR'>Discord Server</a>!<br><br>Donations help me live and let me keep working on websites like this. If you wish to donate, you can <a href='https://www.paypal.com/donate/?hosted_button_id=PL5XBNMDZXNPW'>do it here</a>."
   },
   {
+    "Title": "Credits",
+    "Content": "<strong>Malcastor</strong>: Original website idea<br><strong>u/Disguised_Demon</strong> on Reddit: Suggested God Passive Display<br><strong>u/thatendyperson</strong> on Reddit: Quick item descriptions<br><strong>u/nu7kevin</strong>: Healing rate"
+  },
+  {
     "Title": "Using The Terminal",
     "Content": "You can use the built-in terminal at any time and manually enter commands. This is for experimentation <em>and</em> accessibility. To use the terminal at any time, press the '~' key. Type 'help' to read all the available commands. Terminal is exclusive to the PC version of this website.<br><br><strong>Note</strong>: The terminal is not safeguarded from unexpected results in every case, such as invalid names or the wrong items on the wrong characters, so discretion is recommended."
   },

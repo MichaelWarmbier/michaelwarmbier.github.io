@@ -89,8 +89,8 @@ function setFilter(name) {
 
 function appendInfo() {
     const PLAYER = SiteData.ActivePlayerIndex;
-    const GOD = SiteData.PlayerData[PLAYER - 1].God;
-    const PANTHEONDATA = getPantheon(GOD.Pantheon);
+    const GOD = getGodData(SiteData.PlayerData[PLAYER - 1].God.Id, TextData);
+    const PANTHEONDATA = getPantheon(SiteData.PlayerData[PLAYER - 1].God.Pantheon);
     const ITEM_PRICE = document.querySelectorAll('.item_price');
     document.querySelector('#GodCard').style.backgroundImage = `url("${GOD.CardArt}")`;
 
@@ -101,8 +101,8 @@ function appendInfo() {
     document.querySelector('#GodName').innerHTML = GOD.Name;
     document.querySelector('#GodTitle').innerHTML = GOD.Title;
     document.querySelector('#GodPantheon').innerHTML = `<span style="color:${PANTHEONDATA.Color}"><img src="Assets/Icons/${PANTHEONDATA.Icon}">${PANTHEONDATA.Name}</span>`;
-    document.querySelector('#GodLevel').innerHTML = `Level: ${SiteData.PlayerData[PLAYER - 1].Level}`;
-    if (!SiteData.PlayerData[PLAYER - 1].Buffs.length) document.querySelector('#GodBuffs').innerHTML = 'No Buffs Selected';
+    document.querySelector('#GodLevel').innerHTML = `${SiteLang[18]}: ${SiteData.PlayerData[PLAYER - 1].Level}`;
+    if (!SiteData.PlayerData[PLAYER - 1].Buffs.length) document.querySelector('#GodBuffs').innerHTML = SiteLang[17];
     else {
         document.querySelector('#GodBuffs').innerHTML = '';
         for (buff of SiteData.PlayerData[PLAYER - 1].Buffs)
@@ -141,14 +141,14 @@ function appendInfo() {
 function getPantheon(name) { for (item of SiteData.PantheonData) if (item.Name === name) return item; }
 
 function displayGod(name) {
-    for (God of English.Gods) if (God.Name === name) {
+    for (let godIndex = 0; godIndex < English.Gods.length; godIndex++) if (English.Gods[godIndex].Name === name) {
         function getPantheon(name) { for (item of SiteData.PantheonData) if (item.Name === name) return item; }
-        const PantheonData = getPantheon(God.Pantheon);
-        document.querySelectorAll('#GodDetails .title')[0].innerHTML = God.Name;
-        document.querySelectorAll('#GodDetails .subtitle')[0].innerHTML = God.Title;
+        const PantheonData = getPantheon(English.Gods[godIndex].Pantheon);
+        document.querySelectorAll('#GodDetails .title')[0].innerHTML = TextData.Gods[godIndex].Name;
+        document.querySelectorAll('#GodDetails .subtitle')[0].innerHTML = TextData.Gods[godIndex].Title;
         document.querySelectorAll('#GodDetails .label')[0].innerHTML = `<div class="pantheon_ico"></div><span style="color:${PantheonData.Color}">${PantheonData.Name}</span>`
-        document.querySelectorAll('#GodDetails .type')[0].innerHTML = `${God.Type} ${God.Role}`;
-        document.querySelectorAll('#GodDetails .ico')[0].style.backgroundImage = `url("${God.Icon}")`;
+        document.querySelectorAll('#GodDetails .type')[0].innerHTML = `${TextData.Gods[godIndex].Type} ${TextData.Gods[godIndex].Role}`;
+        document.querySelectorAll('#GodDetails .ico')[0].style.backgroundImage = `url("${TextData.Gods[godIndex].Icon}")`;
         document.querySelectorAll('.pantheon_ico')[0].style.backgroundImage = `url("Assets/Icons/${PantheonData.Icon}")`;
         break;
     }
@@ -167,7 +167,7 @@ function appendGod(God, preventDefault=false) {
 
 function displayItem(name) {
     document.querySelectorAll('#ItemDetails .subtitle')[1].innerHTML = '';
-    for (Item of English.Items) if (Item.Name === name) {
+    for (Item of TextData.Items) if (Item.Name === name) {
         document.querySelectorAll('#ItemDetails .title')[0].innerHTML = Item.Name;
         document.querySelectorAll('#ItemDetails .subtitle')[0].innerHTML = Item.Description;
         for (ItemInfo of Item.Stats)
@@ -249,5 +249,5 @@ function setTier(tier) {
   TierButtons[tier - 1].style.color = 'var(--DarkGold)';
 }
 
-function getGodData(id) { for (God of English.Gods) if (God.Id == id) return God; }
-function getItemData(id) { for (Item of English.Items) if (Item.Id == id) return Item; }
+function getGodData(id, o=English) { for (God of o.Gods) if (God.Id == id) return God; }
+function getItemData(id, o=English) { for (Item of o.Items) if (Item.Id == id) return Item; }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
       <!-- Google Analytics -->  
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-92TXDFR3PZ"></script> 
@@ -19,7 +19,7 @@
         <link rel="shortcut icon" type="image/png" href="Assets/favicon.png" />
     </head>
     <body>
-        <div id="LoadingScreen">Loading SmiteBuildMaker</div>
+        <div id="LoadingScreen">Cargando SmiteBuildMaker</div>
         <!-- Header and Navigation -->
         <div id="Header">
             <div id="HeaderBody"></div>
@@ -35,14 +35,14 @@
             </div>
             <!-- Global Option Menu -->
             <div id="GlobalOptions">
-                <span class="title">Global Options ⛭</span>
+                <span class="title">Opciones Global ⛭</span>
                 <div class="content">
-                    <span><p onclick="toggleBuildNumbers();">Toggle Build Numbering&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<p class="c"></p></p></span>
-                    <span><p onclick="toggleGOption(1)">Non-Conquest Changes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="c"></p></p></span>
+                    <span><p onclick="toggleBuildNumbers();">Alternar Numeros del Build&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<p class="c"></p></p></span>
+                    <span><p onclick="toggleGOption(1)">Cambios no Conquest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="c"></p></p></span>
                     <section>
-                        <div class="button" id="LoadButton" onclick="loadData()">Load Local Save</div>
-                        <div class="button" id="SaveButton" onclick="saveData()">Save to Local Storage</div>
-                        <div class="button" id="ShareButton" onclick="generateShareLink()">Create Share Link</div>
+                        <div class="button" id="LoadButton" onclick="loadData()">Descargar Archivos Guardados</div>
+                        <div class="button" id="SaveButton" onclick="saveData()">Guardar en Almacenamiento</div>
+                        <div class="button" id="ShareButton" onclick="generateShareLink()">Crear Liga Para Compartir</div>
                     </section>
                 </div>
                 <div class="mask"></div>
@@ -55,7 +55,7 @@
         <div id="NewsMenu" class="menu"><span class="header">Recent News</span></div>
         <div id="AlertMenu" class="menu"><span class="header">Site Announcements</span></div>
         <div id="FileMenu" class="list_menu">
-            <span class="header">Select a File</span>
+            <span class="header">Seleccionar Archivo</span>
             <span class="option" onclick="toggleSaveFile(1)">1</span>
             <span class="option" onclick="toggleSaveFile(2)">2</span>
             <span class="option" onclick="toggleSaveFile(3)">3</span>
@@ -63,7 +63,7 @@
             <span class="option" onclick="toggleSaveFile(5)">5</span>
         </div>
         <div id="LangMenu" class="list_menu">
-            <span class="header">Select a Language</span>
+            <span class="header">Seleccionar Idioma</span>
             <span class="option" onclick="window.location.href = 'index.html'">English</span>
             <span class="option" onclick="window.location.href = 'index.es.html'">Spanish/Española</span>
             <!--<span class="option">German/Deutsch</span>
@@ -71,8 +71,8 @@
             <span class="option">Spanish/Española Latinoamericana</span>-->
         </div>
         <div id="LookupMenu">
-            <span>Search Player's Recent Games</span>
-            <input placeholder="Enter a player name">
+            <span>Buscar Juego Reciente de un Jugador</span>
+            <input placeholder="Ingresar Nombre de Jugador">
             <div id="LookupWrap"></div>
             <div class="loading">
                 <div class="dot" style="animation-delay: .2s"></div>
@@ -101,12 +101,12 @@
                 <span id="GodName">God Name</span><br>
                 <span id="GodTitle">"God Title"</span><br>
                 <span id="GodPantheon"><img src=""> Pantheon</span><br>
-                <span id="GodLevel">Level: 1</span><br>
+                <span id="GodLevel">Nivele: 1</span><br>
                 <span id="GodBuffs">No Buffs Selected</span><br>
                 <span id="BuildPrice">0 <img src="Assets/Icons/Gold.png"></span>
             </div>
             <div id="GodStats">
-                <span class="title">Statistics</span><br><br><br>
+                <span class="title">Estadísticas</span><br><br><br>
                 <span class="stat">
                     <img src="Assets/Icons/speed.png"><span class="stat_name">Speed: </span>
                     <div class="stat_bar">
@@ -221,8 +221,8 @@
         <div id="OptionsMenu" class="menu">
             <span class="header"></span>
             <div id="OptionsList">
-                <span class="title">Options ⛭</span>
-                <div id="OptionsLevel">Level:  
+                <span class="title">Opciones ⛭</span>
+                <div id="OptionsLevel">Nivele:  
                     <input oninput="updateLevelSlider()" type="range" min="1" max="20" value="1" class="slider" id="LevelSlider">
                     <span id="LevelValue">1</span>
                 </div>
@@ -260,15 +260,15 @@
             </div>
             <div class="divider"></div>
             <div id="RandomList">
-                <span class="title">Randomize ⚄</span>
-                <div class="button" onclick="randomGod(); randomItems()">Randomize Everything</div>
-                <div class="button" onclick="randomGod()">Randomize God</div>
-                <div class="button" onclick="randomItems();">Randomize Items</div>
+                <span class="title">Aleatorizar ⚄</span>
+                <div class="button" onclick="randomGod(); randomItems()">Aleatorizar Todo</div>
+                <div class="button" onclick="randomGod()">Aleatorizar Dios</div>
+                <div class="button" onclick="randomItems();">Aleatorizar Objetos</div>
             </div>
         </div>
         <div id="GodMenu" class="menu">
             <div id="GodFilters">
-                <span class="label">Filters</span>
+                <span class="label">Filtros</span>
                 <select name="filters" onchange="updateFilters()">
                     <option value="Role" selected>Roles</option>
                     <option value="Pantheon" selected>Pantheons</option>
@@ -276,16 +276,16 @@
                     <option value="Type" selected>Damage Type</option>
                 </select>
                 <div id="GodFilterNames">
-                    <button onclick="setFilter('Guardian')">Guardian</button>
-                    <button onclick="setFilter('Hunter')">Hunter</button>
-                    <button onclick="setFilter('Assassin')">Assassin</button>
-                    <button onclick="setFilter('Warrior')">Warrior</button>
-                    <button onclick="setFilter('Mage')">Mage</button>
+                    <button onclick="setFilter('Guardian')">Guardián</button>
+                    <button onclick="setFilter('Hunter')">Cazador</button>
+                    <button onclick="setFilter('Assassin')">Asesino</button>
+                    <button onclick="setFilter('Warrior')">Guerrero</button>
+                    <button onclick="setFilter('Mage')">Mago</button>
                 </div>
-                <button class="reset_filter" onclick="setFilter(null)">Reset Filter</button>
+                <button class="reset_filter" onclick="setFilter(null)">Reiniciar filtro</button>
             </div>
             <div id="GodSearch">
-                <input type="text" placeholder="Search For a God.." oninput="updateSearch()"></input>
+                <input type="text" placeholder="Buscar un Dios.." oninput="updateSearch()"></input>
             </div>
             <div id="GodList"></div>
             <div id="GodDetails">
@@ -294,14 +294,14 @@
                 <span class="label"><div class="pantheon_ico"></div>God Pantheon</span>
                 <div class="ico"></div>
                 <span class="type">Ranged Magical</span>
-                <span class="desc">Double-Tap to Select!</span>
+                <span class="desc">Doble clic para seleccionar!</span>
             </div>
         </div>
         <div id="ItemMenu" class="menu">
             <div id="ItemFilters">
-                <span class="label">Filters</span>
+                <span class="label">Filtros</span>
                 <div id="ItemFilterNames">
-                    <button onclick="setFilter('Starter')">Starter</button>
+                    <button onclick="setFilter('Starter')">Iniciador</button>
                     <button onclick="setFilter('Power')">Power</button>
                     <button onclick="setFilter('Attack Speed')">Attack Speed</button>
                     <button onclick="setFilter('Lifesteal')">Lifesteal</button>
@@ -318,7 +318,7 @@
                     <button onclick="setFilter('Mana')">Mana</button>
                     <button onclick="setFilter('MP5')">MP5</button>
                 </div>
-                <button class="reset_filter" onclick="setFilter(null)">Reset Filter</button>
+                <button class="reset_filter" onclick="setFilter(null)">Reiniciar filtro</button>
             </div>
             <div id="ItemSearch">
                 <input type="text" placeholder="Search For an item.." oninput="updateSearch()"></input>
@@ -336,7 +336,7 @@
                 <span class="subtitle statlist">Item Values</span>
                 <span class="label">Price</span>
                 <span class="type">Other Price</span>
-                <span class="desc">Double-Tap to Select!</span>
+                <span class="desc">Doble clic para seleccionar!</span>
             </div>
         </div>
         
@@ -434,7 +434,7 @@
                 </div>
             </div>
             <div id="Advert">
-                Join my Official Discord to follow new updates and get in contact!
+                Únete a mi servidor oficial Discord para mas anuncios y noticias!
                 <img src="Assets/AdvertIcons/Discord.png">
                 <a href="https://discord.gg/ZDUrzSXrKp" target="_blank"></a>
             </div>
@@ -542,6 +542,8 @@
         <!-- Language Data -->
         <script src="Data/Languages/Gods.json"></script>
         <script src="Data/Languages/Items.json"></script>
+        <script src="Data/Languages/LATAM_Gods.json"></script>
+        <script src="Data/Languages/LATAM_Items.json"></script>
 
         <!-- JSON Storage -->
         <script src="Data/SiteData.json"></script>

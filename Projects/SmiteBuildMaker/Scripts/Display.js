@@ -1,28 +1,91 @@
 /*//// Data ////*/
+try {
+    English = { ...ENGLISH_Items, ...ENGLISH_Gods };
+    Latam = { ...LATAM_Items, ...LATAM_Gods };
+} catch(e) {}
 
-English = { ...ENGLISH_Items, ...ENGLISH_Gods };
+
+LangData = {
+    ENGLISH: [
+        "Select a Character",
+        "Select an Item",
+        "Modify Global Preferences",
+        "Learn More About SmiteBuildMaker",
+        "View Recent SmiteBuildMaker News",
+        "View SmiteBuildMaker Announcements",
+        "Select Site Language",
+        "Switch Local Save File",
+        "Upload Recent Game", 
+        "Modify Character Preferences",
+        "View Character Information",
+        "Player",
+        "Modify player of Order",
+        "Join my Official Discord to follow new updates and get in contact!",
+        "Follow me on Twitch!<br> Development, Smite and other Stream",
+        "Supporting me helps keep SmiteBuildMaker and other projects live!",
+        "Check out my other projects on Github!",
+        "No Buffs Selected",
+        "Level"
+    ],
+    LATAM: [
+        "Seleccionar personaje",
+        "Seleccionar ojeto",
+        "Modificar opciones global",
+        "Aprender más sobre x",
+        "Ver SmiteBuildMaker noticias recientes",
+        "Ver SmiteBuildMaker anuncios",
+        "Seleccionar idioma",
+        "Cambiar archivo local",
+        "Subir juego reciente", 
+        "Modificar preferencias del personaje",
+        "Ver informacion del personaje",
+        "Jugador",
+        "Modificar Jugador Orden de",
+        "Únete a mi servidor oficial Discord para mas anuncios y noticias!",
+        "Sígueme en Twitch para mas Smite y avances",
+        "Apoyáme para mantener SmiteBuildMaker en vivo",
+        "Chequea mis otros proyectos en Github",
+        "No se seleccionó Buffs",
+        "Nivel",
+    ]
+}
+
+
+TextData = English;
+SiteLang = LangData.ENGLISH;
+switch (document.documentElement.lang) {
+  case 'de': SiteLang = LangData.GERMAN; break;
+  case 'zh': SiteLang = LangData.CHINESE; break;  
+  case 'fr': SiteLang = LangData.FRENCH; break;   
+  case 'es': TextData = Latam; SiteLang = LangData.LATAM; break;    
+  case 'pl': SiteLang = LangData.POLISH; break;    
+  case 'pt': SiteLang = LangData.PORUGESE; break; 
+  case 'tr': SiteLang = LangData.TURKISH; break;   
+  case 'ru': SiteLang = LangData.RUSSIAN; break;  
+}
+
 
 const MenuFlags = SiteData.Flags
 let touchValue = 0;
 let AdvertIndex = 0;
 let AdvertInfo = [
     {
-        "Text": 'Join my Official Discord to follow new updates and get in contact!',
+        "Text": SiteLang[13],
         "SRC": 'Assets/AdvertIcons/Discord.png',
         "URL": 'https://discord.gg/ZDUrzSXrKp'
     },
     {
-        "Text": 'Follow me on Twitch!<br> Development, Smite and other Streams',
+        "Text": SiteLang[14],
         "SRC": 'Assets/AdvertIcons/Twitch.png',
         "URL": 'https://twitch.tv/Kirbout'
     },
     {
-        "Text": 'Supporting me helps keep SmiteBuildMaker and other projects live!',
+        "Text": SiteLang[15],
         "SRC": 'Assets/AdvertIcons/BMAC.png',
         "URL": 'https://www.buymeacoffee.com/michaelwarmbier'
     },
     {
-        "Text": 'Check out my other projects on Github!',
+        "Text": SiteLang[16],
         "SRC": 'Assets/AdvertIcons/Github.png',
         "URL": 'https://github.com/MichaelWarmbier/'
     }
@@ -171,17 +234,17 @@ window.onload = function() {
     AlertMenu.append(newAlert);
 
     // Initialize all Event Listeners
-    document.querySelectorAll('.item').forEach((i) => { createTextEvent(i, 'Select an Item'); })
-    document.querySelectorAll('.icon').forEach((i) => { createTextEvent(i, 'Select a Character'); })
-    document.querySelectorAll('.information').forEach((i) => { createTextEvent(i, 'View Character Information'); })
-    document.querySelectorAll('.preferences').forEach((i) => { createTextEvent(i, 'Modify Character Preferences'); })
-    document.querySelectorAll('.tab').forEach((i) => { createTextEvent(i, 'Modify Global Preferences'); })
-    createTextEvent(About, 'Learn More About SmiteBuildMaker');
-    createTextEvent(News, 'View Recent SmiteBuildMaker News');
-    createTextEvent(Alert, 'View SmiteBuildMaker Announcements');
-    createTextEvent(Lang, 'Select Site Language');
-    createTextEvent(_File, 'Switch Local Save File');
-    createTextEvent(Lookup, 'Upload Recent Game');
+    document.querySelectorAll('.item').forEach((i) => { createTextEvent(i, SiteLang[1]); })
+    document.querySelectorAll('.icon').forEach((i) => { createTextEvent(i, SiteLang[0]); })
+    document.querySelectorAll('.information').forEach((i) => { createTextEvent(i, SiteLang[10]); })
+    document.querySelectorAll('.preferences').forEach((i) => { createTextEvent(i, SiteLang[9]); })
+    document.querySelectorAll('.tab').forEach((i) => { createTextEvent(i, SiteLang[2]); })
+    createTextEvent(About, SiteLang[3]);
+    createTextEvent(News, SiteLang[4]);
+    createTextEvent(Alert, SiteLang[5]);
+    createTextEvent(Lang, SiteLang[6]);
+    createTextEvent(_File, SiteLang[8]);
+    createTextEvent(Lookup, SiteLang[9]);
     print('Finished Initializing Site Display');
 }
 
@@ -256,7 +319,7 @@ function displayOptions(pIndex, side) {
     SiteData.ActivePlayerIndex = pIndex;
     Menu = OptionsMenu;
     Title = Menu.getElementsByClassName('header')[0];
-    Title.innerHTML = `Modify Player ${pIndex} of ${side}`;
+    Title.innerHTML = `${SiteLang[11]} ${pIndex} / ${side}`;
     displayMenu(Menu);
 }
 
@@ -292,11 +355,11 @@ function updateBuffs(buffName, type, hex) {
     if (!buffName) {
         Player.Buffs = [];
         Player.BuffTypes = [];
-        buffValue.innerHTML = 'No Buff Selected';
+        buffValue.innerHTML = SiteLang[17];
         print(`Buffs Cleared For Player ${(SiteData.ActivePlayerIndex - 1)}`);
     } else {
         if (override && !Player.Buffs.length) {
-            buffValue.innerHTML = 'No Buff Selected';
+            buffValue.innerHTML = SiteLang[17];
             return;
         }
 
