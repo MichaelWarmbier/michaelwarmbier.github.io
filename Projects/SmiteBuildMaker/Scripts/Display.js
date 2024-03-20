@@ -22,8 +22,8 @@ LangData = {
         "Modify player of Order",
         "Join my Official Discord to follow new updates and get in contact!",
         "Follow me on Twitch!",
-        "Supporting me helps keep SmiteBuildMaker and other projects live!",
-        "Check out my other projects on Github!",
+        "Support me on Patreon!",
+        "",
         "No Buffs Selected",
         "Level"
     ],
@@ -44,7 +44,7 @@ LangData = {
         "Únete a mi servidor oficial Discord para mas anuncios y noticias!",
         "Sígueme en Twitch!",
         "Apoyáme para mantener SmiteBuildMaker en vivo",
-        "Chequea mis otros proyectos en Github",
+        "",
         "No se seleccionó Buffs",
         "Nivel",
     ]
@@ -81,13 +81,8 @@ let AdvertInfo = [
     },
     {
         "Text": SiteLang[15],
-        "SRC": 'Assets/AdvertIcons/BMAC.png',
-        "URL": 'https://www.buymeacoffee.com/michaelwarmbier'
-    },
-    {
-        "Text": SiteLang[16],
-        "SRC": 'Assets/AdvertIcons/Github.png',
-        "URL": 'https://github.com/MichaelWarmbier/'
+        "SRC": 'https://cdn.freebiesupply.com/logos/large/2x/patreon-logo-png-transparent.png',
+        "URL": 'https://patreon.com/user?u=122393593'
     }
 ]
 
