@@ -338,7 +338,7 @@ LATAM_Items =
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASIVA: Tus ataques básicos contra un enemigo reducen 7% la protección física de tu objetivo durante 3s (máx. 4 cargas). <n>GLIFO: Golpear con éxito a un dios enemigo lo afligirá con veneno durante 3s. Este veneno reduce su curación un 40% y los escudos que se les aplican se reducen un 50%.",
+            "Description": "PASIVA: Tus ataques básicos contra un enemigo reducen 7% la protección física de tu objetivo durante 3s (máx. 4 cargas).<n>GLIFO: Golpear con éxito a un dios enemigo lo afligirá con una carga de veneno durante 3s (máx 4 cargas). Este veneno reduce su curación un 10% y los escudos que se les aplican se reducen un 12.5%.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 4,
@@ -349,7 +349,7 @@ LATAM_Items =
             "Gold": 2800,
             "SelfGold": 600,
             "Filters": [],
-            "Effect": "PASIVA: Tus ataques básicos contra un enemigo reducen 7% la protección física de tu objetivo durante 3s (máx. 4 cargas). <n>GLIFO: Golpear con éxito a un dios enemigo lo afligirá con veneno durante 3s. Este veneno reduce su curación un 40% y los escudos que se les aplican se reducen un 50%."
+            "Effect": "PASIVA: Tus ataques básicos contra un enemigo reducen 7% la protección física de tu objetivo durante 3s (máx. 4 cargas).<n>GLIFO: Golpear con éxito a un dios enemigo lo afligirá con una carga de veneno durante 3s (máx 4 cargas). Este veneno reduce su curación un 10% y los escudos que se les aplican se reducen un 12.5%."
         },
         {
             "Name": "Mazo",
@@ -810,7 +810,7 @@ LATAM_Items =
                     "Value": "+10"
                 }
             ],
-            "Description": "PASIVA: Obtienes permanentemente 15 de maná por carga y recibes 1 carga por 700 de daño infligido a los súbditos o 350 de daño infligido a los dioses. Consigues poder físico equivalente al 2% de tu maná máximo. A las 50 cargas este objeto evoluciona y obtienes 10 de penetración física.",
+            "Description": "PASIVA: Obtienes permanentemente 15 de maná por carga y recibes 1 carga por 800 de daño infligido a los súbditos o 350 de daño infligido a los dioses. Consigues poder físico equivalente al 2% de tu maná máximo. A las 50 cargas este objeto evoluciona y obtienes 10 de penetración física.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -821,7 +821,7 @@ LATAM_Items =
             "Gold": 2500,
             "SelfGold": 1300,
             "Filters": [],
-            "Effect": "PASIVA: Obtienes permanentemente 15 de maná por carga y recibes 1 carga por 700 de daño infligido a los súbditos o 350 de daño infligido a los dioses. Consigues poder físico equivalente al 2% de tu maná máximo. A las 50 cargas este objeto evoluciona y obtienes 10 de penetración física."
+            "Effect": "PASIVA: Obtienes permanentemente 15 de maná por carga y recibes 1 carga por 800 de daño infligido a los súbditos o 350 de daño infligido a los dioses. Consigues poder físico equivalente al 2% de tu maná máximo. A las 50 cargas este objeto evoluciona y obtienes 10 de penetración física."
         },
         {
             "Name": "Daga embrujada",
@@ -1839,7 +1839,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Protección física",
-                    "Value": "+50"
+                    "Value": "+40"
                 },
                 {
                     "StatName": "Salud",
@@ -2773,7 +2773,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Velocidad de ataque",
@@ -2938,6 +2938,10 @@ LATAM_Items =
                 {
                     "StatName": "Poder mágico",
                     "Value": "+60"
+                },
+                {
+                    "StatName": "Penetración mágica",
+                    "Value": "+5"
                 }
             ],
             "Description": "",
@@ -2959,7 +2963,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+80"
                 },
                 {
                     "StatName": "Penetración mágica",
@@ -3015,7 +3019,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Penetración mágica",
@@ -3041,7 +3045,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+75"
+                    "Value": "+85"
                 },
                 {
                     "StatName": "Robo de vida mágico",
@@ -3359,7 +3363,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+60"
                 },
                 {
                     "StatName": "Maná",
@@ -3419,7 +3423,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+60"
                 },
                 {
                     "StatName": "Penetración mágica",
@@ -3487,7 +3491,7 @@ LATAM_Items =
                 },
                 {
                     "StatName": "Penetración mágica",
-                    "Value": "+5%"
+                    "Value": "+5"
                 },
                 {
                     "StatName": "Velocidad de movimiento",
@@ -3539,7 +3543,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -3599,7 +3603,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+90"
+                    "Value": "+95"
                 },
                 {
                     "StatName": "MP5",
@@ -3607,7 +3611,7 @@ LATAM_Items =
                 },
                 {
                     "StatName": "Penetración mágica",
-                    "Value": "+10%"
+                    "Value": "+10"
                 },
                 {
                     "StatName": "Velocidad de movimiento",
@@ -3633,7 +3637,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Penetración mágica",
@@ -3667,7 +3671,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "HP5 y MP5",
@@ -3701,7 +3705,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -3731,7 +3735,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -5164,11 +5168,11 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder físico",
-                    "Value": "+35"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Probabilidad de ataque crítico",
-                    "Value": "+20%"
+                    "Value": "+15%"
                 },
                 {
                     "StatName": "Reduc. de reactivación",
@@ -5793,7 +5797,7 @@ LATAM_Items =
                     "Value": "+7%"
                 }
             ],
-            "Description": "PASIVA: Los enemigos golpeados por tus ataques básicos se queman, reciben 16 de daño físico (+7% de tu poder físico y mágico) durante 2s y reducen su velocidad de ataque un 4.5%. Los dioses reciben 50% de daño. Los monstruos de la jungla reciben 4x daño y restauran 2.5% de salud y 5% de maná si mueren cuando se queman. Este efecto puede acumularse hasta 3 veces. Cuando los objetivos quemados mueren, te curas 15 de salud y maná. Se puede mejorar en el nivel 20.",
+            "Description": "PASIVA: Los enemigos golpeados por tus ataques básicos se queman, reciben 16 de daño físico (+7% de tu poder físico y mágico) durante 2s y reducen su velocidad de ataque un 4.5%. Los dioses reciben 50% de daño. Los monstruos de la jungla reciben 4x daño y restauran 2.5% de salud y 5% de maná cuando mueren. Este efecto puede acumularse hasta 3 veces. Cuando los objetivos quemados mueren, te curas 15 de salud y maná. Se puede mejorar en el nivel 20.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 1,
@@ -5806,7 +5810,7 @@ LATAM_Items =
             "Filters": [
                 "Starter"
             ],
-            "Effect": "PASIVA: Los enemigos golpeados por tus ataques básicos se queman, reciben 16 de daño físico (+7% de tu poder físico y mágico) durante 2s y reducen su velocidad de ataque un 4.5%. Los dioses reciben 50% de daño. Los monstruos de la jungla reciben 4x daño y restauran 2.5% de salud y 5% de maná si mueren cuando se queman. Este efecto puede acumularse hasta 3 veces. Cuando los objetivos quemados mueren, te curas 15 de salud y maná. Se puede mejorar en el nivel 20."
+            "Effect": "PASIVA: Los enemigos golpeados por tus ataques básicos se queman, reciben 16 de daño físico (+7% de tu poder físico y mágico) durante 2s y reducen su velocidad de ataque un 4.5%. Los dioses reciben 50% de daño. Los monstruos de la jungla reciben 4x daño y restauran 2.5% de salud y 5% de maná cuando mueren. Este efecto puede acumularse hasta 3 veces. Cuando los objetivos quemados mueren, te curas 15 de salud y maná. Se puede mejorar en el nivel 20."
         },
         {
             "Name": "Maza de maniquí",
@@ -5829,7 +5833,7 @@ LATAM_Items =
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASIVA: Los enemigos golpeados por tus ataques básicos arden, reciben 60 de daño físico durante 2s y reducen su velocidad de ataque un 10%. Los monstruos de la jungla y los jefes reciben 4x daño y restauran el 2.5% de salud y el 5% de maná cuando mueren si arden. Este efecto puede acumularse hasta 4 veces.",
+            "Description": "PASIVA: Los enemigos golpeados por tus ataques básicos arden, reciben 60 de daño físico durante 2s y reducen su velocidad de ataque un 10%. Los monstruos de la jungla y los jefes reciben 4x daño y restauran el 2.5% de salud y el 5% de maná cuando mueren. Este efecto puede acumularse hasta 4 veces.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,
@@ -5842,7 +5846,7 @@ LATAM_Items =
             "Filters": [
                 "Starter"
             ],
-            "Effect": "PASIVA: Los enemigos golpeados por tus ataques básicos arden, reciben 60 de daño físico durante 2s y reducen su velocidad de ataque un 10%. Los monstruos de la jungla y los jefes reciben 4x daño y restauran el 2.5% de salud y el 5% de maná cuando mueren si arden. Este efecto puede acumularse hasta 4 veces."
+            "Effect": "PASIVA: Los enemigos golpeados por tus ataques básicos arden, reciben 60 de daño físico durante 2s y reducen su velocidad de ataque un 10%. Los monstruos de la jungla y los jefes reciben 4x daño y restauran el 2.5% de salud y el 5% de maná cuando mueren. Este efecto puede acumularse hasta 4 veces."
         },
         {
             "Name": "Espada oculta de maniquí",
@@ -6889,7 +6893,7 @@ LATAM_Items =
                     "Value": "+10%"
                 }
             ],
-            "Description": "PASIVA: Tu límite de reducción de tiempo de reactivación aumenta del 40% al 50%. Tus protecciones físicas y mágicas se reducen un 10% y tu curación se reduce un 20%.",
+            "Description": "PASIVA: Tu límite de reducción de tiempo de reactivación aumenta del 40% al 50%.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -6900,7 +6904,7 @@ LATAM_Items =
             "Gold": 2450,
             "SelfGold": 1050,
             "Filters": [],
-            "Effect": "PASIVA: Tu límite de reducción de tiempo de reactivación aumenta del 40% al 50%. Tus protecciones físicas y mágicas se reducen un 10% y tu curación se reduce un 20%."
+            "Effect": "PASIVA: Tu límite de reducción de tiempo de reactivación aumenta del 40% al 50%."
         },
         {
             "Name": "Pinchos de la mantícora",
@@ -7569,7 +7573,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder físico",
-                    "Value": "+25"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Robo de vida físico",
@@ -7693,7 +7697,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder físico",
-                    "Value": "+40"
+                    "Value": "+50"
                 },
                 {
                     "StatName": "Robo de vida físico",
@@ -7813,7 +7817,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+80"
                 },
                 {
                     "StatName": "Salud",
@@ -7847,7 +7851,7 @@ LATAM_Items =
             "Stats": [
                 {
                     "StatName": "Poder mágico",
-                    "Value": "+70"
+                    "Value": "+80"
                 },
                 {
                     "StatName": "Salud",

@@ -1,5 +1,4 @@
-ENGLISH_Gods = 
-{
+ENGLISH_Gods = {
     "Gods": [
         {
             "Name": "Achilles",
@@ -1167,7 +1166,7 @@ ENGLISH_Gods =
             "MagProtPL": 1.6,
             "PhysProt": 15.4,
             "PhysProtPL": 3.2,
-            "Passive": "Every hit with a Basic Attack gives Cupid a Heart Stack that increases the damage or healing of his abilities. Heart Bomb and Fields of Love will always consume the Heart Stacks and at 8 Stacks they will have additional effects.",
+            "Passive": "Every hit with a Basic Attack gives Cupid a Heart Stack that increases the damage or healing of his abilities. Hitting an enemy god grants an additional stack. Heart Bomb and Fields of Love will always consume the Heart Stacks and at 8 Stacks they will have additional effects.",
             "Range": "Ranged",
             "PassiveName": "Lovestruck"
         },
@@ -3747,7 +3746,7 @@ ENGLISH_Gods =
             "MagProtPL": 1.6,
             "PhysProt": 29.4,
             "PhysProtPL": 3.7,
-            "Passive": "Xing Tian gains stacks of Smouldering Rage each time he hits an enemy with an ability. For each stack of rage Xing Tian has, he gains HP5.\n\nStacks last 18s.",
+            "Passive": "Xing Tian gains stacks of Smouldering Rage each time he hits an enemy with an ability. For each stack of rage Xing Tian has, he gains HP5 and temporary maximum Health for 18s. Xing Tian's HP5 has no cap.",
             "Range": "Melee",
             "PassiveName": "Smouldering Rage"
         },

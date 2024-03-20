@@ -1166,7 +1166,7 @@ LATAM_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 15.4,
             "PhysProtPL": 3.2,
-            "Passive": "Cada ataque básico acertado le otorga a Cupido una Carga Corazón que incrementa el daño o la curación de sus habilidades. Bomba Corazón y Campos de Amor siempre consumen Cargas Corazón y con 8 cargas estas tendrán efectos adicionales.",
+            "Passive": "Cada ataque básico acertado le otorga a Cupido una Carga Corazón que incrementa el daño o la curación de sus habilidades. Golpear a un dios enemigo concede una carga adicional. Bomba Corazón y Campos de Amor siempre consumen Cargas Corazón y con 8 cargas estas tendrán efectos adicionales.",
             "Range": "Melee",
             "PassiveName": "Locamente enamorado"
         },
@@ -3746,7 +3746,7 @@ LATAM_Gods = {
             "MagProtPL": 1.6,
             "PhysProt": 29.4,
             "PhysProtPL": 3.7,
-            "Passive": "Xing Tian obtiene cargas de Furia latente cada vez que golpea a un enemigo con una habilidad. Por cada carga de furia que Xing Tian tenga, obtendrá HP5. \n\nLas cargas durarán 18s.",
+            "Passive": "Xing Tian obtiene cargas de Furia latente cada vez que golpea a un enemigo con una habilidad. Por cada carga de furia que Xing Tian tenga, obtendrá HP5 y salud máxima temporal durante 18s. El HP5 de Xing Tian no tiene límite.",
             "Range": "Melee",
             "PassiveName": "Furia Latente"
         },

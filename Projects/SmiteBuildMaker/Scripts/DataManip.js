@@ -116,7 +116,9 @@ function appendInfo() {
 
     let ItemIndex = 0;
     let totalBuildPrice = 0;
+    let textData = null;
     for (Item of SiteData.PlayerData[PLAYER - 1].Items) {
+        for (textItem of TextData.Items) if (Item && textItem.Id == Item.Id) textData = textItem;
         ItemIndex++;
         if (!Item) {
             ItemDisp[ItemIndex - 1].style.backgroundImage = '';
@@ -126,11 +128,11 @@ function appendInfo() {
         }
         ItemDisp[ItemIndex - 1].style.backgroundImage = `url("${Item.URL}")`;
         let statString = '<span class="extra_stats">';
-        for (Stat of Item.Stats) statString += `${Stat.StatName} ${Stat.Value}<br>`;
-        createTextEvent(ItemDisp[ItemIndex - 1], `<span style="color: var(--DarkGold)">${Item.Name}</span><br><br>${Item.Description}<br><br>${statString}</span>`);
+        for (Stat of textData.Stats) statString += `${Stat.StatName} ${Stat.Value}<br>`;
+        createTextEvent(ItemDisp[ItemIndex - 1], `<span style="color: var(--DarkGold)">${textData.Name}</span><br><br>${textData.Description}<br><br>${statString}</span>`);
         ITEM_PRICE[ItemIndex - 1].innerHTML = Item.Gold + '<img src="Assets/Icons/Gold.png">';
         totalBuildPrice += Item.Gold;
-        ItemDisp[ItemIndex - 1].lang = Item.Name;
+        ItemDisp[ItemIndex - 1].lang = textData.Name;
         const INDEX = ItemIndex - 1;
         ItemDisp[ItemIndex - 1].onclick = function() { activateItem(INDEX); updateStats(); appendInfo(); }
         ItemDisp[ItemIndex - 1].style.cursor = 'pointer';
@@ -167,13 +169,13 @@ function appendGod(God, preventDefault=false) {
 
 function displayItem(name) {
     document.querySelectorAll('#ItemDetails .subtitle')[1].innerHTML = '';
-    for (Item of TextData.Items) if (Item.Name === name) {
-        document.querySelectorAll('#ItemDetails .title')[0].innerHTML = Item.Name;
-        document.querySelectorAll('#ItemDetails .subtitle')[0].innerHTML = Item.Description;
-        for (ItemInfo of Item.Stats)
+    for (let ItemIndex = 0; ItemIndex < English.Items.length; ItemIndex++) if (English.Items[ItemIndex].Name === name) {
+        document.querySelectorAll('#ItemDetails .title')[0].innerHTML = TextData.Items[ItemIndex].Name;
+        document.querySelectorAll('#ItemDetails .subtitle')[0].innerHTML = TextData.Items[ItemIndex].Description;
+        for (ItemInfo of TextData.Items[ItemIndex].Stats)
             document.querySelectorAll('#ItemDetails .subtitle')[1].innerHTML += `${ItemInfo.StatName} ${ItemInfo.Value}<br>`;
-        document.querySelectorAll('#ItemDetails .label')[0].innerHTML = `</div><span style="color:#B5A672;">${Item.Gold}</span>`;
-        document.querySelectorAll('#ItemDetails .type')[0].innerHTML = `</div><span style="#A8A8A8">${Item.SelfGold}</span>`;
+        document.querySelectorAll('#ItemDetails .label')[0].innerHTML = `</div><span style="color:#B5A672;">${TextData.Items[ItemIndex].Gold}</span>`;
+        document.querySelectorAll('#ItemDetails .type')[0].innerHTML = `</div><span style="#A8A8A8">${TextData.Items[ItemIndex].SelfGold}</span>`;
         break;
     }
 }

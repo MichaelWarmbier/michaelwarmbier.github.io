@@ -1,5 +1,4 @@
-ENGLISH_Items = 
-{
+ENGLISH_Items = {
     "Items": [
         {
             "Name": "Iron Mail",
@@ -376,7 +375,7 @@ ENGLISH_Items =
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASSIVE - Basic Attacks against an enemy reduce your target's Physical Protection by 7% for 3s (max. 4 Stacks). <n>GLYPH - Successfully hitting an Enemy God will afflict them with poison for 3s. This poison reduces their healing by 40% and Shields applied on them are reduced by 50%.",
+            "Description": "PASSIVE - Basic Attacks against an enemy reduce your target's Physical Protection by 7% for 3s (max. 4 stacks). <n>GLYPH - Successfully hitting an Enemy God will afflict them with a stack of poison for 3s (max. 4 stacks). This poison reduces their healing by 10% and Shields applied on them are reduced by 12.5%.",
             "Ratatoskr": false,
             "isGlyph": true,
             "Tier": 4,
@@ -389,7 +388,7 @@ ENGLISH_Items =
             "Filters": [
                 "Power"
             ],
-            "Effect": "PASSIVE - Basic Attacks against an enemy reduce your target's Physical Protection by 7% for 3s (max. 4 Stacks). <n>GLYPH - Successfully hitting an Enemy God will afflict them with poison for 3s. This poison reduces their healing by 40% and Shields applied on them are reduced by 50%."
+            "Effect": "PASSIVE - Basic Attacks against an enemy reduce your target's Physical Protection by 7% for 3s (max. 4 stacks). <n>GLYPH - Successfully hitting an Enemy God will afflict them with a stack of poison for 3s (max. 4 stacks). This poison reduces their healing by 10% and Shields applied on them are reduced by 12.5%."
         },
         {
             "Name": "Mace",
@@ -903,7 +902,7 @@ ENGLISH_Items =
                     "Value": "+10"
                 }
             ],
-            "Description": "PASSIVE - You permanently gain 15 Mana per Stack, and receive 1 Stack per 700 Damage Dealt to minions or 350 Damage Dealt to gods. You gain Physical Power equal to 2% of your Maximum Mana. At 50 stacks this item Evolves, gaining 10 Physical Penetration.",
+            "Description": "PASSIVE - You permanently gain 15 Mana per Stack, and receive 1 Stack per 800 Damage Dealt to minions or 350 Damage Dealt to gods. You gain Physical Power equal to 2% of your Maximum Mana. At 50 stacks this item Evolves, gaining 10 Physical Penetration.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -919,7 +918,7 @@ ENGLISH_Items =
                 "Mana",
                 "MP5"
             ],
-            "Effect": "PASSIVE - You permanently gain 15 Mana per Stack, and receive 1 Stack per 700 Damage Dealt to minions or 350 Damage Dealt to gods. You gain Physical Power equal to 2% of your Maximum Mana. At 50 stacks this item Evolves, gaining 10 Physical Penetration."
+            "Effect": "PASSIVE - You permanently gain 15 Mana per Stack, and receive 1 Stack per 800 Damage Dealt to minions or 350 Damage Dealt to gods. You gain Physical Power equal to 2% of your Maximum Mana. At 50 stacks this item Evolves, gaining 10 Physical Penetration."
         },
         {
             "Name": "Bewitched Dagger",
@@ -2040,7 +2039,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Protection",
-                    "Value": "+50"
+                    "Value": "+40"
                 },
                 {
                     "StatName": "Health",
@@ -3069,7 +3068,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Attack Speed",
@@ -3255,6 +3254,10 @@ ENGLISH_Items =
                 {
                     "StatName": "Magical Power",
                     "Value": "+60"
+                },
+                {
+                    "StatName": "Magical Penetration",
+                    "Value": "+5"
                 }
             ],
             "Description": "",
@@ -3278,7 +3281,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+70"
+                    "Value": "+80"
                 },
                 {
                     "StatName": "Magical Penetration",
@@ -3341,7 +3344,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+70"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Magical Penetration",
@@ -3370,7 +3373,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+75"
+                    "Value": "+85"
                 },
                 {
                     "StatName": "Magical Lifesteal",
@@ -3726,7 +3729,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+70"
+                    "Value": "+60"
                 },
                 {
                     "StatName": "Mana",
@@ -3795,7 +3798,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+70"
+                    "Value": "+60"
                 },
                 {
                     "StatName": "Magical Penetration",
@@ -3868,7 +3871,7 @@ ENGLISH_Items =
                 },
                 {
                     "StatName": "Magical Penetration",
-                    "Value": "+5%"
+                    "Value": "+5"
                 },
                 {
                     "StatName": "Movement Speed",
@@ -3928,7 +3931,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -3996,7 +3999,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+90"
+                    "Value": "+95"
                 },
                 {
                     "StatName": "MP5",
@@ -4004,7 +4007,7 @@ ENGLISH_Items =
                 },
                 {
                     "StatName": "Magical Penetration",
-                    "Value": "+10%"
+                    "Value": "+10"
                 },
                 {
                     "StatName": "Movement Speed",
@@ -4035,7 +4038,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "Magical Penetration",
@@ -4075,7 +4078,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+65"
+                    "Value": "+75"
                 },
                 {
                     "StatName": "HP5 & MP5",
@@ -4111,7 +4114,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -4143,7 +4146,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+110"
+                    "Value": "+115"
                 },
                 {
                     "StatName": "MP5",
@@ -5412,7 +5415,7 @@ ENGLISH_Items =
                     "Value": "+300"
                 }
             ],
-            "Description": "PASSIVE - Every time an enemy within 40 units gains a shield, you gain 15% Movement Speed for 4s. This effect can only occur once every 10s.\n\nAURA - Any Shields applied on enemy gods within 55 units will be reduced by 30%.\n",
+            "Description": "PASSIVE - Every time an enemy within 55 units gains a shield, you gain 15% Movement Speed for 4s. This effect can only occur once every 10s.\n\nAURA - Any Shields applied on enemy gods within 55 units will be reduced by 30%.\n",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -5428,7 +5431,7 @@ ENGLISH_Items =
                 "Physical",
                 "Magical"
             ],
-            "Effect": "PASSIVE - Every time an enemy within 40 units gains a shield, you gain 15% Movement Speed for 4s. This effect can only occur once every 10s.\n\nAURA - Any Shields applied on enemy gods within 55 units will be reduced by 30%.\n"
+            "Effect": "PASSIVE - Every time an enemy within 55 units gains a shield, you gain 15% Movement Speed for 4s. This effect can only occur once every 10s.\n\nAURA - Any Shields applied on enemy gods within 55 units will be reduced by 30%.\n"
         },
         {
             "Name": "Sands of Time",
@@ -5722,11 +5725,11 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Power",
-                    "Value": "+35"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Critical Strike Chance",
-                    "Value": "+20%"
+                    "Value": "+15%"
                 },
                 {
                     "StatName": "Cooldown Reduction",
@@ -6385,7 +6388,7 @@ ENGLISH_Items =
                     "Value": "+7%"
                 }
             ],
-            "Description": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 16 Physical Damage (+7% of your Physical and Magical Power) over 2s and have their Attack Speed reduced by 4.5%. Gods take 50% damage. Jungle Monsters take 4x the amount of damage and restore 2.5% Health and 5% Mana when they die if they are burned. This effect can stack up to 3 times. Can be upgraded at level 20.",
+            "Description": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 16 Physical Damage (+7% of your Physical and Magical Power) over 2s and have their Attack Speed reduced by 4.5%. Gods take 50% damage. Jungle Monsters take 4x the amount of damage and restore 2.5% Health and 5% Mana when they die. This effect can stack up to 3 times. Can be upgraded at level 20.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 1,
@@ -6398,7 +6401,7 @@ ENGLISH_Items =
             "Filters": [
                 "Starter"
             ],
-            "Effect": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 16 Physical Damage (+7% of your Physical and Magical Power) over 2s and have their Attack Speed reduced by 4.5%. Gods take 50% damage. Jungle Monsters take 4x the amount of damage and restore 2.5% Health and 5% Mana when they die if they are burned. This effect can stack up to 3 times. Can be upgraded at level 20."
+            "Effect": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 16 Physical Damage (+7% of your Physical and Magical Power) over 2s and have their Attack Speed reduced by 4.5%. Gods take 50% damage. Jungle Monsters take 4x the amount of damage and restore 2.5% Health and 5% Mana when they die. This effect can stack up to 3 times. Can be upgraded at level 20."
         },
         {
             "Name": "Manikin Mace",
@@ -6421,7 +6424,7 @@ ENGLISH_Items =
                     "Value": "+20%"
                 }
             ],
-            "Description": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 60 physical damage over 2s and have their Attack Speed slowed by 10%. Jungle Monsters and Bosses take 4x damage and restore 2.5% Health and 5% Mana when they die if they are burned. This effect can stack up to 4 times.",
+            "Description": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 60 True damage over 2s and have their Attack Speed slowed by 10%. Jungle Monsters and Bosses take 4x damage and restore 2.5% Health and 5% Mana when they die. This effect can stack up to 4 times.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,
@@ -6434,7 +6437,7 @@ ENGLISH_Items =
             "Filters": [
                 "Starter"
             ],
-            "Effect": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 60 physical damage over 2s and have their Attack Speed slowed by 10%. Jungle Monsters and Bosses take 4x damage and restore 2.5% Health and 5% Mana when they die if they are burned. This effect can stack up to 4 times."
+            "Effect": "PASSIVE - Enemies hit by your Basic Attacks are burned, taking 60 True damage over 2s and have their Attack Speed slowed by 10%. Jungle Monsters and Bosses take 4x damage and restore 2.5% Health and 5% Mana when they die. This effect can stack up to 4 times."
         },
         {
             "Name": "Manikin Hidden Blade",
@@ -7016,7 +7019,7 @@ ENGLISH_Items =
                     "Value": "+10"
                 }
             ],
-            "Description": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 1 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20.",
+            "Description": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 2 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 1,
@@ -7030,7 +7033,7 @@ ENGLISH_Items =
                 "Starter",
                 "Power"
             ],
-            "Effect": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 1 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20."
+            "Effect": "PASSIVE - Every 0.5 seconds you gain a stack of Arcane Energy, causing your next damaging ability to deal an additional 2 True Damage and remove all stacks. Also deals an additional 2 true damage per stack to minions. This effect stacks up to 20 times. Can be upgraded at level 20."
         },
         {
             "Name": "Archmage's Gem",
@@ -7546,7 +7549,7 @@ ENGLISH_Items =
                     "Value": "+10%"
                 }
             ],
-            "Description": "PASSIVE - Your Cooldown Reduction cap is increased from 40% to 50%. Your Physical and Magical Protections are reduced by 10%, and your healing output is decreased by 20%.",
+            "Description": "PASSIVE - Your Cooldown Reduction cap is increased from 40% to 50%.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 3,
@@ -7560,7 +7563,7 @@ ENGLISH_Items =
                 "Cooldown",
                 "MP5"
             ],
-            "Effect": "PASSIVE - Your Cooldown Reduction cap is increased from 40% to 50%. Your Physical and Magical Protections are reduced by 10%, and your healing output is decreased by 20%."
+            "Effect": "PASSIVE - Your Cooldown Reduction cap is increased from 40% to 50%."
         },
         {
             "Name": "Manticore's Spikes",
@@ -8341,7 +8344,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Power",
-                    "Value": "+25"
+                    "Value": "+30"
                 },
                 {
                     "StatName": "Physical Lifesteal",
@@ -8476,7 +8479,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Physical Power",
-                    "Value": "+40"
+                    "Value": "+50"
                 },
                 {
                     "StatName": "Physical Lifesteal",
@@ -8644,7 +8647,7 @@ ENGLISH_Items =
             "Stats": [
                 {
                     "StatName": "Magical Power",
-                    "Value": "+70"
+                    "Value": "+80"
                 },
                 {
                     "StatName": "Health",

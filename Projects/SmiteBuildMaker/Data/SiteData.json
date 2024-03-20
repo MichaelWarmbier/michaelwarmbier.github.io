@@ -1,5 +1,5 @@
 let SiteData = {
-    "SiteAlert": "SBM for Smite V11.1 has been released!<br><br>WEBSITE IS IN ALPHA",
+    "SiteAlert": "",
     "ActiveMenu": null,
     "ActivePlayerIndex": 1,
     "ActiveItemIndex": 1,

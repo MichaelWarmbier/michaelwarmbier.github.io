@@ -2,7 +2,7 @@
 try {
     English = { ...ENGLISH_Items, ...ENGLISH_Gods };
     Latam = { ...LATAM_Items, ...LATAM_Gods };
-} catch(e) {}
+} catch(e) { console.log("Error loading languages: " + e); }
 
 
 LangData = {
@@ -21,7 +21,7 @@ LangData = {
         "Player",
         "Modify player of Order",
         "Join my Official Discord to follow new updates and get in contact!",
-        "Follow me on Twitch!<br> Development, Smite and other Stream",
+        "Follow me on Twitch!",
         "Supporting me helps keep SmiteBuildMaker and other projects live!",
         "Check out my other projects on Github!",
         "No Buffs Selected",
@@ -42,7 +42,7 @@ LangData = {
         "Jugador",
         "Modificar Jugador Orden de",
         "Únete a mi servidor oficial Discord para mas anuncios y noticias!",
-        "Sígueme en Twitch para mas Smite y avances",
+        "Sígueme en Twitch!",
         "Apoyáme para mantener SmiteBuildMaker en vivo",
         "Chequea mis otros proyectos en Github",
         "No se seleccionó Buffs",
