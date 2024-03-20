@@ -500,7 +500,7 @@ body {
     align-items: start;
     padding: 0 0 2vh 0;
     text-shadow: .4vh .4vh .4vh black;
-} #OptionsMenu .header { margin-top: -3vh;}
+} #OptionsMenu .header { margin-top: -3vh; width: 100%; }
 
 #OptionsMenu div { box-shadow: .4vh .4vh 1vh black; }
 

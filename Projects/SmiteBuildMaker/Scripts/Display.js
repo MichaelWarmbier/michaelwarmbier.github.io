@@ -386,6 +386,8 @@ function openGodMenu(pIndex, side) {
 }
 
 function openItemMenu(iIndex, pIndex, side) {
+    SiteData.Filter = '';
+    SiteData.SearchQuery = '';
     if (!SiteData.PlayerData[pIndex + 5 * (side == 'Order') - 1].God) { print('A Character Must Be Selected First', 1); return; }
     SiteData.SearchQuery = '';
     SiteData.ActivePlayerIndex = pIndex + 5 * (side == 'Order');
