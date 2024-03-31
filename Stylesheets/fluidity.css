@@ -1,0 +1,62 @@
+/*///////////////////*/
+/* Half-Screen 768px */
+/*///////////////////*/
+
+@media (width <= 1200px) {
+    :root { --GBorderSize: .2vh; }
+    #Title { font-size: 7vw; }
+    #Subtitle { font-size: 4vw; }
+    .d_image { height: calc(1080px / 5); width: calc(1920px / 5); }
+    #Icon { left: 0; right: 0; top: -45vh; height: 25vw; width: 25vw; }
+    #Desc { height: 40%; font-size: 3.5vw; left: 0; top: 4vh; text-align: center;  width: 45%; padding-left: 5%; }
+    #ExternalNav Span { font-size: 4vw; }
+    #Content { height: calc(47vh - var(--GBorderSize)); }
+    #ExternalNav { top: 4vh; right: 0; height: 40%; width: 45%; padding-left: 5%; }
+    #InternalNav { font-size: 3vw; height: 11vh; width: 100vw;justify-content: space-around; padding: 0; }
+    #Footer { height: 2vh; }
+}
+
+/*//////////////////////*/
+/* Generic Tablet 768px */
+/*//////////////////////*/
+
+@media (width <= 768px) {
+    #Icon { height: 28vw; width: 28vw; }
+    #Desc { top: 8vh; }
+    #ExternalNav { top: 8vh; }   
+    #InternalNav { font-size: 4vw; }
+}
+
+/*//////////////////////*/
+/* Large Mobile 425px */
+/*//////////////////////*/
+
+@media (width <= 425px) {
+    #Title { font-size: 7.5vw; }
+    #Subtitle { font-size: 5vw; }
+    #Icon { height: 35vw; width: 35vw; }
+    #Desc { font-size: 4vw; }
+    #ExternalNav Span { font-size: 4.5vw; }
+    #InternalNav { font-size: 4vw; }
+}
+
+/*//////////////////////*/
+/* Medium Mobile 425px */
+/*//////////////////////*/
+
+@media (width <= 375px) {
+    #Icon { height: 40vw; width: 40vw; }
+    #InternalNav { font-size: 5.5vw; }
+}
+
+/*//////////////////////*/
+/* Small Mobile 425px */
+/*//////////////////////*/
+
+@media (width <= 375px) {
+    #Icon { height: 40vw; width: 40vw; }
+    #Desc { width: 90%; padding: 0 5% 0 5%; top: -4vh; }
+    #ExternalNav { top: 10vh; height: 30%; width: 100%; padding: 0 0 0 15%; left: 0; }
+    #ExternalNav Span { font-size: 7vw; }
+    #InternalNav { font-size: 5.5vw; }
+}
