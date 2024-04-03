@@ -7729,7 +7729,7 @@ ENGLISH_Items = {
                     "Value": "+30"
                 }
             ],
-            "Description": "PASSIVE - Enemies hit by your damaging abilities take an additional 160 Physical Damage over 2s. Enemy gods take an additional 12% of their Current Health as Physical Damage over 2s. Subsequent hits on the same target do half the bonus damage for the next 3s.",
+            "Description": "PASSIVE - Enemies hit by your damaging abilities take an additional 160 Physical Damage over 2s. Enemy gods take an additional 10% of their Current Health as Physical Damage over 2s. Subsequent hits on the same target do half the bonus damage for the next 3s.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,

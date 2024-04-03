@@ -7012,7 +7012,7 @@ LATAM_Items =
                     "Value": "+30"
                 }
             ],
-            "Description": "PASIVA: Los enemigos golpeados por tus habilidades de daño reciben 160 de daño físico adicional durante 2s. Los dioses enemigos sufren un 12% adicional de su salud actual como daño físico durante 2s. Los golpes siguientes en el mismo objetivo causan la mitad del daño adicional durante los próximos 3s.",
+            "Description": "PASIVA: Los enemigos golpeados por tus habilidades de daño reciben 160 de daño físico adicional durante 2s. Los dioses enemigos sufren un 10% adicional de su salud actual como daño físico durante 2s. Los golpes siguientes en el mismo objetivo causan la mitad del daño adicional durante los próximos 3s.",
             "Ratatoskr": false,
             "isGlyph": false,
             "Tier": 2,
