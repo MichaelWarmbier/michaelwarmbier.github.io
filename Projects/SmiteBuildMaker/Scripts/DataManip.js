@@ -1,255 +1,332 @@
-//////////////////////////////////////
-/*//// Initialization Functions ////*/
-//////////////////////////////////////
+/*//// Variables ////*/
+
+let CustomGodFilter = null;
+let SelectedGodFilter = null;
+let CustomItemFilter = null;
+let SelectedItemFilter = null;
+let SpecifiedItemTier = '3';
+let ActivePlayer = 0;
+let ActiveItem = 0;
+
+let GlobalOptionFlags = [0, 0];
+
+SiteData = { "PlayerData" : [] }
+for (let playerIndex = 0; playerIndex < 10; playerIndex++) 
+    SiteData.PlayerData.push({
+        "God": null,
+        "Level": 1,
+        "Buffs": [],
+        "BuffTypes": [],
+        "Items": [null, null, null, null, null, null],
+        "GlyphIndex": -1,
+        "StarterIndex": -1,
+        "RecipeIndex": -1,
+        "ActiveEffects": [],
+        "BarHealth": 100,
+        "BarMana": 100,
+        "PassiveOn": false,
+        "PassiveStance": 0,
+        "Stats": { 
+            "Speed": 0,
+            "Power": 0,
+            "AttackSpeed": 0,
+            "BasicAttackDamage": 0,
+            "Health": 0,
+            "Mana": 0,
+            "HP5": 0,
+            "MP5": 0,
+            "CCR": 0,
+            "DamageReduction": 0,
+            "PhysicalProtections": 0,
+            "MagicalProtections": 0,
+            "Penetration": 0,
+            "PercentPenetration": 0,
+            "CriticalStrike": 0,
+            "CDR": 0,
+            "Lifesteal": 0,
+            "EHP": 0
+        }
+    });
+
+const StatNicknames = {
+    "Speed": ["Movement Speed"],
+    "MagPower": ["Magical Power", "Magical power"],
+    "PhysPower": ["Physical Power", "Physical power"],
+    "Health": ["Health", "Maximum Health"],
+    "Mana": ["Mana"],
+    "HP5": ["HP5", "HP5 & MP5"],
+    "MP5": ["MP5", "HP5 & MP5"],
+    "Lifesteal": ["Magical Lifesteal", "Physical Lifesteal"],
+    "PhysicalProtections": ["Physical Protections", "Physical protections.", "Physical Protection", "Physical protection"],
+    "MagicalProtections": ["Magical Protections", "Magical protections.", "Magical Protection", "Magical protection", "Magical Protection "],
+    "CCR": ["Crowd Control Reduction", "Crowd Control Reduction:"],
+    "CDR": ["Cooldown Reduction"],
+    "Crit": ["Physical Critical Strike Chance", "Critical Strike Chance"],
+    "Pen": ["Physical Penetration", "Magical Penetration", "Penetration"],
+    "AttackSpeed": ["Attack Speed"],
+    "DamageRed": ["Damage Reduction"]
+};
+
+const GlyphPairs = [
+    ["Bewitched Dagger", "Eldritch Dagger", "Relic Dagger"],
+    ["Bancroft's Claw", "Nimble Bancroft's Talon", "Bancroft's Talon"],
+    ["Breastplate of Determination", "Breastplate of Vigilance", "Breastplate of Valor"],
+    ["Magi's Shelter", "Magi's Revenge", "Magi's Cloak"],
+    ["Amulet of Silence", "Amulet of the Stronghold", "Heartward Amulet"],
+    ["Calamitous Rod of Tahuti", "Perfected Rod of Tahuti", "Rod of Tahuti"],
+    ["Glorious Pridwen", "Reverent Pridwen", "Pridwen"],
+    ["Envenomed Executioner", "The Ferocious Executioner", "The Executioner"],
+    ["Jotunn's Vigor", "Jotunn's Cunning", "Jotunn's Wrath"],
+    ["Malicious Deathbringer", "Devoted Deathbringer", "Deathbringer"],
+    ["Flameforged Hammer", "Runebreaking Hammer", "Runeforged Hammer"],
+];
+
+/*//// Functions ////*/
 
 function initializeGods() {
-    const Filter = document.querySelectorAll('select')[0].value;
-    const GodMenu = document.querySelector('#GodList');
-    GodMenu.innerHTML = '';
+    const GodList = document.querySelector('#GodList');
+    CustomGodFilter = document.querySelectorAll('#GodMenuLeft Input')[0].value;
+    GodList.innerHTML = '';
 
-    // Create trash element
-    const newGod = document.createElement('div');
-    newGod.classList.add('god');
-    newGod.style.backgroundImage = `url("Assets/Icons/Trash.png")`
-    newGod.ondblclick = function() { removeGod(); displayMenu(document.querySelector('#GodMenu')); }
-    GodMenu.appendChild(newGod);
+    const newTrash = document.createElement('div');
+    newTrash.classList.add('god_display_elem');
+    newTrash.style.backgroundImage = `url("./Assets/Icons/Trash.png")`;
+    newTrash.ondblclick = function() { removeGod(); toggleMenu(GodSelectMenu); }
+    GodList.appendChild(newTrash);
 
-    // Create God elements
     for (God of English.Gods) {
-        if (!God.Name.toLowerCase().includes(SiteData.SearchQuery)) continue;
-        if (God[Filter] != SiteData.Filter && SiteData.Filter) continue;
+
+        if (SelectedGodFilter != null && God.Roles != SelectedGodFilter) continue;
+        if (!godLang(God).Name.toLowerCase().includes(CustomGodFilter)) continue;
         const newGod = document.createElement('div');
-        newGod.classList.add('god');
-        newGod.style.backgroundImage = `url("${God.Icon}")`
+        newGod.classList.add('god_display_elem');
+        newGod.style.backgroundImage = `url("${God.godIcon_URL}")`
         const thisGod = God;
         newGod.onclick = function() { displayGod(thisGod.Name); }
-        newGod.ondblclick = function() { removeGod(); appendGod(thisGod); }
-        GodMenu.appendChild(newGod);
+        newGod.ondblclick = function() { removeGod(); appendGod(thisGod); toggleMenu(GodSelectMenu); }
+        GodList.appendChild(newGod);
+
     }
 }
 
 function initializeItems() {
-    const PLAYER = SiteData.ActivePlayerIndex;
-    const God = SiteData.PlayerData[PLAYER - 1].God;
-    const Filter = SiteData.Filter;
-    const ItemMenu = document.querySelector('#ItemList');
+    const ItemList = document.querySelector('#ItemList');
+    CustomItemFilter = document.querySelectorAll('#ItemMenuLeft Input')[0].value;
+    ItemList.innerHTML = '';
 
-    // Create trash element
-    ItemMenu.innerHTML = '';
-    const newItem = document.createElement('div');
-    newItem.classList.add('item_elem');
-    newItem.style.backgroundImage = `url("Assets/Icons/Trash.png")`
-    newItem.ondblclick = function() { removeItem(SiteData.ActiveItemIndex - 1); }
-    ItemMenu.appendChild(newItem);
+    const newTrash = document.createElement('div');
+    newTrash.classList.add('item_display_elem');
+    newTrash.style.backgroundImage = `url("./Assets/Icons/Trash.png")`;
+    newTrash.ondblclick = function() { removeItem(); toggleMenu(ItemSelectMenu); }
+    ItemList.appendChild(newTrash);
 
-    // Create item elements
+    const God = SiteData.PlayerData[ActivePlayer].God;
+
     for (Item of English.Items) {
-        if (Filter == 'Starter' && !Item.Starter) continue;
-        if (!Item.Name.toLowerCase().includes(SiteData.SearchQuery)) continue;
-        if (!Item.Filters.includes(Filter) && Filter) continue;
-        if (Item.RestrictedRoles.includes(God.Role.toLowerCase())) continue;
-        if ((Item.Name.toLowerCase()).includes('acorn') && God.Name != 'Ratatoskr') continue;
-        if (Item.DamageType != 'Neutral' && Item.DamageType != God.Type) continue;
-        if (Filter != 'Starter' && Filter != 'Recipe' && SiteData.TierFilter && SiteData.TierFilter != Item.Tier) continue;
-        if (Filter != 'Recipe' && Item.Tier == 3 && Item.Filters.includes('Recipe')) continue;
+
+        const DMGTYPE = damageType(Item);
+        const STATS = getStatNames(Item);
+
+
+        let FilterFlag = false;
+        if (StatNicknames[SelectedItemFilter] == null) {
+            try {
+                if (SelectedItemFilter == 'Starter' || SelectedItemFilter == null) FilterFlag = true;
+                else if (SelectedItemFilter == 'Aura' && Item.ItemDescription.SecondaryDescription.includes('AURA')) 
+                    FilterFlag = true;
+                else if (SelectedItemFilter == 'Power') {
+                    for (stat of STATS) 
+                        if (StatNicknames['MagPower'].includes(stat))
+                            FilterFlag = true;
+                    for (stat of STATS) 
+                        if (StatNicknames['PhysPower'].includes(stat))
+                            FilterFlag = true;
+                } 
+            } catch (e) {}
+        } else {
+            for (stat of STATS) {
+                if (StatNicknames[SelectedItemFilter].includes(stat))
+                    FilterFlag = true;
+            }
+        }
+
+        if (Item.ItemId == '19508') continue;
+        if (!FilterFlag) continue;
+        if (SelectedItemFilter == 'Starter' && !Item.StartingItem) continue;
+        if (Item.RestrictedRoles.includes(God.Roles.toLowerCase())) continue;
+        if ((Item.DeviceName.toLowerCase()).includes('acorn') && God.Name != 'Ratatoskr') continue;
+        if (DMGTYPE != 'Neutral' && !God.Type.includes(DMGTYPE)) continue;
+        if (SelectedItemFilter != 'Starter' && SpecifiedItemTier && SpecifiedItemTier != Item.ItemTier) continue;
+        if (Item.ItemTier != SpecifiedItemTier) continue;
+        if (!itemLang(Item).DeviceName.toLowerCase().includes(CustomItemFilter)) continue;
+
         const newItem = document.createElement('div');
-        newItem.classList.add('item_elem');
-        newItem.style.backgroundImage = `url("${Item.URL}")`;
-        newItem.lang = Item.Name;
+        newItem.classList.add('item_display_elem');
+        newItem.style.backgroundImage = `url("${Item.itemIcon_URL}")`
+        newItem.deviceName = Item.DeviceName;
         const thisItem = Item;
-        newItem.onclick = function() { displayItem(thisItem.Name); }
-        newItem.ondblclick = function() { appendItem(thisItem); }
-        ItemMenu.appendChild(newItem);
+        newItem.onclick = function() { displayItem(getItemData(thisItem.ItemId).DeviceName); }
+        newItem.ondblclick = function() { removeItem(); appendItem(thisItem); toggleMenu(ItemSelectMenu); }
+        ItemList.appendChild(newItem);
+
     }
 }
 
-///////////////////////////////
-/*//// Utility Functions ////*/
-///////////////////////////////
-
-function toggleGOption(option) {
-    const optionElem = document.querySelectorAll('.c')[option];
-    if (option) SiteData.Options[option] = !SiteData.Options[option];
-    if (SiteData.Options[option]) optionElem.innerHTML = '✓';
-    else optionElem.innerHTML = '';
+function updateLevel() { 
+    SiteData.PlayerData[ActivePlayer].Level = document.querySelector('#LevelSlider').value;
+    LevelLabel.innerHTML = document.querySelector('#LevelSlider').value;
 }
 
-function toggleSaveFile(file) {
-    SiteData.SaveNumber = file;
-    for(index of Array(10).keys()) removeGod(index + 1);
-    loadData();
-    displayMenu(SiteData.ActiveMenu);
+function appendGod(GodObj) {
+    SiteData.PlayerData[ActivePlayer].God = GodObj;
+    const PLAYERS = document.querySelectorAll('.god_icon .icon');
+    PLAYERS[ActivePlayer].style.backgroundImage = `URL('${GodObj.godIcon_URL}')`;
+    updateHealthMana(document.querySelectorAll('.god_mana')[ActivePlayer], null);
 }
-
-function setFilter(name) { 
-    SiteData.Filter = name; print(`Set filter to ${name}`);
-    initializeGods();
-    initializeItems();
-}
-
-function appendInfo() {
-    const PLAYER = SiteData.ActivePlayerIndex;
-    const GOD = getGodData(SiteData.PlayerData[PLAYER - 1].God.Id, TextData);
-    const PANTHEONDATA = getPantheon(SiteData.PlayerData[PLAYER - 1].God.Pantheon);
-    const ITEM_PRICE = document.querySelectorAll('.item_price');
-    document.querySelector('#GodCard').style.backgroundImage = `url("${GOD.CardArt}")`;
-
-    // Patch for broken God art
-    if (GOD.Name == 'Mercury' || GOD.Name == 'Maui'  || GOD.Name == 'Hun Batz')
-        document.querySelector('#GodCard').style.backgroundImage = `url(Assets/Art/${GOD.Name.replace(' ', '')}.png)`;
-
-    document.querySelector('#GodName').innerHTML = GOD.Name;
-    document.querySelector('#GodTitle').innerHTML = GOD.Title;
-    document.querySelector('#GodPantheon').innerHTML = `<span style="color:${PANTHEONDATA.Color}"><img src="Assets/Icons/${PANTHEONDATA.Icon}">${PANTHEONDATA.Name}</span>`;
-    document.querySelector('#GodLevel').innerHTML = `${SiteLang[18]}: ${SiteData.PlayerData[PLAYER - 1].Level}`;
-    if (!SiteData.PlayerData[PLAYER - 1].Buffs.length) document.querySelector('#GodBuffs').innerHTML = SiteLang[17];
-    else {
-        document.querySelector('#GodBuffs').innerHTML = '';
-        for (buff of SiteData.PlayerData[PLAYER - 1].Buffs)
-        document.querySelector('#GodBuffs').innerHTML += buff.replace(/_/g, ' ');
-        document.querySelector('#GodBuffs').innerHTML = document.querySelector('#GodBuffs').innerHTML.slice(0, -2);
+function removeGod() { 
+    SiteData.PlayerData[ActivePlayer].God = null;
+    const PLAYERS = document.querySelectorAll('.god_icon .icon');
+    PLAYERS[ActivePlayer].style.backgroundImage = 'URL("./Assets/Icons/Question_Gold.png")';
+    for (let itemIndex = 0; itemIndex < 6; itemIndex++) {
+        ActiveItem = itemIndex;
+        removeItem();
     }
+}
 
-    let ItemDisp = document.querySelectorAll('.item_disp');
-    for (Item of ItemDisp) Item.replaceWith(Item.cloneNode(true));
-    ItemDisp = document.querySelectorAll('.item_disp');
+function appendItem(itemObj, flag=0) { 
 
-    let ItemIndex = 0;
-    let totalBuildPrice = 0;
-    let textData = null;
-    for (Item of SiteData.PlayerData[PLAYER - 1].Items) {
-        for (textItem of TextData.Items) if (Item && textItem.Id == Item.Id) textData = textItem;
-        ItemIndex++;
-        if (!Item) {
-            ItemDisp[ItemIndex - 1].style.backgroundImage = '';
-            ITEM_PRICE[ItemIndex - 1].innerHTML = '0 <img src="Assets/Icons/Gold.png">';
-            ItemDisp[ItemIndex - 1].style.cursor = 'not-allowed';
+    /* Logic Filters */
+    const CURR_ITEMS = SiteData.PlayerData[ActivePlayer].Items;
+
+    // No Duplicates
+    if (CURR_ITEMS.includes(itemObj)) 
+        { if (!flag) alertUser(langText[86]); return; }
+    // No Two Starters
+    if (SiteData.PlayerData[ActivePlayer].StarterIndex != -1 && itemObj.StartingItem) 
+        { if (!flag) alertUser(langText[84]); return; }
+    // No Tier III and respective Tier IV
+    for (pair of GlyphPairs) for (item of CURR_ITEMS)
+        if (item && pair.includes(item.DeviceName) && pair.includes(itemObj.DeviceName)) 
+            { if (!flag) alertUser(langText[85]); return; }
+    // No Two Acorns
+    for (item of CURR_ITEMS) if (item && item.DeviceName.toLowerCase().includes('acorn') && itemObj.DeviceName.toLowerCase().includes('acorn'))
+    { if (!flag) alertUser(langText[83]); return; }
+
+    if (itemObj.StartingItem) SiteData.PlayerData[ActivePlayer].StarterIndex = ActiveItem;
+    SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemObj;
+    const ITEMS = document.querySelectorAll('.item');
+    ITEMS[ActivePlayer * 6 + ActiveItem].style.backgroundImage = `URL('${itemObj.itemIcon_URL}')`;
+}
+function removeItem() {
+    if (SiteData.PlayerData[ActivePlayer].Items[ActiveItem] && SiteData.PlayerData[ActivePlayer].Items[ActiveItem].StartingItem) 
+        SiteData.PlayerData[ActivePlayer].StarterIndex = -1;
+    SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = null;
+    const ITEMS = document.querySelectorAll('.item');
+    ITEMS[ActivePlayer * 6 + ActiveItem].style.backgroundImage = `URL("./Assets/Icons/Plus_Gold.png")`;
+} 
+
+function randomItems() {
+    if (SiteData.PlayerData[ActivePlayer].God == null) { alertUser(langText[80]); return; }
+
+    CustomItemFilter = null;
+    SelectedItemFilter = 'Starter';
+    SpecifiedItemTier = '1';
+
+    const ACORNS = ['Bristlebush Acorn', 'Thistlethorn Acorn', 'Thickbark Acorn', 'Evergreen Acorn'];
+
+    for (let itemIndex = 0; itemIndex < 6; itemIndex++) {
+
+        ActiveItem = itemIndex;
+        initializeItems();
+
+        if (itemIndex == 0 && SiteData.PlayerData[ActivePlayer].God.Name == 'Ratatoskr') {
+            const RANDOM_ACORN = ACORNS[Math.floor(Math.random() * ACORNS.length)];
+            const RANDOM_ITEM = getItemData(RANDOM_ACORN);
+            try { appendItem(RANDOM_ITEM, true); } catch (e) { return; }
+            SelectedItemFilter = null;
+            SpecifiedItemTier = '3';
             continue;
         }
-        ItemDisp[ItemIndex - 1].style.backgroundImage = `url("${Item.URL}")`;
-        let statString = '<span class="extra_stats">';
-        for (Stat of textData.Stats) statString += `${Stat.StatName} ${Stat.Value}<br>`;
-        createTextEvent(ItemDisp[ItemIndex - 1], `<span style="color: var(--DarkGold)">${textData.Name}</span><br><br>${textData.Description}<br><br>${statString}</span>`);
-        ITEM_PRICE[ItemIndex - 1].innerHTML = Item.Gold + '<img src="Assets/Icons/Gold.png">';
-        totalBuildPrice += Item.Gold;
-        ItemDisp[ItemIndex - 1].lang = textData.Name;
-        const INDEX = ItemIndex - 1;
-        ItemDisp[ItemIndex - 1].onclick = function() { activateItem(INDEX); updateStats(); appendInfo(); }
-        ItemDisp[ItemIndex - 1].style.cursor = 'pointer';
+      
+        const ITEMS = document.querySelectorAll('.item_display_elem');
+        const RANDOM_INDEX = Math.floor(Math.random() * (ITEMS.length - 1) + 1);
+        const RANDOM_ITEM = getItemData(ITEMS[RANDOM_INDEX].deviceName, langRef);
+        if (!RANDOM_ITEM) console.log(RANDOM_INDEX);
+        appendItem(RANDOM_ITEM, true);
+        SelectedItemFilter = null;
+        SpecifiedItemTier = '3';
+
+        if (itemIndex == 5 && SiteData.PlayerData[ActivePlayer].Items.includes(null)) itemIndex = 0;
     }
-    document.querySelector('#BuildPrice').innerHTML = totalBuildPrice + '<img src="Assets/Icons/Gold.png">';
+    toggleMenu(GodOptionsMenu);
 }
 
-function getPantheon(name) { for (item of SiteData.PantheonData) if (item.Name === name) return item; }
-
-function displayGod(name) {
-    for (let godIndex = 0; godIndex < English.Gods.length; godIndex++) if (English.Gods[godIndex].Name === name) {
-        function getPantheon(name) { for (item of SiteData.PantheonData) if (item.Name === name) return item; }
-        const PantheonData = getPantheon(English.Gods[godIndex].Pantheon);
-        document.querySelectorAll('#GodDetails .title')[0].innerHTML = TextData.Gods[godIndex].Name;
-        document.querySelectorAll('#GodDetails .subtitle')[0].innerHTML = TextData.Gods[godIndex].Title;
-        document.querySelectorAll('#GodDetails .label')[0].innerHTML = `<div class="pantheon_ico"></div><span style="color:${PantheonData.Color}">${PantheonData.Name}</span>`
-        document.querySelectorAll('#GodDetails .type')[0].innerHTML = `${TextData.Gods[godIndex].Type} ${TextData.Gods[godIndex].Role}`;
-        document.querySelectorAll('#GodDetails .ico')[0].style.backgroundImage = `url("${TextData.Gods[godIndex].Icon}")`;
-        document.querySelectorAll('.pantheon_ico')[0].style.backgroundImage = `url("Assets/Icons/${PantheonData.Icon}")`;
-        break;
-    }
+function randomGod() {
+    const RANDOM_GOD = Math.floor(Math.random() * English.Gods.length);
+    appendGod(English.Gods[RANDOM_GOD]);
+    SiteData.PlayerData[ActivePlayer].Level = 20;
+    toggleMenu(GodOptionsMenu);
 }
 
-function appendGod(God, preventDefault=false) {
-    const PLAYER = SiteData.ActivePlayerIndex;
-    const GodIcon = document.querySelectorAll('#App .icon')[PLAYER - 1];
-    GodIcon.innerHTML = '';
-    if (God) GodIcon.style.backgroundImage = `url(${God.Icon})`;
-    else { GodIcon.style.backgroundImage = ''; GodIcon.innerHTML = '?' }
-    SiteData.PlayerData[PLAYER - 1].God = God;
-    if (God) print(`${God.Name} selected for player ${SiteData.ActivePlayerIndex % 5} of ${SiteData.ActivePlayerIndex < 6 ? 'Chaos' : 'Order'}`)
-    if (!preventDefault) displayMenu(document.querySelector('#GodMenu'));
+function randomAll() {
+    randomGod();
+    randomItems();
+    toggleMenu(GodOptionsMenu);
 }
 
-function displayItem(name) {
-    document.querySelectorAll('#ItemDetails .subtitle')[1].innerHTML = '';
-    for (let ItemIndex = 0; ItemIndex < English.Items.length; ItemIndex++) if (English.Items[ItemIndex].Name === name) {
-        document.querySelectorAll('#ItemDetails .title')[0].innerHTML = TextData.Items[ItemIndex].Name;
-        document.querySelectorAll('#ItemDetails .subtitle')[0].innerHTML = TextData.Items[ItemIndex].Description;
-        for (ItemInfo of TextData.Items[ItemIndex].Stats)
-            document.querySelectorAll('#ItemDetails .subtitle')[1].innerHTML += `${ItemInfo.StatName} ${ItemInfo.Value}<br>`;
-        document.querySelectorAll('#ItemDetails .label')[0].innerHTML = `</div><span style="color:#B5A672;">${TextData.Items[ItemIndex].Gold}</span>`;
-        document.querySelectorAll('#ItemDetails .type')[0].innerHTML = `</div><span style="#A8A8A8">${TextData.Items[ItemIndex].SelfGold}</span>`;
-        break;
+function randomEverything() {
+    for (let playerIndex = 0; playerIndex < 10; playerIndex++) {
+        ActivePlayer = playerIndex;
+        randomAll();
     }
 }
 
-function appendItem(Item, preventDefault=false) {
-    const PLAYER = SiteData.ActivePlayerIndex;
-    const ITEM = SiteData.ActiveItemIndex;
-    const CURR_ITEMS = SiteData.PlayerData[PLAYER - 1].Items;
-    const PAIRS = SiteData.GlyphPairs;
-    let Starter = SiteData.PlayerData[PLAYER - 1].StarterIndex;
-    let Glyph = SiteData.PlayerData[PLAYER - 1].GlyphIndex;
-    let Recipe = SiteData.PlayerData[PLAYER - 1].RecipeIndex;
+function generateLink() {
+    const REGEX = />([^<]+)/;
+    let link = '';
 
-    // Item checks
-    if (Item && SiteData.PlayerData[PLAYER - 1].Items.includes(Item)) { if (!preventDefault) print('Item already selected', 1); return; }
-    if (Item && Starter != -1 && Item.Starter && ITEM != Starter) { if (!preventDefault) print('Cannot select two starter items', 1); return; }
-    if (Item && Recipe != -1 && Item.Filters.includes('Recipe') && ITEM != Recipe) { if (!preventDefault) print('Cannot select two recipes', 1); return; }
-    for (checkItem of CURR_ITEMS) for (pair of PAIRS) {
-        if (Item && checkItem && pair.Pair.includes(Item.Name) && pair.Pair.includes(checkItem.Name) && checkItem != CURR_ITEMS[ITEM - 1])  
-        { if (!preventDefault) print('Cannot select Tier IV and its respective Tier III', 1); return; }
+    for (let playerIndex = 0; playerIndex < 10; playerIndex++) {
+        if (!SiteData.PlayerData[playerIndex].God) continue;
+
+        else link += playerIndex + 'g=' + SiteData.PlayerData[playerIndex].God.id + '&';
+        link += playerIndex + 'l=' + SiteData.PlayerData[playerIndex].Level + '&';
+
+        for (let itemIndex = 0; itemIndex < 6; itemIndex++) {
+            if (!SiteData.PlayerData[playerIndex].Items[itemIndex]) link += playerIndex + 'i' + itemIndex + '=N&';
+            else link += playerIndex + 'i' + itemIndex + '=' + SiteData.PlayerData[playerIndex].Items[itemIndex].ItemId + '&';
+        }
+
+        link += playerIndex + 'bfs=';
+        if (!SiteData.PlayerData[playerIndex].Buffs.length) link += 'N';
+        for (Buffs of SiteData.PlayerData[playerIndex].Buffs) link += Buffs + ',';
+        link += '&';
+
     }
-
-    // Item appending
-    let ItemIcon = document.querySelectorAll('.item')[((PLAYER - 1) * 6) + ITEM - 1];
-    ItemIcon.replaceWith(ItemIcon.cloneNode(true));
-    ItemIcon = document.querySelectorAll('.item')[((PLAYER - 1) * 6) + ITEM - 1];
-    SiteData.PlayerData[PLAYER - 1].Items[ITEM - 1] = Item;
-    if (Item && Item.Starter) SiteData.PlayerData[PLAYER - 1].StarterIndex = ITEM;
-    if (Item && Item.isGlyph) SiteData.PlayerData[PLAYER - 1].GlyphIndex = ITEM;
-    if (Item && Item.Filters.includes('Recipe')) SiteData.PlayerData[PLAYER - 1].RecipeIndex = ITEM;
-
-    if (Item) {
-        if (!SiteData.Options[0]) ItemIcon.innerHTML = '';
-        ItemIcon.style.backgroundImage = `url(${SiteData.PlayerData[PLAYER - 1].Items[ITEM - 1].URL})`;
-        let statString = '<span class="extra_stats">';
-        for (Stat of Item.Stats) statString += `${Stat.StatName} ${Stat.Value}<br>`;
-        createTextEvent(ItemIcon, `<span style="color: var(--DarkGold)">${Item.Name}</span><br><br>${Item.Description}<br><br>${statString}</span>`);
-    }
-    else {
-        if (!SiteData.Options[0]) ItemIcon.innerHTML = '+'
-        ItemIcon.style.backgroundImage = '';
-        createTextEvent(ItemIcon, 'Select an Item');
-    }
-
-    if (SiteData.ActiveMenu == ItemMenu) displayMenu(document.querySelector('#ItemMenu'));
-    if (Item) print(`${Item.Name} selected for player ${SiteData.ActivePlayerIndex % 5} of ${SiteData.ActivePlayerIndex < 6 ? 'Chaos' : 'Order'}`);
-    return ['SUCCESS', Item];
+    return link;
 }
 
-function removeItem(item) {
-    SiteData.ActiveItemIndex = item + 1;
-    appendItem(null);
-    SiteData.PlayerData[SiteData.ActivePlayerIndex - 1].Items[item - 1] = null;
-    print(`Item ${item} removed for player ${SiteData.ActivePlayerIndex % 5} of ${SiteData.ActivePlayerIndex < 6 ? 'Chaos' : 'Order'}`)
+function generateShareLink() {
+    const URL = ((window.location.href).split('?'))[0];
+    navigator.clipboard.writeText(`${URL}?${generateLink()}`);
 }
 
-function removeGod(manual=-1) {
-  if (manual != -1) SiteData.ActivePlayerIndex = manual;
-  const PLAYER = SiteData.PlayerData[SiteData.ActivePlayerIndex - 1];
-  for (let itemIndex = 0; itemIndex < 6; itemIndex++) removeItem(itemIndex);
-  appendGod(null);
-  PLAYER.God = null;
-  PLAYER.Level = 1;
-  PLAYER.ActiveEffects = [];
-  print(`God removed for player ${SiteData.ActivePlayerIndex % 5} of ${SiteData.ActivePlayerIndex < 6 ? 'Chaos' : 'Order'}`)
-  displayMenu(document.querySelector('#GodMenu'));
+function selectBuff(elem) {
+    const BUFFS = SiteData.PlayerData[ActivePlayer].Buffs;
+    if (elem == null) SiteData.PlayerData[ActivePlayer].Buffs = []; 
+    if (elem != null && !BUFFS.includes(elem.buffName)) BUFFS.push(elem.buffName);
+    updateBuffDisplay();
 }
 
-function setTier(tier) {
-  SiteData.TierFilter = tier;
-  let TierButtons = document.querySelectorAll('.tier_filter');
-  for (Button of TierButtons) Button.style.color = 'var(--DarkGrayed)';
-  TierButtons[tier - 1].style.color = 'var(--DarkGold)';
-}
+function getDPS() {
+    const PLAYER = SiteData.PlayerData[ActivePlayer];
+    let modifier = 1.75;
+    if (!PLAYER.God) return 0;
 
-function getGodData(id, o=English) { for (God of o.Gods) if (God.Id == id) return God; }
-function getItemData(id, o=English) { for (Item of o.Items) if (Item.Id == id) return Item; }
+    if (PLAYER.God.Name == 'Heimdallr') modifier *= .6;
+
+    if (PLAYER.Items.includes(getItemData('Deathbringer')) ||
+        PLAYER.Items.includes(getItemData('Devoted Deathbringer'))  ||
+        PLAYER.Items.includes(getItemData('Nalicious'))) modifier = 2;
+
+    return PLAYER.Stats.BasicAttackDamage * PLAYER.Stats.AttackSpeed + (modifier * PLAYER.Stats.BasicAttackDamage * PLAYER.Stats.AttackSpeed) * (PLAYER.Stats.CriticalStrike / 100);
+}
