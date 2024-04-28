@@ -1177,6 +1177,71 @@ header nav div:hover { border-color: var(--BrightGold); }
     }
 }
 
+@media (max-width: 750px) {
+    #Left { width: 100%; float: left !important; }
+    #Right { width: 100%; float: left !important; }
+    #App { overflow-x: hidden; overflow-y: scroll; }
+    header nav div { height: 30px; width: 30px; }
+    #SiteTitle { font-size: 18px !important; margin-left: 20px; }
+    #SitePatch { display: none; }
+    .menu h1 { font-size: 20px !important; }
+    #AboutTitle { font-size: 35px; }
+    #AboutAuthor { font-size: 25px; }
+    #AboutDesc { font-size: 25px; }
+    #AboutContent a { font-size: 20px; }
+    #FileMenuContent { flex-direction: column; }
+    .file_option { height: 80% !important; width: 90% !important; }
+    .lang_option { width: 90% !important; font-size: 70% !important; }
+    .search_result .search_title { font-size: 35%; }
+    #SearchLeft { width: 40% !important; }
+    #SearchRight { width: 58% !important; }
+    .search_nav_elem { font-size: 10%; }
+    #SearchNav { height: 5%; }
+    #SearchSummaryIcon { height: 50px; width: 50px; }
+    #GlobalOptions .option { font-size: 10px; }
+    .tab { transform: translateX(30vw); }
+    .filter_option { font-size: 65% !important; }
+    .god_display_elem { height: 2.5vh; width: 2.5vh; }
+    .item_display_elem { height: 2.5vh; width: 2.5vh; }
+
+
+    #HoveredGodIcon { height: 60px !important; width: 60px !important; }
+    #HoveredGodName { font-size: 20px !important; }
+    #HoveredGodTitle { font-size: 15px !important; }
+    #HoveredGodPantheon { font-size: 25px !important; }
+    #HoveredGodDamage { font-size: 25px !important; }
+    #HoveredGodClass { font-size: 25px !important; margin-top: 25% !important; }
+    #HoveredGodInfoText, #HoveredItemInfoText { font-size: 25px !important; margin-top: 30% !important; }
+    #ItemMenuSecondMiddle h2 { font-size: 50% !important; }
+    #HoveredItemFullDesc, #HoveredItemStats { height: 40% !important; margin-top: 10% !important; font-size: 10px !important; }
+    #HoveredItemName { font-size: 15px !important; }
+    .info_menu_button img { height: .5em !important; width: .5em !important; }
+    .info_menu_button { height: 100% !important; transform: translateY(-10px);  }
+    #Lookup { display: none !important; }
+    #LevelSliderContainer { font-size: 15px; }
+    .side_menu_content .info_menu_button { height: max-content !important; }
+    #DPSFactor { font-size: 10px !important ; }
+    .stat_info { overflow: hidden; text-wrap: nowrap; }
+    #InfoPassives {
+        margin: auto !important;
+        right: -200px !important; 
+        top: auto !important;
+        bottom: 0 !important;
+    }
+    #InfoName { font-size: 20px !important; }
+    #InfoLevel { font-size: 15px !important; }
+    #InfoGold { font-size: 10px !important; }
+    .stat { font-size: 10px !important; }
+    #InfoRightContainer { width: 60% !important; }
+    #InfoLeftContainer { width: 40% !important; }
+    #PassiveDisplay { margin: 20% !important; width: 200% !important; }
+    #ToolTip { font-size: 25px !important; }
+    .stat_info { width: 100% !important; }
+    .stat_bar { width: calc(62% - 6px) !important; }
+
+}
+
+
 @keyframes pulse {
     from { transform: scale(1); }
     to { transform: scale(1.3); }
