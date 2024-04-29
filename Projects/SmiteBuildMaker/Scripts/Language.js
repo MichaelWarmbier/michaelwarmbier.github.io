@@ -6,6 +6,11 @@ const QUERY = new URLSearchParams(window.location.search);
 function saveData() { setCookie(`save_${SaveNumber}`, generateLink(), 10_000); }
 
 function loadData(data) {
+    for (let playerIndex = 0; playerIndex < 10; playerIndex++) {
+        ActivePlayer = playIndex;
+        removeGod();
+    }
+
     let dataToLoad = null;
     if (data == null) dataToLoad = getCookie(`save_${SaveNumber}`);
     else              dataToLoad = data;
