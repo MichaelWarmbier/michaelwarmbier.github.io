@@ -624,7 +624,7 @@ header nav div:hover { border-color: var(--BrightGold); }
 #ItemMenuRight #HoveredItemName { font-family: var(--TitleFont); font-size: 40px; color: white; }
 #ItemMenuRight #HoveredItemFullPrice { font-family: var(--TitleFont); font-size: 30px; color: var(--DarkGold); margin-top: 5%; }
 #ItemMenuRight #HoveredItemSinglePrice { font-family: var(--TitleFont); font-size: 35px; color: var(--LightGray); }
-#ItemMenuRight #HoveredItemInfoText { font-family: var(--BrandFont); font-size: 40px; color: var(--LightGray); margin-top: 5%; }
+#ItemMenuRight #HoveredItemInfoText { font-family: var(--BrandFont); font-size: 30px; color: var(--LightGray); margin-top: 5%; }
 
 #ItemMenuRight #HoveredItemDesc {
     display: block;
@@ -1225,7 +1225,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     #HoveredGodPantheon { font-size: 25px !important; }
     #HoveredGodDamage { font-size: 25px !important; }
     #HoveredGodClass { font-size: 25px !important; margin-top: 25% !important; }
-    #HoveredGodInfoText, #HoveredItemInfoText { font-size: 25px !important; margin-top: 30% !important; }
+    #HoveredGodInfoText, #HoveredItemInfoText { font-size: 25px !important; margin-top: 20% !important; }
     #ItemMenuSecondMiddle h2 { font-size: 50% !important; }
     #HoveredItemFullDesc, #HoveredItemStats { height: 40% !important; margin-top: 10% !important; font-size: 10px !important; }
     #HoveredItemName { font-size: 15px !important; }

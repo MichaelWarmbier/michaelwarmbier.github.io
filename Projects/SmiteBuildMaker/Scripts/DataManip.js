@@ -102,7 +102,7 @@ function initializeGods() {
         newGod.classList.add('god_display_elem');
         newGod.style.backgroundImage = `url("${God.godIcon_URL}")`
         const thisGod = God;
-        newGod.onclick = function() { displayGod(thisGod.Name); }
+        newGod.onclick = function() { displayGod(getGodData(thisGod.id).Name); }
         newGod.ondblclick = function() { removeGod(); appendGod(thisGod); toggleMenu(GodSelectMenu); }
         GodList.appendChild(newGod);
 
