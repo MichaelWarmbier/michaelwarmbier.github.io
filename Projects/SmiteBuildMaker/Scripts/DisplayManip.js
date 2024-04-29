@@ -364,7 +364,7 @@ function updateHealthMana(elem, event) {
     } else if (elem.className == 'god_mana') {
 
         elem.style.backgroundColor = '#4b5fe3';
-        elem.innerHTML = '100%';
+        elem.innerHTML = '&nbsp;100%&nbsp;';
 
     }
     if (elem.className == 'god_mana' && (CURR_GOD == 'Cu Chulainn' || CURR_GOD == 'Yemoja') || event == null) return;
