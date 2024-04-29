@@ -419,9 +419,9 @@ header nav div:hover { border-color: var(--BrightGold); }
 #SearchSummaryID { font-size: 15px; margin-left: -20px; }
 #SearchSummaryRegion { font-size: 30px; float: right; margin-right: 20px; }
 #SearchSummaryStatus { color: var(--MediumGray); font-size: 25px; width: 100%; transform: translateY(-40px); }
-#SearchSummaryWins { color: var(--LightGray); font-size: 35px; width: 100%; }
-#SearchSummaryLosses { color: var(--LightGray); font-size: 35px; width: 100%; }
-#SearchSummaryLeaves { color: var(--LightGray); font-size: 35px; width: 100%; }
+#SearchSummaryWins { color: var(--LightGray); font-size: 25px; width: 100%; }
+#SearchSummaryLosses { color: var(--LightGray); font-size: 25px; width: 100%; transform: translateY(-10px) }
+#SearchSummaryLeaves { color: var(--LightGray); font-size: 25px; width: 100%; transform: translateY(-20px) }
 
 #SearchSummaryIcon {
     float: right;
@@ -1195,7 +1195,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     #Left { width: 100%; float: left !important; }
     #Right { width: 100%; float: left !important; }
     #App { overflow-x: hidden; overflow-y: scroll; }
-    header nav div { height: 30px; width: 30px; }
+    header nav div { height: 50px; width: 50px; }
     #SiteTitle { font-size: 18px !important; margin-left: 20px; }
     #SitePatch { display: none; }
     .menu h1 { font-size: 20px !important; }
@@ -1218,6 +1218,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     .god_display_elem { height: 2.5vh; width: 2.5vh; }
     .item_display_elem { height: 2.5vh; width: 2.5vh; }
 
+    #Right { margin-top: 10%; }
 
     #HoveredGodIcon { height: 60px !important; width: 60px !important; }
     #HoveredGodName { font-size: 20px !important; }
