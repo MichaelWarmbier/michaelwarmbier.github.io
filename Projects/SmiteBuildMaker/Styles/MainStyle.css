@@ -918,7 +918,7 @@ header nav div:hover { border-color: var(--BrightGold); }
 .stat {
     width: 80%;
     height: max-content;
-    font-size: 20px;
+    font-size: 18px;
     font-family: var(--TitleFont);
     color: var(--LightGray);
     margin-top: 1px;
