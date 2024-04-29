@@ -386,3 +386,11 @@ function updateHealthMana(elem, event) {
 }
 
 function clearHMUpdate() { clearInterval(MouseInterval); }
+
+function summonKirby() {
+    const AMOUNT = document.querySelectorAll('.kirby').length - 1;
+    const HEIGHT = Math.floor(Math.random() * 100) + 1;
+    document.querySelector('content').insertAdjacentHTML('afterbegin', `<img class='kirby' src='./Assets/Icons/KirbyFly.gif' style='top:${HEIGHT}%'>`);
+    setTimeout(() => { for (elem of document.querySelectorAll('.kirby')) if (getComputedStyle(elem).opacity == '0') elem.remove(); }, 9_000);
+    return document.querySelectorAll('.kirby')[AMOUNT];
+}
