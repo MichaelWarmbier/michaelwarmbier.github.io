@@ -832,7 +832,7 @@ header nav div:hover { border-color: var(--BrightGold); }
 }
 
 #InfoLeftContainer #InfoIcon {
-    height: 150px; width: 150px;
+    height: 75px; width: 75px;
     border: var(--ThinBorder);
     border-radius: var(--ThinBorderRadius);
     margin-top: 20px;
