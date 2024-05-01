@@ -305,6 +305,11 @@
                     <div id="Feature" class="patch_item">Se agregó "Factor de ataque básico" para comparar el daño por segundo entre dos personajes</div>
                     <div id="Enhancement" class="patch_item">El estilo y el diseño del sitio web han sido revisados ​​y mejorados.</div>
                     <div id="Enhancement" class="patch_item">Soporte móvil mejorado</div>
+                    Post Patch (.1):
+                    <div id="Feature" class="patch_item">Se agregaron efectos pasivos de articulo</div>
+                    <div id="BugFix" class="patch_item">Los precios de los artículos en el menú de información ahora son precisos</div>
+                    <div id="BugFix" class="patch_item">Los filtros ahora se borran solos cuando se vuelve a abrir el menú</div>
+                    <div id="BugFix" class="patch_item">Errores visuales según el tamaño de la pantalla</div>
                 </div>
             </div>
         </div>
@@ -338,7 +343,7 @@
         <div id="SearchMenu" class="menu">
             <h1>Encontre Jogos Recentes</h1>
             <div id="SearchLeft">
-                <input type="text" id="SearchInput" placeholder="Introduce el nombre del jugador..."/>
+                <input type="text" class="search_input" placeholder="Introduce el nombre del jugador..."/>
                 <div id="SearchResults">
                 </div>
             </div>
@@ -499,22 +504,22 @@
                     <img src="./Assets/Icons/Money.png">
                 </div>
                 <div id="InfoItems">
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(0, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(1, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(2, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(3, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(4, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(5, this)">
                         <div class="info_item_label">0</div>
                     </div>
                 </div>
@@ -759,7 +764,7 @@
         <div id="GodSelectMenu" class="menu">
             <h1>Seleccione Dios</h1>
             <div id="GodMenuLeft">
-                <input type="text" id="SearchInput" placeholder="Introduzca el nombre de Dios.." oninput="initializeGods();"/>
+                <input type="text" class="search_input" placeholder="Introduzca el nombre de Dios.." oninput="initializeGods();"/>
                 <div id="GodList"></div>
             </div>
             <div id="GodMenuMiddle">
@@ -785,7 +790,7 @@
         <div id="ItemSelectMenu" class="menu">
             <h1>Selecciona un Artículo</h1>
             <div id="ItemMenuLeft">
-                <input type="text" id="SearchInput" placeholder="Introduzca el nombre del artículo.." oninput="initializeItems();"/>
+                <input type="text" class="search_input" placeholder="Introduzca el nombre del artículo.." oninput="initializeItems();"/>
                 <div id="ItemList"></div>
             </div>
             <div id="ItemMenuSecondMiddle">

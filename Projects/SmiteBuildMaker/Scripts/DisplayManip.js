@@ -80,6 +80,19 @@ function toggleMenu(targetMenu) {
         return;
     }
 
+    if (targetMenu == GodSelectMenu || targetMenu == ItemSelectMenu || targetMenu == SearchMenu) {
+        CustomGodFilter = null;
+        SelectedGodFilter = null;
+        CustomItemFilter = null;
+        SelectedItemFilter = null;
+        SpecifiedItemTier = '3';
+        focusSelf('#GodMenuMiddle .filter_option', null);
+        focusSelf('#ItemMenuMiddle .filter_option', null);
+        focusSelf('#ItemMenuSecondMiddle .filter_option', document.querySelectorAll('#ItemMenuSecondMiddle .filter_option')[2]);
+        const ELEMS = document.querySelectorAll('.search_input');
+        ELEMS[0].value = ''; ELEMS[1].value = ''; ELEMS[2].value = '';
+    }
+
 
     if (targetMenu == GodInfoMenu || targetMenu == GodOptionsMenu) {
 
@@ -99,30 +112,8 @@ function toggleMenu(targetMenu) {
             InfoIcon.style.backgroundImage = `URL('${SiteData.PlayerData[ActivePlayer].God.godIcon_URL}')`;
             InfoName.innerHTML = SiteData.PlayerData[ActivePlayer].God.Name;
             InfoLevel.innerHTML = `${langText[5]} ${SiteData.PlayerData[ActivePlayer].Level}`;
-            // Display Buffs
-            const ITEMS = document.querySelectorAll('.info_item');
-            const ITEM_PRICES = document.querySelectorAll('.info_item_label');
-            const ITEM_DATA = SiteData.PlayerData[ActivePlayer].Items;
-
-            for (let elemIndex = 0; elemIndex < 6; elemIndex++) {
-                if (ITEM_DATA[elemIndex] != null) {
-                    ITEMS[elemIndex].style.backgroundImage = `URL('${ITEM_DATA[elemIndex].itemIcon_URL}')`;
-                    ITEM_PRICES[elemIndex].innerHTML = ITEM_DATA[elemIndex].Price;
-                    ITEMS[elemIndex].addEventListener("mouseover", 
-                        () => { showToolTip(`${itemLang(ITEM_DATA[elemIndex]).DeviceName}<br>${itemLang(ITEM_DATA[elemIndex]).ItemDescription.SecondaryDescription}`); });
-                    ITEMS[elemIndex].addEventListener("mouseout",  hideToolTip);
-                } else {
-                    ITEMS[elemIndex].style.backgroundImage = '';
-                    ITEM_PRICES[elemIndex].innerHTML = '0';
-                    ITEMS[elemIndex].addEventListener("mouseover", () => { showToolTip(langText[72]); });
-                    ITEMS[elemIndex].addEventListener("mouseout",  hideToolTip);
-                }
-            }
-            
-
-            let totalGold = 0;
-            for (item of ITEM_DATA) if (item != null) totalGold += item.Price;
-            InfoGold.innerHTML = `${totalGold} <img src="./Assets/Icons/Money.png">`;
+        
+            updateGodInfoDisplay();
 
         }
 
@@ -393,4 +384,56 @@ function summonKirby() {
     document.querySelector('content').insertAdjacentHTML('afterbegin', `<img class='kirby' src='./Assets/Icons/KirbyFly.gif' style='top:${HEIGHT}%'>`);
     setTimeout(() => { for (elem of document.querySelectorAll('.kirby')) if (getComputedStyle(elem).opacity == '0') elem.remove(); }, 9_000);
     return document.querySelectorAll('.kirby')[AMOUNT];
+}
+
+function activeVisualToggle(index, elem) {
+    ActiveItem = index;
+    const PLAYER = SiteData.PlayerData[ActivePlayer];
+    if (PLAYER.Items[index] != null) {
+        const NAME = getItemData(PLAYER.Items[index].ItemId).DeviceName;
+        if (!PLAYER.ActiveEffects.includes(NAME)) {
+            elem.style.boxShadow = '2px 2px 4px orange, -2px -2px 4px orange, -2px 2px 4px orange, 2px -2px 4px orange';
+            applyActiveEffect(NAME);
+        } else {
+            elem.style.boxShadow = '';
+            removeActiveEffect(NAME);
+        }
+    }
+}
+
+function updateGodInfoDisplay() {
+    const ITEMS = document.querySelectorAll('.info_item');
+    const ITEM_PRICES = document.querySelectorAll('.info_item_label');
+    const ITEM_DATA = SiteData.PlayerData[ActivePlayer].Items;
+
+    for (let elemIndex = 0; elemIndex < 6; elemIndex++) {
+        if (ITEM_DATA[elemIndex] != null) {
+
+            ITEMS[elemIndex].style.backgroundImage = `URL('${ITEM_DATA[elemIndex].itemIcon_URL}')`;
+
+            if (ITEM_DATA[elemIndex].DeviceName.includes('Evolved'))
+                ITEM_PRICES[elemIndex].innerHTML = getItemFullPrice(getItemData(ITEM_DATA[elemIndex].DeviceName.replace('Evolved ', '')));
+            else 
+                ITEM_PRICES[elemIndex].innerHTML = getItemFullPrice(ITEM_DATA[elemIndex]);
+
+            ITEMS[elemIndex].addEventListener("mouseover", 
+                () => { 
+                    try { showToolTip(`<span style='color:var(--DarkGold)'>${itemLang(ITEM_DATA[elemIndex]).DeviceName}</span><br>${itemLang(ITEM_DATA[elemIndex]).ItemDescription.SecondaryDescription}<br><span style='color:var(--DarkGold)'>${langText[98]}</span>`);
+                    } catch (e) {}
+                });
+            ITEMS[elemIndex].addEventListener("mouseout",  hideToolTip);
+                
+        } else {
+
+            ITEMS[elemIndex].style.backgroundImage = '';
+            ITEM_PRICES[elemIndex].innerHTML = '0';
+            ITEMS[elemIndex].addEventListener("mouseover", () => { showToolTip(langText[72]); });
+            ITEMS[elemIndex].addEventListener("mouseout",  hideToolTip);
+
+        }
+    }
+
+    let totalGold = 0;
+    for (item of ITEM_DATA) if (item != null) totalGold += getItemFullPrice(item);
+    InfoGold.innerHTML = `${totalGold} <img src="./Assets/Icons/Money.png">`;
 }

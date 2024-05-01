@@ -26,6 +26,7 @@ for (let playerIndex = 0; playerIndex < 10; playerIndex++)
         "BarMana": 100,
         "PassiveOn": false,
         "PassiveStance": 0,
+        "ActiveEffects": [],
         "Stats": { 
             "Speed": 0,
             "Power": 0,
@@ -97,7 +98,7 @@ function initializeGods() {
     for (God of English.Gods) {
 
         if (SelectedGodFilter != null && God.Roles != SelectedGodFilter) continue;
-        if (!godLang(God).Name.toLowerCase().includes(CustomGodFilter)) continue;
+        if (!godLang(God).Name.toLowerCase().includes(CustomGodFilter.toLowerCase())) continue;
         const newGod = document.createElement('div');
         newGod.classList.add('god_display_elem');
         newGod.style.backgroundImage = `url("${God.godIcon_URL}")`
@@ -120,13 +121,12 @@ function initializeItems() {
     newTrash.ondblclick = function() { removeItem(); toggleMenu(ItemSelectMenu); }
     ItemList.appendChild(newTrash);
 
-    const God = SiteData.PlayerData[ActivePlayer].God;
+    const God = getGodData(SiteData.PlayerData[ActivePlayer].God.id);
 
     for (Item of English.Items) {
 
         const DMGTYPE = damageType(Item);
         const STATS = getStatNames(Item);
-
 
         let FilterFlag = false;
         if (StatNicknames[SelectedItemFilter] == null) {
@@ -149,7 +149,7 @@ function initializeItems() {
                     FilterFlag = true;
             }
         }
-
+        
         if (Item.ItemId == '19508') continue;
         if (!FilterFlag) continue;
         if (SelectedItemFilter == 'Starter' && !Item.StartingItem) continue;
@@ -158,7 +158,7 @@ function initializeItems() {
         if (DMGTYPE != 'Neutral' && !God.Type.includes(DMGTYPE)) continue;
         if (SelectedItemFilter != 'Starter' && SpecifiedItemTier && SpecifiedItemTier != Item.ItemTier) continue;
         if (Item.ItemTier != SpecifiedItemTier) continue;
-        if (!itemLang(Item).DeviceName.toLowerCase().includes(CustomItemFilter)) continue;
+        if (!itemLang(Item).DeviceName.toLowerCase().includes(CustomItemFilter.toLowerCase())) continue;
 
         const newItem = document.createElement('div');
         newItem.classList.add('item_display_elem');
@@ -218,8 +218,17 @@ function appendItem(itemObj, flag=0) {
     ITEMS[ActivePlayer * 6 + ActiveItem].style.backgroundImage = `URL('${itemObj.itemIcon_URL}')`;
 }
 function removeItem() {
-    if (SiteData.PlayerData[ActivePlayer].Items[ActiveItem] && SiteData.PlayerData[ActivePlayer].Items[ActiveItem].StartingItem) 
+    const ITEM = SiteData.PlayerData[ActivePlayer].Items[ActiveItem];
+
+    if (ITEM && ITEM.StartingItem) 
         SiteData.PlayerData[ActivePlayer].StarterIndex = -1;
+
+    if (ITEM == null) return;
+
+    const ITEM_DISPLAY = document.querySelectorAll('.info_item');
+    ITEM_DISPLAY[ActiveItem].style.boxShadow = '';
+    removeActiveEffect(ITEM.DeviceName);
+
     SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = null;
     const ITEMS = document.querySelectorAll('.item');
     ITEMS[ActivePlayer * 6 + ActiveItem].style.backgroundImage = `URL("./Assets/Icons/Plus_Gold.png")`;
@@ -251,7 +260,6 @@ function randomItems() {
         const ITEMS = document.querySelectorAll('.item_display_elem');
         const RANDOM_INDEX = Math.floor(Math.random() * (ITEMS.length - 1) + 1);
         const RANDOM_ITEM = getItemData(ITEMS[RANDOM_INDEX].deviceName, langRef);
-        if (!RANDOM_ITEM) console.log(RANDOM_INDEX);
         appendItem(RANDOM_ITEM, true);
         SelectedItemFilter = null;
         SpecifiedItemTier = '3';
@@ -329,4 +337,28 @@ function getDPS() {
         PLAYER.Items.includes(getItemData('Nalicious'))) modifier = 2;
 
     return PLAYER.Stats.BasicAttackDamage * PLAYER.Stats.AttackSpeed + (modifier * PLAYER.Stats.BasicAttackDamage * PLAYER.Stats.AttackSpeed) * (PLAYER.Stats.CriticalStrike / 100);
+}
+
+function applyActiveEffect(name) {
+    const EFFECTS = SiteData.PlayerData[ActivePlayer].ActiveEffects;
+    if (!EFFECTS.includes(name)) EFFECTS.push(name);
+    
+    if (getItemData(`Evolved ${name}`)) {
+
+        SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemLang(getItemData(`Evolved ${name}`));
+        updateGodInfoDisplay();
+
+    } else if (getItemData(name.replace('Evolved ', ''))) {
+
+        SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemLang(getItemData(name.replace('Evolved ', '')));
+        updateGodInfoDisplay();
+
+    }
+    updateStats();
+}
+
+function removeActiveEffect(name) {
+    const EFFECTS = SiteData.PlayerData[ActivePlayer].ActiveEffects;
+    if (EFFECTS.includes(name)) EFFECTS.splice(EFFECTS.indexOf(name), 1);
+    updateStats();
 }

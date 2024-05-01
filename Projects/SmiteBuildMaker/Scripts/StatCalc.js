@@ -2,22 +2,30 @@ let playerData = null;
 let godData = null;
 let statData = null;
 let itemData = null;
+let healthData = null;
+let manaData = null;
 
 function updateStats() {
+    const NO_GOD = SiteData.PlayerData[ActivePlayer].God == null;
     playerData = SiteData.PlayerData[ActivePlayer];
-    godData = SiteData.PlayerData[ActivePlayer].God;
+    godData = NO_GOD ? null : getGodData(SiteData.PlayerData[ActivePlayer].God.id);
     statData = SiteData.PlayerData[ActivePlayer].Stats;
     itemData = SiteData.PlayerData[ActivePlayer].Items;
+    healthData = SiteData.PlayerData[ActivePlayer].BarHealth;
+    manaData = SiteData.PlayerData[ActivePlayer].BarMana;
 
-    resetStats();
-    calculateBaseStats();
-    clearPassives();
-    addItemStats();
-    addNonConquestBalance();
-    addBuffs();
-    calculateBasicAttack();
-    addModifications();
-    displayStats();
+    try {
+        resetStats();
+        calculateBaseStats();
+        clearPassives();
+        addItemStats();
+        addNonConquestBalance();
+        addBuffs();
+        calculateBasicAttack();
+        addItemPassives();
+        addModifications();
+        displayStats();
+    } catch (e) { }
 }
 
 function resetStats() { for (key of Object.keys(playerData.Stats)) playerData.Stats[key] = 0; }
@@ -40,7 +48,8 @@ function addItemStats() {
 
     for (item of itemData) {
         if (!item) continue;
-        for (stat of item.ItemDescription.Menuitems) {
+        let englishItem = getItemData(item.ItemId);
+        for (stat of englishItem.ItemDescription.Menuitems) {
 
             const VALUE = parseFloat(stat.Value.replace(/[+%]/g, ''));
             const NAME = stat.Description;
@@ -67,7 +76,245 @@ function addItemStats() {
     }
 }
 
-// Add Item Passives
+function addItemPassives() {
+    
+    for (item of playerData.Items) {
+    if (!item) continue;
+    let englishItem = getItemData(item.ItemId);
+        switch (englishItem.DeviceName) {
+            case "Heartward Amulet": 
+                statData.MagicalProtections += 15;
+                statData.MP5 += 30;
+                addPassive(`[${item.DeviceName}]: +30 ${langText[13]}, +15 ${langText[95]}`);
+                break;
+            case "Sovereignty": 
+                statData.PhysicalProtections += 15;
+                statData.HP5 += 25;
+                addPassive(`[${item.DeviceName}]: +25 ${langText[12]}, +15 ${langText[82]}`);
+                break;
+            case "Shogun's Kusari": 
+                statData.AttackSpeed += godData.AttackSpeed * .30;
+                addPassive(`[${item.DeviceName}]: 30% ${langText[8]}`);
+                break;
+            case "Telkhines Ring": 
+                statData.BasicAttackDamage += 5 + (3 * playerData.Level);
+                addPassive(`[${item.DeviceName}]: +5 ${langText[9]} + 3 x ${langText[5]}`);
+                break;
+            case "Pythagorem's Piece": 
+                statData.Lifesteal += 9;
+                statData.Power += 15;
+                addPassive(`[${item.DeviceName}]: +15 ${langText[7]}, +9% ${langText[99]}`);
+                break;
+            case "Caduceus Club": 
+                statData.CCR += 10;
+                statData.Speed += godData.Speed * .03;
+                addPassive(`[${item.DeviceName}]: +10 ${langText[14]}, +3% ${langText[6]}`);
+                break;
+            case "Book of Thoth": 
+                statData.Power += statData.Mana * .04;
+                addPassive(`[${item.DeviceName}]: 4% ${langText[11]} = ${langText[7]}`);
+                break;
+            case "Evolved Book of Thoth":
+                statData.Power += statData.Mana * .07;
+                addPassive(`[${item.DeviceName}]: 7% ${langText[11]} = ${langText[7]}`);
+                break;
+            case "Rod of Asclepius": 
+                statData.CDR += 10;
+                addPassive(`[${item.DeviceName}]: +10% ${langText[18]}`);
+                break;
+            case "Typhon's Fang": 
+                statData.Power += statData.Lifesteal * 1.5;
+                addPassive(`[${item.DeviceName}]: ${langText[7]} + ${langText[7]} x 1.5 ${langText[99]}`);
+                break;
+            case "Amulet of the Stronghold": 
+                statData.MagicalProtections += 15;
+                statData.MP5 += 30;
+                statData.MagicalProtections += statData.PhysicalProtections * .15;
+                addPassive(`[${item.DeviceName}]: +15 ${langText[95]}, + 30 ${langText[15]}, 15% ${langText[82]} = ${langText[95]}`);
+                break;
+            case "Silverbranch Bow": 
+                let Bonus = Math.round((statData.AttackSpeed - 2.5) / .02);
+                if (Bonus > 120) Bonus = 120;
+                if (statData.AttackSpeed > 2.5) statData.Power += 3 * Bonus;
+                addPassive(`[${item.DeviceName}]: .02 ${langText[8]} > 2.5 = 3 ${langText[7]}`);
+                break;
+            case "Nimble Bancroft's Talon": 
+                statData.Power += 1.75 * (healthData < 60 ? 40 : 100 - healthData);
+                statData.Lifesteal += .375 * (healthData < 60 ? 40 : 100 - healthData);
+                statData.AttackSpeed += (godData.AttackSpeed * .02) * Math.floor(statData.Power / 30);
+                addPassive(`[${item.DeviceName}]: +2% ${langText[8]} x 30 ${langText[7]}, +1.75 ${langText[7]} x ${langText[100]}, +.375% ${langText[99]} x ${langText[100]} (${langText[102]} 40%})`);
+                break;
+            case "Stone of Gaia": 
+                statData.HP5 += statData.HP5 * .20;
+                addPassive(`[${item.DeviceName}]: +20 ${langText[12]}`);
+                break;
+            case "Emerald Talisman":
+                statData.HP5 += statData.Health * .01;
+                addPassive(`[${item.DeviceName}]: 1% ${langText[10]} = ${langText[12]}`);
+                break;
+            case "Sands of Time":
+                statData.MP5 += 2 * Math.floor((100 - manaData) / 10);
+                addPassive(`[${item.DeviceName}]: +2 ${langText[13]} x 10% ${langText[101]}`);
+                break;
+            case "Fighter's Mask":
+                statData.MP5 += 2 * Math.floor((100 - manaData) / 10);
+                addPassive(`[${item.DeviceName}]: +2 ${langText[13]} x 10% ${langText[101]}`);
+                break;
+            case "Rangda's Mask":
+                let stacks = 0;
+                if (godData.Type.includes('Physical')) stacks = Math.floor(statData.Power / 40)
+                else                                   stacks = Math.floor(statData.Power / 60)       
+                statData.Speed += (.02 * stacks) * godData.Speed;      
+                addPassive(`[${item.DeviceName}]: +2% ${langText[6]} x 40 ${langText[94]} ${langText[7]}/60 ${langText[93]} ${langText[7]}`);
+                break;
+            case "Pendulum of Ages":
+                statData.MP5 += 2 * Math.floor((100 - manaData) / 10);
+                statData.Power += 7 * Math.floor(manaData / 10);
+                addPassive(`[${item.DeviceName}]: +2 ${langText[13]} x 10% ${langText[101]}, +7 ${langText[101]} x 10% ${langText[101]}`);
+                break;
+            case "Sentinel's Embrace":
+                statData.PhysicalProtections += 30;
+                statData.MagicalProtections += 30;
+                addPassive(`[${item.DeviceName}]: +30 ${langText[82]}, +30 ${langText[95]}`);
+                break;
+        }
+    }
+    for (Active of playerData.ActiveEffects) {
+        switch (Active) {
+            case "Perfected Rod of Tahuti":
+                statData.Speed += godData.Speed * .10;
+                addPassive(`[${item.DeviceName}]: +10% ${langText[6]}`);
+                break;
+            case "Breasteplate of Determination":
+                statData.Speed += godData.Speed * .20;
+                statData.PhysicalProtections += 40;
+                statData.MagicalProtections += 40;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[6]}, +40 ${langText[82]}, +40 ${langText[95]}`);
+                break;
+            case "Eldritch Dagger":
+                statData.PhysicalProtections += statData.PhysicalProtections * .15;
+                statData.MagicalProtections += statData.MagicalProtections * .15;
+                addPassive(`[${item.DeviceName}]: +15% ${langText[82]}, +15% ${langText[95]}`);
+                break;
+            case "Bloodforge":
+                statData.Speed += godData.Speed * .10;
+                addPassive(`[${item.DeviceName}]: +10% ${langText[6]}`);
+                break;
+            case "Arondight":
+                statData.Speed += godData.Speed * .20;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[6]}`);
+                break;
+            case "Obsidian Shard":
+                statData.PercentPenetration += 20;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[16]}`);
+                break;
+            case "Titan's Bane":
+                statData.PercentPenetration += 20;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[16]}`);
+                break;
+            case "Polynomicon":
+                statData.BasicAttackDamage += statData.Power * .75;
+                addPassive(`[${item.DeviceName}]: 75% ${langText[7]} = ${langText[9]}`);
+                break
+            case "Spirit Robe":
+                statData.DamageReduction += 15;
+                addPassive(`[${item.DeviceName}]: +15% ${langText[15]}`);
+                break;
+            case "Demon Blade":
+                statData.PercentPenetration += 8;
+                statData.AttackSpeed += godData.AttackSpeed * .10;
+                addPassive(`[${item.DeviceName}]: +8% ${langText[16]}, +10% ${langText[8]}`);
+                break;
+            case "Dawnbringer":
+                statData.Speed += godData.Speed * .05;
+                statData.PhysicalProtections += statData.PhysicalProtections * .05;
+                statData.MagicalProtections += statData.MagicalProtections * .05;
+                addPassive(`[${item.DeviceName}]: +5% ${langText[6]}, +5% ${langText[82]}, +5% ${langText[95]}`);
+                break;
+            case "Brawler's Beatstick":
+                statData.Power += 20 + (2 * playerData.Level);
+                addPassive(`[${item.DeviceName}]: +20 ${langText[7]} + 2 x ${langText[5]}`);
+                break;
+            case "Manticore's Spikes":
+                statData.Power += statData.Health * .06;
+                addPassive(`[${item.DeviceName}]: 6% ${langText[10]} = ${langText[7]}`);
+                break;
+            case "Atalanta's Bow":
+                statData.AttackSpeed += godData.AttackSpeed * .20;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[8]}`);
+                break;
+            case "Breastplate of Regrowth":
+                statData.Speed += godData.Speed * .20;
+                if (playerData.Type == 'Magical') statData.Power += 30;
+                if (playerData.Type == 'Physical') statData.Power += 15;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[6]}, +15 ${langText[94]} ${langText[7]}/30 ${langText[93]} ${langText[7]}`);
+                break;
+            case "Erosion":
+                statData.Speed += godData.Speed * .15;
+                addPassive(`[${item.DeviceName}]: +15% ${langText[6]}`);
+                break;
+            case "Shadowdrinker":
+                statData.Speed += godData.Speed * .30;
+                addPassive(`[${item.DeviceName}]: +30% ${langText[6]}`);
+                break;
+            case "Bristlebush Acorn":
+                statData.Lifesteal += 15;
+                statData.BasicAttackDamage += statData.BasicAttackDamage * .20;
+                addPassive(`[${item.DeviceName}]: +15% ${langText[99]}, +20% ${langText[9]}`);
+                break;
+            case "Winged Blade":
+                statData.Speed += godData.Speed * .20;
+                addPassive(`[${item.DeviceName}]: +20% ${langText[6]}`);
+                break;
+            case "Lotus Sickle":
+                statData.MagicalProtections += 10;
+                statData.PhysicalProtections += 10;
+                addPassive(`[${item.DeviceName}]: +10% ${langText[82]}, +10% ${langText[95]}`);
+                break;
+            case "Stone of Gaia":
+                if (playerData.Type == 'Magical') statData.Power += 25;
+                if (playerData.Type == 'Physical') statData.Power += 15;
+                addPassive(`[${item.DeviceName}]: +15 ${langText[94]} ${langText[7]}/25 ${langText[93]} ${langText[7]}`);
+                break;
+            case "Hydra's Lament":
+                statData.BasicAttackDamage += statData.BasicAttackDamage * .30;
+                addPassive(`[${item.DeviceName}]: +30% ${langText[9]}`);
+                break;
+            case "Cursed Orb":
+                statData.Speed += godData.Speed * .04;
+                statData.Power += 16;
+                addPassive(`[${item.DeviceName}]: +16 ${langText[93]} ${langText[7]}, +4% ${langText[6]}`);
+                break;
+            case "Death's Temper":
+                statData.BasicAttackDamage += statData.basicAttackDamage * .35;
+                addPassive(`[${item.DeviceName}]: +35% ${langText[9]}`);
+                break;
+            case "Gilded Arrow":
+                statData.AttackSpeed += godData.AttackSpeed * .25;
+                addPassive(`[${item.DeviceName}]: +25% ${langText[8]}`);
+                break;
+            case "Diamond Arrow":
+                statData.AttackSpeed += godData.AttackSpeed * .75;
+                addPassive(`[${item.DeviceName}]: +75% ${langText[8]}`);
+                break;
+            case "Orante Arrow":
+                statData.AttackSpeed += godData.AttackSpeed * .25;
+                statData.CriticalStrike += 20;
+                addPassive(`[${item.DeviceName}]: +25% ${langText[9]}, +20% ${langText[17]}`);
+                break;
+            case "Gem of Focus":
+                statData.Speed += godData.Speed * .15;
+                statData.Power += statData.Power * .15;
+                addPassive(`[${item.DeviceName}]: +15% ${langText[6]}, +15% ${langText[93]} ${langText[7]}`)
+                break;
+            case "Eye of the Jungle":
+                statData.HP5 += 20;
+                statData.MP5 += 15;
+                addPassive(`[${item.DeviceName}]: +20 ${langText[12]}, +15 ${langText[13]}`);
+                break;
+        }
+    }
+}
 // Add God Passives
 
 function addNonConquestBalance() {
@@ -188,7 +435,7 @@ function displayStats() {
 
     for (let statIndex = 0; statIndex < STATS.length; statIndex++) {
         const hasPercent = STAT_CAPS[statIndex].innerHTML.includes('%');
-        const CAP = STAT_CAPS[statIndex].innerHTML.replace('%', '');
+        const CAP = STAT_CAPS[statIndex].innerHTML.replace('%', '').replace(/&nbsp;/g, '');
         let amount = statData[STAT_NAMES[statIndex]].toFixed(2);
         const PERCENT = amount / CAP * 100
         if (amount > parseFloat(CAP)) STAT_AMOUNTS[statIndex].style.color = 'var(--BrightGold)';

@@ -46,9 +46,13 @@ function flashText(obj) {
 }
 
 function damageType(itemObj) {
-    for (stat of itemObj.ItemDescription.Menuitems) if (StatNicknames['PhysPower'].includes(stat.Description)) return 'Physical';
-    for (stat of itemObj.ItemDescription.Menuitems) if (StatNicknames['MagPower'].includes(stat.Description)) return 'Magical';
-    return 'Neutral';
+    getItemData(itemObj.ItemId);
+    let flags = [0, 0];
+    for (stat of itemObj.ItemDescription.Menuitems) if (StatNicknames['PhysPower'].includes(stat.Description)) flags[0] = true;
+    for (stat of itemObj.ItemDescription.Menuitems) if (StatNicknames['MagPower'].includes(stat.Description)) flags [1] = true;
+    if (flags[0] && !flags[1]) return 'Physical';
+    if (flags[1] && !flags[0]) return 'Magical';
+    else return 'Neutral';
 }
 
 function getStatNames(itemObj) {
@@ -57,6 +61,18 @@ function getStatNames(itemObj) {
     return returnList;
 }
 
+function getItemFullPrice(Item) {
+    let childItem = Item; let fullPrice = 0;
+    for (let limitIndex = 0; limitIndex < 4; limitIndex++) {
+        fullPrice += childItem.Price;
+        if (childItem.ChildItemId == 0 || childItem.ChildItemId == null || !childItem.ChildItemId) break;
+        childItem = getItemData(childItem.ChildItemId);      
+    }
+    return fullPrice;
+}
+
 function help() {
     console.log('This method does.. this');
+    //tba
 }
+

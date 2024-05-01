@@ -215,6 +215,9 @@ header nav div:hover { border-color: var(--BrightGold); }
     width: 80% !important;
     padding: 0 10% 0 10%;
     min-height: 10px;
+    color: var(--DarkGold);
+    font-size: 25px;
+    font-family: var(--TitleFont);
 }
 
 .patch_item { font-size: 20px; font-family: var(--TitleFont); color: var(--MediumGray); text-align: left !important; }
@@ -354,7 +357,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     font-size: 100%;
     cursor: not-allowed;
     font-family: var(--BrandFont);
-} .lang_option:hover { border: var(--ThinBorderGlow) !important; color: white !important; }
+} .lang_option:nth-child(1):hover, .lang_option:nth-child(2):hover { border: var(--ThinBorderGlow) !important; color: white !important; }
 
 .lang_option:nth-child(1), .lang_option:nth-child(2) { cursor: pointer !important; }
 
@@ -891,7 +894,8 @@ header nav div:hover { border-color: var(--BrightGold); }
     overflow: hidden;
     margin-top: 5px;
     background-size: cover;
-    cursor: help;
+    user-select: none;
+    cursor: pointer;
 }
 
 #InfoItems .info_item_label {
@@ -1001,7 +1005,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     pointer-events: none;
     font-family: var(--TitleFont);
     color: var(--LightGray);
-    font-size: 40px; 
+    font-size: 2vw; 
     padding: 1em;
     border-top: var(--ThinBorder);
     border-right: var(--ThinBorder);
@@ -1021,14 +1025,17 @@ header nav div:hover { border-color: var(--BrightGold); }
 #App .player { width: 100%; height: 20%; transform: translateY(20px); }
 
 #Left .god_buttons, #Left .god_icon { float: left; }
-#Left .god_items, #Left .god_bar { float: right; }
+#Left .god_items, #Left .god_bar { float: left;  }
 #Right .god_buttons, #Right .god_icon { float: right; }
-#Right .god_items, #Right .god_bar { float: left; }
+#Right .god_items, #Right .god_bar { float: right; }
+
+#Left .god_bar { transform: translateX(10px); }
+#Right .god_bar { transform: translateX(-10px);}
 
 .god_buttons { height: 100%; width: 15%; }
 .god_icon { height: 100%; width: 15%; }
 .god_items { height: calc(60px + var(--ThinBorderWidth) * 2); width: 70%; }
-.god_bar { height: 70px; width: 70%; margin-top: 10px; }
+.god_bar { height: 70px; width: 30%; margin-top: 10px; }
 
 .god_buttons { 
     display: flex;
@@ -1097,7 +1104,7 @@ header nav div:hover { border-color: var(--BrightGold); }
 #Right .god_items { justify-content: right; }
 
 .god_health, .god_mana {
-    height: 25%; width: calc(360px + var(--ThinBorderWidth) * 12 + (5px * 5));
+    height: 25%; width: 100%;
     background-color: red;
     border: var(--ThinBorder);
     cursor: pointer;
@@ -1127,6 +1134,7 @@ header nav div:hover { border-color: var(--BrightGold); }
     animation-timing-function: linear, linear;
     opacity: 0; 
     filter: drop-shadow(5px 5px RGBA(0, 0, 0, .7));
+    pointer-events: none;
 }
 
 /*//// Keyframes & Media Queries ////*/

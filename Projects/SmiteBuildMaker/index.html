@@ -296,7 +296,7 @@
             <h1>Recent SmiteBuildMaker News</h1>
             <div id="NewsContent">
                 <div id="NewsTitle">Fluidity and Accessibility Update</div>
-                <div id="NewsPatch">V6.0.0 (Alpha) Smite 11.4</div>
+                <div id="NewsPatch">V6.0.1 (Alpha) Smite 11.4</div>
                 <div id="NewsDesc">This patch focuses on modernizing the code and visuals of the website by redesigning them from the ground up, while also adding language support!</div>
                 <div id="NewsSpecifics">
                     <div id="Feature" class="patch_item">Statistics can now be modified and overcap (visual will reflect overcap)</div>
@@ -305,6 +305,12 @@
                     <div id="Feature" class="patch_item">Added "Basic Attack Factor" to compare DPS between two characters</div>
                     <div id="Enhancement" class="patch_item">Styling and website design have been overhauled and improved</div>
                     <div id="Enhancement" class="patch_item">Improved mobile support</div>
+                    Post Patch (.1):
+                    <div id="Feature" class="patch_item">Added Some Item Passive Effects</div>
+                    <div id="BugFix" class="patch_item">Item prices on info menu are now accurate</div>
+                    <div id="BugFix" class="patch_item">Filters now clear themselves when menu is reopened</div>
+                    <div id="BugFix" class="patch_item">Filters and search now work properly in other languages</div>
+                    <div id="BugFix" class="patch_item">Visual bugs depending on scale</div>
                 </div>
             </div>
         </div>
@@ -338,7 +344,7 @@
         <div id="SearchMenu" class="menu">
             <h1>Search a Player's Recent Games</h1>
             <div id="SearchLeft">
-                <input type="text" id="SearchInput" placeholder="Enter player name.."/>
+                <input type="text" class="search_input" placeholder="Enter player name.."/>
                 <div id="SearchResults">
                     <!-- Results Added Later -->
                 </div>
@@ -500,22 +506,22 @@
                     <img src="./Assets/Icons/Money.png">
                 </div>
                 <div id="InfoItems">
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(0, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(1, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(2, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(3, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(4, this)">
                         <div class="info_item_label">0</div>
                     </div>
-                    <div class="info_item">
+                    <div class="info_item" onclick="activeVisualToggle(5, this)">
                         <div class="info_item_label">0</div>
                     </div>
                 </div>
@@ -760,7 +766,7 @@
         <div id="GodSelectMenu" class="menu">
             <h1>Select a God</h1>
             <div id="GodMenuLeft">
-                <input type="text" id="SearchInput" placeholder="Enter God name.." oninput="initializeGods();"/>
+                <input type="text" class="search_input" placeholder="Enter God name.." oninput="initializeGods();"/>
                 <div id="GodList"></div>
             </div>
             <div id="GodMenuMiddle">
@@ -786,7 +792,7 @@
         <div id="ItemSelectMenu" class="menu">
             <h1>Select an Item</h1>
             <div id="ItemMenuLeft">
-                <input type="text" id="SearchInput" placeholder="Enter Item name.." oninput="initializeItems();"/>
+                <input type="text" class="search_input" placeholder="Enter Item name.." oninput="initializeItems();"/>
                 <div id="ItemList"></div>
             </div>
             <div id="ItemMenuSecondMiddle">
