@@ -212,6 +212,14 @@ function appendItem(itemObj, flag=0) {
     for (item of CURR_ITEMS) if (item && item.DeviceName.toLowerCase().includes('acorn') && itemObj.DeviceName.toLowerCase().includes('acorn'))
     { if (!flag) alertUser(langText[83]); return; }
 
+    // No Parent
+    for (item of CURR_ITEMS) if (item && getChildren(item).includes(itemObj.DeviceName))
+    { if (!flag) alertUser(langText[104]); return; }
+
+    // No Parent
+    for (item of CURR_ITEMS) if (item && getChildren(itemObj).includes(item.DeviceName))
+    { if (!flag) alertUser(langText[103]); return; }
+
     if (itemObj.StartingItem) SiteData.PlayerData[ActivePlayer].StarterIndex = ActiveItem;
     SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemObj;
     const ITEMS = document.querySelectorAll('.item');
@@ -239,7 +247,7 @@ function randomItems() {
 
     CustomItemFilter = null;
     SelectedItemFilter = 'Starter';
-    SpecifiedItemTier = '1';
+    SpecifiedItemTier = '2';
 
     const ACORNS = ['Bristlebush Acorn', 'Thistlethorn Acorn', 'Thickbark Acorn', 'Evergreen Acorn'];
 
@@ -346,12 +354,10 @@ function applyActiveEffect(name) {
     if (getItemData(`Evolved ${name}`)) {
 
         SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemLang(getItemData(`Evolved ${name}`));
-        updateGodInfoDisplay();
 
     } else if (getItemData(name.replace('Evolved ', ''))) {
 
         SiteData.PlayerData[ActivePlayer].Items[ActiveItem] = itemLang(getItemData(name.replace('Evolved ', '')));
-        updateGodInfoDisplay();
 
     }
     updateStats();

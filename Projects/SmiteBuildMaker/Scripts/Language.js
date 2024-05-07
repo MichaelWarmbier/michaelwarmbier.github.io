@@ -148,7 +148,9 @@ const LangData = {
         "Lifesteal",
         "Missing Health",
         "Missing Mana",
-        "Max"
+        "Max",
+        "Child item already added",
+        "Parent item already added"
     ],
     Latam: [
         "Selecciona un Dios",
@@ -254,6 +256,8 @@ const LangData = {
         "Salud perdida",
         "Maná perdido",
         "Máximo",
+        "Artículo secundario ya agregado",
+        "Elemento principal ya agregado"
     ],
     Polish: [
         "Wybierz Boga",
@@ -358,7 +362,9 @@ const LangData = {
         "Lifesteal",
         "Missing Health",
         "Missing Mana",
-        "Max"
+        "Max",
+        "Child item already added",
+        "Parent item already added"
     ],
 }
 

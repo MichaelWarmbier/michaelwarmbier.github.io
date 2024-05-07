@@ -97,6 +97,7 @@ async function appendMatchData(index) {
 
     ActivePlayer = 0;
     for (player of currMatchData) {
+        removeGod();
         appendGod(getGodData(player.GodId));
         ActiveItem = 0;
         for (let itemIndex = 0; itemIndex < 6; itemIndex++) {

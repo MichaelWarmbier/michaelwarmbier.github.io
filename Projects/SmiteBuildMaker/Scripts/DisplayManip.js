@@ -218,13 +218,12 @@ function displayItem(name) {
     document.querySelector('#ItemMenuRight #HoveredItemName').innerHTML = itemLang(ITEM).DeviceName;
     document.querySelector('#ItemMenuRight #HoveredItemFullDesc').innerHTML = itemLang(ITEM).ItemDescription.SecondaryDescription;
     
-
     let childItem = ITEM; let fullPrice = 0;
     for (let limitIndex = 0; limitIndex < 4; limitIndex++) {
         fullPrice += childItem.Price;
         if (childItem.ChildItemId == 0 || childItem.ChildItemId == null || !childItem.ChildItemId) break;
-        childItem = getItemData(childItem.ChildItemId);      
-    }
+        childItem = getItemData(childItem.ChildItemId);   
+    }   
 
     document.querySelector('#ItemMenuRight #HoveredItemSinglePrice').innerHTML = ITEM.Price;
     document.querySelector('#ItemMenuRight #HoveredItemFullPrice').innerHTML = fullPrice;
@@ -387,27 +386,28 @@ function summonKirby() {
 }
 
 function activeVisualToggle(index, elem) {
+    const ITEM_DATA = SiteData.PlayerData[ActivePlayer].Items[index];
+    if (!ITEM_DATA) return;
+    const NAME = getItemData(ITEM_DATA.ItemId).DeviceName;
     ActiveItem = index;
-    const PLAYER = SiteData.PlayerData[ActivePlayer];
-    if (PLAYER.Items[index] != null) {
-        const NAME = getItemData(PLAYER.Items[index].ItemId).DeviceName;
-        if (!PLAYER.ActiveEffects.includes(NAME)) {
-            elem.style.boxShadow = '2px 2px 4px orange, -2px -2px 4px orange, -2px 2px 4px orange, 2px -2px 4px orange';
-            applyActiveEffect(NAME);
-        } else {
-            elem.style.boxShadow = '';
-            removeActiveEffect(NAME);
-        }
-    }
+    if (SiteData.PlayerData[ActivePlayer].ActiveEffects.includes(NAME)) removeActiveEffect(NAME);
+    else                                                                applyActiveEffect(NAME);
+    updateGodInfoDisplay();
 }
 
 function updateGodInfoDisplay() {
     const ITEMS = document.querySelectorAll('.info_item');
     const ITEM_PRICES = document.querySelectorAll('.info_item_label');
     const ITEM_DATA = SiteData.PlayerData[ActivePlayer].Items;
+    const PLAYER = SiteData.PlayerData[ActivePlayer];
 
     for (let elemIndex = 0; elemIndex < 6; elemIndex++) {
         if (ITEM_DATA[elemIndex] != null) {
+            ActiveItem = elemIndex;
+
+            const NAME = getItemData(PLAYER.Items[elemIndex].ItemId).DeviceName;
+            if (PLAYER.ActiveEffects.includes(NAME)) ITEMS[elemIndex].style.boxShadow = '2px 2px 4px orange, -2px -2px 4px orange, -2px 2px 4px orange, 2px -2px 4px orange';
+            else                                     ITEMS[elemIndex].style.boxShadow = '';
 
             ITEMS[elemIndex].style.backgroundImage = `URL('${ITEM_DATA[elemIndex].itemIcon_URL}')`;
 
