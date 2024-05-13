@@ -195,6 +195,34 @@ header nav div:hover { border-color: var(--BrightGold); }
     user-select: none;
 }
 
+#OnLanding h2,
+#SmiteSocialMenu h2 {
+    font-family: var(--TitleFont);
+    text-align: center;
+    color: var(--LightGray);
+    font-size: 30px;
+    height: max-content;
+    padding-top: 40px;
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+#OnLanding p,
+#SmiteSocialMenu p { 
+    font-family: var(--BrandFont);
+    text-align: center;
+    color: var(--LightGray);
+    cursor: pointer;
+    font-size: 25px;
+    padding-top: 20px;
+} #OnLanding p:hover { color: white; }
+
+#OnLanding a, #SmiteSocialMenu a { color: var(--DarkGold); cursor: pointer; text-decoration: none; }
+#OnLanding a:hover, #SmiteSocialMenu a:hover { color: var(--BrightGold); }
+
+#SmiteSocialMenu img { height: 300px; width: 300px; margin: auto; display: block; }
+
 #AboutContent { height: 90%; width: 100%; }
 #AboutContent div { width: 100%; text-align: center; }
 

@@ -8,7 +8,6 @@
         <meta name="author" content="Michael Warmbier">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" Content-Type="text/html; charset=utf-8" />
-        <meta name="google-adsense-account" content="ca-pub-6692240282530561">
 
         <!-- External Links -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +31,6 @@
         
     </head>
     <body>
-        <!-- Adsense -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6692240282530561"
-                crossorigin="anonymous"></script>
-
         <header>
             <div id="HeaderEffectWrapper"></div>
             <h1 id="SiteTitle">SmiteBuildMaker</h1>
@@ -46,6 +41,7 @@
                 <div id="Files"><img alt="Files"             src="./Assets/Icons/Folder.png"         onclick="toggleMenu(FileMenu)"></div>
                 <div id="Language"><img alt="Languages"      src="./Assets/Icons/Flag.png"           onclick="toggleMenu(LangMenu)"></div>
                 <div id="Lookup"><img alt="Lookup"           src="./Assets/Icons/Asterisk.png"       onclick="toggleMenu(SearchMenu)"></div>
+                <div id="SmiteSocial"><img alt="SmiteSocial" src="./Assets/Icons/SmiteSocial.png"    onclick="toggleMenu(SmiteSocialMenu)"></div>
             </nav>
         </header>
         <content>
@@ -842,6 +838,27 @@
                 <div id="HoveredItemSinglePrice"></div>
                 <div id="HoveredItemInfoText">Haga Doble Clic para Seleccionar</div>
             </div>
+        </div>
+
+        <div id="OnLanding" class="menu">
+            <h1>¡Bienvenidos a SmiteBuildMaker!</h1>
+            <h2>
+                Este sitio web fue desarrollado íntegramente por una sola persona.<br><br>
+                No utilizamos anuncios ni rastreamos datos de usuario de ningún tipo. Las únicas cookies 
+                utilizadas son asociado con el almacenamiento de datos localmente.<br><br>
+                Considere apoyar el desarrollo de este sitio web mediante una donación a <a href="https://www.paypal.com/donate/?hosted_button_id=53B42RG77YY4A" target="_blank">PayPal</a> 
+                o suscribiéndose a <a herf="https://www.patreon.com/user?u=122393593" target="_blank">Patreon</a>. <br><br>
+
+                ¡Gracias por apoyar SmiteBuildMaker!
+            </h2>
+            <p onclick="toggleMenu(OnLanding)">Clic aquí para continuar</p>
+        </div>
+            
+        <div id="SmiteSocialMenu" class="menu">
+            <h1>SmiteSocial Servidor Discord</h1>
+            <h2>Un servidor Discord/comunidad Smite alojada por Kirbout y Malcastor</h2>
+            <img src="Assets/Icons/SmiteSocial_Gold.png">
+            <p><a href="https://discord.gg/zRYJ8wPYzT" target="_blank">Haga clic aquí para unirse</a></p>
         </div>
 
         <!-- Displays & Popups -->

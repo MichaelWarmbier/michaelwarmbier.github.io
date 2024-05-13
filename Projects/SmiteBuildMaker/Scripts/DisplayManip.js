@@ -437,3 +437,7 @@ function updateGodInfoDisplay() {
     for (item of ITEM_DATA) if (item != null) totalGold += getItemFullPrice(item);
     InfoGold.innerHTML = `${totalGold} <img src="./Assets/Icons/Money.png">`;
 }
+
+
+
+window.onload = () => { toggleMenu(OnLanding); }
