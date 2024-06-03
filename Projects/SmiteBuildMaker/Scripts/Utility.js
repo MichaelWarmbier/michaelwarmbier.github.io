@@ -73,12 +73,14 @@ function getItemFullPrice(Item) {
 
 function getChildren(Item) {
     let childItem = Item; let children = [];
-    for (let limitIndex = 0; limitIndex < 4; limitIndex++) {
-        if (limitIndex) children.push(childItem.DeviceName);
-        if (childItem.ChildItemId == 0 || childItem.ChildItemId == null || !childItem.ChildItemId) break;
-        childItem = getItemData(childItem.ChildItemId);      
-    }
-    return children;
+    try {  
+        for (let limitIndex = 0; limitIndex < 4; limitIndex++) {
+            if (limitIndex) children.push(childItem.DeviceName);
+            if (childItem.ChildItemId == 0 || childItem.ChildItemId == null || !childItem.ChildItemId) break;
+            childItem = getItemData(childItem.ChildItemId);      
+        }
+        return children;
+    } catch (e) { console.log(childItem); return children; }
 }
 
 function help() {
