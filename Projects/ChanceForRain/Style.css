@@ -12,7 +12,7 @@ html, body {
 
 @font-face {
   font-family: 'Risk';
-  src: url('/Font/Risk.ttf') format('truetype');
+  src: url('./Font/Risk.ttf') format('truetype');
 }
 
 :root {
